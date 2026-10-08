@@ -1,0 +1,16 @@
+city,day,temperature,humidity,rainfall
+Delhi,Monday,35,40,0
+Mumbai,Monday,30,70,12
+Chennai,Monday,33,65,5
+Hyderabad,Monday,32,55,2
+Pune,Monday,28,60,8
+Delhi,Tuesday,36,38,0
+Mumbai,Tuesday,31,72,15
+Chennai,Tuesday,34,68,3
+Hyderabad,Tuesday,33,57,4
+Pune,Tuesday,29,62,10
+Delhi,Wednesday,34,42,2
+Mumbai,Wednesday,29,75,18
+Chennai,Wednesday,32,70,7
+Hyderabad,Wednesday,31,58,1
+Pune,Wednesday,27,65,12

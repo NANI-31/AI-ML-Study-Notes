@@ -1,0 +1,1236 @@
+1. Introduction to SQLite
+1.1 What is SQLite?
+	1. Definition of SQLite
+	2. Why SQLite is important
+	3. SQLite vs MySQL
+	4. SQLite vs PostgreSQL
+	5. SQLite vs traditional database servers
+	6. Advantages of SQLite
+○ Lightweight
+○ Serverless
+○ Zero configuration
+○ Self-contained
+○ Portable
+○ Transactional
+○ Low memory usage
+	7. Limitations of SQLite
+○ Concurrent writes
+○ Large-scale applications
+○ Client-server requirements
+	8. Real-world applications
+○ Mobile applications
+○ Desktop applications
+○ Embedded systems
+○ IoT applications
+○ Prototyping
+○ Testing
+○ Small web applications
+1.2 Installing SQLite
+	1. Installing SQLite on Windows
+	2. Installing SQLite on Linux
+	3. Installing SQLite on macOS
+	4. Using SQLite command-line interface
+	5. Verifying installation
+	6. Opening SQLite database
+	7. Creating a database file
+	8. SQLite browser tools
+	9. SQLite with Python
+1.3 SQLite Basics
+	1. Database
+	2. Tables
+	3. Rows
+	4. Columns
+	5. Primary keys
+	6. Foreign keys
+	7. Constraints
+	8. SQL statements
+	9. SQLite data storage
+	10. SQLite database file
+
+2. SQLite Database and Tables
+2.1 Creating Databases
+	1. Creating a database
+	2. Opening an existing database
+	3. Connecting to a database
+	4. Creating database files
+	5. In-memory databases
+	6. Database connection basics
+2.2 Creating Tables
+	1. CREATE TABLE
+	2. Defining columns
+	3. Defining data types
+	4. Primary key
+	5. NOT NULL
+	6. UNIQUE
+	7. DEFAULT
+	8. CHECK
+	9. FOREIGN KEY
+2.3 Viewing Database Structure
+	1. Listing tables
+	2. Viewing table schema
+	3. PRAGMA table_info()
+	4. sqlite_master
+	5. Checking indexes
+	6. Checking foreign keys
+
+3. SQLite Data Types
+3.1 SQLite Storage Classes
+	1. NULL
+	2. INTEGER
+	3. REAL
+	4. TEXT
+	5. BLOB
+3.2 SQLite Type Affinity
+	1. INTEGER affinity
+	2. TEXT affinity
+	3. REAL affinity
+	4. NUMERIC affinity
+	5. BLOB affinity
+3.3 Data Type Handling
+	1. Type conversion
+	2. Type coercion
+	3. Dynamic typing
+	4. Boolean values
+	5. Date and time values
+	6. Storing JSON
+	7. Binary data
+	8. Choosing appropriate data types
+
+4. Inserting Data
+4.1 INSERT Basics
+	1. INSERT INTO
+	2. Inserting a single row
+	3. Inserting multiple rows
+	4. Specifying column names
+	5. Inserting default values
+	6. INSERT OR IGNORE
+	7. INSERT OR REPLACE
+4.2 Inserting Different Data Types
+	1. Inserting integers
+	2. Inserting floating-point values
+	3. Inserting text
+	4. Inserting NULL
+	5. Inserting dates
+	6. Inserting JSON data
+4.3 Bulk Insertion
+	1. Multiple-row INSERT
+	2. Transaction-based insertion
+	3. Bulk loading
+	4. Performance considerations
+	5. Parameterized insertion
+
+5. Reading Data with SELECT
+5.1 SELECT Basics
+	1. SELECT statement
+	2. SELECT *
+	3. Selecting specific columns
+	4. Column aliases
+	5. DISTINCT
+	6. Expressions in SELECT
+5.2 Filtering Data
+	1. WHERE clause
+	2. Comparison operators
+	3. Equal to
+	4. Not equal to
+	5. Greater than
+	6. Less than
+	7. Greater than or equal to
+	8. Less than or equal to
+5.3 Logical Operators
+	1. AND
+	2. OR
+	3. NOT
+	4. Combining conditions
+	5. Operator precedence
+
+6. Updating and Deleting Data
+6.1 UPDATE
+	1. UPDATE statement
+	2. Updating one column
+	3. Updating multiple columns
+	4. Updating based on conditions
+	5. Updating with expressions
+	6. UPDATE with subqueries
+6.2 DELETE
+	1. DELETE statement
+	2. Deleting selected rows
+	3. DELETE with WHERE
+	4. Deleting all rows
+	5. DELETE vs DROP
+	6. DELETE vs TRUNCATE concepts
+6.3 Safe Data Modification
+	1. Checking rows before UPDATE
+	2. Checking rows before DELETE
+	3. Using transactions
+	4. Rollback after mistakes
+
+7. SQLite Operators
+7.1 Comparison Operators
+	1. =
+	2. !=
+	3. <>
+	4. <
+		1. =
+	5. <=
+7.2 Logical Operators
+	1. AND
+	2. OR
+	3. NOT
+7.3 Special Operators
+	1. BETWEEN
+	2. IN
+	3. NOT IN
+	4. LIKE
+	5. NOT LIKE
+	6. GLOB
+	7. IS NULL
+	8. IS NOT NULL
+7.4 Pattern Matching
+	1. Wildcards
+	2. % wildcard
+	3. _ wildcard
+	4. LIKE patterns
+	5. Case sensitivity
+	6. GLOB patterns
+
+8. Sorting and Limiting Data
+8.1 ORDER BY
+	1. Sorting ascending
+	2. Sorting descending
+	3. Sorting multiple columns
+	4. Sorting text
+	5. Sorting numbers
+	6. Sorting NULL values
+	7. Sorting using expressions
+8.2 LIMIT and OFFSET
+	1. LIMIT
+	2. OFFSET
+	3. Pagination
+	4. Top-N queries
+	5. Pagination performance
+8.3 Random Ordering
+	1. ORDER BY RANDOM()
+	2. Random record selection
+	3. Performance considerations
+
+9. SQLite Aggregate Functions
+9.1 Basic Aggregate Functions
+	1. COUNT()
+	2. SUM()
+	3. AVG()
+	4. MIN()
+	5. MAX()
+9.2 GROUP BY
+	1. GROUP BY basics
+	2. Grouping by one column
+	3. Grouping by multiple columns
+	4. Grouping with aggregate functions
+	5. Grouping dates
+	6. Grouping categories
+9.3 HAVING
+	1. HAVING clause
+	2. WHERE vs HAVING
+	3. Filtering grouped results
+	4. HAVING with multiple conditions
+
+10. SQLite String Functions
+10.1 String Manipulation
+	1. length()
+	2. lower()
+	3. upper()
+	4. trim()
+	5. ltrim()
+	6. rtrim()
+	7. substr()
+	8. replace()
+	9. instr()
+10.2 String Processing
+	1. Concatenation
+	2. String formatting
+	3. Extracting substrings
+	4. Searching within strings
+	5. Cleaning text data
+	6. Handling empty strings
+
+11. SQLite Mathematical and Numeric Functions
+11.1 Numeric Functions
+	1. abs()
+	2. round()
+	3. random()
+	4. min()
+	5. max()
+11.2 Mathematical Operations
+	1. Addition
+	2. Subtraction
+	3. Multiplication
+	4. Division
+	5. Modulus
+	6. Numeric expressions
+11.3 Mathematical Extensions
+	1. Built-in math functions
+	2. Mathematical function availability
+	3. Loading math extensions
+	4. Using custom functions
+
+12. SQLite Date and Time
+12.1 Date and Time Functions
+	1. date()
+	2. time()
+	3. datetime()
+	4. julianday()
+	5. unixepoch()
+	6. strftime()
+12.2 Working with Dates
+	1. Current date
+	2. Current time
+	3. Current timestamp
+	4. Date formatting
+	5. Extracting year
+	6. Extracting month
+	7. Extracting day
+	8. Date differences
+	9. Adding/subtracting dates
+12.3 Date-Based Analysis
+	1. Daily reports
+	2. Monthly reports
+	3. Yearly reports
+	4. Age calculations
+	5. Time-based filtering
+
+13. SQLite NULL Handling
+13.1 Understanding NULL
+	1. What is NULL?
+	2. NULL vs zero
+	3. NULL vs empty string
+	4. NULL comparisons
+	5. IS NULL
+	6. IS NOT NULL
+13.2 Handling NULL Values
+	1. COALESCE()
+	2. NULLIF()
+	3. IFNULL()
+	4. Replacing missing values
+	5. Aggregations with NULL
+	6. NULL in calculations
+
+14. SQLite Constraints
+14.1 Primary Key
+	1. PRIMARY KEY
+	2. INTEGER PRIMARY KEY
+	3. AUTOINCREMENT
+	4. Composite primary keys
+	5. Primary key best practices
+14.2 Other Constraints
+	1. NOT NULL
+	2. UNIQUE
+	3. CHECK
+	4. DEFAULT
+	5. FOREIGN KEY
+14.3 Constraint Behavior
+	1. Constraint violations
+	2. Conflict resolution
+	3. ON CONFLICT
+	4. IGNORE
+	5. REPLACE
+	6. FAIL
+	7. ABORT
+	8. ROLLBACK
+
+15. Relationships and Foreign Keys
+15.1 Database Relationships
+	1. One-to-one relationships
+	2. One-to-many relationships
+	3. Many-to-many relationships
+	4. Parent-child relationships
+15.2 Foreign Keys
+	1. FOREIGN KEY
+	2. Enabling foreign keys
+	3. PRAGMA foreign_keys
+	4. Foreign key constraints
+	5. Referential integrity
+15.3 Cascading Actions
+	1. ON DELETE CASCADE
+	2. ON DELETE SET NULL
+	3. ON DELETE RESTRICT
+	4. ON UPDATE CASCADE
+	5. Cascading relationships
+
+16. SQLite JOIN Operations
+16.1 INNER JOIN
+	1. INNER JOIN basics
+	2. Joining two tables
+	3. Joining multiple tables
+	4. JOIN conditions
+	5. JOIN using primary/foreign keys
+16.2 OUTER JOIN
+	1. LEFT JOIN
+	2. RIGHT JOIN concepts
+	3. FULL OUTER JOIN concepts
+	4. SQLite support and alternatives
+16.3 Other JOIN Techniques
+	1. CROSS JOIN
+	2. Self JOIN
+	3. Multiple JOINs
+	4. JOIN with filtering
+	5. JOIN with aggregation
+
+17. Subqueries
+17.1 Basic Subqueries
+	1. What is a subquery?
+	2. Subquery in SELECT
+	3. Subquery in WHERE
+	4. Subquery in FROM
+17.2 Subquery Operators
+	1. IN with subqueries
+	2. EXISTS
+	3. NOT EXISTS
+	4. Scalar subqueries
+	5. Correlated subqueries
+17.3 Practical Applications
+	1. Finding above-average values
+	2. Finding duplicate records
+	3. Finding maximum values
+	4. Filtering based on another table
+	5. Nested subqueries
+
+
+18. Common Table Expressions
+18.1 CTE Basics
+	1. What is a CTE?
+	2. WITH clause
+	3. Simple CTE
+	4. Multiple CTEs
+	5. CTE with JOIN
+	6. CTE with aggregation
+18.2 Recursive CTEs
+	1. Recursive CTE
+	2. WITH RECURSIVE
+	3. Hierarchical data
+	4. Tree structures
+	5. Employee-manager relationships
+	6. Graph traversal
+	7. Recursive sequence generation
+
+19. SQLite Set Operations
+19.1 Combining Query Results
+	1. UNION
+	2. UNION ALL
+	3. INTERSECT
+	4. EXCEPT
+19.2 Set Operation Rules
+	1. Matching column counts
+	2. Compatible data types
+	3. Duplicate handling
+	4. ORDER BY with set operations
+	5. Practical use cases
+
+20. SQLite Views
+20.1 Creating Views
+	1. What is a view?
+	2. CREATE VIEW
+	3. Querying a view
+	4. Updating views
+	5. Dropping views
+20.2 View Applications
+	1. Simplifying complex queries
+	2. Data abstraction
+	3. Security considerations
+	4. Reporting views
+	5. Reusable queries
+
+21. SQLite Indexes
+21.1 Index Basics
+	1. What is an index?
+	2. Why indexes are important
+	3. CREATE INDEX
+	4. DROP INDEX
+	5. Unique indexes
+21.2 Index Types and Strategies
+	1. Single-column indexes
+	2. Multi-column indexes
+	3. Composite indexes
+	4. Covering indexes
+	5. Partial indexes
+	6. Expression indexes
+21.3 Index Performance
+	1. Index lookup
+	2. Index overhead
+	3. When indexes help
+	4. When indexes hurt
+	5. Index maintenance
+	6. Checking query plans
+
+22. Query Optimization
+22.1 EXPLAIN
+	1. EXPLAIN
+	2. EXPLAIN QUERY PLAN
+	3. Understanding query plans
+	4. Full table scans
+	5. Index scans
+	6. Temporary sorting
+22.2 Optimization Techniques
+	1. Using indexes
+	2. Avoiding unnecessary SELECT *
+	3. Filtering early
+	4. Optimizing JOINs
+	5. Optimizing subqueries
+	6. Pagination optimization
+	7. Query rewriting
+22.3 Performance Analysis
+	1. Query benchmarking
+	2. Measuring execution time
+	3. Analyzing slow queries
+	4. Database statistics
+	5. ANALYZE
+
+23. Transactions
+23.1 Transaction Basics
+	1. What is a transaction?
+	2. BEGIN
+	3. COMMIT
+	4. ROLLBACK
+	5. SAVEPOINT
+	6. RELEASE SAVEPOINT
+23.2 ACID Properties
+	1. Atomicity
+	2. Consistency
+	3. Isolation
+	4. Durability
+23.3 Transaction Use Cases
+	1. Banking transactions
+	2. Multiple related INSERTs
+	3. Safe UPDATE operations
+	4. Error recovery
+	5. Batch operations
+
+24. SQLite Concurrency and Locking
+24.1 Concurrency Basics
+	1. Multiple readers
+	2. Multiple writers
+	3. Read transactions
+	4. Write transactions
+	5. Database locking
+24.2 Journal Modes
+	1. Rollback journal
+	2. WAL mode
+	3. PRAGMA journal_mode
+	4. WAL advantages
+	5. WAL limitations
+24.3 Locking and Busy Handling
+	1. Database locks
+	2. Busy timeout
+	3. SQLITE_BUSY
+	4. SQLITE_LOCKED
+	5. Handling concurrent access
+25. SQLite PRAGMA Statements
+25.1 PRAGMA Basics
+	1. What is PRAGMA?
+	2. Reading PRAGMA values
+	3. Setting PRAGMA values
+25.2 Important PRAGMAs
+	1. PRAGMA foreign_keys
+	2. PRAGMA journal_mode
+	3. PRAGMA synchronous
+	4. PRAGMA cache_size
+	5. PRAGMA busy_timeout
+	6. PRAGMA table_info
+	7. PRAGMA index_list
+	8. PRAGMA database_list
+	9. PRAGMA integrity_check
+
+26. SQLite Database Maintenance
+26.1 Database Inspection
+	1. Database size
+	2. Table information
+	3. Index information
+	4. Foreign key information
+	5. Integrity checking
+26.2 Maintenance Commands
+	1. VACUUM
+	2. VACUUM INTO
+	3. ANALYZE
+	4. PRAGMA optimize
+	5. Rebuilding indexes
+26.3 Database Health
+	1. Checking corruption
+	2. Checking constraints
+	3. Checking orphan records
+	4. Monitoring database size
+	5. Maintenance best practices
+
+27. SQLite Import and Export
+27.1 Importing Data
+	1. Importing CSV files
+	2. Importing text files
+	3. Importing SQL scripts
+	4. Bulk importing data
+	5. Handling headers
+	6. Handling missing values
+27.2 Exporting Data
+	1. Exporting tables
+	2. Exporting CSV
+	3. Exporting SQL
+	4. Database dumps
+	5. Backup files
+27.3 SQLite CLI Commands
+	1. .tables
+	2. .schema
+	3. .databases
+	4. .headers
+	5. .mode
+	6. .import
+	7. .dump
+	8. .backup
+	9. .read
+	10. .output
+
+28. SQLite Backup and Restore
+28.1 Backup
+	1. File-based backup
+	2. SQLite backup API
+	3. CLI backup
+	4. VACUUM INTO
+	5. Online backup concepts
+28.2 Restore
+	1. Restoring database files
+	2. Restoring SQL dumps
+	3. Handling corrupted databases
+	4. Backup verification
+	5. Backup strategies
+
+29. SQLite with Python
+29.1 sqlite3 Module
+	1. Python sqlite3 module
+	2. Importing sqlite3
+	3. Creating connections
+	4. Creating cursors
+	5. Executing SQL
+	6. Closing connections
+Example:
+import sqlite3
+connection = sqlite3.connect("school.db")
+cursor = connection.cursor()
+29.2 Creating Tables with Python
+	1. execute()
+	2. CREATE TABLE
+	3. Executing multiple statements
+	4. Checking database results
+29.3 Inserting Data with Python
+	1. INSERT queries
+	2. Parameterized queries
+	3. executemany()
+	4. Batch insertion
+	5. Commit operations
+29.4 Reading Data
+	1. fetchone()
+	2. fetchmany()
+	3. fetchall()
+	4. Iterating through results
+	5. Row objects
+
+30. SQLite with Python CRUD
+30.1 Create
+	1. Creating records
+	2. Parameterized INSERT
+	3. Bulk insertion
+30.2 Read
+	1. SELECT queries
+	2. Filtering records
+	3. JOIN queries
+	4. Aggregation queries
+30.3 Update
+	1. Updating records
+	2. Conditional updates
+	3. Transaction handling
+30.4 Delete
+	1. Deleting records
+	2. Conditional deletion
+	3. Safe deletion
+30.5 Complete CRUD Application
+	1. User registration
+	2. User login
+	3. Product management
+	4. Inventory management
+	5. Search functionality
+
+31. Parameterized Queries and SQL Injection
+31.1 Parameterized Queries
+	1. Why parameterized queries matter
+	2. Positional parameters
+	3. Named parameters
+	4. executemany()
+	5. Safe user input
+31.2 SQL Injection
+	1. What is SQL injection?
+	2. SQL injection examples
+	3. Why string concatenation is dangerous
+	4. Preventing SQL injection
+	5. Secure database programming
+
+32. SQLite Row Factories
+32.1 sqlite3.Row
+	1. Default tuple results
+	2. sqlite3.Row
+	3. Accessing columns by name
+	4. Accessing columns by index
+32.2 Custom Row Factories
+	1. Custom row factories
+	2. Dictionary-style results
+	3. Object-style results
+	4. Data transformation
+
+33. SQLite with Pandas
+33.1 Reading SQLite Data
+	1. pandas.read_sql()
+	2. pandas.read_sql_query()
+	3. pandas.read_sql_table concepts
+	4. Loading SQL results into DataFrames
+33.2 Writing Data
+	1. DataFrame.to_sql()
+	2. Creating tables from DataFrames
+	3. Appending data
+	4. Replacing tables
+	5. Index handling
+33.3 Data Analysis
+	1. SQLite + Pandas workflow
+	2. SQL filtering vs Pandas filtering
+	3. Aggregation
+	4. Data cleaning
+	5. Exporting analysis results
+
+34. SQLite with Web Applications
+34.1 SQLite in Flask
+	1. Connecting SQLite with Flask
+	2. Database configuration
+	3. CRUD routes
+	4. User registration
+	5. User authentication
+	6. Session data
+	7. Database connection management
+34.2 SQLite in Django
+	1. SQLite configuration
+	2. Django models
+	3. Migrations
+	4. QuerySets
+	5. SQLite development database
+34.3 Web Application Best Practices
+	1. Connection handling
+	2. Transactions
+	3. Security
+	4. Database backups
+	5. Migration to PostgreSQL/MySQL
+
+35. Advanced SQL Queries in SQLite
+35.1 Advanced Filtering
+	1. Nested conditions
+	2. CASE expressions
+	3. Conditional aggregation
+	4. Complex WHERE clauses
+35.2 CASE Statements
+	1. CASE WHEN
+	2. Multiple conditions
+	3. CASE with aggregation
+	4. Conditional categories
+35.3 Advanced Aggregation
+	1. COUNT DISTINCT
+	2. Conditional COUNT
+	3. Conditional SUM
+	4. Grouping with expressions
+
+36. Window Functions
+36.1 Window Function Basics
+	1. What are window functions?
+	2. OVER()
+	3. PARTITION BY
+	4. ORDER BY inside windows
+36.2 Ranking Functions
+	1. ROW_NUMBER()
+	2. RANK()
+	3. DENSE_RANK()
+	4. NTILE()
+36.3 Analytical Functions
+	1. LAG()
+	2. LEAD()
+	3. FIRST_VALUE()
+	4. LAST_VALUE()
+36.4 Window Frames
+	1. ROWS
+	2. RANGE
+	3. Running totals
+	4. Moving averages
+	5. Ranking within groups
+
+37. JSON with SQLite
+37.1 JSON Basics
+	1. Storing JSON in SQLite
+	2. JSON text
+	3. JSON data structures
+	4. JSON validation
+37.2 JSON Functions
+	1. json()
+	2. json_extract()
+	3. json_object()
+	4. json_array()
+	5. json_set()
+	6. json_insert()
+	7. json_replace()
+	8. json_remove()
+37.3 JSON Queries
+	1. Searching JSON
+	2. Extracting JSON fields
+	3. JSON arrays
+	4. JSON objects
+	5. JSON-based filtering
+
+38. Full-Text Search
+38.1 FTS Basics
+	1. What is full-text search?
+	2. SQLite FTS5
+	3. Creating FTS tables
+	4. Inserting searchable data
+	5. MATCH operator
+38.2 Search Features
+	1. Keyword search
+	2. Phrase search
+	3. Prefix search
+	4. Ranking search results
+	5. Highlighting matches
+38.3 FTS Applications
+	1. Document search
+	2. Product search
+	3. Website search
+	4. Notes application
+	5. Search engine basics
+
+39. SQLite Extensions
+39.1 Extension Concepts
+	1. What are SQLite extensions?
+	2. Loading extensions
+	3. Extension security
+	4. Custom functions
+39.2 Useful Extensions
+	1. JSON functionality
+	2. Full-text search
+	3. Math functions
+	4. Spatial extensions concepts
+	5. Application-specific extensions
+
+40. SQLite Performance Optimization
+40.1 Database Performance
+	1. Why SQLite is fast
+	2. In-memory operations
+	3. Transactions
+	4. Prepared statements
+	5. Indexing
+40.2 Query Optimization
+	1. EXPLAIN QUERY PLAN
+	2. Avoiding unnecessary scans
+	3. Optimizing JOINs
+	4. Optimizing WHERE clauses
+	5. Optimizing ORDER BY
+	6. Optimizing GROUP BY
+40.3 Write Performance
+	1. Bulk inserts
+	2. Transactions
+	3. executemany()
+	4. WAL mode
+	5. Prepared statements
+40.4 Memory Optimization
+	1. Cache configuration
+	2. Page size
+	3. Memory databases
+	4. Efficient data types
+41. SQLite Security
+41.1 SQL Security
+	1. SQL injection
+	2. Parameterized queries
+	3. Input validation
+	4. Secure query construction
+41.2 Database Security
+	1. File permissions
+	2. Database file protection
+	3. Sensitive data
+	4. Encryption concepts
+	5. Backup security
+41.3 Application Security
+	1. Password hashing
+	2. Authentication
+	3. Authorization
+	4. Secure database access
+	5. Avoiding exposed database files
+
+42. SQLite Error Handling and Debugging
+42.1 Common SQLite Errors
+	1. SQLITE_ERROR
+	2. SQLITE_BUSY
+	3. SQLITE_LOCKED
+	4. SQLITE_CONSTRAINT
+	5. SQLITE_MISMATCH
+	6. SQLITE_CORRUPT
+42.2 Python Error Handling
+	1. sqlite3.Error
+	2. sqlite3.IntegrityError
+	3. sqlite3.OperationalError
+	4. sqlite3.DatabaseError
+	5. try-except with SQLite
+42.3 Debugging Techniques
+	1. Checking SQL syntax
+	2. Checking table schema
+	3. Checking column names
+	4. Checking constraints
+	5. Checking transactions
+	6. Checking locks
+
+43. SQLite Database Design
+43.1 Database Modeling
+	1. Entity identification
+	2. Attributes
+	3. Relationships
+	4. Primary keys
+	5. Foreign keys
+43.2 Normalization
+	1. First Normal Form
+	2. Second Normal Form
+	3. Third Normal Form
+	4. Denormalization
+	5. Normalization trade-offs
+43.3 Schema Design
+	1. Designing user tables
+	2. Designing product tables
+	3. Designing order tables
+	4. Designing transaction tables
+	5. Designing many-to-many relationships
+
+44. SQLite Migrations
+44.1 Schema Changes
+	1. ALTER TABLE
+	2. ADD COLUMN
+	3. RENAME TABLE
+	4. RENAME COLUMN
+	5. Dropping columns
+	6. Rebuilding tables
+44.2 Migration Concepts
+	1. Database migrations
+	2. Versioning schemas
+	3. Migration scripts
+	4. Rollback strategies
+	5. Data migration
+	6. Production migrations
+
+45. SQLite Testing
+45.1 Database Testing
+	1. Testing database connections
+	2. Testing table creation
+	3. Testing INSERT operations
+	4. Testing SELECT queries
+	5. Testing UPDATE operations
+	6. Testing DELETE operations
+45.2 Unit Testing
+	1. Python unittest
+	2. pytest with SQLite
+	3. Temporary databases
+	4. In-memory databases
+	5. Test fixtures
+45.3 Data Integrity Testing
+	1. Testing constraints
+	2. Testing foreign keys
+	3. Testing transactions
+	4. Testing NULL handling
+	5. Testing duplicate records
+
+46. SQLite in-memory Databases
+46.1 In-Memory Database
+	1. Creating :memory: database
+	2. Connecting to memory database
+	3. Temporary data
+	4. Performance benefits
+	5. Limitations
+46.2 Testing Applications
+	1. Unit testing
+	2. Integration testing
+	3. Temporary test data
+	4. Database isolation
+	5. Test cleanup
+
+47. SQLite CLI Advanced Usage
+47.1 SQLite Shell
+	1. Opening databases
+	2. Running SQL commands
+	3. Running SQL scripts
+	4. Command history
+	5. Output formatting
+47.2 Formatting Results
+	1. Table mode
+	2. Column mode
+	3. CSV mode
+	4. JSON mode
+	5. Headers
+	6. Output files
+47.3 Automation
+	1. Running SQL scripts
+	2. Shell scripting
+	3. Automated backups
+	4. Automated imports
+	5. Database maintenance scripts
+
+48. SQLite Real-World Applications
+48.1 Beginner Projects
+	1. Student management system
+	2. Employee database
+	3. Contact management system
+	4. Expense tracker
+	5. Library management system
+48.2 Intermediate Projects
+	1. Inventory management system
+	2. Hospital management database
+	3. Banking transaction system
+	4. E-commerce database
+	5. Blog database
+	6. Task management application
+48.3 Advanced Projects
+	1. Flask + SQLite web application
+	2. REST API with SQLite
+	3. Authentication system
+	4. Product recommendation database
+	5. Full-text search application
+	6. Analytics dashboard database
+	7. Offline-first application
+	8. SQLite-based caching system
+	9. Data ingestion pipeline
+
+49. SQLite with Data Science
+49.1 Data Analysis
+	1. Storing datasets
+	2. Querying datasets
+	3. Filtering data
+	4. Aggregating data
+	5. Grouping data
+	6. Joining datasets
+49.2 SQLite + NumPy
+	1. Loading numerical data
+	2. Storing numerical results
+	3. Converting query results to NumPy arrays
+	4. Numerical analysis workflow
+49.3 SQLite + Pandas
+	1. SQL-to-DataFrame workflow
+	2. Data cleaning
+	3. Statistical analysis
+	4. Feature extraction
+	5. Data preprocessing
+
+50. SQLite Interview Topics
+50.1 Frequently Asked Questions
+	1. What is SQLite?
+	2. SQLite vs MySQL
+	3. SQLite vs PostgreSQL
+	4. Advantages of SQLite
+	5. Limitations of SQLite
+	6. What is serverless architecture?
+	7. What is a primary key?
+	8. What is a foreign key?
+	9. What is a constraint?
+	10. What is an index?
+	11. What is a transaction?
+	12. Explain ACID properties
+	13. DELETE vs DROP
+	14. WHERE vs HAVING
+	15. WHERE vs ON
+	16. UNION vs UNION ALL
+	17. INNER JOIN vs LEFT JOIN
+	18. Primary key vs UNIQUE
+	19. VARCHAR vs TEXT in SQLite
+	20. INTEGER PRIMARY KEY vs AUTOINCREMENT
+	21. What is WAL mode?
+	22. What is VACUUM?
+	23. What is EXPLAIN QUERY PLAN?
+	24. What is a CTE?
+	25. What are window functions?
+50.2 SQL Coding Problems
+	1. Find duplicate records
+	2. Find second-highest salary
+	3. Find highest salary by department
+	4. Find employees without departments
+	5. Find customers without orders
+	6. Calculate running totals
+	7. Calculate moving averages
+	8. Rank employees by salary
+	9. Find monthly sales
+	10. Find top-selling products
+	11. Find users with multiple purchases
+	12. Find missing records
+	13. Find consecutive dates
+	14. Find duplicate emails
+	15. Find customers who never purchased
+
+51. SQLite Best Practices
+51.1 Query Best Practices
+	1. Use parameterized queries
+	2. Avoid SELECT *
+	3. Use meaningful column names
+	4. Use indexes appropriately
+	5. Use transactions for bulk operations
+	6. Avoid unnecessary subqueries
+	7. Use EXPLAIN QUERY PLAN
+51.2 Database Design Best Practices
+	1. Use appropriate primary keys
+	2. Use foreign keys
+	3. Normalize data appropriately
+	4. Add useful constraints
+	5. Avoid duplicate data
+	6. Design indexes carefully
+51.3 Python Best Practices
+	1. Use context managers
+	2. Close database connections
+	3. Handle exceptions
+	4. Use parameterized SQL
+	5. Commit transactions correctly
+	6. Avoid hard-coded SQL values
+	7. Use separate database layers
+
+52. Advanced SQLite Concepts
+52.1 SQLite Internals
+	1. SQLite architecture
+	2. Database file structure
+	3. Pages
+	4. B-trees
+	5. Tables and indexes as B-trees
+	6. Row storage
+	7. Record format
+	8. Page cache
+52.2 SQLite Storage
+	1. Database pages
+	2. Page size
+	3. Free pages
+	4. Journal files
+	5. WAL files
+	6. Database file growth
+52.3 SQLite Execution
+	1. SQL parser
+	2. Query planner
+	3. Virtual machine
+	4. Bytecode concepts
+	5. Query optimization
+53. Advanced Transactions and Concurrency
+53.1 Transaction Modes
+	1. DEFERRED transactions
+	2. IMMEDIATE transactions
+	3. EXCLUSIVE transactions
+	4. BEGIN TRANSACTION
+53.2 Concurrency
+	1. Reader/writer behavior
+	2. Writer contention
+	3. Lock states
+	4. Busy handling
+	5. WAL concurrency
+	6. Transaction isolation
+53.3 High-Concurrency Applications
+	1. SQLite limitations
+	2. Connection pooling concepts
+	3. Write queue concepts
+	4. When to move to PostgreSQL/MySQL
+	5. SQLite scaling strategies
+54. SQLite Advanced Projects
+54.1 Beginner Projects
+	1. Student marks database
+	2. Library management system
+	3. Employee records system
+	4. Expense tracker
+	5. Contact manager
+54.2 Intermediate Projects
+	1. E-commerce backend
+	2. Inventory management system
+	3. Hospital database
+	4. Banking transaction simulator
+	5. Blog management system
+	6. Task management API
+54.3 Advanced Projects
+	1. Full-stack Flask + SQLite application
+	2. REST API with authentication
+	3. SQLite analytics engine
+	4. Full-text document search system
+	5. Recommendation system database
+	6. Offline-first mobile database
+	7. Data pipeline using SQLite
+	8. SQLite-based caching layer
+	9. Mini database management application
+55. SQLite Ecosystem
+55.1 Related Technologies
+	1. Python sqlite3
+	2. SQLAlchemy
+	3. Pandas
+	4. Flask
+	5. Django
+	6. FastAPI
+	7. Alembic
+	8. DB Browser for SQLite
+55.2 SQLite in Application Development
+	1. Backend development
+	2. Desktop applications
+	3. Mobile applications
+	4. Embedded systems
+	5. Data analysis
+	6. Testing environments
+	7. Prototyping
+55.3 SQLite Migration
+	1. SQLite to PostgreSQL
+	2. SQLite to MySQL
+	3. SQLite to cloud databases
+	4. Schema migration
+	5. Data migration strategies
+56. Complete SQLite Capstone
+56.1 Project: E-Commerce Database
+	1. Design database schema
+	2. Create users table
+	3. Create products table
+	4. Create categories table
+	5. Create orders table
+	6. Create order_items table
+	7. Create payments table
+	8. Create reviews table
+	9. Add primary keys
+	10. Add foreign keys
+	11. Add constraints
+	12. Create indexes
+56.2 SQL Operations
+	1. Insert products
+	2. Insert customers
+	3. Create orders
+	4. Update inventory
+	5. Process payments
+	6. Search products
+	7. Filter products
+	8. Generate sales reports
+	9. Calculate customer spending
+	10. Find best-selling products
+	11. Generate monthly revenue
+56.3 Advanced Features
+	1. Transactions
+	2. Rollbacks
+	3. Foreign-key cascading
+	4. Window functions
+	5. CTEs
+	6. Full-text search
+	7. Query optimization
+	8. EXPLAIN QUERY PLAN
+	9. Database backup
+	10. Database restoration
+56.4 Python Integration
+	1. Connect SQLite with Python
+	2. Build CRUD functions
+	3. Use parameterized queries
+	4. Build authentication
+	5. Build REST APIs
+	6. Connect Pandas
+	7. Generate reports
+56.5 Final Application
+	1. Build complete backend
+	2. Add database validation
+	3. Add error handling
+	4. Add testing
+	5. Optimize queries
+	6. Add indexes
+	7. Add backup system
+	8. Document database schema
+	9. Deploy application
+	10. Evaluate performance
+This structure takes SQLite from basic SQL and database operations → Python integration → advanced SQL → performance → real-world applications → interview preparation → projects.

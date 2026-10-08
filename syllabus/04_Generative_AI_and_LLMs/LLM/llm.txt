@@ -1,0 +1,868 @@
+LLM Engineering Learning Roadmap
+1. Introduction to Large Language Models
+1.1 What are LLMs?
+	1. Definition of Large Language Models
+	2. What makes a model a language model?
+	3. Evolution of language models
+	4. NLP vs LLMs
+	5. Traditional NLP vs Deep Learning NLP
+	6. Foundation models
+	7. Generative AI vs LLMs
+	8. LLMs vs traditional machine learning models
+1.2 Why LLMs are Important
+	1. Text generation
+	2. Question answering
+	3. Summarization
+	4. Translation
+	5. Information extraction
+	6. Code generation
+	7. Reasoning and problem solving
+	8. Conversational AI
+1.3 LLM Architecture Overview
+	1. Input text
+	2. Tokenization
+	3. Token embeddings
+	4. Positional information
+	5. Transformer layers
+	6. Attention mechanism
+	7. Feed-forward networks
+	8. Output probabilities
+	9. Token generation
+1.4 LLM Applications
+	1. Chatbots
+	2. Coding assistants
+	3. Search systems
+	4. Recommendation systems
+	5. Document analysis
+	6. Customer support
+	7. AI agents
+	8. Enterprise AI systems
+
+
+
+
+2. NLP Foundations for LLMs
+2.1 Text Processing
+	1. Text normalization
+	2. Lowercasing
+	3. Punctuation handling
+	4. Stop words
+	5. Stemming
+	6. Lemmatization
+	7. Sentence segmentation
+	8. Word segmentation
+2.2 NLP Representations
+	1. Bag of Words
+	2. N-grams
+	3. TF-IDF
+	4. One-hot encoding
+	5. Word embeddings
+	6. Contextual embeddings
+	7. Dense representations
+2.3 NLP Tasks
+	1. Text classification
+	2. Sentiment analysis
+	3. Named Entity Recognition
+	4. Question answering
+	5. Text similarity
+	6. Semantic search
+	7. Text generation
+	8. Machine translation
+2.4 NLP to LLM Transition
+	1. Limitations of traditional NLP
+	2. Word embeddings vs contextual embeddings
+	3. RNNs
+	4. LSTMs
+	5. GRUs
+	6. Seq2Seq models
+	7. Attention-based models
+	8. Transformer-based NLP
+3. Tokenization
+3.1 Tokenization Basics
+	1. What is tokenization?
+	2. Character tokenization
+	3. Word tokenization
+	4. Subword tokenization
+	5. Sentence tokenization
+	6. Token IDs
+	7. Vocabulary
+	8. Special tokens
+3.2 Subword Tokenization
+	1. BPE
+	2. Byte Pair Encoding
+	3. WordPiece
+	4. Unigram tokenization
+	5. SentencePiece
+	6. Byte-level tokenization
+	7. Token vocabulary construction
+3.3 Special Tokens
+	1. BOS token
+	2. EOS token
+	3. PAD token
+	4. UNK token
+	5. MASK token
+	6. Chat template tokens
+	7. Role tokens
+3.4 Tokenization Engineering
+	1. Token-to-ID conversion
+	2. ID-to-token conversion
+	3. Token counting
+	4. Context-length calculation
+	5. Padding
+	6. Truncation
+	7. Attention masks
+	8. Tokenization efficiency
+4. Word Embeddings and Representations
+4.1 Embedding Fundamentals
+	1. What is an embedding?
+	2. Dense vectors
+	3. Embedding dimensions
+	4. Semantic representation
+	5. Similarity between embeddings
+	6. Vector spaces
+	7. Distance metrics
+4.2 Classical Embeddings
+	1. Word2Vec
+	2. CBOW
+	3. Skip-gram
+	4. GloVe
+	5. FastText
+4.3 Contextual Embeddings
+	1. Context-dependent representations
+	2. Transformer embeddings
+	3. Sentence embeddings
+	4. Document embeddings
+	5. Query embeddings
+4.4 Embedding Operations
+	1. Cosine similarity
+	2. Euclidean distance
+	3. Dot product
+	4. Nearest-neighbor search
+	5. Semantic similarity
+	6. Clustering embeddings
+	7. Embedding visualization
+4.5 Embeddings in AI Systems
+	1. Semantic search
+	2. Recommendation systems
+	3. Retrieval-Augmented Generation
+	4. Duplicate detection
+	5. Document clustering
+	6. Knowledge retrieval
+5. Transformer Architecture
+5.1 Transformer Fundamentals
+	1. What is a Transformer?
+	2. Transformer architecture
+	3. Encoder
+	4. Decoder
+	5. Encoder-decoder architecture
+	6. Encoder-only models
+	7. Decoder-only models
+	8. Sequence-to-sequence models
+5.2 Transformer Components
+	1. Input embeddings
+	2. Positional encoding
+	3. Self-attention
+	4. Multi-head attention
+	5. Feed-forward network
+	6. Residual connections
+	7. Layer normalization
+	8. Output projection
+5.3 Transformer Architectures
+	1. BERT-style architecture
+	2. GPT-style architecture
+	3. T5-style architecture
+	4. Encoder-only Transformers
+	5. Decoder-only Transformers
+	6. Encoder-decoder Transformers
+5.4 Transformer Data Flow
+	1. Tokens → embeddings
+	2. Embeddings → attention
+	3. Attention → hidden states
+	4. Hidden states → logits
+	5. Logits → probabilities
+	6. Probabilities → generated tokens
+
+
+
+
+6. Attention Mechanism
+6.1 Attention Basics
+	1. What is attention?
+	2. Why attention is needed
+	3. Query
+	4. Key
+	5. Value
+	6. Attention scores
+	7. Attention weights
+	8. Weighted sum
+6.2 Self-Attention
+	1. Self-attention calculation
+	2. Query matrix
+	3. Key matrix
+	4. Value matrix
+	5. QKᵀ calculation
+	6. Scaling
+	7. Softmax
+	8. Attention output
+6.3 Multi-Head Attention
+	1. Multiple attention heads
+	2. Head projections
+	3. Parallel attention
+	4. Concatenation
+	5. Output projection
+	6. Why multiple heads help
+6.4 Causal Attention
+	1. Causal masking
+	2. Autoregressive generation
+	3. Future-token masking
+	4. Lower-triangular attention masks
+	5. Next-token prediction
+6.5 Attention Engineering
+	1. Attention complexity
+	2. Memory requirements
+	3. Long-context problems
+	4. Attention visualization
+	5. Efficient attention
+	6. Flash Attention
+7. Positional Encoding and Position Information
+7.1 Position Representation
+	1. Why position matters
+	2. Sequence order
+	3. Positional encoding
+	4. Absolute position
+	5. Relative position
+7.2 Positional Encoding Methods
+	1. Sinusoidal positional encoding
+	2. Learned positional embeddings
+	3. Relative positional encoding
+	4. RoPE
+	5. Rotary positional embeddings
+	6. ALiBi
+7.3 Long Context
+	1. Context window
+	2. Position extrapolation
+	3. Long-context challenges
+	4. Context-length limitations
+	5. Position interpolation
+	6. Long-context optimization
+8. Language Modeling
+8.1 Language Model Fundamentals
+	1. What is language modeling?
+	2. Probability of a sequence
+	3. Conditional probability
+	4. Next-token prediction
+	5. Autoregressive modeling
+	6. Token probability
+	7. Vocabulary probability distribution
+8.2 Training Objective
+	1. Cross-entropy loss
+	2. Negative log likelihood
+	3. Log probabilities
+	4. Per-token loss
+	5. Sequence loss
+	6. Teacher forcing
+8.3 Language Model Predictions
+	1. Logits
+	2. Softmax
+	3. Probability distribution
+	4. Top-k prediction
+	5. Top-p prediction
+	6. Temperature
+	7. Sampling
+8.4 Evaluation
+	1. Perplexity
+	2. Validation loss
+	3. Training loss
+	4. Overfitting
+	5. Underfitting
+	6. Generalization
+9. LLM Pretraining
+9.1 Pretraining Fundamentals
+	1. What is pretraining?
+	2. Foundation model training
+	3. Pretraining datasets
+	4. Text corpora
+	5. Data collection
+	6. Data quality
+	7. Data filtering
+	8. Data deduplication
+9.2 Dataset Preparation
+	1. Cleaning text
+	2. Removing duplicates
+	3. Removing corrupted data
+	4. Language filtering
+	5. Toxic-content filtering
+	6. PII filtering
+	7. Document segmentation
+	8. Tokenization
+9.3 Training Pipeline
+	1. Dataset → tokenizer
+	2. Token batches
+	3. Forward pass
+	4. Loss calculation
+	5. Backpropagation
+	6. Gradient computation
+	7. Optimizer step
+	8. Weight updates
+9.4 Scaling
+	1. Model parameters
+	2. Dataset size
+	3. Training tokens
+	4. Compute requirements
+	5. Batch size
+	6. Sequence length
+	7. Training steps
+	8. Scaling laws
+
+
+
+
+10. LLM Training Engineering
+10.1 Neural Network Training
+	1. Forward propagation
+	2. Backpropagation
+	3. Gradient descent
+	4. Optimizers
+	5. Learning rate
+	6. Learning-rate schedules
+	7. Weight initialization
+	8. Gradient clipping
+10.2 Optimizers
+	1. SGD
+	2. Momentum
+	3. Adam
+	4. AdamW
+	5. Weight decay
+	6. Optimizer state
+10.3 Training Stability
+	1. Vanishing gradients
+	2. Exploding gradients
+	3. Gradient clipping
+	4. Numerical stability
+	5. Mixed precision
+	6. Loss scaling
+10.4 Efficient Training
+	1. Batch processing
+	2. Gradient accumulation
+	3. Activation checkpointing
+	4. Mixed precision
+	5. BF16
+	6. FP16
+	7. Distributed training
+11. Deep Learning Frameworks for LLMs
+11.1 PyTorch Fundamentals
+	1. Tensor basics
+	2. Tensor shapes
+	3. Tensor operations
+	4. Autograd
+	5. Computational graphs
+	6. nn.Module
+	7. Parameters
+	8. Optimizers
+11.2 PyTorch for Transformers
+	1. Embedding layers
+	2. Linear layers
+	3. LayerNorm
+	4. Dropout
+	5. Attention layers
+	6. Transformer blocks
+	7. Loss functions
+11.3 GPU Computing
+	1. CPU vs GPU
+	2. CUDA
+	3. GPU memory
+	4. Tensor movement
+	5. Device management
+	6. GPU utilization
+	7. Memory optimization
+11.4 Hugging Face Ecosystem
+	1. Transformers
+	2. Tokenizers
+	3. Datasets
+	4. Accelerate
+	5. PEFT
+	6. TRL
+	7. Model Hub
+12. LLM Architecture Families
+12.1 Encoder Models
+	1. BERT
+	2. RoBERTa
+	3. DistilBERT
+	4. Encoder representations
+	5. Masked language modeling
+12.2 Decoder Models
+	1. GPT architecture
+	2. Causal language modeling
+	3. Autoregressive generation
+	4. Decoder-only architecture
+12.3 Encoder-Decoder Models
+	1. T5
+	2. Text-to-text modeling
+	3. Sequence-to-sequence generation
+	4. Encoder-decoder attention
+12.4 Modern LLM Architecture Concepts
+	1. RMSNorm
+	2. SwiGLU
+	3. Gated MLPs
+	4. RoPE
+	5. KV cache
+	6. Grouped Query Attention
+	7. Multi-Query Attention
+	8. Mixture of Experts
+13. LLM Fine-Tuning
+13.1 Fine-Tuning Fundamentals
+	1. What is fine-tuning?
+	2. Pretraining vs fine-tuning
+	3. Task-specific adaptation
+	4. Instruction tuning
+	5. Domain adaptation
+	6. Supervised fine-tuning
+13.2 Dataset Preparation
+	1. Instruction datasets
+	2. Prompt-response datasets
+	3. Conversation datasets
+	4. Chat templates
+	5. Dataset formatting
+	6. Train/validation split
+	7. Data quality
+13.3 Fine-Tuning Process
+	1. Loading pretrained models
+	2. Tokenization
+	3. Training configuration
+	4. Loss calculation
+	5. Evaluation
+	6. Checkpointing
+	7. Model saving
+13.4 Fine-Tuning Problems
+	1. Overfitting
+	2. Catastrophic forgetting
+	3. Data leakage
+	4. Poor instruction formatting
+	5. Hallucination after tuning
+	6. Dataset imbalance
+
+
+
+
+14. Parameter-Efficient Fine-Tuning
+14.1 PEFT Concepts
+	1. Why PEFT?
+	2. Full fine-tuning vs PEFT
+	3. Trainable parameters
+	4. Frozen parameters
+	5. Memory efficiency
+14.2 LoRA
+	1. Low-Rank Adaptation
+	2. Low-rank matrices
+	3. Rank
+	4. Alpha
+	5. LoRA target modules
+	6. LoRA training
+	7. LoRA merging
+14.3 QLoRA
+	1. Quantized fine-tuning
+	2. 4-bit quantization
+	3. NF4
+	4. Double quantization
+	5. QLoRA training pipeline
+14.4 Other PEFT Methods
+	1. Adapters
+	2. Prefix tuning
+	3. Prompt tuning
+	4. IA³
+	5. Adapter-based training
+15. Prompt Engineering
+15.1 Prompt Fundamentals
+	1. What is prompt engineering?
+	2. Prompt structure
+	3. Instructions
+	4. Context
+	5. Input
+	6. Output format
+15.2 Prompting Techniques
+	1. Zero-shot prompting
+	2. One-shot prompting
+	3. Few-shot prompting
+	4. Role prompting
+	5. Instruction prompting
+	6. Contextual prompting
+15.3 Reasoning-Oriented Prompting
+	1. Step-by-step reasoning
+	2. Structured reasoning
+	3. Decomposition
+	4. Self-consistency
+	5. Verification
+	6. Critique-and-revise patterns
+15.4 Structured Outputs
+	1. JSON outputs
+	2. Schema-based outputs
+	3. Function calling
+	4. Tool calling
+	5. Output validation
+	6. Parsing model outputs
+15.5 Prompt Optimization
+	1. Prompt templates
+	2. Prompt versioning
+	3. Prompt testing
+	4. Prompt evaluation
+	5. Prompt injection awareness
+	6. Prompt cost optimization
+16. LLM Inference and Text Generation
+16.1 Inference Fundamentals
+	1. Training vs inference
+	2. Forward pass
+	3. Model loading
+	4. Token generation
+	5. Autoregressive generation
+	6. Context window
+16.2 Decoding Strategies
+	1. Greedy decoding
+	2. Beam search
+	3. Random sampling
+	4. Temperature
+	5. Top-k
+	6. Top-p
+	7. Min-p
+	8. Repetition penalty
+16.3 Generation Control
+	1. Maximum tokens
+	2. Stop sequences
+	3. Frequency penalty
+	4. Presence penalty
+	5. Deterministic generation
+	6. Random generation
+16.4 KV Cache
+	1. What is KV cache?
+	2. Why KV cache matters
+	3. Prefill phase
+	4. Decode phase
+	5. KV-cache memory
+	6. KV-cache optimization
+17. LLM Quantization and Optimization
+17.1 Quantization Basics
+	1. What is quantization?
+	2. FP32
+	3. FP16
+	4. BF16
+	5. INT8
+	6. INT4
+	7. Weight quantization
+	8. Activation quantization
+17.2 Quantization Methods    
+	1. GPTQ
+	2. AWQ
+	3. bitsandbytes
+	4. SmoothQuant
+	5. Quantization-aware training
+	6. Post-training quantization
+17.3 Model Compression
+	1. Knowledge distillation
+	2. Pruning
+	3. Weight sharing
+	4. Parameter reduction
+	5. Smaller models
+17.4 Inference Optimization
+	1. Batching
+	2. Dynamic batching
+	3. Continuous batching
+	4. Flash Attention
+	5. KV-cache optimization
+	6. Memory optimization
+	7. Throughput optimization
+	8. Latency optimization
+
+
+
+
+18. Retrieval-Augmented Generation — RAG
+18.1 RAG Fundamentals
+	1. What is RAG?
+	2. Why RAG is needed
+	3. LLM knowledge limitations
+	4. External knowledge
+	5. Retrieval pipeline
+	6. Generation pipeline
+18.2 Document Processing    
+	1. Document loading
+	2. PDF processing
+	3. HTML processing
+	4. Word documents
+	5. Markdown
+	6. Text cleaning
+18.3 Chunking
+	1. Fixed-size chunking
+	2. Sentence chunking
+	3. Paragraph chunking
+	4. Recursive chunking
+	5. Semantic chunking
+	6. Chunk overlap
+	7. Chunk-size optimization
+18.4 Embedding and Retrieval
+	1. Embedding models
+	2. Vector databases
+	3. Similarity search
+	4. Cosine similarity
+	5. Top-k retrieval
+	6. Metadata filtering
+18.5 RAG Generation
+	1. Retrieved context
+	2. Prompt construction
+	3. Context injection
+	4. Answer generation
+	5. Citation generation
+	6. Source attribution
+19. Advanced RAG Systems
+19.1 Retrieval Techniques
+	1. Dense retrieval
+	2. Sparse retrieval
+	3. BM25
+	4. Hybrid search
+	5. Semantic search
+	6. Keyword search
+19.2 Advanced Retrieval     
+	1. Query expansion
+	2. Query rewriting
+	3. Multi-query retrieval
+	4. HyDE
+	5. Metadata filtering
+	6. Parent-child retrieval
+	7. Contextual retrieval
+19.3 Reranking
+	1. Cross-encoder rerankers
+	2. Relevance scoring
+	3. Top-k reranking
+	4. Retrieval evaluation
+19.4 RAG Architectures
+	1. Basic RAG
+	2. Conversational RAG
+	3. Agentic RAG
+	4. Multi-hop RAG
+	5. Graph RAG
+	6. Multimodal RAG
+20. LLM Agents
+20.1 Agent Fundamentals
+	1. What is an AI agent?
+	2. LLM as reasoning engine
+	3. Agent loop
+	4. Planning
+	5. Action
+	6. Observation
+	7. Reflection
+20.2 Tools   
+	1. Tool calling
+	2. Function calling
+	3. APIs
+	4. Web search
+	5. Database tools
+	6. Code execution
+	7. File tools
+20.3 Agent Memory
+	1. Short-term memory
+	2. Long-term memory
+	3. Conversation memory
+	4. Vector memory
+	5. Memory retrieval
+20.4 Agent Architectures
+	1. ReAct
+	2. Planner-executor
+	3. Tool-using agents
+	4. Multi-agent systems
+	5. Supervisor agents
+	6. Autonomous agents
+20.5 Agent Safety
+	1. Tool permissions
+	2. Sandboxing
+	3. Prompt injection
+	4. Tool injection
+	5. Data exfiltration prevention
+	6. Human-in-the-loop
+21. LLM Evaluation
+21.1 Why Evaluate LLMs?
+	1. Model quality
+	2. Reliability
+	3. Accuracy
+	4. Robustness
+	5. Safety
+	6. Cost
+	7. Latency
+21.2 Traditional Metrics
+	1. Accuracy
+	2. Precision
+	3. Recall
+	4. F1-score
+	5. BLEU
+	6. ROUGE
+	7. Perplexity
+21.3 LLM Evaluation
+	1. Exact match
+	2. Semantic similarity
+	3. LLM-as-a-judge
+	4. Pairwise evaluation
+	5. Human evaluation
+	6. Preference evaluation
+21.4 RAG Evaluation
+	1. Retrieval precision
+	2. Retrieval recall
+	3. Context relevance
+	4. Context faithfulness
+	5. Answer relevance
+	6. Groundedness
+21.5 Evaluation Systems
+	1. Evaluation datasets
+	2. Golden datasets
+	3. Regression testing
+	4. Benchmarking
+	5. Automated evaluation
+	6. Continuous evaluation
+
+
+
+
+22. LLM Safety and Responsible AI
+22.1 LLM Safety
+	1. Hallucinations
+	2. Bias
+	3. Toxic outputs
+	4. Harmful content
+	5. Privacy risks
+	6. Data leakage
+22.2 Prompt Security
+	1. Prompt injection
+	2. Indirect prompt injection
+	3. Jailbreaking
+	4. System-prompt leakage
+	5. Instruction hierarchy
+	6. Input sanitization
+22.3 RAG Security
+	1. Malicious documents
+	2. Retrieval poisoning
+	3. Data access control
+	4. Permission-aware retrieval
+	5. Sensitive information filtering
+22.4 Agent Security
+	1. Tool authorization
+	2. Sandboxing
+	3. Code execution safety
+	4. API security
+	5. Human approval
+	6. Audit logs
+22.5 Responsible AI
+	1. Fairness
+	2. Transparency
+	3. Explainability
+	4. Privacy
+	5. Responsible deployment
+	6. AI governance
+23. LLM Application Development
+23.1 LLM APIs
+	1. API fundamentals
+	2. Authentication
+	3. Chat completion
+	4. Streaming responses
+	5. Token usage
+	6. Rate limits
+	7. Error handling
+23.2 Application Architecture
+	1. Frontend
+	2. Backend
+	3. LLM service
+	4. Database
+	5. Vector database
+	6. Cache
+	7. Authentication
+23.3 Conversation Systems
+	1. Chat history
+	2. Conversation state
+	3. Context management
+	4. Memory management
+	5. Session management
+23.4 Production Features
+	1. Streaming
+	2. Retries
+	3. Fallback models
+	4. Caching
+	5. Logging
+	6. Monitoring
+	7. Cost tracking
+24. LLM Production and MLOps
+24.1 Model Deployment
+	1. Local deployment
+	2. Cloud deployment
+	3. GPU inference
+	4. CPU inference
+	5. Model servers
+	6. API serving
+24.2 LLM Serving Frameworks
+	1. Hugging Face Transformers
+	2. vLLM
+	3. Text Generation Inference
+	4. llama.cpp
+	5. TensorRT-LLM
+	6. ONNX Runtime
+24.3 Scaling
+	1. Horizontal scaling
+	2. Vertical scaling
+	3. Load balancing
+	4. Autoscaling
+	5. Request batching
+	6. Distributed inference
+24.4 Monitoring
+	1. Latency monitoring
+	2. Token usage
+	3. GPU utilization
+	4. Error rates
+	5. Model quality
+	6. Hallucination monitoring
+	7. Cost monitoring
+25. Advanced LLM Engineering and Projects
+25.1 Advanced LLM Concepts
+	1. Mixture of Experts
+	2. Sparse models
+	3. Long-context models
+	4. Multimodal LLMs
+	5. Vision-language models
+	6. Speech-language models
+	7. Multilingual LLMs
+	8. Reasoning models
+25.2 Advanced Training
+	1. Distributed training
+	2. Data parallelism
+	3. Model parallelism
+	4. Pipeline parallelism
+	5. Tensor parallelism
+	6. FSDP
+	7. DeepSpeed
+	8. ZeRO optimization
+25.3 Advanced LLM Techniques
+	1. Continued pretraining
+	2. Domain-adaptive pretraining
+	3. Instruction tuning
+	4. Preference optimization
+	5. RLHF
+	6. DPO
+	7. Reward models
+	8. Synthetic data generation
+25.4 LLM Engineering Projects
+Beginner Projects
+	1. Simple LLM chatbot
+	2. Prompt-based text summarizer
+	3. Question-answering application
+	4. Document summarization system
+	5. Sentiment analysis with an LLM
+Intermediate Projects
+	1. PDF RAG chatbot
+	2. Semantic search engine
+	3. Customer-support chatbot
+	4. SQL-to-text AI assistant
+	5. Resume analyzer
+	6. AI document assistant
+Advanced Projects
+	1. Production-grade RAG system
+	2. Multi-agent research assistant
+	3. Coding agent
+	4. Agentic customer-support system
+	5. Multimodal document intelligence system
+	6. Domain-specific fine-tuned LLM
+	7. LLM evaluation platform
+	8. LLM inference server
+	9. Enterprise AI assistant

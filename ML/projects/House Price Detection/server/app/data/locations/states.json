@@ -1,0 +1,290 @@
+[
+  {
+    "id": "AP",
+    "state_id": 1,
+    "name": "Andhra Pradesh",
+    "code": "AP",
+    "capital": "Amaravati",
+    "region": "South"
+  },
+  {
+    "id": "AR",
+    "state_id": 2,
+    "name": "Arunachal Pradesh",
+    "code": "AR",
+    "capital": "Itanagar",
+    "region": "North-East"
+  },
+  {
+    "id": "AS",
+    "state_id": 3,
+    "name": "Assam",
+    "code": "AS",
+    "capital": "Dispur",
+    "region": "North-East"
+  },
+  {
+    "id": "BR",
+    "state_id": 4,
+    "name": "Bihar",
+    "code": "BR",
+    "capital": "Patna",
+    "region": "East"
+  },
+  {
+    "id": "CG",
+    "state_id": 5,
+    "name": "Chhattisgarh",
+    "code": "CG",
+    "capital": "Raipur",
+    "region": "Central"
+  },
+  {
+    "id": "GA",
+    "state_id": 6,
+    "name": "Goa",
+    "code": "GA",
+    "capital": "Panaji",
+    "region": "West"
+  },
+  {
+    "id": "GJ",
+    "state_id": 7,
+    "name": "Gujarat",
+    "code": "GJ",
+    "capital": "Gandhinagar",
+    "region": "West"
+  },
+  {
+    "id": "HR",
+    "state_id": 8,
+    "name": "Haryana",
+    "code": "HR",
+    "capital": "Chandigarh",
+    "region": "North"
+  },
+  {
+    "id": "HP",
+    "state_id": 9,
+    "name": "Himachal Pradesh",
+    "code": "HP",
+    "capital": "Shimla",
+    "region": "North"
+  },
+  {
+    "id": "JH",
+    "state_id": 10,
+    "name": "Jharkhand",
+    "code": "JH",
+    "capital": "Ranchi",
+    "region": "East"
+  },
+  {
+    "id": "KA",
+    "state_id": 11,
+    "name": "Karnataka",
+    "code": "KA",
+    "capital": "Bengaluru",
+    "region": "South"
+  },
+  {
+    "id": "KL",
+    "state_id": 12,
+    "name": "Kerala",
+    "code": "KL",
+    "capital": "Thiruvananthapuram",
+    "region": "South"
+  },
+  {
+    "id": "MP",
+    "state_id": 13,
+    "name": "Madhya Pradesh",
+    "code": "MP",
+    "capital": "Bhopal",
+    "region": "Central"
+  },
+  {
+    "id": "MH",
+    "state_id": 14,
+    "name": "Maharashtra",
+    "code": "MH",
+    "capital": "Mumbai",
+    "region": "West"
+  },
+  {
+    "id": "MN",
+    "state_id": 15,
+    "name": "Manipur",
+    "code": "MN",
+    "capital": "Imphal",
+    "region": "North-East"
+  },
+  {
+    "id": "ML",
+    "state_id": 16,
+    "name": "Meghalaya",
+    "code": "ML",
+    "capital": "Shillong",
+    "region": "North-East"
+  },
+  {
+    "id": "MZ",
+    "state_id": 17,
+    "name": "Mizoram",
+    "code": "MZ",
+    "capital": "Aizawl",
+    "region": "North-East"
+  },
+  {
+    "id": "NL",
+    "state_id": 18,
+    "name": "Nagaland",
+    "code": "NL",
+    "capital": "Kohima",
+    "region": "North-East"
+  },
+  {
+    "id": "OD",
+    "state_id": 19,
+    "name": "Odisha",
+    "code": "OD",
+    "capital": "Bhubaneswar",
+    "region": "East"
+  },
+  {
+    "id": "PB",
+    "state_id": 20,
+    "name": "Punjab",
+    "code": "PB",
+    "capital": "Chandigarh",
+    "region": "North"
+  },
+  {
+    "id": "RJ",
+    "state_id": 21,
+    "name": "Rajasthan",
+    "code": "RJ",
+    "capital": "Jaipur",
+    "region": "North"
+  },
+  {
+    "id": "SK",
+    "state_id": 22,
+    "name": "Sikkim",
+    "code": "SK",
+    "capital": "Gangtok",
+    "region": "North-East"
+  },
+  {
+    "id": "TN",
+    "state_id": 23,
+    "name": "Tamil Nadu",
+    "code": "TN",
+    "capital": "Chennai",
+    "region": "South"
+  },
+  {
+    "id": "TG",
+    "state_id": 24,
+    "name": "Telangana",
+    "code": "TG",
+    "capital": "Hyderabad",
+    "region": "South"
+  },
+  {
+    "id": "TR",
+    "state_id": 25,
+    "name": "Tripura",
+    "code": "TR",
+    "capital": "Agartala",
+    "region": "North-East"
+  },
+  {
+    "id": "UP",
+    "state_id": 26,
+    "name": "Uttar Pradesh",
+    "code": "UP",
+    "capital": "Lucknow",
+    "region": "North"
+  },
+  {
+    "id": "UK",
+    "state_id": 27,
+    "name": "Uttarakhand",
+    "code": "UK",
+    "capital": "Dehradun",
+    "region": "North"
+  },
+  {
+    "id": "WB",
+    "state_id": 28,
+    "name": "West Bengal",
+    "code": "WB",
+    "capital": "Kolkata",
+    "region": "East"
+  },
+  {
+    "id": "AN",
+    "state_id": 29,
+    "name": "Andaman and Nicobar Islands",
+    "code": "AN",
+    "capital": "Port Blair",
+    "region": "Islands"
+  },
+  {
+    "id": "CH",
+    "state_id": 30,
+    "name": "Chandigarh",
+    "code": "CH",
+    "capital": "Chandigarh",
+    "region": "North"
+  },
+  {
+    "id": "DN",
+    "state_id": 31,
+    "name": "Dadra and Nagar Haveli and Daman and Diu",
+    "code": "DN",
+    "capital": "Daman",
+    "region": "West"
+  },
+  {
+    "id": "DL",
+    "state_id": 32,
+    "name": "Delhi",
+    "code": "DL",
+    "capital": "New Delhi",
+    "region": "North"
+  },
+  {
+    "id": "JK",
+    "state_id": 33,
+    "name": "Jammu and Kashmir",
+    "code": "JK",
+    "capital": "Srinagar",
+    "region": "North"
+  },
+  {
+    "id": "LA",
+    "state_id": 34,
+    "name": "Ladakh",
+    "code": "LA",
+    "capital": "Leh",
+    "region": "North"
+  },
+  {
+    "id": "LD",
+    "state_id": 35,
+    "name": "Lakshadweep",
+    "code": "LD",
+    "capital": "Kavaratti",
+    "region": "Islands"
+  },
+  {
+    "id": "PY",
+    "state_id": 36,
+    "name": "Puducherry",
+    "code": "PY",
+    "capital": "Puducherry",
+    "region": "South"
+  }
+]

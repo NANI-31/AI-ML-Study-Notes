@@ -1,0 +1,6 @@
+{
+  "jupyter.kernels.excludePythonEnvironments": [
+    "C:\\Python*",
+    "C:\\Users\\*\\AppData\\Local\\Programs\\Python\\*"
+  ]
+}

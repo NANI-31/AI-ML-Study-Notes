@@ -1,0 +1,42 @@
+
+1. Foundations of Data
+    1.1 AI vs ML vs GenAI landscape Git/GitHub/CLI VS Code/Colab environments & secrets
+    1.2 Python for Data (types, flow, functions, files) · notebooks discipline
+    1.3 NumPy + pandas (indexing, joins/merge, groupby, missing values)
+    1.4 SQL lite (SELECT/WHERE/GROUP BY + one JOIN) · spreadsheets (pivots, XLOOKUP) · pandas ↔ SQL mental model
+    1.5 Plotting & storytelling (matplotlib/plotly) · EDA checklist
+    1.6 APIs (requests, JSON) + basic ethics/ToS · ingest → clean → EDA snack app (optional Streamlit)
+    1.7 Mini Project
+
+
+2. Classical ML
+    2.1 ML workflow & habits: problem framing, train/validation/test split, baselines, cross‑validation, metric tables
+    2.2 Data prep: missing values, duplicates, categorical encoding, scaling, leakage guard, simple feature engineering (dates, counts), class imbalance basics
+    2.3 Regression: Linear Regression + regularization; metrics MAE/RMSE/R²; quick error analysis
+    2.4 Classification: Logistic Regression; Trees & Random Forests; metrics accuracy, precision/recall, F1, ROC‑AUC; threshold tuning
+    2.5 Model comparison & selection: choose by metric + simplicity
+    2.6 Mini Project
+
+
+3. Gen AI & Agents
+    3.1 LLM fundamentals: tokens, context windows, temperature/top‑p, cost/latency basics
+    3.2 Prompting patterns: role, few‑shot, CoT; tiny prompt‑eval set
+    3.3 Agents 101 (basics): single agent, 1–2 tools, JSON schemas, retries/backoff, hard stop; mini‑build (CSV Analyst or FAQ Helpdesk)
+    3.4 Function/Tool calling: structured outputs (JSON/validation), idempotent tool design
+    3.5 Shipping Sprint (FastAPI): wrap the agent as an API ( /chat ) with Pydantic schemas, env/secrets, logging + request IDs; deploy to Render or HF Spaces; run a 10‑prompt live eval
+    3.6 RAG 101: embeddings, chunking, retrievers, vector stores; RAG eval (answer correctness & context recall), semantic search
+    3.7 Agents + RAG: reuse the Agents 101 loop with a retriever tool; same eval harness
+    3.8 Orchestration (intro): LangGraph basics—nodes, transitions, retries; ship a small agent flow
+
+
+4. Capstone Project
+    4.1 Multi-Model Answerboard (AI Fiesta-style)
+    4.2 One chat, multiple model answers side-by-side with cost/speed badges; toggle RAG for cited answers and add smart routing + A/B prompt
+    4.3 Capstone Report & Demo
+
+
+5. English & Soft Skills Training
+    5.1 Everyday English for Self-Expression Learn how to talk about yourself comfortably and confidently in common situations.
+    5.2 Building Clear and Correct Sentences Strengthen sentence formation so your English sounds natural and complete.
+    5.3 Speaking with Impact and Awareness Learn to organise thoughts, speak smoothly, and communicate with confidence.
+    5.4 Professional Communication & Soft Skills Apply spoken English skills to professional and workplace-like situations.

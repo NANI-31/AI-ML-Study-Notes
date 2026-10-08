@@ -1,0 +1,1162 @@
+11.3 K-Nearest Neighbors (KNN)
+K-Nearest Neighbors (KNN) is one of the simplest and most intuitive supervised Machine Learning algorithms.
+The basic idea is:
+	A new data point is likely to belong to the same class as the nearby data points.
+KNN does not learn an explicit mathematical equation like Linear Regression or Logistic Regression. Instead, it stores the training data and makes predictions by looking at nearby examples.
+For classification:
+New Data Point
+      ↓
+Calculate distance to training points
+      ↓
+Find K nearest points
+      ↓
+Look at their classes
+      ↓
+Majority vote
+      ↓
+Prediction
+For regression:
+New Data Point
+      ↓
+Find K nearest points
+      ↓
+Look at their target values
+      ↓
+Average them
+      ↓
+Prediction
+KNN is wonderfully simple, which is useful because humans occasionally appreciate things that don't require a 40-page architecture diagram.
+
+1. KNN Concept
+1.1 What is KNN?
+K-Nearest Neighbors is a supervised learning algorithm that predicts the output of a new observation based on the outputs of its K closest training observations.
+It can be used for:
+	• Classification
+	• Regression
+The "K" represents the number of neighboring points considered.
+For example:
+K = 3
+means:
+	Find the 3 closest training points and use them to make the prediction.
+
+2. Simple Real-World Example
+Suppose you want to classify a fruit as:
+Apple
+Orange
+You have two features:
+	• Weight
+	• Diameter
+Training data:
+Fruit	Weight (g)	Diameter (cm)
+Apple	150	7.0
+Apple	160	7.2
+Apple	155	6.9
+Orange	180	7.5
+Orange	190	7.8
+Orange	185	7.6
+New fruit:
+Weight = 158 g
+Diameter = 7.1 cm
+KNN calculates the distance between the new fruit and all training examples.
+Suppose the three closest points are:
+Apple
+Apple
+Apple
+Then:
+3/3=100%3/3 = 100%
+vote for Apple.
+Prediction:
+Apple
+
+3. Why Is It Called "Nearest Neighbors"?
+Because KNN looks for observations that are closest to the new observation.
+Imagine points on a graph:
+Feature 2
+   ↑
+   |
+ O O O
+ O O       X
+           X X
+             X
+   |
+   +----------------→ Feature 1
+Suppose O represents Class A and X represents Class B.
+A new point is classified based on which class has the closest neighbors.
+The assumption is:
+	Similar observations tend to have similar target values.
+This is sometimes described as local similarity.
+
+4. How KNN Works
+The algorithm can be summarized in five steps.
+Step 1: Choose K
+For example:
+K=5K=5
+Step 2: Calculate distances
+Calculate the distance from the new point to every training point.
+Step 3: Find the K closest points
+Select the five nearest observations.
+Step 4: Vote
+For classification, count their class labels.
+Step 5: Predict
+Choose the class with the highest number of votes.
+
+5. Example with K = 3
+Suppose the nearest neighbors of a new customer are:
+Neighbor	Distance	Class
+1	0.5	Churn
+2	0.7	No Churn
+3	0.9	Churn
+Votes:
+Churn     → 2
+No Churn  → 1
+Therefore:
+Prediction=Churn\boxed{Prediction=Churn}
+
+6. KNN Is a Lazy Learning Algorithm
+KNN is often called a:
+	Lazy learner
+Why?
+Because it does very little work during training.
+Training is essentially:
+Store training data
+The expensive work happens when making predictions.
+Training:
+Data → Store
+Prediction:
+New point
+   ↓
+Calculate distances
+   ↓
+Find neighbors
+   ↓
+Predict
+Compare this with Logistic Regression:
+Training data
+   ↓
+Optimization
+   ↓
+Learn weights
+   ↓
+Model
+KNN doesn't learn a fixed set of weights in the traditional sense.
+
+7. KNN Is Also Instance-Based Learning
+KNN is called instance-based learning because it makes predictions using stored training instances.
+Instead of learning a global equation like:
+y=wx+by=wx+b
+KNN effectively says:
+	"Let me see which training examples look most similar to this new example."
+
+8. Distance Metrics
+Distance is the heart of KNN.
+The algorithm needs a way to determine:
+	How similar or different are two observations?
+There are several distance metrics.
+Common ones include:
+	1. Euclidean distance
+	2. Manhattan distance
+	3. Minkowski distance
+	4. Hamming distance
+	5. Cosine distance/similarity
+For numerical KNN, Euclidean distance is commonly used.
+
+9. Euclidean Distance
+For two points:
+A=(x1,x2)A=(x_1,x_2)
+and:
+B=(y1,y2)B=(y_1,y_2)
+Euclidean distance is:
+d(A,B)=(x1−y1)2+(x2−y2)2\boxed{ d(A,B)= \sqrt{(x_1-y_1)^2+(x_2-y_2)^2} }
+This is simply the straight-line distance between two points.
+
+10. Euclidean Distance Example
+Suppose:
+A=(2,3)A=(2,3)
+and:
+B=(5,7)B=(5,7)
+Then:
+d(A,B)=(5−2)2+(7−3)2d(A,B)= \sqrt{(5-2)^2+(7-3)^2} =32+42=\sqrt{3^2+4^2} =25=\sqrt{25} =5=5
+Therefore:
+Distance=5\boxed{Distance=5}
+
+11. Euclidean Distance with Multiple Features
+Suppose two customers have:
+Customer A:
+Age = 25
+Income = 40
+Customer B:
+Age = 30
+Income = 50
+Then:
+d=(30−25)2+(50−40)2d= \sqrt{(30-25)^2+(50-40)^2} =25+100=\sqrt{25+100} =125=\sqrt{125} ≈11.18\approx11.18
+With more features:
+d=(x1−y1)2+(x2−y2)2+⋯+(xn−yn)2d= \sqrt{ (x_1-y_1)^2+ (x_2-y_2)^2+ \cdots+ (x_n-y_n)^2 }
+
+12. Manhattan Distance
+Manhattan distance measures distance by moving along dimensions rather than taking a diagonal path.
+Formula:
+d(A,B)=∣x1−y1∣+∣x2−y2∣+⋯\boxed{ d(A,B)= |x_1-y_1|+ |x_2-y_2|+\cdots }
+For:
+A=(2,3)A=(2,3)
+and:
+B=(5,7)B=(5,7)
+we get:
+d=∣5−2∣+∣7−3∣d=|5-2|+|7-3| =3+4=3+4 =7=7
+
+13. Euclidean vs Manhattan Distance
+Euclidean	Manhattan
+Straight-line distance	Grid-like distance
+Uses squared differences	Uses absolute differences
+∑(xi−yi)2\sqrt{\sum(x_i-y_i)^2}	(\sum
+Sensitive to large differences	Often less sensitive to individual large differences
+Example:
+A ──────── B
+Euclidean measures the direct path.
+Manhattan behaves more like:
+A
+│
+│
+└──────── B
+
+14. Minkowski Distance
+Minkowski distance is a generalization of several distance metrics.
+d=(∑i∣xi−yi∣p)1/p\boxed{ d= \left( \sum_i |x_i-y_i|^p \right)^{1/p} }
+Different values of pp produce different metrics.
+p=1p=1
+Manhattan distance:
+d=∑∣xi−yi∣d=\sum|x_i-y_i|
+p=2p=2
+Euclidean distance:
+d=∑(xi−yi)2d=\sqrt{\sum(x_i-y_i)^2}
+So:
+Minkowski
+    ├── p = 1 → Manhattan
+    └── p = 2 → Euclidean
+
+15. Hamming Distance
+Hamming distance is useful for categorical or binary representations.
+It measures the number of positions that differ.
+Suppose:
+A = 101101
+B = 100001
+Compare:
+A = 1 0 1 1 0 1
+B = 1 0 0 0 0 1
+        ↑ ↑
+There are 2 differences.
+Therefore:
+Hamming Distance=2\boxed{Hamming\ Distance=2}
+It is commonly used with binary/categorical representations.
+
+16. Cosine Similarity
+For text or high-dimensional vectors, cosine similarity is often more useful than ordinary Euclidean distance.
+Cosine similarity:
+cos(θ)=A⋅B∣∣A∣∣∣∣B∣∣\boxed{ cos(\theta)= \frac{A\cdot B} {||A||||B||} }
+It measures the angle between vectors rather than their absolute distance.
+This is particularly useful in:
+	• Text classification
+	• Document similarity
+	• Recommendation systems
+	• Embeddings
+Strictly speaking, cosine similarity is a similarity measure, while cosine distance is commonly defined as:
+1−cosine similarity1-\text{cosine similarity}
+
+17. Why Feature Scaling Is Extremely Important in KNN
+This is one of the most important practical concepts.
+Suppose you have:
+Age: 20–60
+Income: ₹20,000–₹200,000
+Consider:
+Person A:
+Age = 30
+Income = 50,000
+Person B:
+Age = 35
+Income = 51,000
+Income differences can dominate the distance calculation because income has a much larger numerical scale.
+For Euclidean distance:
+d=(Age1−Age2)2+(Income1−Income2)2d= \sqrt{ (Age_1-Age_2)^2+ (Income_1-Income_2)^2 }
+The income term can overwhelm the age term.
+Therefore:
+	KNN is highly sensitive to feature scaling.
+
+18. Standardization for KNN
+A common solution is StandardScaler.
+z=x−μσz=\frac{x-\mu}{\sigma}
+This transforms features so that they approximately have:
+Mean = 0
+Standard deviation = 1
+Example:
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+Notice the important distinction:
+fit_transform(X_train)
+transform(X_test)
+Do not fit the scaler separately on the test set.
+That would create preprocessing leakage.
+You already studied data leakage, so this connection is worth remembering.
+
+19. Choosing K
+The choice of KK is extremely important.
+Suppose:
+K=1K=1
+The prediction depends entirely on one nearest neighbor.
+If:
+K=20K=20
+the prediction depends on 20 neighbors.
+Different K values create different models.
+
+20. Small K
+Example:
+K=1K=1
+The model looks at only one neighbor.
+Advantages:
+	• Very flexible
+	• Can capture local patterns
+Disadvantages:
+	• Sensitive to noise
+	• Can overfit
+	• Sensitive to outliers
+Conceptually:
+K ↓
+   ↓
+More complex boundary
+   ↓
+Higher variance
+   ↓
+Potential overfitting
+
+21. Large K
+Suppose:
+K=50K=50
+Now the model considers many neighbors.
+Advantages:
+	• More stable
+	• Less sensitive to individual noisy points
+Disadvantages:
+	• Can ignore local patterns
+	• May underfit
+Conceptually:
+K ↑
+   ↓
+Smoother boundary
+   ↓
+Lower variance
+   ↓
+Higher bias
+   ↓
+Potential underfitting
+
+22. K and Bias-Variance Tradeoff
+This is a classic interview topic.
+Small K
+Bias↓Bias\downarrow Variance↑Variance\uparrow
+Large K
+Bias↑Bias\uparrow Variance↓Variance\downarrow
+Therefore:
+Small K → Complex model → Overfitting risk
+Large K → Simple model → Underfitting risk
+The goal is to choose a K that balances bias and variance.
+
+23. How to Choose K
+There is no universal best value of K.
+A common approach is:
+	Use validation or cross-validation to test multiple K values.
+For example:
+K = 1
+K = 3
+K = 5
+K = 7
+K = 9
+K = 11
+Evaluate each using cross-validation.
+Suppose:
+K	CV Accuracy
+1	88%
+3	92%
+5	94%
+7	95%
+9	94%
+11	92%
+Choose:
+K=7\boxed{K=7}
+because it performed best on validation.
+
+24. Why Odd K Is Often Used
+For binary classification, an odd K is often chosen to reduce the possibility of a tie.
+For example:
+K=4K=4
+could result in:
+Class A → 2
+Class B → 2
+But:
+K=5K=5
+might result in:
+Class A → 3
+Class B → 2
+Therefore:
+3, 5, 7, 9...
+are commonly tested.
+But don't treat "always use odd K" as a law handed down from the gods of Machine Learning. In multiclass problems or with weighted voting, ties can be handled differently.
+
+25. Decision Boundaries in KNN
+KNN can create nonlinear and highly flexible decision boundaries.
+This is a major difference from basic Logistic Regression.
+Suppose you have:
+Class A → ●
+Class B → ×
+KNN determines the class based on local neighborhoods.
+The resulting boundary may look like:
+       ● ● ●
+      ●     ●
+     ●       |
+     |       |
+      × × ×  |
+       × × ×
+rather than a simple straight line.
+
+26. K = 1 Decision Boundary
+With:
+K=1K=1
+every new point is assigned to the class of its nearest training point.
+The resulting boundary can be extremely irregular.
+Conceptually:
+      A A A
+    A A | B B
+    A | | B B
+    A | B B B
+      B B
+It closely follows the training data.
+This can produce:
+	Very low training error but high test error.
+That's overfitting.
+
+27. Larger K and Decision Boundaries
+With a larger K:
+K = 1
+   ↓
+Very irregular boundary
+K = 5
+   ↓
+Smoother boundary
+K = 50
+   ↓
+Very smooth boundary
+Therefore K controls the local flexibility of the classifier.
+
+28. Weighted KNN
+Standard KNN gives each neighbor the same voting weight.
+Suppose:
+K=5K=5
+and the distances are:
+Neighbor	Distance	Class
+1	0.1	A
+2	0.2	A
+3	0.3	B
+4	0.8	B
+5	1.0	B
+Standard voting:
+A → 2
+B → 3
+Prediction:
+B
+But there is an obvious problem.
+The closest two neighbors are A, while the B votes include points much farther away.
+Weighted KNN addresses this.
+
+29. Idea Behind Weighted KNN
+Weighted KNN gives more importance to closer neighbors.
+A common weight is:
+wi=1di\boxed{ w_i=\frac{1}{d_i} }
+where:
+	• did_i = distance to neighbor ii
+	• wiw_i = neighbor's weight
+Therefore:
+Closer neighbor
+      ↓
+Higher weight
+Farther neighbor
+      ↓
+Lower weight
+This makes intuitive sense.
+If someone standing 10 centimeters from the new point says "Class A" and someone 10 kilometers away says "Class B", giving them equal influence would be rather questionable.
+
+30. Weighted KNN Example
+Suppose:
+Neighbor	Distance	Class
+1	0.1	A
+2	0.2	A
+3	0.3	B
+Using:
+w=1dw=\frac{1}{d}
+weights are:
+Neighbor 1
+w1=10.1=10w_1=\frac{1}{0.1}=10
+Neighbor 2
+w2=10.2=5w_2=\frac{1}{0.2}=5
+Neighbor 3
+w3=10.3≈3.33w_3=\frac{1}{0.3}\approx3.33
+Total weight:
+A = 10 + 5 = 15
+B = 3.33
+Therefore:
+Prediction=A\boxed{Prediction=A}
+Weighted KNN can therefore produce a different prediction from ordinary KNN.
+
+31. Other Weighting Methods
+Common approaches include:
+Uniform
+Every neighbor has equal weight.
+weights="uniform"
+Distance
+Closer neighbors receive greater weight.
+weights="distance"
+In Scikit-Learn:
+from sklearn.neighbors import KNeighborsClassifier
+model = KNeighborsClassifier(
+    n_neighbors=5,
+    weights="distance"
+)
+
+32. KNN Classification in Scikit-Learn
+Example:
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    random_state=42,
+    stratify=y
+)
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+model = KNeighborsClassifier(
+    n_neighbors=5
+)
+model.fit(X_train_scaled, y_train)
+y_pred = model.predict(X_test_scaled)
+print(accuracy_score(y_test, y_pred))
+Notice something important:
+KNN doesn't have a complicated fit() phase.
+The main computational work occurs during:
+model.predict(X_test_scaled)
+because it needs to find neighbors.
+
+33. Weighted KNN in Scikit-Learn
+model = KNeighborsClassifier(
+    n_neighbors=5,
+    weights="distance"
+)
+model.fit(X_train_scaled, y_train)
+predictions = model.predict(X_test_scaled)
+Now closer observations have greater influence.
+
+34. Choosing Distance Metric in Scikit-Learn
+You can specify the metric:
+model = KNeighborsClassifier(
+    n_neighbors=5,
+    metric="euclidean"
+)
+Manhattan:
+model = KNeighborsClassifier(
+    n_neighbors=5,
+    metric="manhattan"
+)
+Minkowski:
+model = KNeighborsClassifier(
+    n_neighbors=5,
+    metric="minkowski",
+    p=2
+)
+Since:
+p=2p=2
+this corresponds to Euclidean distance.
+
+35. KNN Regression
+KNN isn't only for classification.
+It can also perform regression.
+Suppose the target is house price.
+Nearest neighbors:
+Distance	Price
+1.0	₹50 lakh
+1.5	₹55 lakh
+2.0	₹60 lakh
+For:
+K=3K=3
+ordinary KNN regression predicts:
+50+55+603=55\frac{50+55+60}{3}=55
+Therefore:
+Predicted Price=₹55 lakh\boxed{Predicted\ Price=₹55\ lakh}
+
+36. KNN Regression with Weighted Neighbors
+Weighted KNN regression gives closer observations greater influence.
+For example:
+Neighbor 1 → ₹50 lakh → distance 0.5
+Neighbor 2 → ₹55 lakh → distance 1.0
+Neighbor 3 → ₹70 lakh → distance 2.0
+The closest neighbor gets the highest weight.
+The prediction becomes a weighted average rather than a simple average.
+
+37. KNN Regression in Scikit-Learn
+from sklearn.neighbors import KNeighborsRegressor
+model = KNeighborsRegressor(
+    n_neighbors=5,
+    weights="distance"
+)
+model.fit(X_train_scaled, y_train)
+predictions = model.predict(X_test_scaled)
+
+38. KNN Probability Predictions
+For classification, KNN can also estimate class probabilities.
+For example:
+model.predict_proba(X_test)
+Suppose:
+Class 0 → 0.2
+Class 1 → 0.8
+This can be interpreted as the fraction of neighbor votes belonging to each class under uniform weighting.
+With distance weighting, the probabilities are based on weighted votes.
+
+39. Advantages of KNN
+1. Simple
+The concept is easy to understand.
+2. Little training
+There is essentially no expensive parameter-fitting phase.
+3. Naturally handles nonlinear boundaries
+It can model complicated local patterns.
+4. Works for classification and regression
+The same basic idea can solve both.
+5. Few assumptions
+It does not require assumptions like linearity between features and target.
+6. Good for small datasets
+For relatively small datasets, KNN can work quite well.
+
+40. Disadvantages of KNN
+1. Slow predictions
+For every new point, it may need to calculate distances to many training examples.
+2. Memory intensive
+It stores the training data.
+3. Sensitive to feature scaling
+Different feature scales can badly distort distances.
+4. Sensitive to irrelevant features
+Irrelevant features can make distance calculations less meaningful.
+5. Sensitive to the choice of K
+Bad K selection can cause underfitting or overfitting.
+6. Curse of dimensionality
+KNN can perform poorly when the number of dimensions becomes very large.
+
+41. Curse of Dimensionality
+This is particularly important for interviews.
+Suppose you have:
+2 features
+Points may be relatively close together.
+Now imagine:
+100 features
+The data becomes increasingly sparse.
+Distances become less informative because many points can appear similarly far away.
+Therefore:
+	KNN often struggles with high-dimensional datasets.
+This is one reason feature selection and dimensionality reduction can be useful before KNN.
+Your earlier roadmap topics:
+Feature Selection
+        ↓
+Dimensionality Reduction
+        ↓
+KNN
+are therefore directly connected.
+
+42. Irrelevant Features Can Hurt KNN
+Suppose you're predicting whether a customer will buy a product.
+Useful features:
+Age
+Income
+Previous purchases
+But you also include:
+Customer ID
+Random number
+Internal database code
+KNN includes these in distance calculations.
+The result can be terrible because the notion of "distance" becomes less meaningful.
+Therefore:
+	Feature selection is particularly important for distance-based algorithms.
+
+43. Missing Values and KNN
+KNN cannot directly calculate ordinary numerical distances if required feature values are missing.
+You generally need to handle missing values before training.
+For example:
+Missing data
+    ↓
+Imputation
+    ↓
+Scaling
+    ↓
+KNN
+Possible imputation methods include:
+	• Median imputation
+	• Mean imputation
+	• KNN imputation
+You studied these earlier in your preprocessing roadmap.
+
+44. A Complete KNN Pipeline
+A practical KNN workflow might look like:
+Raw Data
+    ↓
+Handle Missing Values
+    ↓
+Remove Duplicates
+    ↓
+Handle Outliers
+    ↓
+Feature Engineering
+    ↓
+Feature Selection
+    ↓
+Train/Test Split
+    ↓
+Standardization
+    ↓
+Choose K
+    ↓
+Choose Distance Metric
+    ↓
+Train KNN
+    ↓
+Cross-Validation
+    ↓
+Evaluate
+    ↓
+Tune K
+    ↓
+Final Model
+Notice that scaling should be learned from the training data only.
+A robust Scikit-Learn implementation uses a Pipeline:
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.neighbors import KNeighborsClassifier
+pipeline = Pipeline([
+    ("scaler", StandardScaler()),
+    ("knn", KNeighborsClassifier(n_neighbors=5))
+])
+pipeline.fit(X_train, y_train)
+predictions = pipeline.predict(X_test)
+This is often safer than manually performing preprocessing because it helps prevent accidental leakage during cross-validation.
+
+45. Hyperparameters in KNN
+Important KNN hyperparameters include:
+n_neighbors
+Number of neighbors.
+n_neighbors=5
+weights
+weights="uniform"
+or:
+weights="distance"
+metric
+Examples:
+metric="euclidean"
+metric="manhattan"
+p
+Controls Minkowski distance.
+p=1
+means Manhattan.
+p=2
+means Euclidean.
+
+46. Choosing K Using Cross-Validation
+A good practical approach is:
+from sklearn.model_selection import GridSearchCV
+params = {
+    "knn__n_neighbors": [3, 5, 7, 9, 11],
+    "knn__weights": ["uniform", "distance"],
+    "knn__metric": ["euclidean", "manhattan"]
+}
+grid = GridSearchCV(
+    pipeline,
+    params,
+    cv=5,
+    scoring="accuracy"
+)
+grid.fit(X_train, y_train)
+print(grid.best_params_)
+This searches different combinations and selects the best-performing configuration based on cross-validation.
+
+47. KNN vs Logistic Regression
+KNN	Logistic Regression
+Instance-based	Parametric/model-based
+Lazy learner	Learns coefficients
+Nonlinear boundaries possible	Linear boundary by default
+Sensitive to scaling	Scaling often helpful
+Slow prediction	Usually fast prediction
+Little training	More training computation
+Sensitive to dimensionality	Usually more scalable to high dimensions
+Local approach	Global linear relationship
+
+48. KNN vs Decision Tree
+KNN	Decision Tree
+Distance-based	Rule/split-based
+Requires meaningful distance	Doesn't rely on distance
+Scaling important	Scaling usually unnecessary
+Sensitive to irrelevant features	Can perform feature selection through splits
+Slow prediction for large datasets	Generally faster prediction
+Nonlinear boundaries	Nonlinear boundaries
+
+49. KNN vs Random Forest
+KNN	Random Forest
+Instance-based	Ensemble of trees
+Distance-based	Split-based
+Needs scaling	Usually doesn't need scaling
+Can struggle in high dimensions	Generally handles many features better
+Prediction can be expensive	Usually faster at prediction
+Simple concept	More complex
+Local similarity	Multiple learned decision rules
+
+50. A Numerical Example from Start to Finish
+Suppose we have two features:
+X1 = Study Hours
+X2 = Attendance
+Training data:
+Student	Study Hours	Attendance	Result
+A	2	60	Fail
+B	3	65	Fail
+C	5	80	Pass
+D	6	85	Pass
+E	7	90	Pass
+New student:
+Study Hours = 5.5
+Attendance = 82
+Choose:
+K=3K=3
+Calculate distances.
+For student C:
+dC=(5.5−5)2+(82−80)2d_C= \sqrt{(5.5-5)^2+(82-80)^2} =0.25+4=\sqrt{0.25+4} ≈2.062\approx2.062
+For student D:
+dD=(5.5−6)2+(82−85)2d_D= \sqrt{(5.5-6)^2+(82-85)^2} =0.25+9=\sqrt{0.25+9} ≈3.041\approx3.041
+For student E:
+dE=(5.5−7)2+(82−90)2d_E= \sqrt{(5.5-7)^2+(82-90)^2} =2.25+64=\sqrt{2.25+64} ≈8.139\approx8.139
+The three nearest might include:
+C → Pass
+D → Pass
+B → Fail
+Votes:
+Pass → 2
+Fail → 1
+Prediction:
+Pass\boxed{Pass}
+
+51. What Happens if We Change K?
+Suppose:
+K=1K=1
+The nearest point is C:
+Pass
+Prediction:
+Pass
+For:
+K=3K=3
+perhaps:
+Pass
+Pass
+Fail
+Prediction:
+Pass
+For:
+K=5K=5
+all training points might be included:
+Fail
+Fail
+Pass
+Pass
+Pass
+Prediction:
+Pass
+As K becomes very large, the prediction increasingly reflects the overall class distribution instead of local structure.
+
+52. Key Interview Concept: Is KNN Parametric or Non-Parametric?
+KNN is generally considered a:
+Non-parametric algorithm\boxed{\text{Non-parametric algorithm}}
+Why?
+Because it does not assume a fixed functional form such as:
+y=wx+by=wx+b
+Instead, its complexity can grow with the amount of training data.
+
+53. Key Interview Concept: Does KNN Have a Training Phase?
+Technically, KNN has a very minimal training phase.
+It primarily stores the training examples.
+Therefore:
+	KNN is often described as a lazy learner because most computation happens during prediction.
+
+54. Key Interview Concept: Why Scaling?
+Because KNN depends on distance.
+Suppose:
+Age       → 20–60
+Salary    → 20,000–200,000
+Salary can dominate Euclidean distance.
+Therefore, scaling is usually important.
+
+55. Key Interview Concept: What Happens with K = 1?
+With:
+K=1K=1
+the model predicts the class of the nearest training point.
+It can produce highly complex boundaries and is prone to overfitting/noise sensitivity.
+
+56. Key Interview Concept: What Happens if K Is Too Large?
+If K is too large:
+	• local patterns are ignored
+	• decision boundary becomes too smooth
+	• model can underfit
+	• bias increases
+
+57. Key Interview Concept: What Happens if K Is Too Small?
+If K is too small:
+	• model becomes highly sensitive to noise
+	• decision boundary becomes irregular
+	• variance increases
+	• overfitting becomes more likely
+
+58. Key Interview Concept: Weighted KNN
+Standard KNN:
+wi=1w_i=1
+for every neighbor.
+Weighted KNN:
+wi=1diw_i=\frac{1}{d_i}
+approximately gives greater influence to closer neighbors.
+Therefore:
+	Weighted KNN can reduce the influence of distant neighbors.
+
+59. Important Formulas
+Euclidean distance
+d=∑i(xi−yi)2\boxed{ d= \sqrt{\sum_i(x_i-y_i)^2} }
+Manhattan distance
+d=∑i∣xi−yi∣\boxed{ d= \sum_i|x_i-y_i| }
+Minkowski distance
+d=(∑i∣xi−yi∣p)1/p\boxed{ d= \left( \sum_i|x_i-y_i|^p \right)^{1/p} }
+Standardization
+z=x−μσ\boxed{ z=\frac{x-\mu}{\sigma} }
+Common weighted KNN weight
+wi=1di\boxed{ w_i=\frac{1}{d_i} }
+
+60. Interview Questions and Answers
+Q1. What is KNN?
+Answer:
+K-Nearest Neighbors is a supervised, non-parametric, instance-based learning algorithm that predicts a new observation based on the labels or target values of its K nearest training observations.
+
+Q2. What does K represent in KNN?
+Answer:
+K represents the number of nearest neighbors considered when making a prediction.
+For example:
+K = 5
+means the model considers the five closest training observations.
+
+Q3. Is KNN supervised or unsupervised?
+Answer:
+KNN is primarily a supervised learning algorithm because it uses labeled training data for classification or regression.
+
+Q4. Is KNN parametric or non-parametric?
+Answer:
+KNN is generally considered non-parametric because it does not assume a fixed functional form for the relationship between features and target.
+
+Q5. Why is KNN called a lazy learner?
+Answer:
+Because it performs very little computation during training. It primarily stores the training data and performs distance calculations and neighbor selection during prediction.
+
+Q6. What distance metric is commonly used in KNN?
+Answer:
+Euclidean distance is commonly used for numerical data.
+d=∑i(xi−yi)2d= \sqrt{\sum_i(x_i-y_i)^2}
+Other options include Manhattan, Minkowski, Hamming, and cosine-based measures depending on the data.
+
+Q7. Why is feature scaling important for KNN?
+Answer:
+Because KNN depends on distance calculations. Features with larger numerical ranges can dominate the distance.
+For example, if salary ranges from ₹20,000 to ₹200,000 while age ranges from 20 to 60, salary could overwhelm age in the distance calculation.
+Scaling puts features on comparable scales.
+
+Q8. What happens if K is too small?
+Answer:
+The model becomes highly sensitive to individual observations and noise.
+This typically leads to:
+	• High variance
+	• Complex decision boundaries
+	• Greater risk of overfitting
+
+Q9. What happens if K is too large?
+Answer:
+The model considers too many observations and can lose local patterns.
+This typically leads to:
+	• High bias
+	• Smoother decision boundaries
+	• Greater risk of underfitting
+
+Q10. Why is odd K often preferred for binary classification?
+Answer:
+An odd K reduces the chance of ties in majority voting.
+For example, with K=4, the votes could be:
+A → 2
+B → 2
+while K=5 makes a tie less likely.
+However, odd K is not a strict requirement.
+
+Q11. What is weighted KNN?
+Answer:
+Weighted KNN gives more importance to closer neighbors and less importance to farther neighbors.
+A common weighting function is:
+wi=1diw_i=\frac{1}{d_i}
+
+Q12. What is the difference between uniform and distance weighting?
+Answer:
+With uniform weighting:
+Every neighbor has equal influence.
+With distance weighting:
+Closer neighbors have greater influence.
+In Scikit-Learn:
+weights="uniform"
+versus:
+weights="distance"
+
+Q13. Can KNN be used for regression?
+Answer:
+Yes.
+For KNN regression, the target values of the nearest neighbors are typically averaged.
+For example:
+₹50 lakh
+₹55 lakh
+₹60 lakh
+gives:
+Prediction=₹55 lakhPrediction=₹55\ lakh
+with uniform weighting.
+
+Q14. Can KNN handle nonlinear decision boundaries?
+Answer:
+Yes.
+KNN makes predictions based on local neighborhoods, so it can naturally create complex and nonlinear decision boundaries.
+
+Q15. Why can KNN perform poorly with high-dimensional data?
+Answer:
+Because of the curse of dimensionality.
+As the number of dimensions increases, data becomes sparse and distances become less informative. Finding meaningful nearest neighbors becomes increasingly difficult.
+
+Q16. Why are irrelevant features harmful to KNN?
+Answer:
+KNN uses features to calculate distances. Irrelevant features contribute noise to those distances and can make genuinely similar observations appear far apart.
+
+Q17. Does KNN require feature selection?
+Answer:
+It doesn't strictly require it, but feature selection can be very beneficial, especially when many features are irrelevant or noisy.
+
+Q18. Does KNN require scaling?
+Answer:
+KNN does not mathematically require scaling, but scaling is usually strongly recommended for numerical features because KNN relies on distance calculations.
+
+Q19. What is the difference between KNN and Logistic Regression?
+Answer:
+Logistic Regression learns a global parametric relationship and typically produces a linear decision boundary.
+KNN is instance-based and makes predictions from local neighborhoods, allowing nonlinear decision boundaries.
+
+Q20. Why can KNN be slow during prediction?
+Answer:
+For a new observation, KNN may need to calculate its distance to many or all training observations and identify the closest K points.
+Therefore, prediction can become expensive for large datasets.
+
+61. Scenario-Based Interview Questions
+Q21. Your KNN model has 99% training accuracy but only 75% test accuracy. What might be happening?
+Answer:
+The model is likely overfitting.
+A common cause is a very small K, such as:
+K=1K=1
+Possible solutions include:
+	• Increase K
+	• Use cross-validation
+	• Improve feature selection
+	• Remove noisy features
+	• Use appropriate scaling
+	• Tune other hyperparameters
+
+Q22. Your KNN model performs poorly because one feature has values around 0–1 and another has values around 1–1,000,000. What would you do?
+Answer:
+Scale the features, typically using StandardScaler or another appropriate scaling method.
+For example:
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+Q23. You increase K from 3 to 100 and test accuracy decreases. Why?
+Answer:
+The model may be becoming too smooth and losing important local patterns.
+A very large K can increase bias and cause underfitting.
+
+Q24. Two neighbors are extremely close to a new point, while three other neighbors are much farther away. Would weighted KNN be useful?
+Answer:
+Yes.
+Weighted KNN gives more influence to the closest observations, potentially producing a more locally appropriate prediction than uniform voting.
+
+Q25. When would you choose KNN instead of Logistic Regression?
+Answer:
+KNN can be attractive when:
+	• The dataset is relatively small
+	• Local similarity is meaningful
+	• The decision boundary is nonlinear
+	• You want a simple baseline
+	• There isn't a clear global linear relationship
+Logistic Regression may be preferable when you need faster prediction, strong interpretability, or better scalability.
+
+Q26. Your KNN model works well with 5 features but poorly after adding 500 irrelevant features. Why?
+Answer:
+The additional irrelevant dimensions can distort distance calculations and contribute to the curse of dimensionality.
+Feature selection or dimensionality reduction may improve performance.
+
+Q27. Should you scale data before or after splitting into train and test sets?
+Answer:
+Split first.
+Then:
+Training data
+    ↓
+fit scaler
+    ↓
+transform training data
+Test data
+    ↓
+use same scaler
+    ↓
+transform test data
+Do not fit the scaler on the entire dataset before splitting because that can leak information from the test set into preprocessing.
+
+62. Quick Revision Sheet
+KNN
+	Predict based on nearby observations.
+K
+	Number of neighbors.
+Small K
+Low bias
+High variance
+Overfitting risk
+Large K
+High bias
+Low variance
+Underfitting risk
+Euclidean
+∑(xi−yi)2\sqrt{\sum(x_i-y_i)^2}
+Manhattan
+∑∣xi−yi∣\sum|x_i-y_i|
+Weighted KNN
+	Closer neighbors get more influence.
+Scaling
+	Very important because KNN relies on distance.
+Classification
+	Majority vote.
+Regression
+	Average/weighted average of neighbor targets.
+Main weakness
+	Computationally expensive prediction and poor behavior in high dimensions.
+Main strength
+	Simple, flexible, and naturally capable of nonlinear decision boundaries.
+
+63. One-Minute Interview Explanation
+If an interviewer says:
+	"Explain KNN."
+A strong concise answer would be:
+	K-Nearest Neighbors is a supervised, non-parametric, instance-based algorithm used for classification and regression. For a new observation, it calculates distances to the training observations, selects the K closest neighbors, and uses majority voting for classification or averaging for regression. Common distance metrics include Euclidean and Manhattan distance. Since KNN is distance-based, feature scaling is usually important. A small K can lead to overfitting because of high variance, while a large K can lead to underfitting because of high bias. Weighted KNN can give closer neighbors more influence. K is usually selected using validation or cross-validation.
+That answer covers nearly everything an interviewer is likely fishing for without requiring you to recite the entire history of human attempts to measure distance.

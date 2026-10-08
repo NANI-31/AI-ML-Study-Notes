@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Antigravity Quota Monitor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="navbar">
+            <div class="brand">
+                <div class="brand-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                </div>
+                <div class="brand-info">
+                    <h1>Antigravity Quota Hub</h1>
+                    <span class="brand-subtitle">Multi-Account Model Rate Limit Monitor</span>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <div class="status-indicator online" id="tokenDaemonBadge" title="24/7 Token Sync Daemon: Click to trigger token cycle pass" onclick="triggerTokenCycle()" style="cursor: pointer;">
+                    <span class="status-dot" style="background: #38bdf8; box-shadow: 0 0 10px #38bdf8;"></span>
+                    <span id="tokenDaemonText">⚡ 24/7 Token Sync Active</span>
+                </div>
+                <div class="status-indicator online" id="connectionBadge">
+                    <span class="status-dot"></span>
+                    <span id="connectionText">Language Server Connected</span>
+                </div>
+                <button class="btn btn-primary" id="addAccountBtn" onclick="triggerAddAccount()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    Add Account
+                </button>
+                <button class="btn btn-secondary" id="refreshBtn">
+                    <svg class="refresh-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="23 4 23 10 17 10"></polyline>
+                        <polyline points="1 20 1 14 7 14"></polyline>
+                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                    </svg>
+                    Refresh
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Accounts Section -->
+            <section class="section-container">
+                <div class="section-header">
+                    <div class="section-title-wrap">
+                        <h2>Configured Pro Accounts (<span id="accountCount">0</span>) • Active in IDE: <span id="activeAccountEmail" style="color: #818cf8; font-family: var(--font-mono); font-size: 0.95rem;">--</span></h2>
+                        <span class="auto-refresh-note">Auto-refreshing every 30s • Next in <span id="autoTimer">30</span>s</span>
+                    </div>
+
+                    <!-- Controls: Sort Profiles & View Switcher -->
+                    <div class="controls-toolbar">
+                        <!-- Sort Profiles -->
+                        <div class="sort-profile-toggle" title="Persistent Sort Profiles">
+                            <span class="sort-label">Sort:</span>
+                            <button class="sort-btn active" id="sortProfileCustom" onclick="setSortProfile('custom')" title="Custom manual drag-and-drop ordering">
+                                <span class="sort-icon">🔀</span> Custom
+                            </button>
+                            <button class="sort-btn" id="sortProfileClaude" onclick="setSortProfile('claude-highest')" title="Sort by highest remaining Claude & GPT quota">
+                                <span class="sort-icon">⚡</span> Claude %
+                            </button>
+                            <button class="sort-btn" id="sortProfileGemini" onclick="setSortProfile('gemini-highest')" title="Sort by highest remaining Gemini quota">
+                                <span class="sort-icon">💎</span> Gemini %
+                            </button>
+                            <button class="sort-btn" id="sortProfileReset" onclick="setSortProfile('reset-soonest')" title="Sort by recovering reset timers soonest">
+                                <span class="sort-icon">⏱</span> Reset Soonest
+                            </button>
+                            <button class="sort-btn" id="sortProfileActive" onclick="setSortProfile('active-first')" title="Place active IDE account first">
+                                <span class="sort-icon">🟢</span> Active First
+                            </button>
+                            <button class="sort-btn" id="sortProfileMultiTier" onclick="setSortProfile('multi-tier')" title="Multi-tier sort: Primary criterion + Secondary tie-breaker">
+                                <span class="sort-icon">🎯</span> Multi-Tier
+                            </button>
+                            <button class="sort-settings-btn" onclick="openSortPreferencesModal()" title="Configure Multi-Tier Sort Rules (Preferences Modal)">
+                                ⚙️
+                            </button>
+                        </div>
+
+                        <!-- View Switcher -->
+                        <div class="view-toggle">
+                            <button class="view-btn active" id="viewCardsBtn" onclick="switchView('cards')">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+                                    <rect x="3" y="3" width="7" height="7"></rect>
+                                    <rect x="14" y="3" width="7" height="7"></rect>
+                                    <rect x="14" y="14" width="7" height="7"></rect>
+                                    <rect x="3" y="14" width="7" height="7"></rect>
+                                </svg>
+                                Cards View
+                            </button>
+                            <button class="view-btn" id="viewTableBtn" onclick="switchView('table')">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+                                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                                </svg>
+                                Table Matrix
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cards Grid View -->
+                <div class="accounts-grid" id="accountsGrid">
+                    <!-- Dynamic Account Cards Injected Here -->
+                </div>
+
+                <!-- Table Matrix View -->
+                <div class="table-container" id="accountsTableContainer" style="display: none;">
+                    <div class="table-wrapper">
+                        <table class="quota-matrix-table" id="quotaTable">
+                            <thead>
+                                <tr>
+                                    <th rowspan="2" class="th-account">Account / Email</th>
+                                    <th colspan="2" class="th-group th-gemini">
+                                        <span class="model-bullet gemini" style="display:inline-block; margin-right:4px;"></span> Gemini Models
+                                    </th>
+                                    <th colspan="2" class="th-group th-claude">
+                                        <span class="model-bullet claude" style="display:inline-block; margin-right:4px;"></span> Claude &amp; GPT Models
+                                    </th>
+                                    <th rowspan="2" class="th-actions">IDE Status</th>
+                                </tr>
+                                <tr>
+                                    <th class="th-sub">5-Hour Limit</th>
+                                    <th class="th-sub">7-Day Baseline</th>
+                                    <th class="th-sub">5-Hour Limit</th>
+                                    <th class="th-sub">7-Day Baseline</th>
+                                </tr>
+                            </thead>
+                            <tbody id="quotaTableBody">
+                                <!-- Dynamic Rows Injected Here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Add Notice -->
+            <section class="help-box">
+                <details>
+                    <summary>
+                        <span class="help-summary-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 18px; height: 18px; vertical-align: middle; margin-right: 6px;">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg>
+                            How to add accounts automatically with one click
+                        </span>
+                    </summary>
+                    <div class="help-content">
+                        <p>Authenticate and manage multiple Google accounts seamlessly:</p>
+                        <ol style="margin-top: 8px;">
+                            <li><strong>1-Click OAuth:</strong> Click <strong>"+ Add Account"</strong> at the top right or <strong>"+ Ingest Account N"</strong> in the table. Pick your Google account in the browser; tokens sync automatically in the background.</li>
+                            <li><strong>Global Hotkey:</strong> Press <kbd style="background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px; font-family: var(--font-mono); border: 1px solid rgba(255,255,255,0.2);">Ctrl + Alt + Q</kbd> anywhere or right-click the AutoHotkey system tray icon to open or restart the dashboard!</li>
+                        </ol>
+                    </div>
+                </details>
+            </section>
+        </main>
+    </div>
+
+    <!-- Multi-Tier Sort Preferences Modal -->
+    <div class="modal-backdrop" id="sortPreferencesModal" style="display: none;" onclick="handleModalBackdropClick(event)">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div class="modal-icon-badge">⚙️</div>
+                    <div>
+                        <h3 class="modal-title">Custom Multi-Tier Sort Rules</h3>
+                        <p class="modal-subtitle">Configure primary sorting and secondary tie-breaker criteria</p>
+                    </div>
+                </div>
+                <button class="modal-close-btn" onclick="closeSortPreferencesModal()" title="Close (Esc)">✕</button>
+            </div>
+
+            <div class="modal-body">
+                <!-- Tier 1: Primary Rule -->
+                <div class="sort-rule-group">
+                    <div class="rule-header">
+                        <span class="rule-tier-badge primary">Priority 1</span>
+                        <label class="rule-title">Primary Sort Criterion</label>
+                    </div>
+                    <div class="rule-controls">
+                        <select id="sortPrimaryField" class="rule-select" onchange="updateModalSummary()">
+                            <option value="claude_5h">Claude &amp; GPT • 5-Hour Limit %</option>
+                            <option value="claude_weekly">Claude &amp; GPT • Weekly Baseline %</option>
+                            <option value="gemini_5h">Gemini Models • 5-Hour Limit %</option>
+                            <option value="gemini_weekly">Gemini Models • Weekly Baseline %</option>
+                            <option value="reset_soonest">Reset Timer • Soonest Recovery</option>
+                            <option value="active_first">Active IDE Account First</option>
+                            <option value="oauth_expiry">OAuth Token • Longest Remaining</option>
+                        </select>
+                        <select id="sortPrimaryDir" class="rule-select rule-select-dir" onchange="updateModalSummary()">
+                            <option value="desc">Highest First (Descending)</option>
+                            <option value="asc">Lowest First (Ascending)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Tier 2: Secondary Tie-Breaker Rule -->
+                <div class="sort-rule-group">
+                    <div class="rule-header">
+                        <span class="rule-tier-badge secondary">Priority 2</span>
+                        <label class="rule-title">Secondary Tie-Breaker (If Priority 1 is Equal)</label>
+                    </div>
+                    <div class="rule-controls">
+                        <select id="sortSecondaryField" class="rule-select" onchange="updateModalSummary()">
+                            <option value="none">-- None (Maintain Sequence) --</option>
+                            <option value="claude_weekly" selected>Claude &amp; GPT • Weekly Baseline %</option>
+                            <option value="claude_5h">Claude &amp; GPT • 5-Hour Limit %</option>
+                            <option value="gemini_5h">Gemini Models • 5-Hour Limit %</option>
+                            <option value="gemini_weekly">Gemini Models • Weekly Baseline %</option>
+                            <option value="reset_soonest">Reset Timer • Soonest Recovery</option>
+                            <option value="active_first">Active IDE Account First</option>
+                            <option value="oauth_expiry">OAuth Token • Longest Remaining</option>
+                        </select>
+                        <select id="sortSecondaryDir" class="rule-select rule-select-dir" onchange="updateModalSummary()">
+                            <option value="desc">Highest First (Descending)</option>
+                            <option value="asc">Lowest First (Ascending)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Active Rule Summary Banner -->
+                <div class="sort-rule-summary" id="sortRuleSummaryText">
+                    Active Rule: <strong>Claude 5-Hour % (Desc)</strong>, then tie-break with <strong>Claude Weekly % (Desc)</strong>.
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="resetSortPreferences()">Reset Defaults</button>
+                <div style="display: flex; gap: 8px;">
+                    <button class="btn btn-secondary" onclick="closeSortPreferencesModal()">Cancel</button>
+                    <button class="btn btn-primary" onclick="saveSortPreferences()">Apply &amp; Sort Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>

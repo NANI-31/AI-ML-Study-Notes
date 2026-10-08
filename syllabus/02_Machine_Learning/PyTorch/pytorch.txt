@@ -1,0 +1,740 @@
+Below is a complete PyTorch learning roadmap, structured in the same detailed style as your NumPy syllabus, progressing from fundamentals to deep learning, CNNs, Transformers, deployment, and advanced topics.
+PyTorch Complete Syllabus
+1. Introduction to PyTorch
+1.1 What is PyTorch?
+	1. Definition of PyTorch
+	2. Why PyTorch is important
+	3. PyTorch vs NumPy
+	4. PyTorch vs TensorFlow
+	5. Advantages of PyTorch
+		○ Dynamic computation graphs
+		○ GPU acceleration
+		○ Automatic differentiation
+		○ Deep learning support
+		○ Flexible model development
+	6. Real-world applications
+		○ Machine Learning
+		○ Deep Learning
+		○ Computer Vision
+		○ Natural Language Processing
+		○ Generative AI
+		○ Reinforcement Learning
+1.2 Installing PyTorch
+	7. Installing with pip
+	8. Installing with conda
+	9. CPU vs GPU installation
+	10. CUDA compatibility
+	11. Verifying installation
+	12. Checking PyTorch version
+	13. Checking GPU availability
+import torch
+1.3 PyTorch Basics
+	14. Tensor object
+	15. Tensor dimensions
+	16. Tensor shape
+	17. Tensor size
+	18. Tensor datatype
+	19. Tensor device
+	20. Tensor indexing basics
+2. PyTorch Tensors
+2.1 Creating Tensors
+	1. Creating tensors from Python lists
+	2. Creating tensors from NumPy arrays
+	3. torch.tensor()
+	4. torch.as_tensor()
+	5. Creating scalar tensors
+	6. Creating 1D tensors
+	7. Creating 2D tensors
+	8. Creating 3D tensors
+	9. Creating higher-dimensional tensors
+2.2 Special Tensors
+	10. torch.zeros()
+	11. torch.ones()
+	12. torch.empty()
+	13. torch.full()
+	14. torch.eye()
+	15. torch.zeros_like()
+	16. torch.ones_like()
+	17. torch.full_like()
+2.3 Range-Based Tensors
+	18. torch.arange()
+	19. torch.linspace()
+	20. torch.logspace()
+2.4 Random Tensors
+	21. torch.rand()
+	22. torch.randn()
+	23. torch.randint()
+	24. torch.randperm()
+	25. Random seeds
+	26. Reproducible experiments
+3. Tensor Attributes and Properties
+3.1 Tensor Properties
+	1. shape
+	2. size()
+	3. ndim
+	4. numel()
+	5. dtype
+	6. device
+	7. requires_grad
+3.2 Tensor Datatypes
+	8. Integer tensors
+	9. Floating-point tensors
+	10. Boolean tensors
+	11. Complex tensors
+	12. float16
+	13. float32
+	14. float64
+	15. bfloat16
+3.3 Tensor Conversion
+	16. float()
+	17. double()
+	18. long()
+	19. int()
+	20. bool()
+	21. to()
+4. Tensor Indexing and Slicing
+4.1 Indexing
+	1. Positive indexing
+	2. Negative indexing
+	3. Single-element access
+	4. Row access
+	5. Column access
+	6. Multi-dimensional indexing
+4.2 Slicing
+	7. Basic slicing
+	8. Step slicing
+	9. Reverse slicing
+	10. Multi-dimensional slicing
+	11. Selecting ranges
+	12. Selecting batches
+4.3 Boolean Indexing
+	13. Conditional filtering
+	14. Boolean masks
+	15. Combining conditions
+	16. Masked selection
+4.4 Advanced Indexing
+	17. Integer indexing
+	18. torch.index_select()
+	19. torch.gather()
+	20. torch.scatter()
+	21. torch.where()
+5. Tensor Operations
+5.1 Arithmetic Operations
+	1. Addition
+	2. Subtraction
+	3. Multiplication
+	4. Division
+	5. Modulus
+	6. Power operations
+5.2 Mathematical Operations
+	7. torch.abs()
+	8. torch.sqrt()
+	9. torch.exp()
+	10. torch.log()
+	11. torch.log10()
+	12. torch.clamp()
+5.3 Comparison Operations
+	13. Equality
+	14. Greater than
+	15. Less than
+	16. Logical operations
+	17. torch.eq()
+	18. torch.gt()
+	19. torch.lt()
+6. Tensor Broadcasting
+6.1 Broadcasting Basics
+	1. What is broadcasting?
+	2. Broadcasting rules
+	3. Shape compatibility
+	4. Scalar broadcasting
+	5. Vector broadcasting
+	6. Matrix broadcasting
+6.2 Broadcasting Examples
+	7. Adding scalar values
+	8. Adding vectors to matrices
+	9. Batch-wise operations
+	10. Multi-dimensional broadcasting
+6.3 Broadcasting in Deep Learning
+	11. Bias addition
+	12. Feature normalization
+	13. Image normalization
+	14. Batch operations
+	15. Neural network calculations
+7. Tensor Shape Manipulation
+7.1 Reshaping
+	1. reshape()
+	2. view()
+	3. flatten()
+	4. ravel()
+	5. squeeze()
+	6. unsqueeze()
+7.2 Dimension Manipulation
+	7. Adding dimensions
+	8. Removing dimensions
+	9. Changing batch dimensions
+	10. Changing channel dimensions
+7.3 Transposing
+	11. transpose()
+	12. permute()
+	13. T
+	14. Swapping dimensions
+7.4 Contiguous Memory
+	15. What is contiguous memory?
+	16. is_contiguous()
+	17. contiguous()
+	18. view() vs reshape()
+8. Joining and Splitting Tensors
+8.1 Joining Tensors
+	1. torch.cat()
+	2. torch.stack()
+	3. Concatenating along dimensions
+	4. Stacking batches
+	5. Combining feature tensors
+8.2 Splitting Tensors
+	6. torch.split()
+	7. torch.chunk()
+	8. Splitting batches
+	9. Splitting feature dimensions
+8.3 Real-World Applications
+	10. Batch construction
+	11. Feature combination
+	12. Multi-input models
+	13. Multi-modal data
+9. Tensor Iteration and Computation
+9.1 Iteration Basics
+	1. Iterating 1D tensors
+	2. Iterating 2D tensors
+	3. Iterating multi-dimensional tensors
+	4. Nested loops
+9.2 Efficient Tensor Operations
+	5. Vectorized operations
+	6. Avoiding Python loops
+	7. Batch operations
+	8. GPU-based computation
+9.3 Performance Concepts
+	9. CPU computation
+	10. GPU computation
+	11. Memory transfer
+	12. Synchronization
+10. NumPy and PyTorch
+10.1 Converting Between NumPy and PyTorch
+	1. NumPy array → Tensor
+	2. Tensor → NumPy array
+	3. torch.from_numpy()
+	4. torch.tensor()
+	5. .numpy()
+10.2 Shared Memory
+	6. Memory sharing
+	7. Copy vs shared memory
+	8. clone()
+	9. detach()
+10.3 Real-World Usage
+	10. NumPy preprocessing
+	11. PyTorch model input
+	12. Converting model outputs
+	13. Scientific computing + deep learning
+11. Automatic Differentiation
+11.1 What is Autograd?
+	1. Definition of automatic differentiation
+	2. Why gradients are required
+	3. Computational graphs
+	4. Forward computation
+	5. Backward computation
+11.2 requires_grad
+	6. Creating tensors with gradients
+	7. Enabling gradients
+	8. Disabling gradients
+11.3 Gradient Operations
+	9. .grad
+	10. .backward()
+	11. Gradient accumulation
+	12. zero_grad()
+11.4 Gradient Control
+	13. torch.no_grad()
+	14. torch.inference_mode()
+	15. detach()
+	16. Gradient tracking vs inference
+12. Computational Graphs and Backpropagation
+12.1 Computational Graph
+	1. Nodes
+	2. Operations
+	3. Leaf tensors
+	4. Non-leaf tensors
+	5. Dynamic computational graphs
+12.2 Backpropagation
+	6. Forward pass
+	7. Loss calculation
+	8. Backward pass
+	9. Gradient calculation
+	10. Chain rule
+12.3 Gradient Problems
+	11. Vanishing gradients
+	12. Exploding gradients
+	13. Gradient clipping
+	14. Gradient accumulation
+12.4 Advanced Autograd
+	15. Higher-order gradients
+	16. Jacobians
+	17. Hessians
+	18. Custom gradient functions
+13. PyTorch Neural Network Basics
+13.1 Introduction to Neural Networks
+	1. What is a neural network?
+	2. Neurons
+	3. Weights
+	4. Bias
+	5. Activation functions
+	6. Layers
+13.2 torch.nn
+	7. nn.Module
+	8. nn.Linear
+	9. nn.Sequential
+	10. Model parameters
+	11. Model state
+13.3 Building a Neural Network
+	12. Creating a custom model
+	13. Defining __init__()
+	14. Defining forward()
+	15. Calling a model
+	16. Inspecting parameters
+14. Activation Functions
+14.1 Common Activations
+	1. ReLU
+	2. Sigmoid
+	3. Tanh
+	4. Softmax
+	5. LogSoftmax
+14.2 Advanced Activations
+	6. LeakyReLU
+	7. ELU
+	8. GELU
+	9. SiLU / Swish
+	10. Mish
+14.3 Choosing Activations
+	11. Binary classification
+	12. Multi-class classification
+	13. Regression
+	14. Hidden-layer activations
+	15. Output-layer activations
+15. Loss Functions
+15.1 Regression Losses
+	1. Mean Squared Error
+	2. Mean Absolute Error
+	3. Smooth L1 Loss
+	4. Huber Loss
+15.2 Classification Losses
+	5. Cross Entropy Loss
+	6. Binary Cross Entropy
+	7. BCE with Logits
+	8. Negative Log Likelihood
+15.3 Loss Concepts
+	9. What is loss?
+	10. Loss vs cost
+	11. Training loss
+	12. Validation loss
+	13. Overfitting detection
+16. Optimizers
+16.1 Gradient Descent
+	1. Gradient descent
+	2. Learning rate
+	3. Batch gradient descent
+	4. Mini-batch gradient descent
+	5. Stochastic gradient descent
+16.2 PyTorch Optimizers
+	6. torch.optim.SGD
+	7. Momentum
+	8. Adam
+	9. AdamW
+	10. RMSprop
+	11. Adagrad
+16.3 Optimizer Concepts
+	12. Learning rate
+	13. Weight decay
+	14. Momentum
+	15. Parameter updates
+	16. Optimizer state
+17. Training Neural Networks
+17.1 Training Workflow
+	1. Load data
+	2. Prepare data
+	3. Create model
+	4. Define loss function
+	5. Define optimizer
+	6. Forward pass
+	7. Calculate loss
+	8. Backward pass
+	9. Update weights
+17.2 Training Loop
+	10. Epochs
+	11. Batches
+	12. zero_grad()
+	13. backward()
+	14. step()
+17.3 Model Evaluation
+	15. train()
+	16. eval()
+	17. Validation loop
+	18. Testing loop
+	19. Accuracy calculation
+18. Dataset and DataLoader
+18.1 Dataset
+	1. What is a dataset?
+	2. torch.utils.data.Dataset
+	3. Custom Dataset
+	4. __len__()
+	5. __getitem__()
+18.2 DataLoader
+	6. DataLoader
+	7. Batch size
+	8. Shuffling
+	9. Number of workers
+	10. Drop last
+	11. Pin memory
+18.3 Data Pipelines
+	12. Training dataset
+	13. Validation dataset
+	14. Test dataset
+	15. Train/validation/test split
+19. Data Preprocessing and Augmentation
+19.1 Preprocessing
+	1. Data normalization
+	2. Standardization
+	3. Scaling
+	4. Encoding labels
+	5. Handling missing data
+19.2 Image Transformations
+	6. Resize
+	7. Crop
+	8. Flip
+	9. Rotation
+	10. Color transformation
+	11. Normalization
+19.3 torchvision.transforms
+	12. Transform pipelines
+	13. Compose
+	14. Random transformations
+	15. Data augmentation
+20. Convolutional Neural Networks
+20.1 CNN Basics
+	1. What is CNN?
+	2. Convolution
+	3. Filters
+	4. Kernels
+	5. Feature maps
+	6. Channels
+20.2 PyTorch CNN Layers
+	7. nn.Conv1d
+	8. nn.Conv2d
+	9. nn.Conv3d
+	10. Stride
+	11. Padding
+	12. Dilation
+20.3 Pooling
+	13. Max pooling
+	14. Average pooling
+	15. Adaptive pooling
+20.4 CNN Architecture
+	16. Convolution layers
+	17. Activation layers
+	18. Pooling layers
+	19. Fully connected layers
+	20. Building an image classifier
+21. Computer Vision with PyTorch
+21.1 Image Classification
+	1. Binary classification
+	2. Multi-class classification
+	3. Multi-label classification
+	4. Image preprocessing
+	5. Training image classifiers
+21.2 Transfer Learning
+	6. Pretrained models
+	7. Feature extraction
+	8. Fine-tuning
+	9. Freezing layers
+	10. Unfreezing layers
+21.3 torchvision.models
+	11. ResNet
+	12. VGG
+	13. MobileNet
+	14. EfficientNet
+	15. Vision Transformer
+21.4 Computer Vision Tasks
+	16. Image classification
+	17. Object detection
+	18. Image segmentation
+	19. Image generation
+22. Recurrent Neural Networks
+22.1 Sequence Data
+	1. What is sequential data?
+	2. Time-series data
+	3. Text sequences
+	4. Sequence length
+	5. Batch dimension
+22.2 RNN
+	6. Recurrent Neural Network
+	7. Hidden state
+	8. nn.RNN
+	9. Forward propagation through time
+22.3 LSTM
+	10. Long Short-Term Memory
+	11. Cell state
+	12. Forget gate
+	13. Input gate
+	14. Output gate
+	15. nn.LSTM
+22.4 GRU
+	16. Gated Recurrent Unit
+	17. Update gate
+	18. Reset gate
+	19. nn.GRU
+22.5 Sequence Applications
+	20. Time-series forecasting
+	21. Sentiment analysis
+	22. Text classification
+	23. Sequence prediction
+23. Natural Language Processing with PyTorch
+23.1 NLP Basics
+	1. Text preprocessing
+	2. Tokenization
+	3. Vocabulary
+	4. Token IDs
+	5. Padding
+	6. Attention masks
+23.2 Embeddings
+	7. Word embeddings
+	8. nn.Embedding
+	9. Embedding dimensions
+	10. Positional information
+23.3 NLP Models
+	11. RNN-based models
+	12. LSTM-based models
+	13. GRU-based models
+	14. Sequence classification
+	15. Text generation
+23.4 NLP Applications
+	16. Sentiment analysis
+	17. Text classification
+	18. Named Entity Recognition
+	19. Language modeling
+	20. Question answering
+24. Transformers with PyTorch
+24.1 Transformer Basics
+	1. What is a Transformer?
+	2. Transformer architecture
+	3. Encoder
+	4. Decoder
+	5. Self-attention
+	6. Cross-attention
+24.2 Attention Mechanism
+	7. Query
+	8. Key
+	9. Value
+	10. Attention scores
+	11. Scaled dot-product attention
+	12. Attention masks
+24.3 Transformer Components
+	13. Multi-head attention
+	14. Positional encoding
+	15. Feed-forward network
+	16. Residual connections
+	17. Layer normalization
+24.4 PyTorch Transformer APIs
+	18. nn.Transformer
+	19. nn.TransformerEncoder
+	20. nn.TransformerDecoder
+	21. nn.MultiheadAttention
+24.5 Transformer Applications
+	22. Text classification
+	23. Machine translation
+	24. Text generation
+	25. Vision Transformers
+	26. Large Language Models
+25. Advanced PyTorch, Optimization, Deployment and Projects
+25.1 GPU and CUDA
+	1. CPU vs GPU
+	2. CUDA basics
+	3. Moving tensors to GPU
+	4. Moving models to GPU
+	5. torch.cuda
+	6. Checking GPU memory
+	7. Multi-GPU concepts
+25.2 Mixed Precision
+	8. What is mixed precision?
+	9. FP16
+	10. BF16
+	11. Automatic Mixed Precision
+	12. torch.autocast
+	13. GradScaler
+25.3 Performance Optimization
+	14. Vectorized operations
+	15. Efficient DataLoaders
+	16. Pinned memory
+	17. Batch-size optimization
+	18. Memory optimization
+	19. Avoiding unnecessary tensor copies
+	20. Profiling PyTorch models
+25.4 Model Saving and Loading
+	21. state_dict()
+	22. torch.save()
+	23. torch.load()
+	24. Saving checkpoints
+	25. Loading checkpoints
+	26. Resuming training
+25.5 Model Evaluation
+	27. Accuracy
+	28. Precision
+	29. Recall
+	30. F1-score
+	31. Confusion matrix
+	32. ROC-AUC
+	33. Regression metrics
+25.6 Hyperparameter Tuning
+	34. Learning rate tuning
+	35. Batch-size tuning
+	36. Optimizer selection
+	37. Number of layers
+	38. Hidden dimensions
+	39. Dropout
+	40. Weight decay
+	41. Early stopping
+	42. Learning-rate schedulers
+25.7 Regularization
+	43. Dropout
+	44. Weight decay
+	45. Batch normalization
+	46. Layer normalization
+	47. Data augmentation
+	48. Early stopping
+25.8 Learning Rate Schedulers
+	49. StepLR
+	50. MultiStepLR
+	51. ExponentialLR
+	52. CosineAnnealingLR
+	53. ReduceLROnPlateau
+	54. Warmup strategies
+25.9 Advanced PyTorch
+	55. Custom layers
+	56. Custom loss functions
+	57. Custom autograd functions
+	58. Hooks
+	59. Forward hooks
+	60. Backward hooks
+	61. Gradient clipping
+	62. Gradient accumulation
+	63. Distributed training
+	64. Data parallelism
+	65. Distributed Data Parallel
+25.10 PyTorch Ecosystem
+	66. TorchVision
+	67. TorchAudio
+	68. TorchText concepts
+	69. TorchMetrics
+	70. TorchServe concepts
+	71. PyTorch Lightning concepts
+	72. Hugging Face Transformers integration
+25.11 Model Deployment
+	73. Saving trained models
+	74. Inference pipelines
+	75. Batch inference
+	76. Real-time inference
+	77. TorchScript concepts
+	78. ONNX export
+	79. Model serving
+	80. API-based model deployment
+25.12 PyTorch Debugging
+	81. Tensor shape errors
+	82. Device mismatch errors
+	83. CUDA errors
+	84. NaN loss debugging
+	85. Exploding gradients
+	86. Vanishing gradients
+	87. Incorrect labels
+	88. Learning-rate problems
+	89. Overfitting
+	90. Underfitting
+25.13 PyTorch Best Practices
+	91. Use appropriate tensor dtypes
+	92. Use GPU efficiently
+	93. Avoid unnecessary CPU-GPU transfers
+	94. Use vectorized operations
+	95. Use model.train() correctly
+	96. Use model.eval() correctly
+	97. Use torch.no_grad() during inference
+	98. Save checkpoints
+	99. Track experiments
+	100. Write reusable training loops
+25.14 PyTorch Interview Topics
+	101. Tensor vs NumPy array
+	102. Tensor vs Variable
+	103. view() vs reshape()
+	104. clone() vs detach()
+	105. train() vs eval()
+	106. no_grad() vs inference_mode()
+	107. Forward pass vs backward pass
+	108. Autograd
+	109. Computational graphs
+	110. zero_grad()
+	111. backward()
+	112. Optimizers
+	113. CNN vs RNN
+	114. RNN vs LSTM
+	115. LSTM vs GRU
+	116. Transformer architecture
+	117. GPU vs CPU
+	118. DataLoader
+	119. Dataset
+	120. Transfer learning
+25.15 PyTorch Coding Problems
+	121. Create a custom Dataset
+	122. Build a linear regression model
+	123. Build a binary classifier
+	124. Build a multi-class classifier
+	125. Implement a custom training loop
+	126. Implement a custom loss function
+	127. Implement a CNN
+	128. Implement an RNN
+	129. Implement an LSTM
+	130. Implement attention from scratch
+	131. Implement a Transformer block
+	132. Build an image classifier
+	133. Build a text classifier
+	134. Implement model checkpointing
+25.16 PyTorch Real-World Projects
+Beginner Projects
+	135. Student marks prediction
+	136. House price prediction
+	137. Handwritten digit classifier
+	138. Fashion image classifier
+	139. Binary image classifier
+Intermediate Projects
+	140. Cats vs dogs classifier
+	141. CIFAR-10 image classifier
+	142. Sentiment analysis
+	143. Spam message classifier
+	144. Time-series forecasting
+	145. Transfer-learning image classifier
+	146. Object detection system
+	147. Image segmentation system
+Advanced Projects
+	148. Image captioning system
+	149. Neural machine translation
+	150. Text generation model
+	151. Transformer-based sentiment classifier
+	152. Question-answering system
+	153. Vision Transformer classifier
+	154. Recommendation system
+	155. Generative image model
+	156. Mini GPT-style language model
+	157. Retrieval-Augmented Generation system
+25.17 Complete Deep Learning Projects
+	158. End-to-end computer vision pipeline
+	159. End-to-end NLP pipeline
+	160. End-to-end time-series pipeline
+	161. Custom CNN from scratch
+	162. Custom Transformer from scratch
+	163. Fine-tuning a pretrained Transformer
+	164. Fine-tuning a vision model
+	165. Multi-modal deep learning project
+	166. Model optimization and deployment project
+	167. Production-ready PyTorch inference system
+This gives you a full PyTorch roadmap from beginner → tensors → autograd → neural networks → CNN → RNN/LSTM → NLP → Transformers → GPU optimization → deployment → real-world projects.

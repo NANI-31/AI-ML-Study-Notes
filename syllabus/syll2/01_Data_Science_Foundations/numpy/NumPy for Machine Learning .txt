@@ -1,0 +1,361 @@
+NumPy for Machine Learning — Complete Syllabus / Roadmap
+
+1. Introduction to NumPy for Machine Learning
+1.1 What is NumPy?
+	1. Introduction to Numerical Computing
+	2. Why NumPy is important in Machine Learning
+	3. NumPy vs Python Lists
+	4. Role of NumPy in ML ecosystem
+	5. NumPy in:
+		○ Data preprocessing
+		○ Matrix operations
+		○ Neural networks
+		○ Deep learning foundations
+1.2 Why ML Engineers Use NumPy
+	1. Fast numerical computation
+	2. Vectorized operations
+	3. Memory-efficient arrays
+	4. Broadcasting
+	5. Mathematical computing support
+1.3 Installing & Setup
+	1. Installing NumPy
+	2. Jupyter Notebook setup
+	3. Import conventions
+import numpy as np
+
+2. NumPy Fundamentals
+2.1 ndarray Basics
+	1. Creating arrays
+	2. 1D arrays
+	3. 2D arrays
+	4. Multi-dimensional arrays
+	5. Array attributes
+		○ shape
+		○ ndim
+		○ size
+		○ dtype
+2.2 Array Creation Techniques
+	1. array()
+	2. zeros()
+	3. ones()
+	4. full()
+	5. eye()
+	6. arange()
+	7. linspace()
+2.3 Data Types in ML
+	1. Integer arrays
+	2. Float arrays
+	3. Boolean arrays
+	4. Type conversion using astype()
+	5. Importance of float precision in ML
+
+3. Mathematical Foundations Using NumPy
+3.1 Vector Mathematics
+	1. Vectors
+	2. Vector addition
+	3. Vector subtraction
+	4. Dot product
+	5. Magnitude
+	6. Cosine similarity basics
+3.2 Matrix Mathematics
+	1. Matrices
+	2. Matrix multiplication
+	3. Matrix transpose
+	4. Identity matrix
+	5. Inverse matrix
+3.3 Linear Algebra for ML
+	1. np.dot()
+	2. np.matmul()
+	3. np.linalg.inv()
+	4. np.linalg.det()
+	5. Eigenvalues & Eigenvectors
+	6. Singular Value Decomposition (SVD)
+3.4 Statistical Concepts
+	1. Mean
+	2. Median
+	3. Mode basics
+	4. Standard deviation
+	5. Variance
+	6. Covariance
+	7. Correlation
+
+4. Array Operations for ML
+4.1 Indexing & Slicing
+	1. Basic indexing
+	2. Negative indexing
+	3. Multi-dimensional slicing
+	4. Boolean indexing
+	5. Fancy indexing
+4.2 Reshaping Data
+	1. reshape()
+	2. flatten()
+	3. ravel()
+	4. Expanding dimensions
+	5. Squeezing dimensions
+4.3 Broadcasting
+	1. Broadcasting rules
+	2. Scalar operations
+	3. Feature scaling using broadcasting
+	4. Broadcasting in neural networks
+4.4 Vectorized Computation
+	1. Why vectorization matters
+	2. Replacing loops with NumPy
+	3. Batch operations
+	4. Performance benefits
+
+5. Data Preprocessing with NumPy
+5.1 Handling Missing Data
+	1. Detecting missing values
+	2. np.nan
+	3. Replacing missing values
+	4. Imputation basics
+5.2 Feature Scaling
+	1. Min-Max normalization
+	2. Standardization
+	3. Z-score normalization
+	4. Mean normalization
+5.3 Encoding Data
+	1. Label encoding basics
+	2. One-hot encoding using NumPy
+	3. Binary encoding basics
+5.4 Filtering & Cleaning Data
+	1. Boolean masks
+	2. Removing outliers
+	3. Conditional filtering
+	4. Data transformation
+
+6. Random Module for ML
+6.1 Random Number Generation
+	1. rand()
+	2. randn()
+	3. randint()
+	4. Random seeds
+6.2 Probability Distributions
+	1. Normal distribution
+	2. Uniform distribution
+	3. Binomial distribution
+	4. Poisson distribution
+6.3 Data Sampling
+	1. Random sampling
+	2. Shuffling datasets
+	3. Train-test splitting basics
+
+7. NumPy for Machine Learning Algorithms
+7.1 Linear Regression Mathematics
+	1. Hypothesis function
+	2. Cost function
+	3. Mean Squared Error
+	4. Gradient Descent basics
+	5. Implementing gradient descent with NumPy
+7.2 Logistic Regression Basics
+	1. Sigmoid function
+	2. Binary classification math
+	3. Cost function
+	4. Prediction thresholding
+7.3 K-Nearest Neighbors (KNN)
+	1. Euclidean distance
+	2. Distance calculation using NumPy
+	3. Vectorized distance computation
+7.4 Naive Bayes Basics
+	1. Probability calculations
+	2. Gaussian distributions
+	3. Statistical computations
+7.5 Decision Tree Foundations
+	1. Entropy basics
+	2. Information gain basics
+	3. Array-based calculations
+
+8. NumPy for Deep Learning Foundations
+8.1 Neural Network Mathematics
+	1. Neurons
+	2. Weights & biases
+	3. Activation functions
+	4. Forward propagation
+8.2 Activation Functions
+	1. Sigmoid
+	2. ReLU
+	3. Tanh
+	4. Softmax
+8.3 Loss Functions
+	1. MSE
+	2. Binary cross-entropy
+	3. Categorical cross-entropy
+8.4 Backpropagation Basics
+	1. Derivatives
+	2. Gradient computation
+	3. Weight updates
+	4. Chain rule basics
+8.5 Building a Mini Neural Network
+	1. Forward pass
+	2. Backward pass
+	3. Updating weights
+	4. Training loop using NumPy
+
+9. Optimization Techniques
+9.1 Gradient Descent
+	1. Batch Gradient Descent
+	2. Stochastic Gradient Descent
+	3. Mini-batch Gradient Descent
+9.2 Learning Rate
+	1. Importance of learning rate
+	2. Learning rate tuning
+	3. Convergence issues
+9.3 Optimization Challenges
+	1. Vanishing gradients
+	2. Exploding gradients
+	3. Local minima basics
+
+10. NumPy Performance Optimization
+10.1 Efficient Computation
+	1. Avoiding loops
+	2. Using vectorization
+	3. Efficient slicing
+10.2 Memory Optimization
+	1. Choosing proper dtypes
+	2. In-place operations
+	3. Memory-efficient arrays
+10.3 Benchmarking
+	1. %timeit
+	2. Measuring execution time
+	3. Comparing Python loops vs NumPy
+
+11. NumPy with ML Libraries
+11.1 NumPy + Pandas
+	1. DataFrames to arrays
+	2. Array manipulation
+	3. Feature extraction
+11.2 NumPy + Matplotlib
+	1. Visualizing arrays
+	2. Plotting ML results
+	3. Plotting training curves
+11.3 NumPy + Scikit-learn
+	1. Input arrays for ML models
+	2. Preparing datasets
+	3. Feature matrices and target vectors
+11.4 NumPy + TensorFlow/PyTorch
+	1. Tensor conversion
+	2. NumPy arrays to tensors
+	3. Tensor to NumPy conversion
+
+12. Data Analysis with NumPy
+12.1 Exploratory Data Analysis (EDA)
+	1. Statistical summaries
+	2. Feature distributions
+	3. Correlation analysis
+12.2 Outlier Detection
+	1. Z-score method
+	2. IQR basics
+	3. Filtering outliers
+12.3 Feature Engineering
+	1. Polynomial features
+	2. Feature interactions
+	3. Derived features
+
+13. Working with Datasets
+13.1 Loading Data
+	1. loadtxt()
+	2. genfromtxt()
+	3. Reading CSV files
+13.2 Saving Data
+	1. save()
+	2. savez()
+	3. Exporting processed data
+13.3 Dataset Manipulation
+	1. Splitting datasets
+	2. Combining datasets
+	3. Dataset shuffling
+
+14. Image Processing Basics with NumPy
+14.1 Image Arrays
+	1. Pixels as arrays
+	2. RGB channels
+	3. Grayscale images
+14.2 Image Manipulation
+	1. Cropping
+	2. Resizing basics
+	3. Normalization
+14.3 Filters & Transformations
+	1. Convolution basics
+	2. Edge detection basics
+	3. Blur filters
+
+15. Time Series Basics
+15.1 Time-based Data
+	1. Sequential arrays
+	2. Sliding windows
+	3. Lag features
+15.2 Moving Statistics
+	1. Moving average
+	2. Rolling operations
+	3. Trend analysis basics
+
+16. Advanced NumPy Concepts for ML
+16.1 Broadcasting Deep Dive
+	1. Advanced broadcasting
+	2. Batch processing
+16.2 Strides and Memory Layout
+	1. Array memory structure
+	2. Contiguous arrays
+	3. Performance implications
+16.3 Universal Functions (ufuncs)
+	1. Custom ufuncs
+	2. Efficient mathematical computation
+
+17. NumPy Interview Preparation for ML
+17.1 Frequently Asked Questions
+	1. Why is NumPy faster?
+	2. Broadcasting explanation
+	3. Vectorization vs loops
+	4. reshape vs resize
+	5. Copy vs view
+17.2 ML-Oriented Coding Problems
+	1. Normalize dataset
+	2. Implement gradient descent
+	3. Compute cosine similarity
+	4. Build confusion matrix
+	5. Matrix multiplication
+
+18. Real-World ML Projects Using NumPy
+18.1 Beginner Projects
+	1. Student score prediction
+	2. House price prediction math
+	3. Dataset normalization
+18.2 Intermediate Projects
+	1. Logistic regression from scratch
+	2. KNN classifier using NumPy
+	3. Recommendation engine basics
+18.3 Advanced Projects
+	1. Neural network from scratch
+	2. Image classifier math engine
+	3. PCA implementation using NumPy
+19. Best Practices
+19.1 Efficient ML Code
+	1. Use vectorized operations
+	2. Avoid unnecessary copies
+	3. Batch computations
+19.2 Code Organization
+	1. Reusable utility functions
+	2. Separating preprocessing logic
+	3. Writing modular ML code
+19.3 Common Mistakes
+	1. Shape mismatch errors
+	2. Incorrect broadcasting
+	3. Data leakage during preprocessing
+	4. Overflow/underflow issues
+
+20. NumPy Roadmap for ML Engineers
+    20.1 Beginner Level
+        1. Arrays
+        2. Indexing
+        3. Slicing
+        4. Mathematical operations
+    20.2 Intermediate Level
+        1. Broadcasting
+        2. Linear algebra
+        3. Statistics
+        4. Data preprocessing
+    20.3 Advanced Level
+        1. Neural network math
+        2. Optimization
+        3. Performance tuning
+        4. ML algorithm implementation

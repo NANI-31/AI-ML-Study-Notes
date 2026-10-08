@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multi-Course Roadmap Prompt Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <!-- KaTeX for live mathematical rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+  <style>
+    html, body { min-height: 100vh; margin: 0; padding: 0; }
+    .custom-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+    .custom-scroll::-webkit-scrollbar-track { background: transparent; }
+    .custom-scroll::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+    .custom-scroll::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+    .writing-mode-vertical {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
+    }
+
+    /* Centered Math Dialog Animation */
+    #math-sidebar-panel {
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 md:p-10 font-sans selection:bg-indigo-500 selection:text-white antialiased relative">
+
+  <!-- Backdrop Overlay when Math Dialog is Open -->
+  <div id="math-backdrop" onclick="toggleMathPanel(false)" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-40 hidden transition-opacity"></div>
+
+  <!-- App Wrapper with Hanging Tabs -->
+  <div class="relative w-full max-w-3xl flex justify-center">
+
+    <!-- Hanging Math Sidebar Tab (Anchored to Left Side of Main Box) -->
+    <button id="math-tab-btn" onclick="toggleMathPanel()"
+            class="fixed left-0 top-24 sm:absolute sm:-left-11 sm:top-20 sm:w-11 z-30 group flex flex-col items-center justify-center bg-slate-900/95 hover:bg-slate-800 border-r sm:border-r-0 sm:border-l border-t border-b border-indigo-500/60 hover:border-indigo-400 text-indigo-300 hover:text-white px-2 sm:px-0 py-3.5 rounded-r-xl sm:rounded-r-none sm:rounded-l-xl shadow-2xl shadow-indigo-950/80 transition-all duration-200 cursor-pointer backdrop-blur-md active:scale-95"
+            title="Toggle Math & LaTeX Helper">
+      <span class="text-base sm:text-lg group-hover:scale-110 transition-transform">📐</span>
+      <span class="text-[10px] font-bold tracking-widest uppercase mt-1.5 writing-mode-vertical font-mono select-none">MATH</span>
+      <span id="math-tab-badge" class="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5 shadow-sm shadow-emerald-400/50 animate-pulse" title="Auto-Copy Active"></span>
+    </button>
+
+    <!-- Centered Math Helper Dialog Box -->
+    <aside id="math-sidebar-panel" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[92vw] sm:w-[480px] md:w-[520px] max-h-[90vh] hidden bg-slate-900/95 border border-indigo-500/40 rounded-2xl shadow-2xl shadow-indigo-950/90 backdrop-blur-2xl flex-col overflow-hidden">
+      
+      <!-- Math Panel Header -->
+      <div class="bg-gradient-to-r from-slate-900 via-indigo-950/80 to-slate-900 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <span class="text-xl">📐</span>
+          <div>
+            <h2 class="text-xs font-bold text-white tracking-tight flex items-center gap-1.5">
+              Math & LaTeX Helper
+              <span class="bg-indigo-500/20 text-indigo-300 text-[9px] px-1.5 py-0.5 rounded border border-indigo-500/30">Markdown</span>
+            </h2>
+            <p class="text-[10px] text-slate-400">Paste LaTeX to preview & auto-copy Inline Math ($...$)</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-1">
+          <button onclick="toggleMathPanel(false)" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition text-xs font-bold" title="Close Panel">
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- Math Panel Scrollable Body -->
+      <div class="p-4 flex flex-col gap-3.5 overflow-y-auto custom-scroll text-xs">
+
+        <!-- Auto Copy Mode Selector Bar -->
+        <div class="flex items-center justify-between bg-slate-950/80 border border-slate-800 rounded-xl p-1.5">
+          <span class="text-[10px] text-slate-400 font-medium pl-1.5">Auto-copy format:</span>
+          <div class="flex items-center gap-1">
+            <button id="mode-btn-inline" onclick="setMathCopyMode('inline')" class="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-indigo-600 text-white shadow-sm transition">
+              Inline ($...$)
+            </button>
+            <button id="mode-btn-unicode" onclick="setMathCopyMode('unicode')" class="px-2 py-1 rounded-lg text-[10px] font-medium text-slate-400 hover:text-slate-200 transition">
+              Unicode (β_0)
+            </button>
+            <button id="mode-btn-markdown" onclick="setMathCopyMode('markdown')" class="px-2 py-1 rounded-lg text-[10px] font-medium text-slate-400 hover:text-slate-200 transition">
+              Block ($$)
+            </button>
+          </div>
+        </div>
+
+        <!-- Input Textarea -->
+        <div class="flex flex-col gap-1">
+          <div class="flex items-center justify-between">
+            <label for="math-input" class="text-[11px] font-semibold text-indigo-300 flex items-center gap-1">
+              <span>✏️</span> Paste LaTeX Expression
+            </label>
+            <span id="math-status-badge" class="text-[10px] text-emerald-400 font-mono hidden">✓ Auto-Copied!</span>
+          </div>
+          <textarea id="math-input" rows="2" oninput="onMathInputChange()" onpaste="onMathPaste()"
+                    placeholder="e.g. \beta_0,\beta_1,\beta_2 or \hat{y} = \beta_0 + \beta_1 x"
+                    class="w-full bg-slate-950/90 border border-slate-800 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 rounded-xl p-2.5 text-xs text-slate-100 placeholder-slate-600 outline-none font-mono resize-none transition"></textarea>
+        </div>
+
+        <!-- Quick Sample Chips -->
+        <div class="flex flex-wrap gap-1.5 items-center">
+          <span class="text-[10px] text-slate-500">Quick test:</span>
+          <button onclick="loadMathSample('\\beta_0,\\beta_1,\\beta_2')" class="text-[10px] font-mono bg-slate-800/80 hover:bg-indigo-600/30 hover:border-indigo-500 border border-slate-700/70 text-slate-300 hover:text-white px-2 py-0.5 rounded-md transition">
+            \beta_0,\beta_1,\beta_2
+          </button>
+          <button onclick="loadMathSample('\\hat{y} = \\beta_0 + \\beta_1 x_1')" class="text-[10px] font-mono bg-slate-800/80 hover:bg-indigo-600/30 hover:border-indigo-500 border border-slate-700/70 text-slate-300 hover:text-white px-2 py-0.5 rounded-md transition">
+            \hat{y} = \beta_0 + \beta_1 x_1
+          </button>
+          <button onclick="loadMathSample('\\alpha, \\theta, \\gamma')" class="text-[10px] font-mono bg-slate-800/80 hover:bg-indigo-600/30 hover:border-indigo-500 border border-slate-700/70 text-slate-300 hover:text-white px-2 py-0.5 rounded-md transition">
+            \alpha, \theta, \gamma
+          </button>
+        </div>
+
+        <!-- Visual KaTeX Math Rendering Card -->
+        <div class="flex flex-col gap-1.5 pt-1">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-semibold text-slate-300 flex items-center gap-1.5">
+              <span>👁️</span> Rendered Math Preview
+            </span>
+            <button onclick="autoCopyMath()" class="bg-indigo-600/20 hover:bg-indigo-600/40 border border-indigo-500/40 text-indigo-300 hover:text-white text-[10px] font-bold px-2.5 py-1 rounded-lg transition flex items-center gap-1 active:scale-95" title="Copy formatted math to clipboard">
+              <span>📋</span> Copy Math
+            </button>
+          </div>
+          <div id="math-katex-output" class="bg-slate-950/90 border border-slate-800/90 rounded-xl p-4 min-h-[64px] flex items-center justify-center overflow-x-auto text-indigo-200 shadow-inner">
+            <span class="text-slate-600 italic text-[11px]">Rendered equation will appear here...</span>
+          </div>
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- Main Centered Application Box -->
+    <main class="w-full bg-slate-900/90 border border-slate-800/80 rounded-2xl shadow-2xl shadow-indigo-950/40 backdrop-blur-xl flex flex-col overflow-hidden">
+    
+    <!-- App Header -->
+    <header class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 px-6 py-4 border-b border-slate-800 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="text-2xl filter drop-shadow">🎓</span>
+        <div>
+          <h1 class="text-base font-bold text-white tracking-tight">Roadmap Prompt Generator</h1>
+          <p class="text-[11px] text-slate-400">Paste roadmap section to auto-generate & copy teaching prompt</p>
+        </div>
+      </div>
+      <div class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">
+        ⚡ Auto-Copy Active
+      </div>
+    </header>
+
+    <!-- 3 Course Tabs Header -->
+    <nav class="flex border-b border-slate-800/80 bg-slate-950/60 p-2 gap-2" id="tab-nav">
+      <button onclick="switchTab(0)" id="tab-btn-0" class="tab-btn flex-1 py-2.5 px-4 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-2 border">
+        <span>📘</span> <span id="tab-label-0">Course 1</span>
+      </button>
+      <button onclick="switchTab(1)" id="tab-btn-1" class="tab-btn flex-1 py-2.5 px-4 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-2 border">
+        <span>🤖</span> <span id="tab-label-1">Course 2</span>
+      </button>
+      <button onclick="switchTab(2)" id="tab-btn-2" class="tab-btn flex-1 py-2.5 px-4 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-2 border">
+        <span>⚡</span> <span id="tab-label-2">Course 3</span>
+      </button>
+    </nav>
+
+    <!-- Tab Content Container -->
+    <div class="p-6 flex flex-col gap-5">
+      
+      <!-- Course Input Text -->
+      <div class="flex flex-col gap-1.5">
+        <label for="course-name-input" class="text-xs font-medium text-slate-300 flex items-center justify-between">
+          <span>Course Name</span>
+          <span class="text-[10px] text-slate-500">Edit course title for active tab</span>
+        </label>
+        <input type="text" id="course-name-input" oninput="onCourseNameChange()" placeholder="e.g. regex"
+               class="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-slate-100 placeholder-slate-600 outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition font-medium" />
+      </div>
+
+      <!-- Section Topics Input Textarea -->
+      <div class="flex flex-col gap-1.5">
+        <label for="section-topics-input" class="text-xs font-medium text-slate-300 flex items-center justify-between">
+          <span>Section / Topics</span>
+          <span class="text-[10px] text-indigo-400 font-mono" id="char-count">0 chars</span>
+        </label>
+        <textarea id="section-topics-input" oninput="onSectionInputChange()" onpaste="onSectionPaste()" rows="5"
+                  placeholder="Paste or type section topics here, e.g.:&#10;1. Supervised Learning & Linear Regression&#10;2. Gradient Descent & Loss Functions&#10;&#10;Auto-copies to clipboard immediately on paste!"
+                  class="w-full bg-slate-950/80 border border-slate-800 rounded-xl p-4 text-xs text-slate-100 placeholder-slate-600 outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition font-mono leading-relaxed resize-y custom-scroll"></textarea>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3 pt-1">
+        <button onclick="copyCurrentPrompt()" class="flex-1 bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white text-xs font-bold py-3 px-5 rounded-xl shadow-lg shadow-indigo-600/20 active:scale-[0.99] transition flex items-center justify-center gap-2">
+          <span>📋</span> <span>Copy Full Prompt</span>
+        </button>
+        <button onclick="clearSectionInput()" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 text-xs font-semibold py-3 px-4 rounded-xl transition flex items-center justify-center gap-1.5">
+          <span>🧹</span> <span>Clear</span>
+        </button>
+      </div>
+
+      <!-- Generated Prompt Preview Box (Collapsed by Default) -->
+      <div class="flex flex-col gap-2 pt-2 border-t border-slate-800/80">
+        <div onclick="togglePreview()" class="flex items-center justify-between text-xs font-medium text-slate-400 cursor-pointer select-none py-1 hover:text-slate-200 transition">
+          <span class="flex items-center gap-1.5 text-indigo-400 font-semibold">
+            <span>📜</span> Output Prompt Preview
+          </span>
+          <span id="preview-toggle-indicator" class="text-[11px] text-slate-400 font-mono">▶ expand</span>
+        </div>
+        <div id="prompt-preview" class="hidden bg-slate-950/90 border border-slate-800 rounded-xl p-4 font-mono text-xs text-slate-300 whitespace-pre-wrap word-break leading-relaxed max-h-56 overflow-y-auto custom-scroll">
+          <span class="text-slate-600 italic">Generated prompt will appear here as you type or paste...</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+  </div>
+
+  <!-- Floating Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-5 py-3 rounded-xl text-xs font-semibold shadow-2xl shadow-emerald-500/20 transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-2 z-50 pointer-events-none">
+    <span>✅</span> <span id="toast-message">Prompt copied to clipboard!</span>
+  </div>
+
+  <script>
+    // App State for 3 Tabs
+    const tabsData = [
+      { courseName: "LangChain", sectionTopics: "" },
+      { courseName: "Data Visulaization", sectionTopics: "" },
+      { courseName: "Plotly", sectionTopics: "" }
+    ];
+
+    let currentTabIndex = 0;
+    let toastTimer = null;
+
+    // Element References
+    const courseInput = document.getElementById("course-name-input");
+    const sectionInput = document.getElementById("section-topics-input");
+    const promptPreview = document.getElementById("prompt-preview");
+    const charCount = document.getElementById("char-count");
+    const toast = document.getElementById("toast");
+
+    // Initialize application
+    function init() {
+      updateTabsUI();
+      loadCurrentTabData();
+    }
+
+    // Switch active tab
+    function switchTab(index) {
+      // Save course name before switching
+      tabsData[currentTabIndex].courseName = courseInput.value;
+      
+      currentTabIndex = index;
+      
+      // Clear section topics for clean paste
+      tabsData[currentTabIndex].sectionTopics = "";
+
+      updateTabsUI();
+      loadCurrentTabData();
+      
+      // Clear section input & automatically focus pasting box
+      if (sectionInput) {
+        sectionInput.value = "";
+        updatePromptOutput();
+        sectionInput.focus();
+      }
+    }
+
+    // Load active tab data into UI
+    function loadCurrentTabData() {
+      const data = tabsData[currentTabIndex];
+      courseInput.value = data.courseName || "";
+      sectionInput.value = "";
+      updatePromptOutput();
+    }
+
+    // Update Tab Buttons UI styling & labels
+    function updateTabsUI() {
+      for (let i = 0; i < 3; i++) {
+        const btn = document.getElementById(`tab-btn-${i}`);
+        const label = document.getElementById(`tab-label-${i}`);
+        const courseName = tabsData[i].courseName.trim();
+        
+        if (label) {
+          label.textContent = courseName || `Course ${i + 1}`;
+        }
+
+        if (btn) {
+          if (i === currentTabIndex) {
+            btn.className = "tab-btn flex-1 py-2.5 px-4 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 border bg-gradient-to-r from-indigo-600/30 via-indigo-500/20 to-purple-600/30 border-indigo-500 text-white shadow-md shadow-indigo-500/10";
+          } else {
+            btn.className = "tab-btn flex-1 py-2.5 px-4 rounded-xl text-xs font-medium transition-all flex items-center justify-center gap-2 border bg-slate-900/60 border-slate-800/80 text-slate-400 hover:text-slate-200 hover:bg-slate-800/60";
+          }
+        }
+      }
+    }
+
+    let autoCopyTimer = null;
+
+    // Helper: Schedule 1-second auto-copy after editing stops
+    function scheduleAutoCopy() {
+      if (autoCopyTimer) clearTimeout(autoCopyTimer);
+      if (sectionInput && sectionInput.value.trim()) {
+        autoCopyTimer = setTimeout(() => {
+          copyCurrentPrompt();
+        }, 800);
+      }
+    }
+
+    // Toggle preview collapse/expand
+    function togglePreview() {
+      const isHidden = promptPreview.classList.contains("hidden");
+      const indicator = document.getElementById("preview-toggle-indicator");
+      
+      if (isHidden) {
+        promptPreview.classList.remove("hidden");
+        if (indicator) indicator.textContent = "▼ collapse";
+      } else {
+        promptPreview.classList.add("hidden");
+        if (indicator) indicator.textContent = "▶ expand";
+      }
+    }
+
+    // Handle course name changes
+    function onCourseNameChange() {
+      tabsData[currentTabIndex].courseName = courseInput.value;
+      updateTabsUI();
+      updatePromptOutput();
+      scheduleAutoCopy();
+    }
+
+    // Handle section topic text changes
+    function onSectionInputChange() {
+      tabsData[currentTabIndex].sectionTopics = sectionInput.value;
+      updatePromptOutput();
+      scheduleAutoCopy();
+    }
+
+    // Handle instant paste event -> auto copy to clipboard immediately!
+    function onSectionPaste() {
+      setTimeout(() => {
+        tabsData[currentTabIndex].sectionTopics = sectionInput.value;
+        updatePromptOutput();
+        if (sectionInput.value.trim()) {
+          copyCurrentPrompt();
+        }
+      }, 40);
+    }
+
+    // Attach native paste event listener for maximum browser compatibility
+    if (sectionInput) {
+      sectionInput.addEventListener('paste', () => {
+        onSectionPaste();
+      });
+    }
+
+    // Generate Master Prompt text
+    function generatePrompt() {
+      const course = courseInput.value.trim() || "[course]";
+      const topics = sectionInput.value.trim();
+
+      if (!topics) return "";
+
+      return `i am learning the ai/ml, gen ai course. now i will give you the part of the road map of the ${course}. so give me the detailed description with examples and include interview questions and answers at end of response.
+${topics}`;
+    }
+
+    // Update Output & Preview Box
+    function updatePromptOutput() {
+      const promptText = generatePrompt();
+      const rawTopics = sectionInput.value;
+
+      charCount.textContent = `${rawTopics.length} chars`;
+
+      if (!promptText) {
+        promptPreview.innerHTML = `<span class="text-slate-600 italic">Generated prompt will appear here as you type or paste...</span>`;
+        return;
+      }
+
+      // Escape HTML for safe rendering
+      const safeHtml = promptText
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+
+      promptPreview.innerHTML = safeHtml;
+    }
+
+    // Generalized Clipboard Copy with Toast
+    function copyToClipboard(text, message = "Copied to clipboard!") {
+      if (!text) return;
+      const showMsg = () => {
+        const toastMsg = document.getElementById("toast-message");
+        if (toastMsg) toastMsg.textContent = message;
+        showToast();
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(showMsg).catch(() => {
+          fallbackCopy(text, showMsg);
+        });
+      } else {
+        fallbackCopy(text, showMsg);
+      }
+    }
+
+    function fallbackCopy(text, callback) {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+      if (callback) callback();
+    }
+
+    // Copy Prompt to Clipboard with Toast Notification
+    function copyCurrentPrompt() {
+      const text = generatePrompt();
+      if (!text) return;
+      copyToClipboard(text, "Prompt copied to clipboard!");
+    }
+
+    // Clear current section input
+    function clearSectionInput() {
+      sectionInput.value = "";
+      tabsData[currentTabIndex].sectionTopics = "";
+      updatePromptOutput();
+      sectionInput.focus();
+    }
+
+    // Show floating toast notification
+    function showToast() {
+      toast.classList.remove("translate-y-20", "opacity-0");
+      toast.classList.add("translate-y-0", "opacity-100");
+
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove("translate-y-0", "opacity-100");
+        toast.classList.add("translate-y-20", "opacity-0");
+      }, 2500);
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // 📐 Math & LaTeX Markdown Conversion Engine
+    // ─────────────────────────────────────────────────────────────
+    let mathCopyMode = 'inline'; // default is 'inline' ($...$), or 'unicode', or 'markdown'
+    let isMathOpen = false;
+
+    const LATEX_SYMBOL_MAP = {
+      // Greek lowercase
+      alpha: 'α',
+      beta: 'β',
+      gamma: 'γ',
+      delta: 'δ',
+      epsilon: 'ε',
+      varepsilon: 'ε',
+      zeta: 'ζ',
+      eta: 'η',
+      theta: 'θ',
+      vartheta: 'ϑ',
+      iota: 'ι',
+      kappa: 'κ',
+      lambda: 'λ',
+      mu: 'μ',
+      nu: 'ν',
+      xi: 'ξ',
+      pi: 'π',
+      varpi: 'ϖ',
+      rho: 'ρ',
+      varrho: 'ϱ',
+      sigma: 'σ',
+      varsigma: 'ς',
+      tau: 'τ',
+      upsilon: 'υ',
+      phi: 'φ',
+      varphi: 'ϕ',
+      chi: 'χ',
+      psi: 'ψ',
+      omega: 'ω',
+
+      // Greek uppercase
+      Gamma: 'Γ',
+      Delta: 'Δ',
+      Theta: 'Θ',
+      Lambda: 'Λ',
+      Xi: 'Ξ',
+      Pi: 'Π',
+      Sigma: 'Σ',
+      Upsilon: 'Υ',
+      Phi: 'Φ',
+      Psi: 'Ψ',
+      Omega: 'Ω',
+
+      // Operators & Relations
+      times: '×',
+      div: '÷',
+      pm: '±',
+      mp: '∓',
+      cdot: '·',
+      neq: '≠',
+      ne: '≠',
+      leq: '≤',
+      le: '≤',
+      geq: '≥',
+      ge: '≥',
+      approx: '≈',
+      equiv: '≡',
+      propto: '∝',
+      sim: '∼',
+      infty: '∞',
+      partial: '∂',
+      nabla: '∇',
+      sum: '∑',
+      prod: '∏',
+      int: '∫',
+      in: '∈',
+      notin: '∉',
+      subset: '⊂',
+      subseteq: '⊆',
+      supset: '⊃',
+      supseteq: '⊇',
+      cup: '∪',
+      cap: '∩',
+      forall: '∀',
+      exists: '∃',
+      neg: '¬',
+      to: '→',
+      rightarrow: '→',
+      leftarrow: '←',
+      Rightarrow: '⇒',
+      Leftarrow: '⇐',
+      leftrightarrow: '↔',
+      Leftrightarrow: '⇔',
+      dots: '…',
+      cdots: '⋯',
+      ldots: '…',
+      quad: '  ',
+      qquad: '    '
+    };
+
+    const SUBSCRIPT_MAP = {
+      '0': '₀', '1': '₁', '2': '₂', '3': '₃', '4': '₄',
+      '5': '₅', '6': '₆', '7': '₇', '8': '₈', '9': '₉',
+      'i': 'ᵢ', 'j': 'ⱼ', 'k': 'ₖ', 'n': 'ₙ', 'm': 'ₘ',
+      't': 'ₜ', 'x': 'ₓ', '+': '₊', '-': '₋', '=': '₌'
+    };
+
+    function toggleMathPanel(forceState) {
+      const panel = document.getElementById("math-sidebar-panel");
+      const btn = document.getElementById("math-tab-btn");
+      const backdrop = document.getElementById("math-backdrop");
+      const input = document.getElementById("math-input");
+
+      if (typeof forceState === 'boolean') {
+        isMathOpen = forceState;
+      } else {
+        isMathOpen = !isMathOpen;
+      }
+
+      if (isMathOpen) {
+        panel.classList.remove("hidden");
+        panel.classList.add("flex");
+        backdrop.classList.remove("hidden");
+        btn.classList.add("bg-indigo-600", "text-white", "border-indigo-400", "shadow-indigo-500/40");
+        btn.classList.remove("bg-slate-900/95", "text-indigo-300");
+        setTimeout(() => input && input.focus(), 80);
+      } else {
+        panel.classList.add("hidden");
+        panel.classList.remove("flex");
+        backdrop.classList.add("hidden");
+        btn.classList.remove("bg-indigo-600", "text-white", "border-indigo-400", "shadow-indigo-500/40");
+        btn.classList.add("bg-slate-900/95", "text-indigo-300");
+      }
+    }
+
+    function setMathCopyMode(mode) {
+      mathCopyMode = mode;
+      const btnInline = document.getElementById("mode-btn-inline");
+      const btnUnicode = document.getElementById("mode-btn-unicode");
+      const btnMarkdown = document.getElementById("mode-btn-markdown");
+
+      const activeClass = "px-2.5 py-1 rounded-lg text-[10px] font-bold bg-indigo-600 text-white shadow-sm transition";
+      const inactiveClass = "px-2 py-1 rounded-lg text-[10px] font-medium text-slate-400 hover:text-slate-200 transition";
+
+      if (btnInline) btnInline.className = (mode === 'inline') ? activeClass : inactiveClass;
+      if (btnUnicode) btnUnicode.className = (mode === 'unicode') ? activeClass : inactiveClass;
+      if (btnMarkdown) btnMarkdown.className = (mode === 'markdown') ? activeClass : inactiveClass;
+
+      const inputVal = document.getElementById("math-input").value.trim();
+      if (inputVal) {
+        autoCopyMath();
+      }
+    }
+
+    function stripOuterDelimiters(text) {
+      if (!text) return "";
+      let clean = text.trim();
+      if ((clean.startsWith('$$') && clean.endsWith('$$')) && clean.length >= 4) {
+        clean = clean.slice(2, -2).trim();
+      } else if ((clean.startsWith('$') && clean.endsWith('$')) && clean.length >= 2) {
+        clean = clean.slice(1, -1).trim();
+      } else if ((clean.startsWith('\\[') && clean.endsWith('\\]')) && clean.length >= 4) {
+        clean = clean.slice(2, -2).trim();
+      }
+      return clean;
+    }
+
+    function latexToUnicode(text) {
+      let clean = stripOuterDelimiters(text);
+      if (!clean) return "";
+
+      // Replace named symbols like \beta, \alpha, etc.
+      clean = clean.replace(/\\([a-zA-Z]+)(?![a-zA-Z])/g, (match, word) => {
+        return LATEX_SYMBOL_MAP[word] !== undefined ? LATEX_SYMBOL_MAP[word] : match;
+      });
+
+      // Special symbols and accents
+      clean = clean.replace(/\\,/g, ' ');
+      clean = clean.replace(/\\hat\{([a-zA-Zα-ωΑ-Ω0-9])\}/g, '$1̂');
+      clean = clean.replace(/\\bar\{([a-zA-Zα-ωΑ-Ω0-9])\}/g, '$1̄');
+      clean = clean.replace(/\\vec\{([a-zA-Zα-ωΑ-Ω0-9])\}/g, '$1⃗');
+      clean = clean.replace(/_\{([^}]+)\}/g, '_$1');
+      clean = clean.replace(/\^\{([^}]+)\}/g, '^$1');
+      return clean;
+    }
+
+    function toUnicodeSubscripts(text) {
+      const unicode = latexToUnicode(text);
+      return unicode.replace(/_([0-9ijknmtx+-=])/g, (_, ch) => SUBSCRIPT_MAP[ch] || `_${ch}`);
+    }
+
+    function getMarkdownBlock(text) {
+      const clean = stripOuterDelimiters(text);
+      return clean ? `$$\n${clean}\n$$` : "";
+    }
+
+    function getMarkdownInline(text) {
+      const clean = stripOuterDelimiters(text);
+      return clean ? `$${clean}$` : "";
+    }
+
+    function updateMathOutputs(shouldAutoCopy = false) {
+      const input = document.getElementById("math-input");
+      const katexOutput = document.getElementById("math-katex-output");
+
+      const raw = input.value.trim();
+      if (!raw) {
+        katexOutput.innerHTML = `<span class="text-slate-600 italic text-[11px]">Rendered equation will appear here...</span>`;
+        return;
+      }
+
+      renderKaTeX(raw);
+
+      if (shouldAutoCopy) {
+        autoCopyMath();
+      }
+    }
+
+    function autoCopyMath() {
+      const input = document.getElementById("math-input");
+      const raw = input.value.trim();
+      if (!raw) return;
+
+      const inline = getMarkdownInline(raw);
+      const unicode = latexToUnicode(raw);
+      const markdownBlock = getMarkdownBlock(raw);
+
+      let textToCopy = inline; // Default is inline ($...$)
+      if (mathCopyMode === 'unicode') {
+        textToCopy = unicode;
+      } else if (mathCopyMode === 'markdown') {
+        textToCopy = markdownBlock;
+      }
+
+      copyToClipboard(textToCopy, `Copied: ${textToCopy}`);
+
+      const badge = document.getElementById("math-status-badge");
+      if (badge) {
+        badge.textContent = `✓ Auto-Copied: ${textToCopy.length > 18 ? textToCopy.slice(0, 16) + '...' : textToCopy}`;
+        badge.classList.remove("hidden");
+        setTimeout(() => badge.classList.add("hidden"), 2500);
+      }
+    }
+
+    function onMathInputChange() {
+      updateMathOutputs(false);
+    }
+
+    function onMathPaste() {
+      setTimeout(() => {
+        updateMathOutputs(true);
+      }, 40);
+    }
+
+    function loadMathSample(sample) {
+      const input = document.getElementById("math-input");
+      input.value = sample;
+      updateMathOutputs(true);
+    }
+
+    function copyMathUnicode() {
+      const raw = document.getElementById("math-input").value.trim();
+      const text = latexToUnicode(raw) || "β_0,β_1,β_2";
+      copyToClipboard(text, `Copied Unicode: ${text}`);
+    }
+
+    function copyMathSubscript() {
+      const raw = document.getElementById("math-input").value.trim();
+      const text = toUnicodeSubscripts(raw) || "β₀,β₁,β₂";
+      copyToClipboard(text, `Copied Subscript: ${text}`);
+    }
+
+    function copyMathBlock() {
+      const raw = document.getElementById("math-input").value.trim();
+      const text = getMarkdownBlock(raw) || "$$\n\\beta_0,\\beta_1,\\beta_2.\n$$";
+      copyToClipboard(text, "Copied Markdown Block ($$)");
+    }
+
+    function copyMathInline() {
+      const raw = document.getElementById("math-input").value.trim();
+      const text = getMarkdownInline(raw) || "$\\beta_0,\\beta_1,\\beta_2$";
+      copyToClipboard(text, "Copied Inline Math ($)");
+    }
+
+    function renderKaTeX(latexStr) {
+      const katexOutput = document.getElementById("math-katex-output");
+      if (!katexOutput) return;
+
+      let clean = latexStr.replace(/^(\$\$|\$|\\\[)([\s\S]*?)(\$\$|\$|\\\])$/g, '$2').trim();
+
+      if (typeof katex !== 'undefined') {
+        try {
+          katex.render(clean, katexOutput, {
+            displayMode: true,
+            throwOnError: false
+          });
+          return;
+        } catch (e) {
+          console.warn("KaTeX render error:", e);
+        }
+      }
+      katexOutput.textContent = clean;
+    }
+
+    // Run initialization
+    document.addEventListener("DOMContentLoaded", () => {
+      init();
+      // Attach paste listener to math-input directly
+      const mathInput = document.getElementById("math-input");
+      if (mathInput) {
+        mathInput.addEventListener('paste', () => onMathPaste());
+      }
+      // Close math dialog on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && isMathOpen) {
+          toggleMathPanel(false);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

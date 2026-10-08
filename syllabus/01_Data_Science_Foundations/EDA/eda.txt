@@ -1,0 +1,1317 @@
+Absolutely. Since you already know NumPy, Pandas, Matplotlib, Seaborn, Plotly, and Scikit-learn, here is a structured EDA (Exploratory Data Analysis) roadmap in the same detailed format as your NumPy syllabus, progressing from fundamentals to advanced analysis, visualization, statistics, and real-world EDA.
+EDA — Exploratory Data Analysis Complete Roadmap
+1. Introduction to EDA
+1.1 What is EDA?
+	1. Definition of Exploratory Data Analysis
+	2. Purpose of EDA
+	3. Why EDA is important
+	4. EDA vs Data Cleaning
+	5. EDA vs Data Visualization
+	6. EDA vs Statistical Analysis
+	7. Role of EDA in Data Science
+	8. EDA workflow
+1.2 Types of EDA
+	1. Univariate analysis
+	2. Bivariate analysis
+	3. Multivariate analysis
+	4. Descriptive analysis
+	5. Exploratory analysis
+	6. Comparative analysis
+	7. Time-series EDA
+	8. Categorical EDA
+1.3 EDA Workflow
+	1. Understand the problem
+	2. Load the dataset
+	3. Understand dataset structure
+	4. Inspect columns
+	5. Check data types
+	6. Identify missing values
+	7. Identify duplicates
+	8. Detect outliers
+	9. Analyze distributions
+	10. Analyze relationships
+	11. Generate insights
+	12. Document findings
+
+2. Understanding the Dataset
+2.1 Loading Data
+	1. Reading CSV files
+	2. Reading Excel files
+	3. Reading JSON files
+	4. Reading SQL data
+	5. Reading Parquet files
+	6. Loading datasets from APIs
+	7. Loading datasets from Scikit-learn
+	8. Loading sample datasets
+2.2 Initial Dataset Inspection
+	1. head()
+	2. tail()
+	3. sample()
+	4. info()
+	5. describe()
+	6. shape
+	7. columns
+	8. index
+	9. dtypes
+	10. memory_usage()
+2.3 Understanding Variables
+	1. Numerical variables
+	2. Categorical variables
+	3. Binary variables
+	4. Ordinal variables
+	5. Nominal variables
+	6. Date/time variables
+	7. Text variables
+	8. Identifier columns
+	9. Target variables
+	10. Feature variables
+
+3. Data Quality Analysis
+3.1 Missing Values
+	1. What are missing values?
+	2. Why values go missing
+	3. isnull()
+	4. isna()
+	5. notna()
+	6. Counting missing values
+	7. Missing-value percentage
+	8. Missing-value visualization
+	9. Missing completely at random
+	10. Missing at random
+	11. Missing not at random
+3.2 Handling Missing Values
+	1. Dropping rows
+	2. Dropping columns
+	3. Mean imputation
+	4. Median imputation
+	5. Mode imputation
+	6. Forward fill
+	7. Backward fill
+	8. Interpolation
+	9. Group-based imputation
+	10. Model-based imputation
+	11. Missing-value indicators
+3.3 Duplicate Analysis
+	1. Identifying duplicates
+	2. duplicated()
+	3. drop_duplicates()
+	4. Complete duplicates
+	5. Partial duplicates
+	6. Duplicate IDs
+	7. Duplicate records after merging
+	8. Duplicate handling strategies
+3.4 Data Consistency
+	1. Inconsistent capitalization
+	2. Leading/trailing spaces
+	3. Duplicate categories
+	4. Typographical errors
+	5. Inconsistent date formats
+	6. Inconsistent units
+	7. Invalid numerical values
+	8. Invalid categorical values
+
+4. Data Types and Transformation
+4.1 Understanding Data Types
+	1. Integer
+	2. Float
+	3. Boolean
+	4. Object
+	5. String
+	6. Category
+	7. Datetime
+	8. Timedelta
+4.2 Type Conversion
+	1. astype()
+	2. to_numeric()
+	3. to_datetime()
+	4. to_timedelta()
+	5. Converting object to category
+	6. Handling conversion errors
+	7. Detecting incorrectly typed columns
+4.3 Data Transformation
+	1. Scaling values
+	2. Normalization
+	3. Standardization
+	4. Log transformation
+	5. Square-root transformation
+	6. Reciprocal transformation
+	7. Box-Cox transformation
+	8. Yeo-Johnson transformation
+
+5. Univariate Analysis
+5.1 Numerical Variable Analysis
+	1. Mean
+	2. Median
+	3. Mode
+	4. Minimum
+	5. Maximum
+	6. Range
+	7. Variance
+	8. Standard deviation
+	9. Quartiles
+	10. Percentiles
+	11. Interquartile range
+	12. Coefficient of variation
+5.2 Distribution Analysis
+	1. Normal distribution
+	2. Uniform distribution
+	3. Skewed distribution
+	4. Right-skewed data
+	5. Left-skewed data
+	6. Multimodal distribution
+	7. Heavy-tailed distribution
+	8. Long-tail distribution
+5.3 Numerical Visualizations
+	1. Histogram
+	2. KDE plot
+	3. Box plot
+	4. Violin plot
+	5. ECDF plot
+	6. Rug plot
+	7. Density plot
+5.4 Categorical Variable Analysis
+	1. Unique values
+	2. Number of categories
+	3. Value counts
+	4. Frequency distribution
+	5. Category percentages
+	6. Rare categories
+	7. Dominant categories
+5.5 Categorical Visualizations
+	1. Bar chart
+	2. Count plot
+	3. Pie chart
+	4. Donut chart
+	5. Pareto chart
+
+6. Bivariate Analysis
+6.1 Numerical vs Numerical
+	1. Scatter plot
+	2. Correlation
+	3. Covariance
+	4. Trend analysis
+	5. Linear relationship
+	6. Non-linear relationship
+	7. Positive correlation
+	8. Negative correlation
+	9. No correlation
+6.2 Numerical vs Categorical
+	1. Grouped statistics
+	2. Mean comparison
+	3. Median comparison
+	4. Box plots
+	5. Violin plots
+	6. Strip plots
+	7. Swarm plots
+	8. Bar plots
+6.3 Categorical vs Categorical
+	1. Cross-tabulation
+	2. Contingency tables
+	3. Frequency comparison
+	4. Grouped bar charts
+	5. Stacked bar charts
+	6. Heatmaps
+
+7. Multivariate Analysis
+7.1 Multiple Numerical Variables
+	1. Correlation matrix
+	2. Covariance matrix
+	3. Pair plots
+	4. Scatterplot matrices
+	5. Heatmaps
+	6. Parallel coordinates
+	7. 3D scatter plots
+7.2 Multiple Categorical Variables
+	1. Multi-level grouping
+	2. Pivot tables
+	3. Crosstabs
+	4. Stacked visualizations
+	5. Category interaction analysis
+7.3 Numerical + Categorical + Target
+	1. Group-based analysis
+	2. Segment analysis
+	3. Feature-target relationships
+	4. Interaction effects
+	5. Conditional distributions
+	6. Group comparison
+
+8. Data Visualization with Matplotlib
+8.1 Basic Charts
+	1. Line plots
+	2. Bar charts
+	3. Horizontal bar charts
+	4. Histograms
+	5. Scatter plots
+	6. Pie charts
+	7. Area charts
+8.2 Advanced Matplotlib
+	1. Subplots
+	2. Multiple axes
+	3. Twin axes
+	4. Figure customization
+	5. Titles
+	6. Labels
+	7. Legends
+	8. Annotations
+	9. Gridlines
+	10. Color customization
+	11. Axis formatting
+	12. Saving visualizations
+
+9. Statistical Visualization with Seaborn
+9.1 Distribution Plots
+	1. histplot()
+	2. kdeplot()
+	3. displot()
+	4. ecdfplot()
+	5. rugplot()
+9.2 Relationship Plots
+	1. scatterplot()
+	2. lineplot()
+	3. relplot()
+9.3 Categorical Plots
+	1. barplot()
+	2. countplot()
+	3. boxplot()
+	4. violinplot()
+	5. stripplot()
+	6. swarmplot()
+	7. catplot()
+9.4 Matrix Plots
+	1. heatmap()
+	2. clustermap()
+9.5 Regression Visualization
+	1. regplot()
+	2. lmplot()
+	3. Regression line
+	4. Confidence intervals
+	5. Residual visualization
+
+10. Interactive EDA with Plotly
+10.1 Interactive Charts
+	1. Interactive scatter plots
+	2. Interactive line charts
+	3. Interactive bar charts
+	4. Interactive histograms
+	5. Interactive box plots
+	6. Interactive violin plots
+	7. Interactive pie charts
+10.2 Advanced Plotly
+	1. Hover information
+	2. Interactive filters
+	3. Dropdown menus
+	4. Range sliders
+	5. Animation
+	6. Faceting
+	7. 3D visualization
+	8. Geographic visualization
+	9. Interactive correlation analysis
+	10. Dashboards
+
+11. Outlier Analysis
+11.1 Understanding Outliers
+	1. What is an outlier?
+	2. Causes of outliers
+	3. Genuine outliers
+	4. Data-entry errors
+	5. Measurement errors
+	6. Business-related outliers
+11.2 Detecting Outliers
+	1. Box plot method
+	2. IQR method
+	3. Z-score
+	4. Modified Z-score
+	5. Percentile method
+	6. Isolation Forest
+	7. Local Outlier Factor
+	8. DBSCAN-based detection
+11.3 Handling Outliers
+	1. Removing outliers
+	2. Capping
+	3. Winsorization
+	4. Transformation
+	5. Replacing with median
+	6. Keeping genuine outliers
+	7. Creating outlier flags
+
+12. Correlation Analysis
+12.1 Correlation Basics
+	1. What is correlation?
+	2. Correlation vs causation
+	3. Positive correlation
+	4. Negative correlation
+	5. Zero correlation
+	6. Strong correlation
+	7. Weak correlation
+12.2 Correlation Methods
+	1. Pearson correlation
+	2. Spearman correlation
+	3. Kendall correlation
+	4. Point-biserial correlation
+	5. Rank correlation
+12.3 Correlation Visualization
+	1. Correlation matrix
+	2. Heatmap
+	3. Pair plot
+	4. Scatter plots
+	5. Correlation network
+
+13. Covariance Analysis
+13.1 Covariance Basics
+	1. What is covariance?
+	2. Positive covariance
+	3. Negative covariance
+	4. Zero covariance
+	5. Covariance vs correlation
+13.2 Covariance Analysis
+	1. Covariance matrix
+	2. Feature relationships
+	3. Portfolio covariance
+	4. Multivariate covariance
+	5. Covariance visualization
+
+14. Distribution and Normality Analysis
+14.1 Distribution Analysis
+	1. Mean vs median
+	2. Skewness
+	3. Kurtosis
+	4. Tail behavior
+	5. Distribution shape
+14.2 Normality Testing
+	1. Histogram inspection
+	2. KDE inspection
+	3. Q-Q plot
+	4. Shapiro-Wilk test
+	5. Anderson-Darling test
+	6. D'Agostino's K² test
+14.3 Skewness
+	1. Positive skew
+	2. Negative skew
+	3. Measuring skewness
+	4. Handling skewed data
+	5. Log transformation
+	6. Power transformation
+14.4 Kurtosis
+	1. Mesokurtic
+	2. Leptokurtic
+	3. Platykurtic
+	4. Measuring kurtosis
+	5. Interpreting heavy tails
+
+15. Statistical Testing in EDA
+15.1 Hypothesis Testing
+	1. Null hypothesis
+	2. Alternative hypothesis
+	3. P-value
+	4. Significance level
+	5. Confidence interval
+	6. Type I error
+	7. Type II error
+	8. Statistical significance
+15.2 Common Statistical Tests
+	1. One-sample t-test
+	2. Independent t-test
+	3. Paired t-test
+	4. Chi-square test
+	5. ANOVA
+	6. Mann-Whitney U test
+	7. Wilcoxon test
+	8. Kruskal-Wallis test
+15.3 Practical Interpretation
+	1. Statistical significance
+	2. Practical significance
+	3. Effect size
+	4. Confidence intervals
+	5. Sample size effects
+
+16. Group-Based EDA
+16.1 GroupBy Analysis
+	1. groupby()
+	2. Aggregation
+	3. Multiple aggregations
+	4. agg()
+	5. transform()
+	6. apply()
+	7. Group filtering
+16.2 Aggregation
+	1. Mean
+	2. Median
+	3. Sum
+	4. Count
+	5. Minimum
+	6. Maximum
+	7. Standard deviation
+	8. Multiple statistics
+16.3 Business Segmentation
+	1. Customer segmentation
+	2. Product segmentation
+	3. Geographic segmentation
+	4. Age-group analysis
+	5. Income-group analysis
+	6. Performance segmentation
+
+17. Pivot Tables and Crosstabs
+17.1 Pivot Tables
+	1. pivot_table()
+	2. Index
+	3. Columns
+	4. Values
+	5. Aggregation functions
+	6. Multiple indexes
+	7. Multiple aggregations
+	8. Margins
+17.2 Crosstab Analysis
+	1. pd.crosstab()
+	2. Frequency tables
+	3. Percentage tables
+	4. Row percentages
+	5. Column percentages
+	6. Multi-dimensional crosstabs
+
+18. Time-Series EDA
+18.1 Date-Time Processing
+	1. Converting dates
+	2. Extracting year
+	3. Extracting month
+	4. Extracting day
+	5. Extracting weekday
+	6. Extracting hour
+	7. Time zones
+	8. Date differences
+18.2 Time-Series Analysis
+	1. Time trends
+	2. Seasonality
+	3. Growth rates
+	4. Moving averages
+	5. Rolling statistics
+	6. Expanding statistics
+	7. Lag features
+	8. Difference analysis
+18.3 Time-Series Visualization
+	1. Line charts
+	2. Rolling mean plots
+	3. Seasonal plots
+	4. Monthly trends
+	5. Year-over-year comparison
+	6. Heatmaps
+	7. Calendar plots
+
+19. Feature Analysis
+19.1 Feature Distributions
+	1. Feature range
+	2. Feature variance
+	3. Feature skewness
+	4. Feature cardinality
+	5. Feature uniqueness
+	6. Feature entropy
+19.2 Feature Relationships
+	1. Feature-feature correlation
+	2. Feature-target correlation
+	3. Feature interactions
+	4. Redundant features
+	5. Highly correlated features
+19.3 Feature Selection Through EDA
+	1. Low-variance features
+	2. Highly correlated features
+	3. Duplicate features
+	4. Irrelevant features
+	5. Constant features
+	6. Near-constant features
+	7. Leakage detection
+
+20. Target Variable Analysis
+20.1 Classification Target
+	1. Class distribution
+	2. Class imbalance
+	3. Minority class
+	4. Majority class
+	5. Class proportions
+	6. Target frequency
+20.2 Regression Target
+	1. Target distribution
+	2. Target skewness
+	3. Target outliers
+	4. Target variance
+	5. Target range
+	6. Target transformation
+20.3 Target vs Features
+	1. Numerical feature vs target
+	2. Categorical feature vs target
+	3. Correlation
+	4. Group statistics
+	5. Distribution comparison
+	6. Feature importance exploration
+
+21. Class Imbalance Analysis
+21.1 Understanding Imbalance
+	1. Balanced datasets
+	2. Imbalanced datasets
+	3. Binary imbalance
+	4. Multiclass imbalance
+	5. Severe imbalance
+21.2 Detecting Imbalance
+	1. Value counts
+	2. Percentage distribution
+	3. Visualization
+	4. Imbalance ratio
+21.3 Handling Imbalance
+	1. Random oversampling
+	2. Random undersampling
+	3. SMOTE
+	4. ADASYN
+	5. Class weights
+	6. Stratified sampling
+
+22. Missing Data Visualization
+22.1 Missing Data Patterns
+	1. Missing percentage
+	2. Missing by column
+	3. Missing by row
+	4. Missing combinations
+	5. Missing-value correlation
+22.2 Visualization
+	1. Missing-value bar chart
+	2. Missingness heatmap
+	3. Missingness matrix
+	4. Missing-value timeline
+	5. Missing-value patterns
+
+23. Advanced Multivariate Analysis
+23.1 Pairwise Analysis
+	1. Pair plots
+	2. Scatter matrices
+	3. Feature relationships
+	4. Category-based pair plots
+23.2 Dimensionality Reduction for EDA
+	1. PCA
+	2. Explained variance
+	3. PCA visualization
+	4. 2D PCA
+	5. 3D PCA
+23.3 Clustering-Based EDA
+	1. K-Means
+	2. Hierarchical clustering
+	3. DBSCAN
+	4. Cluster visualization
+	5. Cluster profiling
+	6. Customer segmentation
+
+24. EDA with Scikit-learn
+24.1 Dataset Preparation
+	1. Train/test split
+	2. Feature-target separation
+	3. Numerical feature analysis
+	4. Categorical feature analysis
+24.2 Preprocessing for EDA
+	1. StandardScaler
+	2. MinMaxScaler
+	3. RobustScaler
+	4. OneHotEncoder
+	5. OrdinalEncoder
+	6. SimpleImputer
+	7. Pipeline
+24.3 Feature Analysis
+	1. VarianceThreshold
+	2. SelectKBest
+	3. Mutual information
+	4. Feature importance
+	5. Recursive feature elimination
+
+25. Leakage Detection
+25.1 What is Data Leakage?
+	1. Definition
+	2. Training leakage
+	3. Target leakage
+	4. Feature leakage
+	5. Temporal leakage
+	6. Duplicate leakage
+25.2 Detecting Leakage
+	1. Suspiciously high correlations
+	2. Future information
+	3. Target-derived features
+	4. Duplicate records
+	5. Train-test overlap
+	6. Timestamp analysis
+
+26. Sampling Analysis
+26.1 Sampling Techniques
+	1. Random sampling
+	2. Simple random sampling
+	3. Stratified sampling
+	4. Systematic sampling
+	5. Cluster sampling
+26.2 Sampling Bias
+	1. Selection bias
+	2. Survivorship bias
+	3. Sampling bias
+	4. Response bias
+	5. Non-response bias
+26.3 Train-Test Distribution
+	1. Comparing distributions
+	2. Comparing class proportions
+	3. Statistical distribution checks
+	4. Detecting distribution shift
+
+27. Data Drift and Distribution Shift
+27.1 Understanding Data Drift
+	1. What is data drift?
+	2. Feature drift
+	3. Target drift
+	4. Concept drift
+	5. Distribution shift
+27.2 Detecting Drift
+	1. Distribution comparison
+	2. Mean comparison
+	3. Variance comparison
+	4. PSI
+	5. KS test
+	6. Population comparison
+27.3 Drift Visualization
+	1. Distribution overlays
+	2. Time-based plots
+	3. Feature drift heatmaps
+	4. PSI visualization
+
+28. Advanced Visualization Techniques
+28.1 Comparative Visualization
+	1. Before vs after
+	2. Group comparison
+	3. Time comparison
+	4. Category comparison
+	5. Distribution comparison
+28.2 Multivariate Visualization
+	1. Pair plots
+	2. Bubble charts
+	3. Heatmaps
+	4. Parallel coordinates
+	5. Radar charts
+	6. 3D scatter plots
+28.3 Geographic EDA
+	1. Latitude/longitude analysis
+	2. Geographic scatter plots
+	3. Choropleth maps
+	4. Regional analysis
+	5. Location-based clustering
+
+29. Automated EDA
+29.1 EDA Automation
+	1. Automated summary statistics
+	2. Automated missing-value reports
+	3. Automated correlation analysis
+	4. Automated distribution analysis
+	5. Automated outlier detection
+29.2 EDA Libraries
+	1. ydata-profiling
+	2. Sweetviz
+	3. D-Tale
+	4. AutoViz
+	5. Great Expectations for data validation
+29.3 Automated EDA Reports
+	1. Dataset overview
+	2. Variable analysis
+	3. Missing values
+	4. Correlations
+	5. Duplicate analysis
+	6. Distribution analysis
+	7. Exporting reports
+
+30. EDA Dashboards
+30.1 Dashboard Design
+	1. KPI cards
+	2. Filters
+	3. Dropdowns
+	4. Date selectors
+	5. Interactive charts
+	6. Summary tables
+	7. Drill-down analysis
+30.2 Dashboard Tools
+	1. Plotly
+	2. Streamlit
+	3. Dash
+	4. Matplotlib
+	5. Seaborn
+30.3 Dashboard Projects
+	1. Sales dashboard
+	2. Customer analytics dashboard
+	3. Financial dashboard
+	4. Healthcare analytics dashboard
+	5. E-commerce dashboard
+
+31. Domain-Specific EDA
+31.1 Sales EDA
+	1. Revenue analysis
+	2. Product analysis
+	3. Customer analysis
+	4. Regional sales
+	5. Monthly sales
+	6. Profit analysis
+	7. Discount analysis
+31.2 E-Commerce EDA
+	1. Orders
+	2. Customers
+	3. Products
+	4. Reviews
+	5. Conversion rates
+	6. Cart abandonment
+	7. Customer lifetime value
+31.3 Finance EDA
+	1. Revenue
+	2. Expenses
+	3. Profit
+	4. Transactions
+	5. Fraud patterns
+	6. Risk analysis
+	7. Portfolio analysis
+31.4 Healthcare EDA
+	1. Patient demographics
+	2. Disease distribution
+	3. Treatment analysis
+	4. Hospital performance
+	5. Medical measurements
+	6. Patient outcomes
+31.5 HR EDA
+	1. Employee demographics
+	2. Salary analysis
+	3. Attrition
+	4. Department analysis
+	5. Performance analysis
+	6. Experience analysis
+
+32. EDA for Machine Learning
+32.1 Pre-Modeling EDA
+	1. Understand target
+	2. Understand features
+	3. Check missing values
+	4. Check duplicates
+	5. Detect outliers
+	6. Analyze distributions
+	7. Analyze correlations
+	8. Detect leakage
+32.2 Feature-Target Analysis
+	1. Numerical feature vs target
+	2. Categorical feature vs target
+	3. Correlation
+	4. Mutual information
+	5. Group statistics
+	6. Distribution comparison
+32.3 Model-Oriented EDA
+	1. Feature importance
+	2. Feature interactions
+	3. Multicollinearity
+	4. Class imbalance
+	5. Distribution shift
+	6. Train-test consistency
+
+33. Multicollinearity Analysis
+33.1 Understanding Multicollinearity
+	1. What is multicollinearity?
+	2. Why it matters
+	3. Perfect multicollinearity
+	4. High correlation between features
+	5. Impact on regression
+33.2 Detecting Multicollinearity
+	1. Correlation matrix
+	2. Scatter plots
+	3. VIF
+	4. Feature clustering
+33.3 Handling Multicollinearity
+	1. Remove redundant features
+	2. Feature selection
+	3. PCA
+	4. Regularization
+	5. Domain-based selection
+
+34. EDA for Text Data
+34.1 Text Dataset Analysis
+	1. Number of documents
+	2. Text length
+	3. Word count
+	4. Character count
+	5. Sentence count
+	6. Vocabulary size
+34.2 Text Visualization
+	1. Word frequency
+	2. Word clouds
+	3. N-gram analysis
+	4. Word frequency charts
+	5. Text-length distribution
+34.3 NLP EDA
+	1. Stopword analysis
+	2. Token frequency
+	3. Bigram analysis
+	4. Trigram analysis
+	5. Sentiment distribution
+	6. Category-based text analysis
+
+35. Image Data EDA
+35.1 Image Dataset Analysis
+	1. Image dimensions
+	2. Image resolution
+	3. Image channels
+	4. RGB vs grayscale
+	5. Pixel distributions
+	6. File sizes
+35.2 Image Visualization
+	1. Image grids
+	2. Random image samples
+	3. Pixel histograms
+	4. Channel distributions
+	5. Class-based image grids
+35.3 Image Dataset Quality
+	1. Corrupt images
+	2. Duplicate images
+	3. Wrong labels
+	4. Class imbalance
+	5. Resolution inconsistencies
+
+36. EDA Best Practices
+36.1 Data Analysis Practices
+	1. Understand the business problem first
+	2. Don't blindly remove outliers
+	3. Don't blindly fill missing values
+	4. Check distributions before transformations
+	5. Check relationships between variables
+	6. Validate assumptions
+	7. Document decisions
+36.2 Visualization Practices
+	1. Choose the correct chart
+	2. Avoid unnecessary charts
+	3. Use meaningful titles
+	4. Label axes
+	5. Use appropriate colors
+	6. Avoid misleading scales
+	7. Highlight important insights
+36.3 Statistical Practices
+	1. Correlation is not causation
+	2. Don't rely only on p-values
+	3. Consider sample size
+	4. Consider effect size
+	5. Check statistical assumptions
+	6. Combine statistics with visualization
+
+37. EDA Common Mistakes
+37.1 Data Mistakes
+	1. Ignoring missing values
+	2. Ignoring duplicates
+	3. Incorrect data types
+	4. Ignoring outliers
+	5. Incorrect imputation
+	6. Data leakage
+	7. Incorrect aggregation
+37.2 Visualization Mistakes
+	1. Wrong chart selection
+	2. Too many charts
+	3. Misleading axes
+	4. Poor color choices
+	5. Overplotting
+	6. Missing labels
+	7. Ignoring scale
+37.3 Statistical Mistakes
+	1. Assuming normality
+	2. Confusing correlation with causation
+	3. Ignoring skewness
+	4. Ignoring class imbalance
+	5. Misinterpreting p-values
+	6. Ignoring confidence intervals
+
+38. EDA Interview Topics
+38.1 Frequently Asked Questions
+	1. What is EDA?
+	2. Why is EDA important?
+	3. What are the steps in EDA?
+	4. Univariate vs bivariate vs multivariate analysis
+	5. Mean vs median
+	6. Variance vs standard deviation
+	7. Correlation vs covariance
+	8. Correlation vs causation
+	9. What is skewness?
+	10. What is kurtosis?
+	11. What is an outlier?
+	12. How do you detect outliers?
+	13. How do you handle missing values?
+	14. How do you handle duplicates?
+	15. What is multicollinearity?
+	16. What is VIF?
+	17. What is data leakage?
+	18. What is class imbalance?
+	19. What is data drift?
+	20. How do you detect distribution shift?
+38.2 Practical EDA Questions
+	1. Analyze a CSV dataset
+	2. Find missing values
+	3. Find duplicate records
+	4. Detect outliers
+	5. Find highly correlated features
+	6. Analyze categorical variables
+	7. Analyze numerical variables
+	8. Create a correlation heatmap
+	9. Analyze target distribution
+	10. Find important features
+
+39. Beginner EDA Projects
+39.1 Student Performance Analysis
+	1. Load student dataset
+	2. Analyze student demographics
+	3. Analyze marks
+	4. Find average scores
+	5. Compare subjects
+	6. Analyze gender-wise performance
+	7. Analyze study-time impact
+	8. Visualize score distributions
+Libraries: Pandas + NumPy + Matplotlib + Seaborn
+
+39.2 Supermarket Sales Analysis
+	1. Analyze sales
+	2. Analyze products
+	3. Analyze branches
+	4. Analyze customer types
+	5. Analyze payment methods
+	6. Analyze monthly sales
+	7. Find best-selling products
+	8. Visualize revenue
+Libraries: Pandas + Matplotlib + Seaborn
+
+39.3 Weather Data Analysis
+	1. Temperature analysis
+	2. Rainfall analysis
+	3. Humidity analysis
+	4. Monthly trends
+	5. Seasonal analysis
+	6. Temperature distribution
+	7. Correlation analysis
+Libraries: Pandas + NumPy + Matplotlib + Seaborn
+
+40. Intermediate EDA Projects
+40.1 E-Commerce Customer Analysis
+	1. Customer demographics
+	2. Purchase behavior
+	3. Revenue analysis
+	4. Product analysis
+	5. Customer segmentation
+	6. Repeat customer analysis
+	7. Average order value
+	8. Customer lifetime value
+Libraries: Pandas + NumPy + Seaborn + Matplotlib + Plotly
+
+40.2 Netflix Movies and TV Shows EDA
+	1. Content distribution
+	2. Movies vs TV shows
+	3. Country analysis
+	4. Genre analysis
+	5. Release-year analysis
+	6. Rating analysis
+	7. Duration analysis
+	8. Trends over time
+Libraries: Pandas + Matplotlib + Seaborn + Plotly
+
+40.3 Airbnb Data Analysis
+	1. Price analysis
+	2. Location analysis
+	3. Room-type analysis
+	4. Availability analysis
+	5. Review analysis
+	6. Host analysis
+	7. Neighborhood comparison
+	8. Price distribution
+Libraries: Pandas + NumPy + Seaborn + Plotly
+
+41. Advanced EDA Projects
+41.1 Customer Churn EDA
+	1. Customer demographics
+	2. Contract analysis
+	3. Payment analysis
+	4. Churn distribution
+	5. Churn by customer segment
+	6. Feature-target relationships
+	7. Correlation analysis
+	8. Class imbalance
+	9. Outlier detection
+	10. Leakage detection
+	11. Feature engineering
+	12. ML-ready dataset
+Libraries: Pandas + NumPy + Seaborn + Plotly + Scikit-learn
+
+41.2 Credit Card Fraud EDA
+	1. Transaction distribution
+	2. Fraud vs legitimate transactions
+	3. Class imbalance
+	4. Transaction amount analysis
+	5. Time-based analysis
+	6. Outlier detection
+	7. Correlation analysis
+	8. Fraud patterns
+	9. Distribution analysis
+	10. Anomaly detection
+Libraries: Pandas + NumPy + Seaborn + Plotly + Scikit-learn
+
+41.3 Stock Market EDA
+	1. Historical price analysis
+	2. Returns
+	3. Volatility
+	4. Moving averages
+	5. Trading volume
+	6. Correlation between stocks
+	7. Risk analysis
+	8. Drawdown analysis
+	9. Time-series analysis
+	10. Interactive financial dashboard
+Libraries: Pandas + NumPy + Matplotlib + Seaborn + Plotly
+
+42. Advanced EDA + Machine Learning Projects
+42.1 House Price EDA
+	1. Property distribution
+	2. Missing-value analysis
+	3. Price distribution
+	4. Outlier detection
+	5. Feature correlation
+	6. Neighborhood analysis
+	7. Feature-target analysis
+	8. Skewness analysis
+	9. Feature engineering
+	10. Multicollinearity
+	11. PCA exploration
+	12. Prepare dataset for regression
+Libraries: Pandas + NumPy + Seaborn + Matplotlib + Scikit-learn
+
+42.2 Customer Segmentation
+	1. Customer behavior analysis
+	2. Spending analysis
+	3. Frequency analysis
+	4. Recency analysis
+	5. RFM analysis
+	6. Correlation analysis
+	7. Feature scaling
+	8. K-Means clustering
+	9. PCA visualization
+	10. Cluster profiling
+	11. Interactive visualization
+Libraries: Pandas + NumPy + Seaborn + Plotly + Scikit-learn
+
+43. End-to-End Data Science EDA Projects
+43.1 Complete Sales Analytics System
+Data
+	1. Customers
+	2. Products
+	3. Orders
+	4. Payments
+	5. Locations
+EDA
+	1. Data quality analysis
+	2. Missing-value analysis
+	3. Duplicate analysis
+	4. Revenue analysis
+	5. Product analysis
+	6. Customer analysis
+	7. Geographic analysis
+	8. Time-series analysis
+	9. Correlation analysis
+	10. Outlier analysis
+ML
+	1. Customer segmentation
+	2. Sales forecasting
+	3. Churn prediction
+Visualization
+	1. Plotly dashboard
+	2. KPI dashboard
+	3. Interactive filters
+
+44. EDA + LLM Projects
+Since you also know LLMs, Prompt Engineering, RAG, LangChain, LangGraph, LangSmith, ChromaDB, OpenAI, Pydantic and SQLite, you can take EDA much further.
+44.1 AI Data Analyst
+Build an application where a user uploads a CSV and asks:
+	"What are the top-selling products?"
+	"Are there missing values?"
+	"Which features are correlated?"
+	"Show me the sales trend."
+The system:
+	1. Accepts CSV
+	2. Uses Pandas for analysis
+	3. Uses NumPy for calculations
+	4. Generates Matplotlib/Seaborn charts
+	5. Uses Plotly for interactive charts
+	6. Uses an LLM to understand questions
+	7. Generates Python/Pandas analysis
+	8. Executes safe analysis
+	9. Explains results
+	10. Returns insights
+Stack: Pandas + NumPy + Matplotlib + Seaborn + Plotly + OpenAI + Pydantic
+45. Advanced AI EDA Projects
+45.1 Chat With Your Dataset
+Build:
+CSV → Data Understanding → EDA → LLM → Answer
+Features:
+	1. Upload CSV
+	2. Automatic dataset profiling
+	3. Column detection
+	4. Data-type detection
+	5. Missing-value report
+	6. Duplicate report
+	7. Statistical summary
+	8. Automatic visualization
+	9. Natural-language questions
+	10. LLM-generated analysis
+	11. Chart generation
+	12. Insight generation
+Stack:
+Pandas + NumPy + Matplotlib + Seaborn + Plotly + OpenAI + Pydantic
+
+45.2 RAG-Based Data Analyst
+Build an AI analyst that combines:
+Dataset + Documentation + Business Knowledge + LLM
+For example:
+User Question
+      ↓
+LangGraph
+      ↓
+Understand Question
+      ↓
+Retrieve Business Documentation
+      ↓
+Analyze Dataset
+      ↓
+Generate Chart
+      ↓
+Validate Result
+      ↓
+LLM Explanation
+      ↓
+Final Answer
+
+Use:
+	• Pandas → data analysis
+	• NumPy → numerical operations
+	• Matplotlib/Seaborn → visualization
+	• Plotly → interactive charts
+	• ChromaDB → vector storage
+	• RAG → business-document retrieval
+	• LangChain → components
+	• LangGraph → workflow
+	• OpenAI → LLM
+	• Pydantic → structured outputs
+	• SQLite → conversation/history storage
+	• LangSmith → tracing/evaluation
+
+46. Expert-Level EDA + AI Project
+46.1 Autonomous Data Scientist
+Build an AI system that can perform EDA automatically.
+Input
+CSV / Excel / Database
+Agent Workflow
+        Dataset
+           ↓
+   Data Profiling Agent
+           ↓
+   Data Quality Agent
+           ↓
+      EDA Agent
+           ↓
+   Statistical Agent
+           ↓
+ Visualization Agent
+           ↓
+ Feature Engineering Agent
+           ↓
+   ML Analysis Agent
+           ↓
+ Insight Generation Agent
+           ↓
+     Report Generator
+Capabilities
+Capabilities
+	1. Automatically inspect dataset
+	2. Detect data types
+	3. Find missing values
+	4. Find duplicates
+	5. Detect outliers
+	6. Analyze distributions
+	7. Calculate correlations
+	8. Detect multicollinearity
+	9. Detect class imbalance
+	10. Detect potential leakage
+	11. Generate charts
+	12. Generate statistical insights
+	13. Recommend transformations
+	14. Recommend features
+	15. Run ML experiments
+	16. Compare models
+	17. Explain results
+	18. Generate final EDA report
+	
+	Full Stack
+	NumPy
+Pandas
+Matplotlib
+Seaborn
+Plotly
+Scikit-learn
+       ↓
+     Pydantic
+       ↓
+     OpenAI
+       ↓
+    LangChain
+       ↓
+    LangGraph
+       ↓
+     ChromaDB
+       ↓
+     SQLite
+       ↓
+    LangSmith
+	
+	
+47. Recommended EDA Project Progression
+If your goal is to become strong in Data Science + AI/LLM, I would follow this order:
+Level	Project	Main Skills
+🟢 Beginner 1	Student Performance Analysis	Pandas + NumPy
+🟢 Beginner 2	Weather Analysis	Pandas + Matplotlib
+🟢 Beginner 3	Supermarket Sales	Pandas + Seaborn
+🟢 Beginner 4	Netflix EDA	Pandas + Seaborn
+🟡 Intermediate 1	Airbnb Analysis	Pandas + Plotly
+🟡 Intermediate 2	E-Commerce Analysis	Pandas + NumPy + Plotly
+🟡 Intermediate 3	Customer Churn EDA	EDA + Scikit-learn
+🟡 Intermediate 4	House Price EDA	EDA + Feature Engineering
+🔴 Advanced 1	Customer Segmentation	EDA + K-Means + PCA
+🔴 Advanced 2	Fraud Detection EDA	EDA + Anomaly Detection
+🔴 Advanced 3	Stock Market Analysis	Time-Series EDA
+🔴 Advanced 4	Sales Analytics Dashboard	EDA + Plotly
+🟣 AI 1	Chat With CSV	EDA + OpenAI
+🟣 AI 2	AI Data Analyst	EDA + LLM + Pydantic
+🟣 AI 3	RAG Data Analyst	EDA + RAG + ChromaDB
+🟣 AI 4	Agentic Data Analyst	LangGraph + OpenAI
+🟣 Expert	Autonomous Data Scientist	All your technologies
+Your overall progression
+NumPy
+  ↓
+Pandas
+  ↓
+Matplotlib
+  ↓
+Seaborn
+  ↓
+Plotly
+  ↓
+EDA
+  ↓
+Scikit-learn
+  ↓
+LLM + Prompt Engineering
+  ↓
+Pydantic
+  ↓
+OpenAI
+  ↓
+RAG + ChromaDB
+  ↓
+LangChain
+  ↓
+LangGraph
+  ↓
+LangSmith
+  ↓
+SQLite
+  ↓
+AI Data Analyst
+  ↓
+Autonomous Data Scientist
+This progression is particularly useful because EDA becomes the bridge between your traditional data-science skills and your LLM/agentic-AI skills.

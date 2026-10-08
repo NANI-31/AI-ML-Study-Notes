@@ -1,0 +1,1224 @@
+7.3 K-Nearest Neighbors (KNN) — Scikit-learn
+K-Nearest Neighbors (KNN) is one of the easiest Machine Learning algorithms to understand.
+The core idea is:
+	A new data point is classified based on the classes of the closest training data points.
+For example, suppose we have students:
+Hours Studied   Attendance   Result
+2               50           Fail
+3               55           Fail
+7               85           Pass
+8               90           Pass
+For a new student:
+Hours = 6
+Attendance = 80
+KNN looks for the closest existing students and asks:
+	"What class do most of these nearby students belong to?"
+If most nearby students are Pass, KNN predicts:
+Pass
+
+1. What is K-Nearest Neighbors?
+KNN is a supervised Machine Learning algorithm used primarily for:
+	• Classification
+	• Regression
+In your current topic, we're focusing on KNN Classification.
+The algorithm is called:
+K-Nearest Neighbors
+because:
+K
+↓
+Number of neighbors considered
+Nearest
+↓
+Closest according to a distance metric
+Neighbors
+↓
+Training samples
+
+2. Basic KNN Idea
+Suppose we have two classes:
+● = Class A
+▲ = Class B
+And a new point:
+X = New point
+Conceptually:
+        ●       ●
+●        X        ▲
+▲       ▲
+KNN finds the nearest points to X.
+If:
+K = 3
+and the three nearest neighbors are:
+●
+●
+▲
+then:
+Class A → 2 votes
+Class B → 1 vote
+Therefore:
+Prediction = Class A
+
+3. Interactive Intuition
+genui{"learning_viz":{"type_id":"KNN_NEIGHBOR_VOTING"}}
+The important thing to observe is that changing K changes which neighbors participate in the vote and can therefore change the prediction and the decision regions.
+
+4. Why Is KNN Called a Lazy Learner?
+This is an important interview concept.
+Many ML algorithms learn parameters during training.
+For example:
+Logistic Regression
+        ↓
+Training
+        ↓
+Learn coefficients
+KNN behaves differently.
+During training, it essentially stores the training data rather than learning a traditional parametric model.
+Then when a new sample arrives:
+New sample
+    ↓
+Calculate distances
+    ↓
+Find nearest neighbors
+    ↓
+Vote
+    ↓
+Prediction
+Therefore KNN is often called:
+	Lazy learning or instance-based learning.
+
+5. KNeighborsClassifier
+Scikit-learn provides:
+from sklearn.neighbors import KNeighborsClassifier
+Create the model:
+model = KNeighborsClassifier(
+    n_neighbors=5
+)
+Here:
+n_neighbors = 5
+means:
+	Use the 5 nearest training samples to make the prediction.
+
+6. Basic KNN Example
+Let's create a small dataset.
+import numpy as np
+X = np.array([
+    [1, 2],
+    [2, 3],
+    [3, 3],
+    [6, 7],
+    [7, 8],
+    [8, 8]
+])
+y = np.array([
+    0,
+    0,
+    0,
+    1,
+    1,
+    1
+])
+Here:
+0 → Class A
+1 → Class B
+Train KNN:
+from sklearn.neighbors import KNeighborsClassifier
+model = KNeighborsClassifier(
+    n_neighbors=3
+)
+model.fit(X, y)
+Predict:
+new_point = [[4, 5]]
+prediction = model.predict(
+    new_point
+)
+print(prediction)
+The model looks at the three nearest training points.
+
+7. What Does fit() Do in KNN?
+We use:
+model.fit(X_train, y_train)
+Unlike Logistic Regression, KNN doesn't learn a set of coefficients in the traditional sense.
+Conceptually, it retains the training examples needed for future neighbor searches.
+Therefore:
+fit()
+ ↓
+Store training data
+rather than:
+fit()
+ ↓
+Learn coefficients
+as in Logistic Regression.
+
+8. What Happens During Prediction?
+Suppose:
+K = 3
+and a new point arrives.
+New Point
+   ↓
+Calculate distance to training points
+   ↓
+Sort by distance
+   ↓
+Select 3 closest
+   ↓
+Look at their labels
+   ↓
+Majority vote
+   ↓
+Prediction
+This is the core KNN algorithm.
+
+9. Choosing K
+Choosing K is extremely important.
+K represents:
+	How many nearest neighbors should be considered when making a prediction?
+Example:
+model = KNeighborsClassifier(
+    n_neighbors=5
+)
+means:
+K = 5
+
+10. What Happens When K = 1?
+With:
+K = 1
+KNN looks at only the closest training point.
+Example:
+New point
+   ↓
+Nearest neighbor
+   ↓
+Its class
+Advantages:
+	• very simple
+	• can capture local patterns
+Disadvantages:
+	• highly sensitive to noise
+	• can overfit
+Conceptually:
+K = 1
+ ↓
+Very local decision
+ ↓
+Low bias
+ ↓
+High variance
+ ↓
+Potential overfitting
+
+11. What Happens When K Is Very Large?
+Suppose:
+K = 100
+The model considers many training samples.
+This creates a smoother decision boundary.
+But if K becomes too large:
+Local information
+       ↓
+Gets averaged out
+The model may become too simple.
+Conceptually:
+Large K
+ ↓
+Smoother predictions
+ ↓
+Higher bias
+ ↓
+Lower variance
+ ↓
+Potential underfitting
+
+12. K and Bias-Variance Tradeoff
+This is a very common interview question.
+Small K
+K ↓
+ ↓
+More sensitive to individual points
+ ↓
+Low bias
+High variance
+Large K
+K ↑
+ ↓
+More smoothing
+ ↓
+Higher bias
+Lower variance
+So:
+Very small K → overfitting risk
+Very large K → underfitting risk
+The goal is to find a good value using validation or cross-validation.
+
+13. How Do You Choose K?
+Don't simply choose:
+K = 5
+because it is common.
+Instead, test multiple values.
+For example:
+K = 1
+K = 3
+K = 5
+K = 7
+K = 9
+K = 11
+...
+Then evaluate them using cross-validation.
+
+14. KNN Hyperparameter Tuning
+Example:
+from sklearn.model_selection import GridSearchCV
+from sklearn.neighbors import KNeighborsClassifier
+model = KNeighborsClassifier()
+param_grid = {
+    "n_neighbors": [1, 3, 5, 7, 9, 11]
+}
+grid = GridSearchCV(
+    model,
+    param_grid,
+    cv=5,
+    scoring="accuracy"
+)
+grid.fit(
+    X_train,
+    y_train
+)
+print(grid.best_params_)
+print(grid.best_score_)
+You might get:
+{'n_neighbors': 7}
+Then:
+Best K = 7
+according to that validation setup and scoring metric.
+
+15. Odd K for Binary Classification
+You will often hear:
+	"Use an odd K to avoid ties."
+For example:
+K = 3
+Possible votes:
+Class 0 → 2
+Class 1 → 1
+No tie.
+With:
+K = 4
+you could get:
+Class 0 → 2
+Class 1 → 2
+A tie is possible.
+Therefore, an odd K can reduce the chance of ties in binary classification.
+But this is not a universal rule. You should still select K using validation, and Scikit-learn has tie-handling behavior.
+
+16. Distance Metrics
+KNN depends heavily on distance.
+The algorithm needs to answer:
+	"How close is this new point to each training point?"
+Different distance metrics can give different answers.
+Common metrics include:
+Euclidean distance
+Manhattan distance
+Minkowski distance
+Chebyshev distance
+
+17. Euclidean Distance
+The most common distance metric is Euclidean distance.
+For two points:
+A = (x₁, y₁)
+B = (x₂, y₂)
+distance is:
+d =
+√[(x₂-x₁)² + (y₂-y₁)²]
+Example:
+A = (1, 2)
+B = (4, 6)
+Difference:
+4 - 1 = 3
+6 - 2 = 4
+Therefore:
+distance
+= √(3² + 4²)
+= √25
+= 5
+
+18. Manhattan Distance
+Manhattan distance is:
+d = |x₂-x₁| + |y₂-y₁|
+For:
+A = (1, 2)
+B = (4, 6)
+we get:
+|4-1| + |6-2|
+= 3 + 4
+= 7
+It is called Manhattan distance because it resembles movement along a city grid.
+
+19. Minkowski Distance
+Minkowski distance is a generalization.
+For parameter p:
+d =
+(Σ |xᵢ-yᵢ|ᵖ)^(1/p)
+Special cases:
+p = 1
+→ Manhattan distance
+p = 2
+→ Euclidean distance
+Scikit-learn's KNN commonly uses:
+metric="minkowski"
+with:
+p=2
+by default, corresponding to Euclidean distance.
+
+20. Specifying the Distance Metric
+Example:
+model = KNeighborsClassifier(
+    n_neighbors=5,
+    metric="manhattan"
+)
+Or:
+model = KNeighborsClassifier(
+    n_neighbors=5,
+    metric="minkowski",
+    p=2
+)
+For Euclidean distance, you can also use:
+model = KNeighborsClassifier(
+    n_neighbors=5,
+    metric="euclidean"
+)
+
+21. Why Feature Scaling Is Critical for KNN
+This is probably the most important practical issue with KNN.
+Suppose your features are:
+Age       → 20–60
+Income    → 20,000–500,000
+Distance calculations are affected by feature magnitude.
+Imagine:
+Age difference = 10
+Income difference = 100,000
+The income difference can dominate the distance.
+Therefore the model may behave as though income is much more important simply because its numerical scale is larger.
+
+22. Scaling Example
+Suppose:
+Person A:
+Age = 25
+Income = 50,000
+Person B:
+Age = 30
+Income = 55,000
+Without scaling:
+Income difference = 5,000
+Age difference = 5
+The income dimension dominates Euclidean distance.
+After scaling:
+Age → standardized
+Income → standardized
+the features are on comparable scales.
+Therefore:
+	Feature scaling is generally essential for distance-based algorithms such as KNN.
+
+23. KNN with StandardScaler
+Use a Pipeline:
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.neighbors import KNeighborsClassifier
+pipeline = Pipeline([
+    ("scaler", StandardScaler()),
+    ("knn", KNeighborsClassifier(
+        n_neighbors=5
+    ))
+])
+pipeline.fit(
+    X_train,
+    y_train
+)
+y_pred = pipeline.predict(
+    X_test
+)
+This is the recommended pattern rather than manually scaling the entire dataset before splitting.
+
+24. Why Pipeline Is Important Here
+The correct sequence is:
+Training data
+     ↓
+Fit scaler
+     ↓
+Transform training data
+     ↓
+Train KNN
+Then:
+Test data
+     ↓
+Use SAME fitted scaler
+     ↓
+Transform test data
+     ↓
+KNN prediction
+You should not fit the scaler separately on the test set.
+Using a Pipeline makes this much easier and safer.
+
+25. Training KNN
+Let's use the Iris dataset.
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+iris = load_iris()
+X = iris.data
+y = iris.target
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    random_state=42,
+    stratify=y
+)
+Create the KNN model:
+from sklearn.neighbors import KNeighborsClassifier
+knn = KNeighborsClassifier(
+    n_neighbors=5
+)
+Train:
+knn.fit(
+    X_train,
+    y_train
+)
+
+26. Prediction with KNN
+Predict:
+y_pred = knn.predict(
+    X_test
+)
+Output might look like:
+[0, 1, 2, 1, 0, ...]
+Each number represents the predicted class.
+For Iris:
+0 → Setosa
+1 → Versicolor
+2 → Virginica
+
+27. Predicting a New Sample
+Suppose:
+new_flower = [[
+    5.1,
+    3.5,
+    1.4,
+    0.2
+]]
+Predict:
+prediction = knn.predict(
+    new_flower
+)
+print(prediction)
+Possible output:
+[0]
+Therefore:
+Prediction = Setosa
+
+28. KNN Probability Predictions
+KNN can also provide class probabilities:
+probabilities = knn.predict_proba(
+    X_test
+)
+Suppose:
+[0.8, 0.2, 0.0]
+This means that among the relevant neighbors, the model's probability estimate is:
+Class 0 → 80%
+Class 1 → 20%
+Class 2 → 0%
+With standard uniform voting, these estimates are related to the proportion of neighbors belonging to each class.
+
+29. weights Parameter
+KNN has an important parameter:
+weights
+Two common options are:
+uniform
+distance
+
+30. Uniform Weights
+Default behavior is generally:
+weights="uniform"
+Every neighbor gets equal voting weight.
+Example:
+Neighbor 1 → Class A
+Neighbor 2 → Class A
+Neighbor 3 → Class B
+Votes:
+A → 2
+B → 1
+Prediction:
+A
+
+31. Distance Weights
+With:
+weights="distance"
+closer neighbors receive greater influence.
+Example:
+Neighbor     Distance     Class
+A            0.1          Class A
+B            0.9          Class B
+C            1.0          Class B
+With uniform weights:
+A → 1 vote
+B → 2 votes
+Prediction:
+Class B
+But distance weighting gives the extremely close point A much more influence, which may change the prediction.
+
+32. Using Distance Weights
+knn = KNeighborsClassifier(
+    n_neighbors=5,
+    weights="distance"
+)
+This can be useful when closer neighbors should matter more than farther neighbors.
+Again, choose it based on validation rather than assuming it is always better.
+
+33. KNN Example with Scaling and Distance Weighting
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.neighbors import KNeighborsClassifier
+pipeline = Pipeline([
+    ("scaler", StandardScaler()),
+    ("knn", KNeighborsClassifier(
+        n_neighbors=7,
+        weights="distance",
+        metric="minkowski",
+        p=2
+    ))
+])
+pipeline.fit(
+    X_train,
+    y_train
+)
+y_pred = pipeline.predict(
+    X_test
+)
+This means:
+StandardScaler
+      ↓
+KNN
+      ↓
+K = 7
+      ↓
+Distance weighting
+      ↓
+Euclidean-style Minkowski distance
+
+34. How KNN Makes a Prediction
+Let's make the process concrete.
+Suppose:
+K = 5
+A new point arrives.
+Distances:
+Neighbor    Distance    Class
+A           0.20        0
+B           0.35        1
+C           0.40        0
+D           0.55        0
+E           0.70        1
+F           1.20        1
+The 5 nearest are:
+A
+B
+C
+D
+E
+Votes:
+Class 0 → 3
+Class 1 → 2
+Therefore:
+Prediction = Class 0
+The sixth point is ignored.
+
+35. KNN Algorithm Step-by-Step
+For a new point:
+Step 1
+Calculate distance from the new point to every relevant training point.
+Step 2
+Sort the training points by distance.
+Step 3
+Select the nearest K.
+Step 4
+Look at their class labels.
+Step 5
+Perform voting.
+Step 6
+Return the winning class.
+New point
+   ↓
+Distances
+   ↓
+Sort
+   ↓
+K nearest
+   ↓
+Vote
+   ↓
+Prediction
+
+36. KNN Is a Non-Parametric Algorithm
+KNN is considered non-parametric.
+Why?
+Because it doesn't assume a fixed functional form such as:
+y = b₀ + b₁x₁ + ...
+Instead, it uses the training data directly.
+Conceptually:
+Logistic Regression
+→ learns fixed parameters
+KNN
+→ relies on stored examples and local neighborhoods
+This is an important interview distinction.
+
+37. KNN and the Curse of Dimensionality
+KNN can struggle when there are many features.
+This is called the:
+	Curse of dimensionality.
+As dimensionality increases:
+Number of dimensions ↑
+        ↓
+Data becomes sparse
+        ↓
+Distances become less informative
+        ↓
+Nearest neighbors become less distinct
+        ↓
+KNN performance can degrade
+Therefore KNN often benefits from:
+Feature selection
+Dimensionality reduction
+Removing irrelevant features
+This connects directly with the feature-selection topics you've already studied.
+
+38. Irrelevant Features Hurt KNN
+Suppose you have:
+Useful features:
+Age
+Income
+Experience
+Irrelevant feature:
+RandomID
+KNN distance calculations include RandomID.
+That can distort which observations appear to be "nearest."
+Therefore:
+	Feature quality is extremely important for KNN.
+
+39. KNN and Missing Values
+KNN itself does not automatically solve arbitrary missing-value problems.
+You generally need to preprocess missing values first.
+For example:
+from sklearn.impute import SimpleImputer
+Then:
+Imputer
+   ↓
+Scaler
+   ↓
+KNN
+Use a Pipeline:
+from sklearn.pipeline import Pipeline
+from sklearn.impute import SimpleImputer
+from sklearn.preprocessing import StandardScaler
+from sklearn.neighbors import KNeighborsClassifier
+pipeline = Pipeline([
+    ("imputer", SimpleImputer(
+        strategy="median"
+    )),
+    ("scaler", StandardScaler()),
+    ("knn", KNeighborsClassifier(
+        n_neighbors=5
+    ))
+])
+
+40. Complete KNN Workflow
+A practical classification workflow:
+Dataset
+   ↓
+Separate X and y
+   ↓
+Train/Test Split
+   ↓
+Handle Missing Values
+   ↓
+Feature Engineering
+   ↓
+Feature Selection
+   ↓
+Scale Features
+   ↓
+Choose K
+   ↓
+Choose Distance Metric
+   ↓
+Train KNN
+   ↓
+Predict
+   ↓
+Evaluate
+   ↓
+Tune K / metric / weights
+
+41. Complete KNN Example
+Here's a clean example using the Breast Cancer dataset.
+from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import train_test_split
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score
+data = load_breast_cancer()
+X = data.data
+y = data.target
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    random_state=42,
+    stratify=y
+)
+pipeline = Pipeline([
+    ("scaler", StandardScaler()),
+    ("knn", KNeighborsClassifier(
+        n_neighbors=5
+    ))
+])
+pipeline.fit(
+    X_train,
+    y_train
+)
+y_pred = pipeline.predict(
+    X_test
+)
+accuracy = accuracy_score(
+    y_test,
+    y_pred
+)
+print("Accuracy:", accuracy)
+
+42. Tuning K in a Pipeline
+A more realistic example:
+from sklearn.model_selection import GridSearchCV
+pipeline = Pipeline([
+    ("scaler", StandardScaler()),
+    ("knn", KNeighborsClassifier())
+])
+param_grid = {
+    "knn__n_neighbors": [3, 5, 7, 9, 11],
+    "knn__weights": [
+        "uniform",
+        "distance"
+    ],
+    "knn__metric": [
+        "euclidean",
+        "manhattan"
+    ]
+}
+grid = GridSearchCV(
+    pipeline,
+    param_grid,
+    cv=5,
+    scoring="accuracy"
+)
+grid.fit(
+    X_train,
+    y_train
+)
+print(
+    grid.best_params_
+)
+print(
+    grid.best_score_
+)
+Notice:
+knn__n_neighbors
+The knn__ prefix refers to the Pipeline step named:
+knn
+This is important when tuning parameters inside a Pipeline.
+
+43. KNN Computational Cost
+KNN has a major difference between training and prediction.
+Training
+Usually relatively cheap:
+fit()
+ ↓
+Store training data
+Prediction
+Potentially expensive:
+New sample
+ ↓
+Compare against many training samples
+ ↓
+Calculate distances
+ ↓
+Find nearest neighbors
+So:
+Training cost → relatively low
+Prediction cost → potentially high
+This is one reason KNN may not be ideal for huge production datasets without appropriate nearest-neighbor indexing/optimization.
+
+44. Memory Usage
+Because KNN relies on training examples, it generally needs to retain the training data.
+Therefore:
+Large training dataset
+        ↓
+Large memory requirement
+This can be a disadvantage compared with some models that compress the information into a relatively small set of learned parameters.
+
+45. Advantages of KNN
+1. Simple
+The concept is easy to understand.
+Find neighbors → vote
+
+2. Easy to implement
+Scikit-learn API is simple:
+model = KNeighborsClassifier(n_neighbors=5)
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+
+3. No complicated training optimization
+There is no gradient-descent-style parameter optimization required for basic KNN.
+
+4. Can model nonlinear decision boundaries
+Unlike standard Logistic Regression, KNN can naturally form complex local decision regions.
+
+5. Flexible
+You can change:
+K
+Distance metric
+Weights
+to adapt its behavior.
+
+46. Disadvantages of KNN
+1. Prediction can be expensive
+It may need to compare a new point against many training samples.
+
+2. High memory usage
+Training examples must generally be retained.
+
+3. Sensitive to feature scaling
+Different feature scales can severely distort distances.
+
+4. Sensitive to irrelevant features
+Irrelevant features can distort nearest-neighbor relationships.
+
+5. Sensitive to noisy data
+Especially when K is small.
+
+6. Curse of dimensionality
+Performance can degrade with many dimensions.
+
+7. Choosing K matters
+Poor K can result in:
+Overfitting
+or:
+Underfitting
+
+47. KNN vs Logistic Regression
+This is an excellent interview comparison.
+KNN	Logistic Regression
+Instance-based	Parametric linear model
+Non-parametric	Parametric
+Lazy learner	Eager learner
+Little traditional training	Learns coefficients
+Prediction can be expensive	Prediction generally fast
+Sensitive to scaling	Scaling often useful
+Nonlinear boundaries possible	Linear boundary
+Sensitive to dimensionality	Often handles high-dimensional data better with regularization
+Stores training examples	Stores learned parameters
+
+48. KNN vs Decision Tree
+KNN	Decision Tree
+Distance-based	Rule/split-based
+Scaling important	Scaling usually unnecessary
+Lazy learner	Learns tree during training
+Prediction can be expensive	Prediction usually fast
+Sensitive to irrelevant features	Can naturally select useful split features
+Can capture nonlinear patterns	Can capture nonlinear patterns
+Sensitive to dimensionality	Usually more robust to feature scaling
+
+49. When Should You Use KNN?
+KNN can be useful when:
+Small or moderate dataset
++
+Meaningful distance metric
++
+Features can be scaled appropriately
++
+Local similarity is meaningful
+Examples:
+Pattern recognition
+Simple image-feature classification
+Recommendation-like similarity tasks
+Small classification datasets
+Prototype/baseline models
+
+50. When Should You Avoid KNN?
+KNN may be a poor choice when:
+Huge dataset
++
+Very high dimensionality
++
+Many irrelevant features
++
+Expensive prediction latency
++
+Poorly defined distance
+For example:
+10 million samples
++
+5000 features
+could make straightforward KNN expensive and difficult to use effectively.
+
+51. Important KNN Parameters
+KNeighborsClassifier has several important parameters.
+n_neighbors
+Controls K:
+n_neighbors=5
+weights
+weights="uniform"
+or:
+weights="distance"
+metric
+metric="euclidean"
+or:
+metric="manhattan"
+p
+Relevant for Minkowski distance:
+p=2
+means Euclidean-style distance.
+
+52. KNN Cheat Sheet
+KNN
+│
+├── K
+│   ├── Small K → high variance
+│   └── Large K → high bias
+│
+├── Distance
+│   ├── Euclidean
+│   ├── Manhattan
+│   └── Minkowski
+│
+├── Weights
+│   ├── uniform
+│   └── distance
+│
+└── Preprocessing
+    ├── Scaling
+    ├── Missing-value handling
+    └── Feature selection
+
+🔥 Interview Questions and Answers
+1. What is KNN?
+Answer:
+	K-Nearest Neighbors is a supervised, instance-based, non-parametric algorithm that predicts the class of a new observation using the classes of its K nearest training observations.
+
+2. Why is KNN called a lazy learner?
+Answer:
+	Because it performs relatively little traditional model learning during training and postpones most of the computation until prediction time, when it searches for the nearest training examples.
+
+3. What does K represent in KNN?
+Answer:
+	K represents the number of nearest training observations considered when making a prediction.
+Example:
+KNeighborsClassifier(
+    n_neighbors=5
+)
+means the model considers the five nearest neighbors.
+
+4. What happens when K is too small?
+Answer:
+	The model becomes highly sensitive to individual training examples and noise. This generally means low bias and high variance, increasing the risk of overfitting.
+
+5. What happens when K is too large?
+Answer:
+	The model considers too many neighbors, making predictions overly smooth and potentially ignoring local patterns. This generally increases bias and can cause underfitting.
+
+6. How do you choose K?
+Answer:
+	I would evaluate candidate K values using a validation set or cross-validation and select the value that gives the best performance according to the relevant evaluation metric.
+Example:
+K = 1, 3, 5, 7, 9, 11
+
+7. Why is feature scaling important for KNN?
+Answer:
+	KNN uses distance calculations. If features have very different scales, large-scale features can dominate the distance calculation. Scaling puts features on comparable scales and prevents this distortion.
+
+8. Which scaler would you use for KNN?
+Answer:
+	Common choices include StandardScaler, MinMaxScaler, or RobustScaler, depending on the data. I would choose based on the feature distributions and outlier characteristics and fit the scaler only on training data, preferably within a Pipeline.
+
+9. What distance metrics are commonly used in KNN?
+Answer:
+Common metrics include:
+Euclidean
+Manhattan
+Minkowski
+Chebyshev
+
+10. What is Euclidean distance?
+Answer:
+	Euclidean distance is the straight-line distance between two points.
+For two dimensions:
+d = √[(x₂-x₁)² + (y₂-y₁)²]
+
+11. What is Manhattan distance?
+Answer:
+	Manhattan distance is the sum of the absolute differences between corresponding feature values.
+	d = |x₂-x₁| + |y₂-y₁|
+
+12. What is Minkowski distance?
+Answer:
+	Minkowski distance is a generalized distance metric parameterized by p. With p=1, it becomes Manhattan distance, and with p=2, it becomes Euclidean distance.
+
+13. What is the difference between weights="uniform" and weights="distance"?
+Answer:
+	With uniform, every selected neighbor has equal voting weight. With distance, closer neighbors receive greater influence.
+
+14. Does KNN require training?
+Answer:
+	KNN has a training phase in the sense that we call fit(), but it doesn't learn traditional model coefficients like Logistic Regression. It primarily retains the training examples and uses them during prediction.
+
+15. Is KNN parametric or non-parametric?
+Answer:
+	KNN is generally considered a non-parametric algorithm because it does not assume a fixed functional form with a fixed number of parameters describing the data distribution.
+
+⭐ Scenario-Based Interview Questions
+16. Your KNN model performs poorly. What would you check?
+Answer:
+I would investigate:
+Feature scaling
+Choice of K
+Distance metric
+Irrelevant features
+Outliers/noise
+Class imbalance
+High dimensionality
+Data leakage
+Train/test distribution
+I would also compare performance using cross-validation.
+
+17. Your features are Age and Salary. Age ranges from 18–70 and Salary ranges from 20,000–500,000. What problem could occur?
+Answer:
+	Salary can dominate the distance calculation because it has a much larger numerical scale. I would typically scale the features before applying KNN.
+For example:
+Pipeline([
+    ("scaler", StandardScaler()),
+    ("knn", KNeighborsClassifier())
+])
+
+18. Why can K=1 overfit?
+Answer:
+	Because each prediction depends almost entirely on a single training observation. Noise or an incorrectly labeled training point can therefore strongly influence the prediction.
+
+19. Why can very large K underfit?
+Answer:
+	Because the model considers a large portion of the dataset, smoothing away local patterns and potentially making predictions too similar across different regions.
+
+20. Why can KNN struggle with many features?
+Answer:
+	Because of the curse of dimensionality. As dimensionality increases, data points become increasingly sparse and distance measures become less discriminative, making it harder to identify meaningful nearest neighbors.
+
+⭐ Advanced Interview Questions
+21. Why is KNN sensitive to irrelevant features?
+Answer:
+	Because irrelevant features participate in the distance calculation. They can change which points are considered nearest even though those features contain no useful predictive information.
+
+22. Why is KNN sensitive to outliers?
+Answer:
+	Outliers can affect distance relationships and, especially with small K, can influence which observations are selected as neighbors or how predictions are made.
+
+23. Does KNN naturally produce a linear decision boundary?
+Answer:
+	No. KNN can produce highly nonlinear and irregular decision boundaries because predictions are based on local neighborhoods.
+
+24. Why is KNN prediction slower than training?
+Answer:
+	Traditional KNN performs most of its computation during prediction. For a new sample, it needs to find nearby training observations, which can involve many distance calculations.
+
+25. What is the biggest disadvantage of KNN in production?
+Answer:
+	A major disadvantage is prediction-time computational cost and memory usage, especially with large training datasets. The model may need to search a large number of stored training examples for each new observation.
+
+26. Why can KNN work well for nonlinear problems?
+Answer:
+	KNN does not assume a global linear relationship. It makes predictions based on local neighborhoods, allowing its decision regions to adapt to complex shapes in the feature space.
+
+27. Can KNN be used for regression?
+Answer:
+	Yes. Scikit-learn provides KNeighborsRegressor. Instead of majority voting among neighbors, the regression version predicts a numerical value based on the neighbors' target values, commonly using their mean or distance-weighted mean.
+
+28. Can KNN handle multiclass classification?
+Answer:
+	Yes. KNN can naturally handle multiple classes by choosing the class receiving the greatest support among the selected neighbors.
+Example:
+K = 5
+Class A → 1
+Class B → 3
+Class C → 1
+Prediction → Class B
+
+29. Why might an odd K be preferred for binary classification?
+Answer:
+	An odd K can reduce the possibility of a tie when there are two classes. However, K should ultimately be selected using validation rather than choosing an odd number automatically.
+
+30. What happens if K is larger than the number of training samples?
+Answer:
+	You cannot meaningfully select more neighbors than available training samples. Scikit-learn will raise an error during prediction if the requested number of neighbors exceeds the number of available training samples.
+
+🔥 Strong Interview Scenario
+Question:
+	"You built a KNN classifier and got poor accuracy. What would you do?"
+A strong answer would be:
+	"First, I would verify that the data split is correct and there is no leakage. Since KNN is distance-based, I would check whether numerical features are properly scaled. Then I would test different values of n_neighbors, distance metrics such as Euclidean and Manhattan, and weighting schemes such as uniform versus distance weighting using cross-validation. I would also inspect irrelevant features, outliers, class imbalance, and dimensionality. If the dataset has many features, I would consider feature selection or dimensionality reduction. Finally, I would compare KNN against other classifiers such as Logistic Regression, Decision Tree, and Random Forest."
+That's a strong practical answer because it shows you understand why KNN can fail, not just how to call the API.
+
+🔥 Another Interview Scenario
+Question:
+	"Why would you choose KNN over Logistic Regression?"
+Strong Answer:
+	"I would consider KNN when local similarity is meaningful and I expect nonlinear decision regions. KNN is simple and can model complex local boundaries without explicitly specifying a functional form. However, I would avoid it for very large or high-dimensional datasets because prediction can be computationally expensive and distances can become less meaningful."
+
+🧠 Final KNN Summary
+Remember this entire algorithm as:
+                 NEW DATA
+                    ↓
+             Calculate Distance
+                    ↓
+          Find K Nearest Neighbors
+                    ↓
+             Look at Their Labels
+                    ↓
+                 Voting
+                    ↓
+               Prediction
+Most important parameters:
+n_neighbors
+weights
+metric
+p
+Most important preprocessing:
+Missing-value handling
+        ↓
+Feature selection
+        ↓
+Feature scaling
+        ↓
+KNN
+Most important concepts:
+Small K
+→ Low bias
+→ High variance
+→ Overfitting risk
+Large K
+→ High bias
+→ Low variance
+→ Underfitting risk
+Most important distance metrics:
+Euclidean
+Manhattan
+Minkowski
+Most important practical rule:
+	Because KNN is distance-based, feature scaling is usually extremely important.
+Most important disadvantages:
+Slow prediction
+High memory usage
+Sensitive to scaling
+Sensitive to irrelevant features
+Sensitive to noise
+Curse of dimensionality
+One-minute interview answer:
+	"K-Nearest Neighbors is a supervised, non-parametric, instance-based learning algorithm. For a new observation, it calculates distances to training observations, selects the K closest neighbors, and predicts the class based on their votes. In Scikit-learn, I use KNeighborsClassifier and control K with n_neighbors. Important parameters include the distance metric and weights, where uniform gives equal weight and distance gives greater influence to closer neighbors. KNN is sensitive to feature scaling because it relies on distances, so I generally use a scaler inside a Pipeline. A small K can cause high variance and overfitting, while a large K can cause high bias and underfitting. KNN is simple and can model nonlinear decision boundaries, but it can be computationally expensive at prediction time and can struggle with high-dimensional data because of the curse of dimensionality."

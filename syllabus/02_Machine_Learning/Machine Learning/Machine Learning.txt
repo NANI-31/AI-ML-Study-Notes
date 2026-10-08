@@ -1,0 +1,1114 @@
+1. Introduction to Machine Learning
+1.1 What is Machine Learning?
+	1. Definition of Machine Learning
+	2. What is Artificial Intelligence?
+	3. AI vs ML vs Deep Learning
+	4. Why Machine Learning is important
+	5. How machines learn from data
+	6. Traditional programming vs Machine Learning
+	7. Machine Learning workflow
+	8. Real-world Machine Learning applications
+1.2 Types of Machine Learning
+	1. Supervised Learning
+	2. Unsupervised Learning
+	3. Semi-supervised Learning
+	4. Self-supervised Learning
+	5. Reinforcement Learning
+	6. Online Learning
+	7. Batch Learning
+	8. Transfer Learning
+1.3 Machine Learning Problems
+	1. Classification
+	2. Regression
+	3. Clustering
+	4. Dimensionality reduction
+	5. Recommendation
+	6. Anomaly detection
+	7. Ranking
+	8. Time-series forecasting
+1.4 Machine Learning Workflow
+	1. Problem definition
+	2. Data collection
+	3. Data understanding
+	4. Data cleaning
+	5. Exploratory Data Analysis
+	6. Feature engineering
+	7. Model selection
+	8. Model training
+	9. Model evaluation
+	10. Hyperparameter tuning
+	11. Deployment
+	12. Monitoring
+	
+
+2. Python for Machine Learning
+2.1 Python Fundamentals
+	1. Variables
+	2. Data types
+	3. Operators
+	4. Conditional statements
+	5. Loops
+	6. Functions
+	7. Lambda functions
+	8. List comprehensions
+	9. Exception handling
+	10. File handling
+2.2 Python Data Structures
+	1. Lists
+	2. Tuples
+	3. Sets
+	4. Dictionaries
+	5. Strings
+	6. Nested data structures
+	7. Iterators
+	8. Generators
+2.3 Object-Oriented Programming
+	1. Classes
+	2. Objects
+	3. Constructors
+	4. Instance variables
+	5. Class variables
+	6. Methods
+	7. Inheritance
+	8. Polymorphism
+	9. Encapsulation
+	10. Abstraction
+2.4 Python Libraries
+	1. NumPy
+	2. Pandas
+	3. Matplotlib
+	4. Seaborn
+	5. SciPy
+	6. Scikit-learn
+	7. Statsmodels
+
+3. Mathematics for Machine Learning
+3.1 Linear Algebra
+	1. Scalars
+	2. Vectors
+	3. Matrices
+	4. Matrix operations
+	5. Matrix multiplication
+	6. Transpose
+	7. Inverse
+	8. Determinant
+	9. Rank
+	10. Identity matrix
+	11. Orthogonal matrices
+	12. Eigenvalues
+	13. Eigenvectors
+	14. Singular Value Decomposition
+	15. Principal Component Analysis mathematics
+3.2 Calculus
+	1. Functions
+	2. Limits
+	3. Derivatives
+	4. Partial derivatives
+	5. Chain rule
+	6. Gradients
+	7. Gradient vectors
+	8. Directional derivatives
+	9. Optimization
+	10. Minima and maxima
+	11. Convex functions
+	12. Gradient descent
+3.3 Probability
+	1. Probability basics
+	2. Events
+	3. Conditional probability
+	4. Bayes theorem
+	5. Random variables
+	6. Probability distributions
+	7. Expected value
+	8. Variance
+	9. Covariance
+	10. Correlation
+	11. Independence
+	12. Joint probability
+	13. Conditional distributions
+3.4 Statistics
+	1. Population vs sample
+	2. Mean
+	3. Median
+	4. Mode
+	5. Range
+	6. Variance
+	7. Standard deviation
+	8. Percentiles
+	9. Quartiles
+	10. Distribution
+	11. Normal distribution
+	12. Skewness
+	13. Kurtosis
+	14. Sampling
+	15. Central Limit Theorem
+	16. Confidence intervals
+	17. Hypothesis testing
+	18. p-values
+	19. Statistical significance
+
+4. Data Collection and Data Understanding
+4.1 Data Sources
+	1. CSV files
+	2. Excel files
+	3. JSON
+	4. Databases
+	5. APIs
+	6. Web data
+	7. Cloud storage
+	8. Public datasets
+	9. Internal business data
+	10. Streaming data
+4.2 Types of Data
+	1. Numerical data
+	2. Categorical data
+	3. Ordinal data
+	4. Nominal data
+	5. Binary data
+	6. Text data
+	7. Image data
+	8. Time-series data
+	9. Structured data
+	10. Unstructured data
+4.3 Dataset Understanding
+	1. Rows and columns
+	2. Features
+	3. Target variable
+	4. Data types
+	5. Dataset dimensions
+	6. Unique values
+	7. Missing values
+	8. Duplicate records
+	9. Outliers
+	10. Data distributions
+	
+
+5. Data Preprocessing
+5.1 Missing Data
+	1. Detecting missing values
+	2. Removing missing values
+	3. Mean imputation
+	4. Median imputation
+	5. Mode imputation
+	6. Forward filling
+	7. Backward filling
+	8. KNN imputation
+	9. Model-based imputation
+5.2 Duplicate Data
+	1. Detecting duplicates
+	2. Removing duplicates
+	3. Duplicate feature values
+	4. Duplicate records
+	5. Handling near-duplicates
+5.3 Outliers
+	1. What are outliers?
+	2. Why outliers matter
+	3. Z-score
+	4. IQR method
+	5. Box plots
+	6. Percentile-based detection
+	7. Isolation Forest
+	8. Removing outliers
+	9. Transforming outliers
+	10. Keeping meaningful outliers
+5.4 Data Transformation
+	1. Scaling
+	2. Normalization
+	3. Standardization
+	4. Log transformation
+	5. Power transformation
+	6. Box-Cox transformation
+	7. Yeo-Johnson transformation
+
+
+6. Exploratory Data Analysis
+6.1 Univariate Analysis
+	1. Distribution analysis
+	2. Mean
+	3. Median
+	4. Variance
+	5. Standard deviation
+	6. Histograms
+	7. Box plots
+	8. Density plots
+	9. Frequency distributions
+6.2 Bivariate Analysis
+	1. Feature vs feature
+	2. Feature vs target
+	3. Scatter plots
+	4. Grouped analysis
+	5. Correlation analysis
+	6. Cross-tabulation
+6.3 Multivariate Analysis
+	1. Correlation matrices
+	2. Pair plots
+	3. Heatmaps
+	4. Multivariate distributions
+	5. Feature interactions
+6.4 Data Visualization
+	1. Matplotlib
+	2. Seaborn
+	3. Plotly
+	4. Line charts
+	5. Bar charts
+	6. Histograms
+	7. Box plots
+	8. Scatter plots
+	9. Heatmaps
+	10. Violin plots
+
+7. Feature Engineering
+7.1 Numerical Features
+	1. Scaling
+	2. Normalization
+	3. Standardization
+	4. Log transformation
+	5. Polynomial features
+	6. Binning
+	7. Ratios
+	8. Mathematical transformations
+7.2 Categorical Features
+	1. Label encoding
+	2. One-hot encoding
+	3. Ordinal encoding
+	4. Target encoding
+	5. Frequency encoding
+	6. Binary encoding
+7.3 Date and Time Features
+	1. Year
+	2. Month
+	3. Day
+	4. Day of week
+	5. Hour
+	6. Weekend indicator
+	7. Season
+	8. Time since event
+	9. Rolling statistics
+7.4 Text Features
+	1. Bag of Words
+	2. TF-IDF
+	3. N-grams
+	4. Word counts
+	5. Character features
+	6. Text normalization
+7.5 Feature Interaction
+	1. Feature combinations
+	2. Polynomial interactions
+	3. Ratios
+	4. Aggregations
+	5. Domain-specific features
+
+
+8. Feature Selection
+8.1 Why Feature Selection?
+	1. Reduce dimensionality
+	2. Reduce overfitting
+	3. Improve training speed
+	4. Improve interpretability
+	5. Improve generalization
+8.2 Filter Methods
+	1. Correlation
+	2. Variance threshold
+	3. Chi-square
+	4. ANOVA
+	5. Mutual information
+8.3 Wrapper Methods
+	1. Forward selection
+	2. Backward elimination
+	3. Recursive Feature Elimination
+	4. Sequential feature selection
+8.4 Embedded Methods
+	1. L1 regularization
+	2. L2 regularization
+	3. Tree-based importance
+	4. Random Forest importance
+	5. Gradient Boosting importance
+	
+
+9. Train, Validation and Test Data
+9.1 Dataset Splitting
+	1. Training set
+	2. Validation set
+	3. Test set
+	4. Train-test split
+	5. Train-validation-test split
+9.2 Cross-Validation
+	1. What is cross-validation?
+	2. K-Fold Cross Validation
+	3. Stratified K-Fold
+	4. Leave-One-Out
+	5. Group K-Fold
+	6. Time-series cross-validation
+9.3 Data Leakage
+	1. What is data leakage?
+	2. Target leakage
+	3. Train-test contamination
+	4. Preprocessing leakage
+	5. Feature leakage
+	6. Preventing leakage
+	
+
+10. Supervised Learning — Regression
+10.1 Linear Regression
+	1. Simple Linear Regression
+	2. Multiple Linear Regression
+	3. Regression equation
+	4. Coefficients
+	5. Intercept
+	6. Residuals
+	7. Least Squares
+	8. Cost function
+	9. Gradient descent
+	10. Assumptions of linear regression
+10.2 Polynomial Regression
+	1. Polynomial features
+	2. Degree selection
+	3. Underfitting
+	4. Overfitting
+	5. Regularization
+10.3 Regularized Regression
+	1. Ridge Regression
+	2. Lasso Regression
+	3. Elastic Net
+	4. L1 regularization
+	5. L2 regularization
+10.4 Regression Evaluation
+	1. MAE
+	2. MSE
+	3. RMSE
+	4. R²
+	5. Adjusted R²
+	6. MAPE
+	7. Residual analysis
+	
+
+
+11. Supervised Learning — Classification
+11.1 Classification Fundamentals
+	1. Binary classification
+	2. Multiclass classification
+	3. Multilabel classification
+	4. Decision boundaries
+	5. Class probabilities
+11.2 Logistic Regression
+	1. Sigmoid function
+	2. Log odds
+	3. Decision boundary
+	4. Binary logistic regression
+	5. Multiclass logistic regression
+	6. Log loss
+11.3 K-Nearest Neighbors
+	1. KNN concept
+	2. Distance metrics
+	3. Choosing K
+	4. Decision boundaries
+	5. Weighted KNN
+11.4 Naive Bayes
+	1. Bayes theorem
+	2. Conditional independence
+	3. Gaussian Naive Bayes
+	4. Multinomial Naive Bayes
+	5. Bernoulli Naive Bayes
+	
+
+12. Decision Trees
+12.1 Decision Tree Fundamentals
+	1. What is a decision tree?
+	2. Root node
+	3. Internal nodes
+	4. Leaf nodes
+	5. Splitting
+	6. Decision boundaries
+12.2 Tree Algorithms
+	1. ID3
+	2. C4.5
+	3. CART
+12.3 Splitting Criteria
+	1. Entropy
+	2. Information Gain
+	3. Gini Impurity
+	4. Gain Ratio
+12.4 Tree Optimization
+	1. Maximum depth
+	2. Minimum samples split
+	3. Minimum samples leaf
+	4. Pruning
+	5. Controlling overfitting
+	
+
+13. Ensemble Learning
+13.1 Ensemble Fundamentals
+	1. What is ensemble learning?
+	2. Bias vs variance
+	3. Weak learners
+	4. Strong learners
+	5. Ensemble strategies
+13.2 Bagging
+	1. Bootstrap sampling
+	2. Bagging
+	3. Random Forest
+	4. Extra Trees
+13.3 Boosting
+	1. Boosting fundamentals
+	2. AdaBoost
+	3. Gradient Boosting
+	4. XGBoost
+	5. LightGBM
+	6. CatBoost
+13.4 Advanced Ensemble Techniques
+	1. Voting
+	2. Hard voting
+	3. Soft voting
+	4. Stacking
+	5. Blending
+	6. Bagging vs boosting
+	
+
+14. Classification Evaluation
+14.1 Confusion Matrix
+	1. True Positive
+	2. True Negative
+	3. False Positive
+	4. False Negative
+14.2 Classification Metrics
+	1. Accuracy
+	2. Precision
+	3. Recall
+	4. F1 Score
+	5. Specificity
+	6. Sensitivity
+14.3 Advanced Metrics
+	1. ROC curve
+	2. AUC
+	3. Precision-Recall curve
+	4. Log loss
+	5. Matthews Correlation Coefficient
+	6. Cohen's Kappa
+14.4 Imbalanced Classification
+	1. Class imbalance
+	2. Undersampling
+	3. Oversampling
+	4. SMOTE
+	5. Class weights
+	6. Threshold tuning
+	7. Balanced metrics
+	
+
+15. Unsupervised Learning
+15.1 Clustering
+	1. What is clustering?
+	2. K-Means
+	3. K-Medoids
+	4. Hierarchical clustering
+	5. Agglomerative clustering
+	6. DBSCAN
+	7. Gaussian Mixture Models
+15.2 Clustering Evaluation
+	1. Silhouette score
+	2. Davies-Bouldin index
+	3. Calinski-Harabasz index
+	4. Inertia
+	5. Elbow method
+15.3 Applications
+	1. Customer segmentation
+	2. Market segmentation
+	3. Document clustering
+	4. Image clustering
+	5. Anomaly detection
+	
+
+16. Dimensionality Reduction
+16.1 Fundamentals
+	1. Curse of dimensionality
+	2. High-dimensional data
+	3. Feature compression
+	4. Information preservation
+16.2 PCA
+	1. Principal components
+	2. Covariance matrix
+	3. Eigenvectors
+	4. Eigenvalues
+	5. Explained variance
+	6. Choosing components
+16.3 Advanced Techniques
+	1. Kernel PCA
+	2. Truncated SVD
+	3. LDA
+	4. t-SNE
+	5. UMAP
+16.4 Applications
+	1. Visualization
+	2. Noise reduction
+	3. Feature compression
+	4. Faster training
+	5. Data exploration
+	
+
+17. Anomaly Detection
+17.1 Anomaly Fundamentals
+	1. What is anomaly detection?
+	2. Point anomalies
+	3. Contextual anomalies
+	4. Collective anomalies
+17.2 Algorithms
+	1. Z-score
+	2. IQR
+	3. Isolation Forest
+	4. One-Class SVM
+	5. Local Outlier Factor
+	6. Autoencoders
+17.3 Applications
+	1. Fraud detection
+	2. Network security
+	3. Manufacturing
+	4. Financial transactions
+	5. System monitoring
+	
+
+18. Recommendation Systems
+18.1 Recommendation Fundamentals
+	1. What are recommendation systems?
+	2. User-item interactions
+	3. Explicit feedback
+	4. Implicit feedback
+18.2 Collaborative Filtering
+	1. User-based filtering
+	2. Item-based filtering
+	3. Similarity measures
+	4. User-item matrix
+	5. Matrix factorization
+18.3 Content-Based Filtering
+	1. Item features
+	2. User profiles
+	3. Feature similarity
+	4. Cosine similarity
+18.4 Advanced Recommendation
+	1. SVD
+	2. Neural collaborative filtering
+	3. Hybrid recommenders
+	4. Ranking models
+	5. Cold-start problem
+	
+
+19. Time-Series Machine Learning
+19.1 Time-Series Fundamentals
+	1. Time-series data
+	2. Trend
+	3. Seasonality
+	4. Cyclic patterns
+	5. Noise
+	6. Stationarity
+19.2 Time-Series Analysis
+	1. Autocorrelation
+	2. Partial autocorrelation
+	3. Rolling statistics
+	4. Differencing
+	5. Decomposition
+19.3 Forecasting Models
+	1. Moving average
+	2. Exponential smoothing
+	3. AR
+	4. MA
+	5. ARMA
+	6. ARIMA
+	7. SARIMA
+	8. Prophet
+19.4 ML-Based Forecasting
+	1. Lag features
+	2. Rolling features
+	3. Random Forest forecasting
+	4. Gradient Boosting forecasting
+	5. XGBoost forecasting
+19.5 Evaluation
+	1. MAE
+	2. RMSE
+	3. MAPE
+	4. Time-series cross-validation
+	5. Backtesting
+	
+
+
+20. Natural Language Processing with Machine Learning
+20.1 Text Preprocessing
+	1. Tokenization
+	2. Lowercasing
+	3. Stop-word removal
+	4. Stemming
+	5. Lemmatization
+	6. Punctuation handling
+	7. Text normalization
+20.2 Text Representation
+	1. Bag of Words
+	2. TF-IDF
+	3. N-grams
+	4. Word embeddings
+	5. Word2Vec
+	6. GloVe
+	7. FastText
+20.3 NLP Machine Learning
+	1. Text classification
+	2. Sentiment analysis
+	3. Spam detection
+	4. Topic classification
+	5. Named Entity Recognition
+	6. Document classification
+
+21. Computer Vision with Machine Learning
+21.1 Image Fundamentals
+	1. Pixels
+	2. RGB
+	3. Image dimensions
+	4. Image preprocessing
+	5. Image normalization
+	6. Image augmentation
+21.2 Classical Computer Vision
+	1. Edge detection
+	2. Image filtering
+	3. Feature extraction
+	4. SIFT
+	5. HOG
+	6. Image segmentation
+21.3 Machine Learning Applications
+	1. Image classification
+	2. Object detection
+	3. Face detection
+	4. Image similarity
+	5. OCR
+
+22. Machine Learning Optimization
+22.1 Optimization Fundamentals
+	1. Objective functions
+	2. Loss functions
+	3. Cost functions
+	4. Gradient descent
+	5. Learning rate
+22.2 Gradient Descent Variants
+	1. Batch Gradient Descent
+	2. Stochastic Gradient Descent
+	3. Mini-batch Gradient Descent
+22.3 Advanced Optimization
+	1. Momentum
+	2. Nesterov momentum
+	3. AdaGrad
+	4. RMSProp
+	5. Adam
+	6. Learning-rate scheduling
+	
+
+23. Regularization and Generalization
+23.1 Overfitting
+	1. What is overfitting?
+	2. Causes of overfitting
+	3. Detecting overfitting
+	4. Preventing overfitting
+23.2 Underfitting
+	1. What is underfitting?
+	2. Causes
+	3. Detecting underfitting
+	4. Fixing underfitting
+23.3 Bias-Variance Tradeoff
+	1. Bias
+	2. Variance
+	3. Bias-variance decomposition
+	4. Model complexity
+	5. Generalization
+23.4 Regularization
+	1. L1
+	2. L2
+	3. Elastic Net
+	4. Early stopping
+	5. Dropout
+	6. Data augmentation
+	
+
+24. Hyperparameter Optimization
+24.1 Hyperparameters
+	1. Model parameters vs hyperparameters
+	2. Learning rate
+	3. Tree depth
+	4. Number of estimators
+	5. Regularization strength
+	6. Number of clusters
+24.2 Search Techniques
+	1. Manual tuning
+	2. Grid Search
+	3. Random Search
+	4. Bayesian Optimization
+	5. Hyperband
+24.3 Advanced Tools
+	1. Optuna
+	2. Ray Tune
+	3. Scikit-learn optimization
+	4. Experiment tracking
+	
+
+25. Explainable Machine Learning
+25.1 Model Interpretability
+	1. Why interpretability matters
+	2. Global explanations
+	3. Local explanations
+	4. Feature importance
+25.2 Explainability Techniques
+	1. Permutation importance
+	2. Partial Dependence Plots
+	3. ICE plots
+	4. SHAP
+	5. LIME
+25.3 Explainability Applications
+	1. Finance
+	2. Healthcare
+	3. Fraud detection
+	4. Risk prediction
+	5. Business decision systems
+
+26. Advanced Machine Learning
+26.1 Advanced Algorithms
+	1. Support Vector Machines
+	2. Kernel methods
+	3. Gaussian Processes
+	4. Probabilistic models
+	5. Hidden Markov Models
+26.2 Advanced Ensemble Methods
+	1. Gradient boosting
+	2. XGBoost
+	3. LightGBM
+	4. CatBoost
+	5. Stacking
+	6. Blending
+26.3 Semi-Supervised Learning
+	1. Self-training
+	2. Pseudo-labeling
+	3. Label propagation
+	4. Consistency training
+26.4 Transfer Learning
+	1. What is transfer learning?
+	2. Feature extraction
+	3. Fine-tuning
+	4. Domain adaptation
+	5. Pretrained models
+	
+
+27. Deep Learning Foundations
+This is where the roadmap transitions from classical Machine Learning → Deep Learning.
+27.1 Neural Networks
+	1. What is a neural network?
+	2. Neurons
+	3. Weights
+	4. Bias
+	5. Layers
+	6. Input layer
+	7. Hidden layers
+	8. Output layer
+27.2 Activation Functions
+	1. Sigmoid
+	2. Tanh
+	3. ReLU
+	4. Leaky ReLU
+	5. ELU
+	6. Softmax
+27.3 Neural Network Training
+	1. Forward propagation
+	2. Loss calculation
+	3. Backpropagation
+	4. Gradients
+	5. Gradient descent
+	6. Weight updates
+27.4 Deep Learning Frameworks
+	1. PyTorch
+	2. TensorFlow
+	3. Keras
+
+28. Deep Learning Architectures
+28.1 CNN
+	1. Convolution
+	2. Kernels
+	3. Feature maps
+	4. Padding
+	5. Stride
+	6. Pooling
+	7. CNN architecture
+	8. Image classification
+28.2 RNN
+	1. Recurrent networks
+	2. Hidden states
+	3. Sequence modeling
+	4. Vanishing gradients
+28.3 LSTM
+	1. Cell state
+	2. Forget gate
+	3. Input gate
+	4. Output gate
+	5. Sequence prediction
+28.4 GRU
+	1. Update gate
+	2. Reset gate
+	3. GRU vs LSTM
+28.5 Transformers
+	1. Attention
+	2. Self-attention
+	3. Multi-head attention
+	4. Positional encoding
+	5. Encoder
+	6. Decoder
+	7. Transformer architecture
+
+29. Modern Machine Learning
+29.1 Large Language Models
+	1. What are LLMs?
+	2. Transformers
+	3. Tokenization
+	4. Embeddings
+	5. Pretraining
+	6. Fine-tuning
+	7. Instruction tuning
+	8. In-context learning
+29.2 Generative AI
+	1. Text generation
+	2. Image generation
+	3. Multimodal models
+	4. Diffusion models
+	5. Generative transformers
+29.3 LLM Applications
+	1. Prompt engineering
+	2. RAG
+	3. Tool calling
+	4. Agents
+	5. Fine-tuning
+	6. Evaluation
+
+30. Machine Learning Experimentation
+30.1 Experiment Tracking
+	1. Experiment design
+	2. Tracking parameters
+	3. Tracking metrics
+	4. Tracking models
+	5. Tracking datasets
+	6. Reproducibility
+30.2 Tools
+	1. MLflow
+	2. Weights & Biases
+	3. TensorBoard
+	4. DVC
+30.3 Reproducibility
+	1. Random seeds
+	2. Dataset versioning
+	3. Environment versioning
+	4. Model versioning
+	5. Experiment versioning
+
+31. MLOps
+31.1 What is MLOps?
+	1. ML development lifecycle
+	2. ML engineering vs data science
+	3. Model lifecycle
+	4. Automation
+	5. Reproducibility
+31.2 ML Pipelines
+	1. Data ingestion
+	2. Data validation
+	3. Data preprocessing
+	4. Feature engineering
+	5. Model training
+	6. Model evaluation
+	7. Model registration
+	8. Deployment
+31.3 Model Versioning
+	1. Model registry
+	2. Dataset versioning
+	3. Feature versioning
+	4. Model rollback
+
+32. Machine Learning Deployment
+32.1 Model APIs
+	1. REST APIs
+	2. FastAPI
+	3. Flask
+	4. Request validation
+	5. Response schemas
+32.2 Model Serving
+	1. Batch inference
+	2. Real-time inference
+	3. Online inference
+	4. Offline inference
+	5. Streaming inference
+32.3 Containerization
+	1. Docker
+	2. Dockerfiles
+	3. Docker images
+	4. Containers
+	5. Docker Compose
+32.4 Cloud Deployment
+	1. AWS
+	2. Azure
+	3. Google Cloud
+	4. Model endpoints
+	5. Cloud storage
+	6. Cloud databases
+
+33. ML Monitoring
+33.1 Model Monitoring
+	1. Prediction monitoring
+	2. Latency
+	3. Throughput
+	4. Error rates
+	5. Resource usage
+33.2 Data Drift
+	1. What is data drift?
+	2. Feature drift
+	3. Distribution drift
+	4. Detecting drift
+33.3 Concept Drift
+	1. What is concept drift?
+	2. Detecting concept drift
+	3. Handling concept drift
+	4. Model retraining
+33.4 Production Monitoring
+	1. Model quality
+	2. Data quality
+	3. Model failures
+	4. Logging
+	5. Alerts
+	6. Dashboards
+
+34. ML Security and Responsible AI
+34.1 ML Security
+	1. Adversarial attacks
+	2. Data poisoning
+	3. Model theft
+	4. Model extraction
+	5. Privacy attacks
+34.2 Data Privacy
+	1. PII
+	2. Data anonymization
+	3. Data masking
+	4. Differential privacy
+	5. Secure data handling
+34.3 Responsible AI
+	1. Bias
+	2. Fairness
+	3. Transparency
+	4. Accountability
+	5. Explainability
+	6. Ethical AI
+
+35. Production Machine Learning Architecture
+35.1 End-to-End Architecture
+	1. Data sources
+	2. Data ingestion
+	3. Data warehouse
+	4. Data preprocessing
+	5. Feature engineering
+	6. Feature store
+	7. Model training
+	8. Model registry
+	9. Model deployment
+	10. API layer
+	11. Monitoring
+35.2 Scalable ML
+	1. Distributed training
+	2. Distributed data processing
+	3. Batch inference
+	4. Real-time inference
+	5. Horizontal scaling
+	6. Model caching
+	7. GPU inference
+35.3 CI/CD for ML
+	1. Git
+	2. GitHub/GitLab
+	3. Automated testing
+	4. Model testing
+	5. Data validation
+	6. CI pipelines
+	7. CD pipelines
+	8. Automated deployment
+
+36. Machine Learning Projects
+36.1 Beginner Projects
+	1. House price prediction
+	2. Student score prediction
+	3. Titanic survival prediction
+	4. Iris classification
+	5. Spam detection
+	6. Customer churn prediction
+	7. Loan approval prediction
+	8. Medical cost prediction
+36.2 Intermediate Projects
+	1. Customer segmentation
+	2. Credit-card fraud detection
+	3. Recommendation system
+	4. Sentiment analysis
+	5. Sales forecasting
+	6. Demand forecasting
+	7. Employee attrition prediction
+	8. E-commerce product recommendation
+	9. Customer lifetime value prediction
+	10. Anomaly detection system
+36.3 Advanced Projects
+	1. End-to-end fraud detection platform
+	2. Real-time recommendation system
+	3. Production demand forecasting system
+	4. Multi-model customer intelligence platform
+	5. ML-powered search engine
+	6. Computer vision quality-control system
+	7. Real-time anomaly detection
+	8. Financial risk prediction system
+	9. Production NLP classification platform
+	10. End-to-end ML platform with MLOps
+36.4 Portfolio Projects
+A strong portfolio should contain:
+	1. One regression project
+	2. One classification project
+	3. One clustering project
+	4. One NLP project
+	5. One recommendation system
+	6. One time-series project
+	7. One deep-learning project
+	8. One production/MLOps project
+
+37. Machine Learning Interview Preparation
+37.1 ML Fundamentals
+	1. What is Machine Learning?
+	2. Supervised vs unsupervised learning
+	3. Classification vs regression
+	4. Bias vs variance
+	5. Overfitting vs underfitting
+	6. Cross-validation
+	7. Data leakage
+	8. Feature engineering
+	9. Feature selection
+	10. Regularization
+
+37.2 Algorithms
+	1. Linear Regression
+	2. Logistic Regression
+	3. Decision Trees
+	4. Random Forest
+	5. Gradient Boosting
+	6. XGBoost
+	7. SVM
+	8. KNN
+	9. Naive Bayes
+	10. K-Means
+	11. PCA
+
+37.3 Statistics Interview Topics
+	1. Mean vs median
+	2. Variance
+	3. Standard deviation
+	4. Probability
+	5. Conditional probability
+	6. Bayes theorem
+	7. Normal distribution
+	8. Hypothesis testing
+	9. Confidence intervals
+	10. p-values
+
+37.4 ML System Design
+	1. Design a recommendation system
+	2. Design a fraud detection system
+	3. Design a search system
+	4. Design a spam classifier
+	5. Design a real-time prediction API
+	6. Design a recommendation pipeline
+	7. Design an ML monitoring system
+	8. Design an end-to-end ML platform
