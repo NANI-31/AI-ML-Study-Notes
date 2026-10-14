@@ -1,16 +1,48 @@
-I have a structured SQLite learning roadmap organized as: Section > Topics > Subtopics.
-
-I will provide you with ONE SECTION and all its topics/subtopics at a time.
-
-**Your task**: Create a comprehensive `.md` file — a complete SQLite interview-preparation module
-for that section, specifically tailored for a fresher / entry-level **Data Analyst, Data Scientist, Backend Developer, Data Engineer** technical interview.
-
-Do NOT teach the entire SQLite library outside the topics I provide.
-Stay focused on the given section, but include prerequisite Python, SQL fundamentals, and Pandas concepts when necessary.
+# Master SQLite Technical Interview Module Generation Prompt
+### Framework: In-Depth Technical Interview Masterclass (Data Analyst / Data Scientist / Backend / Data Engineer)
+### Standard: 26-Section Architecture · 4-Part Structured Answers · Zero Token Truncation · Strict Count Locking
 
 ---
 
-### INPUT
+## EXECUTION DIRECTIVE: CHUNKED GENERATION PROTOCOL
+
+> [!IMPORTANT]
+> **MANDATORY CHUNKED EXECUTION PROTOCOL**:
+> A complete, fully elaborated module following this prompt will produce **~2,800 to 3,500 lines of rigorous markdown (~35,000–45,000 output tokens)**.
+> 
+> **Never attempt to generate all 26 sections in a single model completion turn.** Single-turn generation causes catastrophic output token truncation or forces superficial, compressed answers that violate the core guardrails.
+>
+> When executing manually or via autonomous workflows (such as `/goal`), the generator **MUST** execute and append the document in **5 explicit, self-contained phases** directly into the target `.md` file:
+>
+> - **Phase 1: Foundations & Architecture** (Sections 1 & 2)
+> - **Phase 2: Core Question Bank** (Section 3: Subsections A, B, C, D, E, and F)
+> - **Phase 3: Strategic Filtering, Traps & Coding Challenges** (Sections 4, 5, 6, 7, 8, and 9)
+> - **Phase 4: Reverse Engineering, Diagnostics & Active Review** (Sections 10, 11, 12, 13, 14, and 15)
+> - **Phase 5: Synthesis, Mock Interview & Pre-Interview Pack** (Sections 16, 17, 18, 19, 20, 21, 22, 23, and 24)
+>
+> Each phase must maintain 100% depth and adhere to every section's locked question count.
+
+---
+
+I have a structured SQLite learning roadmap organized as:
+
+```text
+Section
+  ↓
+Topics
+  ↓
+Subtopics
+```
+
+I will provide you with **ONE SECTION** and all its topics/subtopics at a time.
+
+**Your task**: Create a comprehensive `.md` file — a complete SQLite interview-preparation module for that section, specifically tailored for a fresher / entry-level **Data Analyst, Data Scientist, Backend Developer, or Data Engineer** technical interview.
+
+**Strict Scope Rule**: Do **NOT** teach the entire SQLite or SQL domain outside the topics I provide. Stay focused on the given section, but include prerequisite Python DB-API, SQL fundamentals, relational database principles, and Pandas integration concepts when necessary. Never leak unrelated advanced database topics unless they are explicitly listed in the section topics.
+
+---
+
+### INPUT FORMAT
 
 ```text
 SECTION:
@@ -22,17 +54,17 @@ TOPICS:
 ...
 ```
 
-Analyze every topic and generate the sections below in full detail.
+Analyze every topic and generate the following 26 sections in full detail.
 
 ---
 
 ### 1. SECTION OVERVIEW
 
 Provide a concise, practical overview:
-- **What this section is about**: Core themes and techniques covered.
-- **Why these SQLite concepts matter**: Their role in industry and why hiring managers evaluate them.
-- **Where they are used in real projects**: Production use cases and workflows.
-- **What a fresher should be able to do**: Concrete competencies after completing this section.
+- **What this section is about**: Core SQLite themes, query mechanisms, or database techniques covered.
+- **Why these SQLite concepts matter**: Their role in industry pipelines (embedded storage, lightweight production apps, fast analytic querying) and why hiring managers evaluate them.
+- **Where they are used in real projects**: Production use cases (ETL staging, mobile/desktop storage, testing harnesses, local data warehousing).
+- **What a fresher should be able to do**: Concrete competencies after completing this section (e.g., writing multi-table joins, managing ACID transactions, optimizing indexes, connecting via Python `sqlite3`).
 
 ---
 
@@ -41,276 +73,327 @@ Provide a concise, practical overview:
 For EVERY topic provided, include:
 - **Concept**: Precise mechanism without sacrificing rigor.
 - **Why it matters**: What signal the interviewer seeks.
-- **Technical / Algorithmic Intuition**: Design principle or computational mechanism.
-- **Syntax / SQLite API**: Exact Python/SQLite functions, classes, standard import paths.
-- **Minimal Working Example**: Small, realistic, runnable Python snippet.
-- **Expected Output / Interpretation**: What the result looks like.
-- **Important Parameters & Options**: Key parameters a fresher must understand.
-- **Common Interview Confusion**: Related APIs or behaviors frequently conflated.
+- **Technical / Algorithmic Intuition**: Design principle, B-tree storage mechanism, page cache, or execution plan intuition.
+- **Syntax / SQLite API**: Exact SQL syntax, Python `sqlite3` functions, classes, and standard import paths.
+- **Minimal Working Example**: Small, realistic, runnable Python/SQLite snippet.
+- **Expected Output / Interpretation**: What the returned result set or schema transformation looks like.
+- **Important Parameters & Options**: Key options/pragmas a fresher must understand (e.g., `isolation_level`, `PRAGMA foreign_keys`, `autocommit`, `check_same_thread`).
+- **Common Interview Confusion**: Related SQL clauses or SQLite behaviors frequently conflated.
 
 ---
 
 ### 3. FRESHER INTERVIEW QUESTIONS
 
-#### CRITICAL REQUIREMENT FOR ALL ANSWERS:
-> Every answer must be 3-5 substantive sentences covering:
-> 1. **Direct Answer & Definition**
-> 2. **Technical & Computational Reasoning**
-> 3. **Practical Application / Syntax**
-> 4. **Nuances, Defaults & Pitfalls**
+Generate interview questions based **ONLY** on the supplied section and topics.
 
-#### A. Basic Questions (20 Questions — In-Depth, Multi-Sentence Answers)
-Generate **exactly 20** Basic / Fresher Questions.
-Format: **Question** | **Answer** (comprehensive, multi-sentence, interview-grade)
+#### ⚠️ CRITICAL REQUIREMENT FOR ALL ANSWERS:
+> **Do NOT generate superficial single-sentence, one-line, or trivial answers** (e.g., simply stating a keyword, naming a clause, or providing a one-phrase definition).
+>
+> Every answer must be a structured, comprehensive, and interview-grade response (typically **3–5 substantive sentences** or a well-explained paragraph with technical depth) that systematically covers:
+> 1. **Direct Answer & Definition**: Clear, formal explanation of the concept or SQL construct.
+> 2. **Technical & Computational Reasoning**: Why SQLite handles it internally that way, type affinity, B-tree mechanics, or transaction isolation.
+> 3. **Practical Application / Syntax**: How it is applied in raw SQL or Python `sqlite3`/Pandas pipelines.
+> 4. **Nuances, Defaults & Pitfalls**: Crucial trade-offs, default behaviors, edge cases (e.g., NULL handling, table locks), or traps interviewers listen for.
 
-#### B. Intermediate Questions (20 Questions — Detailed Conceptual Explanations)
-Generate **exactly 20** Intermediate Questions.
-Format: **Question** | **Expected Answer** | **Explanation & Deep-Dive**
+Organize the questions into the following subsections with strictly locked counts:
 
-#### C. Code-Based Questions (10 Questions)
-Generate **exactly 10** SQLite code snippets.
-For each: snippet + expected answer + line-by-line technical explanation.
+#### A. Basic Questions (Exactly 20 Questions — In-Depth, Multi-Sentence Answers)
+Generate **exactly 20 Basic / Fresher Questions** covering the fundamental building blocks of the section.
+Format for each:
+- **Question**: ...
+- **Answer**: (Comprehensive, multi-sentence, interview-grade answer fulfilling all four criteria above)
 
-#### D. Output-Prediction Questions
-Short snippets where the candidate predicts output, shapes, types, or behavior.
-Provide code + detailed breakdown.
+#### B. Intermediate Questions (Exactly 20 Questions — Detailed Conceptual Explanations)
+Generate **exactly 20 Intermediate Questions** that test whether the candidate deeply understands execution plans, index usage, join mechanics, aggregation pipelines, and transaction locking rather than rote memorization.
+Format for each:
+- **Question**: ...
+- **Expected Answer**: (In-depth explanation demonstrating real conceptual mastery)
+- **Explanation & Deep-Dive**: (Technical breakdown of mechanics, storage implications, computational trade-offs, and edge cases)
 
-#### E. Debugging Questions (10 Questions)
-Generate **exactly 10** debugging questions.
-Cover issues including:
-- Forgetting to commit a transaction after INSERT/UPDATE/DELETE
-- Using column alias in WHERE clause (must use HAVING or subquery)
-- NULL comparison: col = NULL always false; must use IS NULL
-- JOIN producing cartesian product due to missing ON condition
-- GROUP BY without aggregating all non-grouped SELECT columns
-- Incorrect date comparison because SQLite stores dates as TEXT
-- Closing cursor before reading all results from fetchall()
-- LIKE case sensitivity issues in SQLite vs PostgreSQL
+#### C. Code-Based Questions (Exactly 10 Questions)
+Generate **exactly 10 Code-Based Questions**. Provide realistic SQL queries or Python `sqlite3` code snippets and ask the candidate to evaluate them.
+Provide the snippet, the expected answer, and a line-by-line technical explanation.
 
-Format: **Problem** | **Incorrect Code** | **Expected Correction** | **Explanation**
+#### D. Output-Prediction Questions (Exactly 5 Questions)
+Generate **exactly 5 Output-Prediction Questions** featuring short, realistic SQL/Python snippets testing tricky query behaviors:
+- NULL behavior in comparisons and aggregations (`COUNT(*)` vs `COUNT(column)`)
+- Type affinity coercion during insertion and filtering
+- Join cardinality with duplicate or NULL keys
+- Subquery vs CTE output structures
+- Window function ranking (`RANK()` vs `DENSE_RANK()`)
+Format for each:
+- **Code Snippet**: The self-contained SQL or Python snippet.
+- **Prediction Question**: What is the printed result set or table state?
+- **Exact Output**: Raw tabular or terminal output.
+- **Detailed Execution Trace**: Step-by-step breakdown of how SQLite's query engine processes the query.
 
-#### F. Scenario-Based Questions
-- *Orders table with 10M rows. Query top 10 customers by revenue efficiently.*
-- *Two tables need joining but ID types differ (INTEGER vs TEXT). Handle this.*
-- *Need customers who purchased in 2023 but NOT in 2024. What SQL?*
-- *SQLite query takes 30 seconds for 1M rows. How do you optimize?*
-- *Store a Python dictionary in SQLite. How do you design the schema?*
+#### E. Debugging Questions (Exactly 10 Questions)
+Generate **exactly 10 Debugging Questions** based on common, insidious SQLite and SQL bugs (syntax errors, logic bugs, silent data truncation, locking timeouts, or uncommitted transactions).
+Format for each:
+- **Problem**: Description of the erroneous behavior or silent bug
+- **Incorrect Code**: The faulty snippet
+- **Expected Correction**: The fixed, production-ready code
+- **Explanation**: Why the bug happens and why the fix resolves it
 
-Provide complete, structured candidate responses.
-
----
-
-### 4. MOST IMPORTANT INTERVIEW QUESTIONS
-
-- **Must Know**: 5–8 non-negotiable core questions — full interview-grade answers required.
-- **Good to Know**: 5–8 questions distinguishing average from strong candidates.
-- **Bonus**: 3–5 advanced questions showing exceptional depth.
-
----
-
-### 5. COMMON BEGINNER MISTAKES (10 MISTAKES)
-
-Generate **exactly 10** realistic mistakes.
-Format: **Mistake** | **Why it happens** | **Correct approach** | **Example** (WRONG vs RIGHT code)
+#### F. Scenario-Based Questions (Exactly 5 Questions)
+Generate **exactly 5 Scenario-Based Questions** grounded in real-world data engineering, backend APIs, or analytic challenges (e.g., high-volume batch ingestion, query latency optimization using `EXPLAIN QUERY PLAN`, handling concurrent readers/writers with WAL mode).
+Provide complete, structured candidate responses showing architectural maturity.
 
 ---
 
-### 6. SQLITE API CONFUSIONS
+### 4. MOST IMPORTANT INTERVIEW QUESTIONS (EXACTLY 13 QUESTIONS)
 
-Clarify frequently conflated pairs:
-- sqlite3.connect() vs sqlalchemy.create_engine()
-- fetchone() vs fetchall() vs fetchmany()
-- WHERE vs HAVING clause filtering
-- INNER JOIN vs LEFT JOIN vs CROSS JOIN
-- GROUP BY vs PARTITION BY (window functions)
-- REPLACE INTO vs INSERT OR REPLACE INTO vs UPSERT
-- TEXT vs BLOB vs NUMERIC type affinity in SQLite
-- pd.read_sql_query() vs pd.read_sql_table() vs pd.read_sql()
-- Subquery vs CTE (WITH clause)
-- DISTINCT vs GROUP BY for deduplication
+Select and categorize the absolute most critical questions from this section into exactly 13 questions:
+- **Must Know (Exactly 5 Questions)**: Non-negotiable core questions that every entry-level candidate MUST answer flawlessly.
+- **Good to Know (Exactly 5 Questions)**: Differentiating questions that test deeper underlying mechanics.
+- **Bonus (Exactly 3 Questions)**: Advanced questions that show exceptional curiosity, query planner awareness, or storage internals rigor.
 
-Format: **Concept 1** | **Concept 2** | **Key Difference** | **When to Use Which** | **Code Comparison**
+Provide full, interview-grade answers for every single question.
 
 ---
 
-### 7. INTERVIEW TRAPS (10 TRAPS)
+### 5. COMMON BEGINNER MISTAKES (EXACTLY 10 MISTAKES)
 
-Generate **exactly 10** interview traps:
-- *"SQLite has no BOOLEAN type — how does it store True/False?"*
-- *"Can you use a window function in a WHERE clause?"*
-- *"What is the difference between DELETE FROM table and DROP TABLE?"*
-- *"Why does SQLite allow inserting a string into an INTEGER column?"*
-- *"Does adding an index always make queries faster?"*
-
-Format: **Trap Question** | **Naive Answer** | **Trap Unveiled** | **Winning Response**
+Generate **exactly 10 realistic mistakes** that beginners make when using SQLite / SQL.
+Format for each:
+- **Mistake**: The erroneous assumption or code implementation
+- **Why it happens**: Conceptual misunderstanding or SQL syntax trap
+- **Correct approach**: The best-practice method
+- **Example**: Python / SQL snippet showing the WRONG way vs the RIGHT way
 
 ---
 
-### 8. REAL-WORLD SQLITE QUESTIONS
+### 6. SQLITE API CONFUSIONS (EXACTLY 5 CONFUSIONS)
 
-Connect concepts to production systems and real-world challenges.
-Only generate questions directly related to the provided section topics.
+Create a comparative section clarifying **exactly 5 pairs of SQLite APIs, clauses, or concepts** that candidates frequently conflate within this section's scope (e.g., `sqlite3.connect()` vs SQLAlchemy engine, `fetchone()` vs `fetchall()`, `WHERE` vs `HAVING`, `UNION` vs `UNION ALL`, `REPLACE INTO` vs `INSERT OR IGNORE`).
+
+For each comparison, provide:
+- **API / Concept 1**: Definition and primary use case
+- **API / Concept 2**: Definition and primary use case
+- **Key Difference**: The exact computational, locking, or execution distinction
+- **When to Use Which**: Practical decision criteria
+- **Code Comparison**: Side-by-side snippet illustrating the behavioral difference
+
+---
+
+### 7. INTERVIEW TRAPS (EXACTLY 10 TRAPS)
+
+Generate **exactly 10 Interview Traps** where shallow, memorized definitions fail and interviewers probe for deep comprehension.
+For each trap, provide:
+- **The Trap Question**: The deceptively simple question asked by the interviewer.
+- **The Naive Answer**: What weak candidates blurt out based on surface-level memory.
+- **The Trap Unveiled**: Why that answer is flawed, incomplete, or dangerous in production.
+- **The Winning Response**: The rigorous, staff-level explanation that impresses technical interviewers.
+
+---
+
+### 8. REAL-WORLD SQLITE QUESTIONS (EXACTLY 5 QUESTIONS)
+
+Connect the section's concepts directly to production data systems:
+- Database schema migration and versioning in production apps.
+- Write-Ahead Logging (WAL mode) for concurrency.
+- Using SQLite in-memory (`:memory:`) for high-speed unit testing.
+- Secure parameterized queries to eliminate SQL injection vulnerabilities.
+- Bulk loading data from CSV/JSON into SQLite in transactions.
+
+Generate **exactly 5 production-oriented questions** with complete, structured interview answers.
 
 ---
 
 ### 9. CODING TASKS (MINI & NORMAL)
 
-#### A. Mini Coding Tasks (10 Tasks)
-Exactly 10 quick tasks (1–5 lines of core logic) for live coding rounds.
+#### A. Mini Coding Tasks (Exactly 10 Tasks)
+Generate **exactly 10 quick, focused coding tasks** (1–5 lines of core SQL or Python `sqlite3` logic) suitable for live coding screening rounds.
 Format: **Task** | **Requirements** | **Expected Approach** | **Reference Solution**
 
-#### B. Normal Coding Tasks (10 Tasks with Complete Reference Solutions)
-Exactly 10 production-grade end-to-end exercises.
+#### B. Normal Coding Tasks (Exactly 10 Tasks with Complete Reference Solutions)
+Generate **exactly 10 production-grade, end-to-end coding exercises** matching the section's scope.
 Format: **Task** | **Requirements** | **Expected Approach** | **Reference Solution** (complete, runnable, PEP 8)
 
 ---
 
-### 10. "EXPLAIN THIS CODE" QUESTIONS
+### 10. "EXPLAIN THIS CODE" QUESTIONS (EXACTLY 3 SCENARIOS)
 
-3–5 representative SQLite code snippets. For each:
-- Present the code
-- Ask the candidate to explain each critical line, intermediate transformations, design rationale, failure modes
-- Provide the **Ideal Interview Answer**
-
----
-
-### 11. "FIX THIS CODE" QUESTIONS
-
-3–5 realistic, buggy SQLite code samples.
-Format: **Problem Statement** | **Broken Code** | **Expected Behavior** | **Corrected Code** | **Root Cause**
+Provide **exactly 3 representative SQLite / SQL code snippets** (e.g., complex multi-table join with window functions, CTE recursion, Python transaction context manager).
+For each snippet:
+- Present the self-contained code.
+- Ask the candidate to explain line-by-line mechanics, query plan implications, design rationale, and failure modes.
+- Provide the **Ideal Interview Answer**.
 
 ---
 
-### 12. RAPID-FIRE QUESTIONS
+### 11. "FIX THIS CODE" QUESTIONS (EXACTLY 3 SCENARIOS)
 
-15–30 short Q&As.
-Format: **Q** | **A** (1–2 sentences, authoritative)
+Provide **exactly 3 realistic, buggy or suboptimal code samples** (e.g., cartesian join, unindexed table scan, uncommitted transaction, SQL injection via string formatting).
+Format: **Problem Statement** | **Broken Code** | **Expected Behavior** | **Corrected Code** | **Root Cause & Technical Breakdown**
 
 ---
 
-### 13. FLASHCARD SECTION
+### 12. RAPID-FIRE QUESTIONS (EXACTLY 20 QUESTIONS)
 
-15–20 flashcards for active recall.
-Format: **Front** (concept/question/formula) | **Back** (concise explanation with key caveat)
+Create a fast-paced revision drill containing **exactly 20 short Q&As**:
+Format: **Q** | **A** (1–2 sentences, authoritative, zero fluff)
+
+---
+
+### 13. FLASHCARD SECTION (EXACTLY 15 FLASHCARDS)
+
+Create **exactly 15 high-yield flashcards** formatted for active recall:
+- **Front**: Core clause, function name, constraint, or pragma.
+- **Back**: Concise, punchy explanation highlighting definition, purpose, and key caveat.
 
 ---
 
 ### 14. SQLITE INTERVIEW CHEAT SHEET
 
 High-density tabular summary for last-minute review:
-- Core SQL: SELECT, FROM, WHERE, JOIN, GROUP BY, HAVING, ORDER BY, LIMIT, WITH
-- Aggregates: COUNT(*), SUM, AVG, MIN, MAX, GROUP_CONCAT
-- Window Functions: ROW_NUMBER(), RANK(), DENSE_RANK(), LAG(), LEAD(), SUM() OVER()
-- Python API: sqlite3.connect, cursor.execute, fetchall, commit, pd.read_sql_query
-- Anti-Patterns: SELECT * in production | no index on join columns | no commit
+- **Important Clauses & Statements**: Clause → Purpose & Evaluation Order
+- **Important Functions / Pragmas**: Function/Pragma → Effect → Best Used When
+- **Key Storage / Data Types**: Storage Class → Python Mapping → Type Affinity Rule
+- **Common Comparisons**: Concept A vs Concept B → Core Differentiator
+- **Critical Anti-Patterns**: Anti-Pattern → Best Practice Fix
 
 ---
 
-### 15. FRESHER ANSWER PATTERNS
+### 15. FRESHER ANSWER PATTERNS (EXACTLY 4 PATTERNS)
 
-For 3–5 high-frequency questions:
-**Question** | **Weak Answer** | **Critique** | **Stronger Fresher Answer**
-
----
-
-### 16. QUESTIONS THAT TEST UNDERSTANDING
-
-Perturbation-style questions where the interviewer changes one variable.
-Candidate must reason cause-and-effect from first principles.
+For **exactly 4 high-frequency conceptual questions** from this section:
+- **Question**: ...
+- **Weak Answer**: (The standard rote or vague answer freshers typically give)
+- **Critique**: (Why the weak answer fails to convince the interviewer)
+- **Stronger Fresher Answer**: (A structured, articulate response demonstrating technical fluency and query planner intuition)
 
 ---
 
-### 17. PROJECT-BASED QUESTIONS
+### 16. QUESTIONS THAT TEST UNDERSTANDING (EXACTLY 5 PERTURBATION SCENARIOS)
 
-5–8 questions for a candidate with an end-to-end project using:
-`Python`, `SQLite3`, `Pandas`, `SQLAlchemy`, `Matplotlib`
-
-Test technical decision-making, validation strategy, and trade-off articulation.
+Generate **exactly 5 cause-and-effect questions** where the interviewer alters a constraint, index, or clause:
+- *What happens to query execution and latency if an index on column (A, B) is queried on column B alone?*
+- *What happens if an INNER JOIN is swapped with a LEFT JOIN when the right table has unmatched rows?*
+- *What happens if `autocommit` is enabled during bulk inserts of 100,000 rows?*
 
 ---
 
-### 18. CROSS-CONCEPT QUESTIONS
+### 17. PROJECT-BASED QUESTIONS (EXACTLY 5 QUESTIONS)
 
-Connect the section to adjacent fundamentals:
-- **Pandas**: pd.read_sql_query(), df.to_sql(), SQL vs Pandas groupby/merge
-- **Python**: sqlite3 context managers, parameterized queries prevent SQL injection
-- **Data Engineering**: ETL pipelines with SQLite as intermediate storage
-- **FastAPI/Flask**: SQLite as lightweight production DB for small-scale APIs
-- **EDA**: SQL queries to profile data before loading into Pandas
+Frame **exactly 5 questions** assuming the candidate has an end-to-end data analytics / software engineering project utilizing SQLite with Python, Pandas, SQLAlchemy, and Matplotlib.
+
+---
+
+### 18. CROSS-CONCEPT QUESTIONS (EXACTLY 5 QUESTIONS)
+
+Connect the current section with adjacent data science fundamentals (**exactly 1 question per category**):
+1. **Pandas Integration**: `pd.read_sql_query()` vs `df.to_sql()`, chunked extraction, and index handling.
+2. **Python DB-API**: Connection pools, cursor management, context managers, and parameterized queries.
+3. **Data Engineering & ETL**: Staging raw records in SQLite, deduplication pipelines, and upsert workflows.
+4. **Backend Web APIs (FastAPI/Flask)**: SQLite connection lifecycle per request, SQLite in microservices, and thread safety (`check_same_thread`).
+5. **Data Visualization & Analytics**: Aggregating data in SQL prior to plotting in Matplotlib / Seaborn.
 
 ---
 
 ### 19. WHAT A FRESHER SHOULD MEMORIZE
 
-- Core clauses: SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY, LIMIT
-- Aggregate functions: COUNT, SUM, AVG, MIN, MAX, GROUP_CONCAT
-- Join types: INNER JOIN, LEFT JOIN, CROSS JOIN
-- Python API: connect(), cursor(), execute(), fetchall(), commit(), close()
-- Standard import: import sqlite3
+Explicitly list elements reasonable to memorize:
+- Core SQL clause execution order (`FROM` → `WHERE` → `GROUP BY` → `HAVING` → `SELECT` → `ORDER BY` → `LIMIT`).
+- Standard aggregate functions (`COUNT`, `SUM`, `AVG`, `MIN`, `MAX`, `GROUP_CONCAT`).
+- SQLite storage classes (`NULL`, `INTEGER`, `REAL`, `TEXT`, `BLOB`).
+- Python standard library imports (`import sqlite3`).
+- Fundamental transaction commands (`BEGIN TRANSACTION`, `COMMIT`, `ROLLBACK`).
 
 ---
 
 ### 20. WHAT A FRESHER SHOULD UNDERSTAND
 
-- How SQLite type affinity differs from strictly typed RDBMS like PostgreSQL
-- Why HAVING must follow GROUP BY and cannot reference SELECT aliases
-- How window functions differ from aggregations (they don't collapse rows)
-- Trade-off between indexes and write performance
-- How transaction isolation works in SQLite and when WAL mode helps
+Explicitly list concepts that should **NEVER** be memorized blindly:
+- How SQLite type affinity works and why it allows dynamic typing in columns.
+- Why `HAVING` filters aggregated groups whereas `WHERE` filters individual rows.
+- How indexes use B-trees and why leading column order in composite indexes matters.
+- Why transactions buffer disk writes and how uncommitted operations rollback.
+- How window functions compute partitioned metrics without collapsing row counts.
 
 ---
 
 ### 21. WHAT A FRESHER SHOULD PRACTICE
 
-- Write a multi-table JOIN with filtering, grouping, and ordering
-- Implement window functions (ROW_NUMBER, RANK, LAG, LEAD)
-- Create a SQLite database from Python, insert, query, export to Pandas
-- Write a CTE to simplify a complex nested subquery
-- Design a normalized schema for a simple e-commerce order system
+List practical coding exercises the candidate should be able to write from scratch:
+- Writing multi-table queries with inner/outer joins, aggregations, and subqueries.
+- Implementing window functions (`ROW_NUMBER()`, `RANK()`, `LEAD()`, `LAG()`).
+- Creating and querying SQLite tables from Python with parameterized queries.
+- Inspecting execution plans with `EXPLAIN QUERY PLAN`.
 
 ---
 
-### 22. INTERVIEW READINESS CHECKLIST
+### 22. INTERVIEW READINESS CHECKLIST (EXACTLY 6 ITEMS)
 
-- [ ] I can write complex SQL with multiple JOINs, GROUP BY, and HAVING.
-- [ ] I can explain the difference between WHERE and HAVING.
-- [ ] I can use window functions correctly.
-- [ ] I can connect to SQLite from Python and query with Pandas.
-- [ ] I can explain SQLite type affinity vs PostgreSQL.
-- [ ] I can design a normalized schema with primary/foreign keys.
+Provide a clean self-assessment checklist containing **exactly 6 checkboxes**:
+- [ ] 1. I can write and optimize multi-table queries using JOINs, GROUP BY, and HAVING without syntax errors.
+- [ ] 2. I can explain SQLite's dynamic type affinity and how it differs from rigid RDBMS like PostgreSQL.
+- [ ] 3. I can use window functions to solve ranking, running totals, and lag/lead analytical problems.
+- [ ] 4. I can connect to SQLite in Python using context managers and secure parameterized queries.
+- [ ] 5. I can interpret `EXPLAIN QUERY PLAN` outputs and design appropriate B-tree indexes.
+- [ ] 6. I can manage transactions, WAL mode, and table locking for reliable data integrity.
 
 ---
 
-### 23. FINAL MOCK INTERVIEW
+### 23. FINAL MOCK INTERVIEW (EXACTLY 20 QUESTIONS)
 
-Complete 30-minute mock: **5 Basic + 5 Conceptual + 5 Code-Based + 3 Debugging + 2 Scenario**
+Composition:
+- **5 Basic Questions**
+- **5 Conceptual & Query-Engine Questions**
+- **5 Code-Based Questions**
+- **3 Debugging Questions**
+- **2 Scenario & Performance Questions**
 
-**Structure Rule**:
-1. Present the entire Mock Interview **without answers** first.
-2. Follow with the **Answer Key & Scoring Rubric**.
+#### Structural Requirement:
+1. **Mock Interview Questions**: Present all 20 questions clearly *without answers* for timed self-testing.
+2. **Answer Key & Scoring Rubric**: Comprehensive answers and evaluation criteria for passing, good, and exceptional answers.
 
 ---
 
 ### 24. FINAL REVISION SUMMARY
 
-2-minute pre-interview summary:
-- **Core Concepts**: Non-negotiable fundamentals (bullet points)
-- **Essential APIs & Modules**: Quick reference table
-- **Key Algorithmic Differences**: Core distinctions summary
-- **Top 5 Traps to Dodge**: Critical reminders
-- **Must-Know Code Snippet**: The single most comprehensive template
-- **Final Interview Pro-Tip**: Mindset and communication advice
+Conclude with a high-impact, 2-minute summary:
+- **Core Concepts**: Non-negotiable database fundamentals.
+- **Essential APIs & Modules**: Quick reference table.
+- **Key Query Differences**: Summary of core SQL differentiators.
+- **Top 5 Traps to Dodge**: Critical reminders.
+- **Must-Know Code Snippet**: Comprehensive Python `sqlite3` pipeline demonstrating schema creation, parameterized insert, transaction handling, and Pandas export.
+- **Final Interview Pro-Tip**: Mindset and communication advice for technical rounds.
 
 ---
 
 ### 25. IMPORTANT RULES & GUARDRAILS
 
-1. **No Hallucinated APIs**: Use only authentic **SQLite3 (Python stdlib), SQLAlchemy (2.0+)** and Python 3.10+ APIs.
+1. **No Hallucinated APIs**: Use only authentic **SQLite 3.35+** and Python 3.10+ `sqlite3` APIs.
 2. **No Single-Line Answers**: Section 3 answers must be multi-sentence, technically rigorous.
-3. **Exact Counts**: 20 Basic, 20 Intermediate, 10 Code-Based, 10 Debugging, 10 Traps,
-   10 Mini Tasks, 10 Normal Tasks, 10 Mistakes.
-4. **Valid Python Code**: All snippets syntactically valid, self-contained, PEP 8 compliant.
-5. **Practical Over Esoteric**: Focus on real tech interview questions for freshers.
+3. **Exact Counts (Strict Compliance)**:
+   - 20 Basic Questions (Section 3.A)
+   - 20 Intermediate Questions (Section 3.B)
+   - 10 Code-Based Questions (Section 3.C)
+   - 5 Output-Prediction Questions (Section 3.D)
+   - 10 Debugging Questions (Section 3.E)
+   - 5 Scenario-Based Questions (Section 3.F)
+   - 13 Priority Questions: 5 Must Know, 5 Good to Know, 3 Bonus (Section 4)
+   - 10 Common Beginner Mistakes (Section 5)
+   - 5 SQLite API Confusions (Section 6)
+   - 10 Interview Traps (Section 7)
+   - 5 Real-World Questions (Section 8)
+   - 10 Mini Coding Tasks (Section 9.A)
+   - 10 Normal Coding Tasks with complete reference solutions (Section 9.B)
+   - 3 Explain This Code Scenarios (Section 10)
+   - 3 Fix This Code Scenarios (Section 11)
+   - 20 Rapid-Fire Questions (Section 12)
+   - 15 Flashcards (Section 13)
+   - 4 Fresher Answer Patterns (Section 15)
+   - 5 Questions That Test Understanding (Section 16)
+   - 5 Project-Based Questions (Section 17)
+   - 5 Cross-Concept Questions (Section 18)
+   - Exactly 6 Checklist Items (Section 22)
+   - Exactly 20 Mock Interview Questions with rubric (Section 23)
+4. **Valid Code**: All SQL and Python snippets must be syntactically valid and PEP 8 compliant.
+5. **Practical Over Esoteric**: Focus on what engineering teams ask junior data analysts and backend engineers.
+6. **Chunked Protocol Compliance**: Adhere to the 5-phase chunked protocol during generation.
+7. **Domain Scope Strictness**: Stay within the supplied section's scope; do not leak unrelated advanced topics.
 
 ---
 
@@ -320,43 +403,67 @@ Complete 30-minute mock: **5 Basic + 5 Conceptual + 5 Code-Based + 3 Debugging +
 # Section: <Section Name>
 
 ## 1. Section Overview
+
 ## 2. Topic-Wise Interview Concepts
 ### Topic 1: <Topic Name>
 ...
+### Topic N: <Topic Name>
+
 ## 3. Fresher Interview Questions
-### A. Basic Questions (20)
-### B. Intermediate Questions (20)
-### C. Code-Based Questions (10)
-### D. Output-Prediction Questions
-### E. Debugging Questions (10)
-### F. Scenario-Based Questions
-## 4. Top Questions to Definitely Prepare
-### Must Know
-### Good to Know
-### Bonus
+### A. Basic Questions (20 Questions — In-Depth, Multi-Sentence Answers)
+### B. Intermediate Questions (20 Questions — Detailed Conceptual Explanations)
+### C. Code-Based Questions (10 Questions)
+### D. Output-Prediction Questions (5 Questions)
+### E. Debugging Questions (10 Questions)
+### F. Scenario-Based Questions (5 Questions)
+
+## 4. Top Questions to Definitely Prepare (13 Questions)
+### Must Know (5 Questions)
+### Good to Know (5 Questions)
+### Bonus (3 Questions)
+
 ## 5. Mistakes to Avoid (10 Mistakes)
-## 6. SQLite API Confusions
+
+## 6. SQLite API Confusions (5 Confusions)
+
 ## 7. Interview Traps (10 Traps)
-## 8. Real-World SQLite Questions
+
+## 8. Real-World SQLite Questions (5 Questions)
+
 ## 9. Coding Tasks
-### A. Mini Coding Tasks (10)
-### B. Normal Coding Tasks (10 with Reference Solutions)
-## 10. Explain This Code
-## 11. Fix This Code
-## 12. Rapid-Fire Questions
-## 13. Flashcards
+### A. Mini Coding Tasks (10 Tasks)
+### B. Normal Coding Tasks (10 Tasks with Complete Reference Solutions)
+
+## 10. Explain This Code (3 Scenarios)
+
+## 11. Fix This Code (3 Scenarios)
+
+## 12. Rapid-Fire Questions (20 Questions)
+
+## 13. Flashcards (15 Flashcards)
+
 ## 14. SQLite Interview Cheat Sheet
-## 15. Fresher Answer Patterns
-## 16. Questions That Test Understanding
-## 17. Project-Based Questions
-## 18. Cross-Concept Questions
+
+## 15. Fresher Answer Patterns (4 Patterns)
+
+## 16. Questions That Test Understanding (5 Questions)
+
+## 17. Project-Based Questions (5 Questions)
+
+## 18. Cross-Concept Questions (5 Questions)
+
 ## 19. What a Fresher Should Memorize
+
 ## 20. What a Fresher Should Understand
+
 ## 21. What a Fresher Should Practice
-## 22. Interview Readiness Checklist
-## 23. Final Mock Interview
-### Mock Interview Questions
+
+## 22. Interview Readiness Checklist (6 Items)
+
+## 23. Final Mock Interview (20 Questions)
+### Mock Interview Questions (Unanswered)
 ### Answer Key & Scoring Rubric
+
 ## 24. Final Revision Summary
 ```
 
@@ -372,4 +479,4 @@ TOPICS:
 [PASTE ALL TOPICS/SUBTOPICS HERE]
 ```
 
-Generate the complete interview-preparation module according to all instructions above.
+Generate the complete interview-preparation module according to all instructions above using the 5-phase chunked protocol.

@@ -1,34 +1,81 @@
-I have a structured Scikit-Learn learning roadmap organized as: Section > Topics > Subtopics.
+# Scikit-Learn Interview Masterclass — 3-Stage Chunked Execution Prompt
 
-I will provide you with ONE SECTION and all its topics/subtopics at a time.
-
-**Your task**: Create a comprehensive `.md` file — a complete Scikit-Learn interview-preparation module
-for that section, specifically tailored for a fresher / entry-level **Data Scientist, Machine Learning Engineer, AI Engineer, or Data Analyst** technical interview.
-
-Do NOT teach the entire Scikit-Learn library outside the topics I provide.
-Stay focused on the given section, but include prerequisite mathematical, statistical, algorithmic, and Python OOP concepts when necessary.
+> **Purpose**: This master prompt is partitioned into a strict **3-Stage Chunked Execution Protocol** to produce an exhaustive, publication-grade, 24-section Scikit-Learn interview-preparation module in Markdown (`.md`) format.
+>
+> **Why 3 Chunks?** Generating a complete module adhering to all technical standards (40 substantive Q&As, 20 coding tasks with full PEP 8 implementations, 10 debugging drills, 10 traps, and a complete mock interview) requires **~30,000–35,000 output tokens**. Running this in a single turn exceeds LLM output token ceilings (4k–8k cap), resulting in silent truncation or severe bullet-point degradation. 
+> 
+> By running in **3 sequential chunks**, each chunk stays comfortably within 8,000–12,000 output tokens, guaranteeing **zero truncation, uncompromised depth, and 100% adherence to all exact question counts**.
 
 ---
 
-### INPUT
+## 🛠️ Execution Protocol & Orchestration Flow
 
-```text
-SECTION:
-<Section name>
+For any given subsection (e.g., `2.1 Machine Learning Basics` -> target file `2/2.1.md`):
 
-TOPICS:
-<topic 1>
-<topic 2>
-...
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│ STAGE 1: Foundations, Theory & Core Q&A (Sections 1 – 4)              │
+│ ➔ Action: CREATE / OVERWRITE target file with Sections 1 to 4          │
+│ ➔ Expected Output: ~10,000 – 12,000 tokens                             │
+│ ➔ Signal: Concludes with "[STAGE 1 COMPLETE - PROCEED TO STAGE 2]"     │
+└────────────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│ STAGE 2: Diagnostics, Traps, Code Tasks & Scenarios (Sections 5 – 11)   │
+│ ➔ Action: APPEND Sections 5 to 11 to the existing target file          │
+│ ➔ Expected Output: ~12,000 – 14,000 tokens                             │
+│ ➔ Signal: Concludes with "[STAGE 2 COMPLETE - PROCEED TO STAGE 3]"     │
+└────────────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│ STAGE 3: Review, Cheat Sheet, Mock Exam & Summary (Sections 12 – 24)   │
+│ ➔ Action: APPEND Sections 12 to 24 to complete the target file         │
+│ ➔ Expected Output: ~10,000 – 12,000 tokens                             │
+│ ➔ Signal: Concludes with "[MODULE COMPLETE & VERIFIED]"                │
+└────────────────────────────────────────────────────────────────────────┘
 ```
 
-Analyze every topic and generate the sections below in full detail.
-
 ---
 
-### 1. SECTION OVERVIEW
+## 📋 Global Guardrails & Standard Rules (Applies to All Stages)
 
-Provide a concise, practical overview:
+1. **Modern API Grounding**: Use strictly authentic **Scikit-Learn (v1.2+ / v1.4+)**, NumPy, SciPy, and Python 3.10+ APIs (e.g., `set_output(transform="pandas")`, `HistGradientBoostingClassifier`, `HalvingGridSearchCV`, modern keyword-only arguments). Zero hallucinated methods or deprecated imports.
+2. **Mandatory 4-Part Answer Formula**: Every conceptual answer in Section 3 and Section 4 must be **3–5 substantive, technically rigorous sentences** covering:
+   - Part 1: **Direct Answer & Definition** (Crisp, authoritative explanation).
+   - Part 2: **Technical & Algorithmic Reasoning** (Under-the-hood mechanics, loss functions, optimization).
+   - Part 3: **Practical Syntax & API** (Exact classes, functions, and standard import paths).
+   - Part 4: **Nuances, Defaults & Pitfalls** (Edge cases, silent failures, and rule-of-thumb best practices).
+3. **Exact Quantified Counts**: You must produce the exact number of items specified. No skipping, no "exercise left for candidate", and no truncated ellipses (`...`).
+4. **Valid, Complete Python Code**: All snippets must be syntactically valid, self-contained, runnable, and strictly follow PEP 8.
+5. **Domain Context Adaptation**: Stay strictly focused on the provided section and its topics. If the section is introductory (e.g., Section 1 or 2), adapt trap and error archetypes to that conceptual level rather than forcing unrelated advanced estimators.
+
+---
+---
+
+# 🚀 STAGE 1 PROMPT: Foundations, Theory & Core Q&A (Sections 1 – 4)
+
+**Instructions for LLM**:
+You are a Staff Machine Learning Engineer and Technical Interviewer at a Tier-1 tech company.
+Generate **Stage 1 (Sections 1 through 4)** for the target section below.
+Output clean GitHub-flavored Markdown. Write comprehensive, in-depth content without abbreviations.
+
+### INPUT
+```text
+SECTION:
+[PASTE SECTION NAME HERE, e.g. 2.1 Machine Learning Basics]
+
+TOPICS:
+[PASTE TOPICS/SUBTOPICS HERE]
+```
+
+### STAGE 1 OUTPUT SPECIFICATION
+
+```markdown
+# Section: [SECTION NAME]
+
+## 1. Section Overview
 - **What this section is about**: Core Scikit-Learn estimators, transformers, utilities, or workflows covered.
 - **Why these Scikit-Learn concepts matter**: Their role in creating robust, reproducible, leak-free ML pipelines and why interviewers evaluate them.
 - **Where they are used in real projects**: Production pipelines, batch inference, real-time prediction microservices, ETL, and enterprise data workflows.
@@ -36,406 +83,341 @@ Provide a concise, practical overview:
 
 ---
 
-### 2. TOPIC-WISE INTERVIEW CONCEPTS
-
-For EVERY topic provided, include:
-- **Concept**: Precise mechanism without sacrificing rigor.
-- **Why it matters**: What signal the interviewer seeks.
-- **Mathematical / Algorithmic Intuition**: Objective function, formula, loss, or optimization principle.
-- **Syntax / Scikit-Learn API**: Exact Python classes, functions, and import paths (e.g., `sklearn.preprocessing`, `sklearn.compose`, `sklearn.pipeline`, `sklearn.model_selection`, `sklearn.metrics`).
-- **Minimal Working Example**: Small, realistic, runnable Python snippet.
-- **Expected Output / Interpretation**: What the output, fitted attributes, or evaluation metrics look like.
-- **Important Hyperparameters & Parameters**: Key parameters a fresher must understand (e.g., `fit_intercept`, `alpha`, `C`, `n_estimators`, `max_depth`, `cv`, `scoring`, `remainder`, `handle_unknown`, `random_state`).
-- **Common Interview Confusion**: Related classes, methods, or parameters frequently conflated.
-
----
-
-### 3. FRESHER INTERVIEW QUESTIONS
-
-#### CRITICAL REQUIREMENT FOR ALL ANSWERS:
-> Every answer must be 3-5 substantive sentences covering:
-> 1. **Direct Answer & Definition**
-> 2. **Technical & Algorithmic Reasoning**
-> 3. **Practical Application / Syntax**
-> 4. **Nuances, Defaults & Pitfalls**
-
-#### A. Basic Questions (20 Questions — In-Depth, Multi-Sentence Answers)
-Generate **exactly 20** Basic / Fresher Questions.
-Format: **Question** | **Answer** (comprehensive, multi-sentence, interview-grade)
-
-#### B. Intermediate Questions (20 Questions — Detailed Conceptual Explanations)
-Generate **exactly 20** Intermediate Questions.
-Format: **Question** | **Expected Answer** | **Explanation & Deep-Dive**
-
-#### C. Code-Based Questions (10 Questions)
-Generate **exactly 10** Scikit-Learn code snippets.
-For each: snippet + expected answer + line-by-line technical explanation.
-
-#### D. Output-Prediction Questions
-Short snippets where the candidate predicts:
-- Output array shapes after preprocessing (`OneHotEncoder`, `PolynomialFeatures`, `PCA`)
-- Prediction formats (`predict` vs `predict_proba` vs `decision_function`)
-- Metric calculation outputs (`confusion_matrix`, `classification_report`, `roc_auc_score`)
-- Fitted attribute structures (`estimator.coef_.shape`, `estimator.classes_`)
-- Impact of `remainder='passthrough'` vs `remainder='drop'` in `ColumnTransformer`
-
-Provide code + detailed breakdown.
-
-#### E. Debugging Questions (10 Questions)
-Generate **exactly 10** debugging questions.
-Cover issues including:
-- Calling `fit_transform()` on test data instead of `.transform()` (data leakage)
-- Passing 1D arrays `(n_samples,)` where 2D `(n_samples, n_features)` is required
-- Fitting transformers outside cross-validation loops or before `train_test_split()`
-- Using `LabelEncoder` on multi-column feature matrices instead of target labels
-- Unseen category errors due to missing `handle_unknown='ignore'` in `OneHotEncoder`
-- Distance-based estimators (KNN, SVC) performing poorly due to unscaled features
-- Pipeline failing because an intermediate step is a classifier, not a transformer
-- Multi-class scoring with `average='binary'` throwing `ValueError`
-- Forgetting `random_state` in stochastic estimators causing non-reproducible evaluations
-- Modifying DataFrame columns in-place after fitting causing shape/feature name mismatches
-
-Format: **Problem** | **Incorrect Code** | **Expected Correction** | **Explanation**
-
-#### F. Scenario-Based Questions
-- *Your pipeline encounters unseen categorical values at inference time. How do you configure Scikit-Learn to handle this gracefully?*
-- *Dataset has numeric, categorical, and text columns. How do you build a unified `ColumnTransformer`?*
-- *`GridSearchCV` with 10 folds takes 4 hours on 500 features. How do you speed it up?*
-- *Model gets 99% train accuracy but 68% test accuracy. Which Scikit-Learn diagnostics do you run?*
-- *Need to deploy a model with <10ms inference SLA. What architectural decisions do you make?*
-
-Provide complete, structured candidate responses.
-
----
-
-### 4. TOP QUESTIONS TO DEFINITELY PREPARE
-
-- **Must Know**: 5–8 non-negotiable core questions — full interview-grade answers required.
-- **Good to Know**: 5–8 questions distinguishing average from strong candidates.
-- **Bonus**: 3–5 advanced questions showing exceptional depth or production engineering maturity.
-
----
-
-### 5. COMMON BEGINNER MISTAKES (10 MISTAKES)
-
-Generate **exactly 10** realistic mistakes.
-Format: **Mistake** | **Why it happens** | **Correct approach** | **Example** (WRONG vs RIGHT code)
-
-Cover issues including:
-- Data leakage during preprocessing (fitting on full dataset before splitting)
-- Calling `fit_transform()` on validation/test sets
-- Passing 1D arrays where 2D arrays are expected
-- Misusing `LabelEncoder` for feature matrices
-- Applying feature selection before cross-validation
-- Neglecting `handle_unknown` in categorical encoders
-- Ignoring feature scaling for distance-sensitive estimators
-- Misinterpreting `estimator.score()` default metrics
-- Using accuracy for severely imbalanced datasets
-- Modifying trained pipeline components independently
-
----
-
-### 6. SCIKIT-LEARN API CONFUSIONS
-
-Clarify frequently conflated pairs:
-- `fit()` vs `fit_transform()` vs `transform()`
-- `predict()` vs `predict_proba()` vs `decision_function()`
-- `StandardScaler` vs `MinMaxScaler` vs `RobustScaler`
-- `Pipeline` vs `make_pipeline`
-- `ColumnTransformer` vs `make_column_transformer`
-- `OrdinalEncoder` vs `OneHotEncoder` vs `LabelEncoder`
-- `KFold` vs `StratifiedKFold` vs `GroupKFold` vs `TimeSeriesSplit`
-- `GridSearchCV` vs `RandomizedSearchCV` vs `HalvingGridSearchCV`
-- `SimpleImputer` vs `KNNImputer` vs `IterativeImputer`
-- `SelectKBest` vs `RFE` vs `SelectFromModel`
-- `estimator.coef_` vs `estimator.feature_importances_`
-- `VotingClassifier` (hard vs soft) vs `StackingClassifier`
-
-Format: **Concept 1** | **Concept 2** | **Key Difference** | **When to Use Which** | **Code Comparison**
-
----
-
-### 7. INTERVIEW TRAPS (10 TRAPS)
-
-Generate **exactly 10** interview traps:
-- *"Does calling `fit()` a second time update weights or overwrite them from scratch?"*
-- *"Why will a `Pipeline` raise TypeError if an intermediate step is a classifier?"*
-- *"Why is using `get_dummies` before `train_test_split` a critical anti-pattern?"*
-- *"Why does `StandardScaler` divide by N while Pandas `std()` divides by N-1?"*
-- *"If you set `n_neighbors=N` (total samples) in `KNeighborsClassifier`, what does it predict?"*
-- *"Why must you never pass `stratify=y` to `train_test_split` for continuous regression?"*
-- *"Why does `GridSearchCV` default to `refit=True`, and what data fits the final estimator?"*
-- *"Why must `__init__` in a custom transformer never accept `*args` or `**kwargs`?"*
-- *"Why does `OneHotEncoder(drop='first')` matter for Linear Regression but hurt Ridge?"*
-- *"Can `predict_proba()` return probabilities that don't sum to 1 in multi-label classification?"*
-
-Format: **Trap Question** | **Naive Answer** | **Trap Unveiled** | **Winning Response**
-
----
-
-### 8. REAL-WORLD SCIKIT-LEARN QUESTIONS
-
-Connect concepts to production ML engineering:
-- Model serialization: `joblib.dump` vs `pickle` vs ONNX conversion
-- Inference latency vs throughput: real-time API scoring vs batch predictions
-- Training vs serving skew: preventing feature drift via unified `Pipeline` artifacts
-- Out-of-core learning: `partial_fit` with `SGDClassifier`, `IncrementalPCA`, `HashingVectorizer`
-- Handling missing data and out-of-vocabulary categories at inference
-- Custom estimators/transformers: `BaseEstimator`, `TransformerMixin`, `check_is_fitted`, `check_array`
-
-Only generate questions directly related to the provided section topics.
-
----
-
-### 9. CODING TASKS (MINI & NORMAL)
-
-#### A. Mini Coding Tasks (10 Tasks)
-Exactly 10 quick tasks (1–5 lines of core logic) for live coding rounds.
-Format: **Task** | **Requirements** | **Expected Approach** | **Reference Solution**
-
-#### B. Normal Coding Tasks (10 Tasks with Complete Reference Solutions)
-Exactly 10 production-grade end-to-end exercises matching the section's scope (data simulation, `ColumnTransformer`, pipeline composition, cross-validation, `GridSearchCV`, metric reporting).
-Format: **Task** | **Requirements** | **Expected Approach** | **Reference Solution** (complete, runnable, PEP 8)
-
----
-
-### 10. "EXPLAIN THIS CODE" QUESTIONS
-
-3–5 representative Scikit-Learn snippets (e.g., custom transformers, `Pipeline` + `ColumnTransformer`, nested CV, custom scoring functions). For each:
-- Present the code
-- Ask the candidate to explain each critical line, intermediate transformations, design rationale, failure modes
-- Provide the **Ideal Interview Answer**
-
----
-
-### 11. "FIX THIS CODE" QUESTIONS
-
-3–5 realistic, buggy Scikit-Learn samples demonstrating classic anti-patterns (data leakage, target leakage, dimension mismatches, mutable defaults, missing `remainder` in `ColumnTransformer`).
-Format: **Problem Statement** | **Broken Code** | **Expected Behavior** | **Corrected Code** | **Root Cause**
-
----
-
-### 12. RAPID-FIRE QUESTIONS
-
-15–30 short Q&As.
-Format: **Q** | **A** (1–2 sentences, authoritative)
-
-Ensure high density of API conventions, class names, method signatures, default parameter values, and quick differentiations.
-
----
-
-### 13. FLASHCARD SECTION
-
-15–20 flashcards for active recall.
-Format: **Front** (concept/class/method/parameter/formula) | **Back** (concise explanation with definition, purpose, API usage, and key caveat)
-
----
-
-### 14. SCIKIT-LEARN INTERVIEW CHEAT SHEET
-
-High-density tabular summary for last-minute review:
-- Core Interfaces: Estimator (`fit`), Transformer (`transform`), Predictor (`predict`), trailing underscores (`_`)
-- Important Classes & Modules: Class/Function → Purpose & Standard Import Path
-- Important Hyperparameters: Hyperparameter → Effect of increasing / decreasing
-- Pipeline & Composition Patterns: Pattern → Best Used When & Example
-- Evaluation Metrics & Scoring Strings: Metric → String Name for `scoring` & Formula
-- Critical Anti-Patterns: Anti-Pattern → Best Practice Fix
-
----
-
-### 15. FRESHER ANSWER PATTERNS
-
-For 3–5 high-frequency questions:
-**Question** | **Weak Answer** | **Critique** | **Stronger Fresher Answer**
-
----
-
-### 16. QUESTIONS THAT TEST UNDERSTANDING
-
-Perturbation-style questions where one parameter or condition changes:
-- *What happens to sparsity if you change `penalty='l2'` to `penalty='l1'` in `LogisticRegression`?*
-- *What if test data has an extreme outlier when using `StandardScaler` vs `RobustScaler`?*
-- *What if `cv=5` is used in `GridSearchCV` with only 3 positive samples in binary classification?*
-- *What if an unscaled feature with variance 10,000 is passed to `KNeighborsClassifier`?*
-
-Demonstrate cause-and-effect reasoning from first principles.
-
----
-
-### 17. PROJECT-BASED QUESTIONS
-
-5–8 questions for a candidate with an end-to-end ML project using:
-`Python`, `NumPy`, `Pandas`, `Matplotlib / Seaborn`, `Scikit-Learn`
-
-Test technical decision-making, validation strategy, and trade-off articulation.
-
----
-
-### 18. CROSS-CONCEPT QUESTIONS
-
-Connect the section to adjacent fundamentals:
-- **Pandas Integration**: DataFrames, column subsetting, feature names via `set_output(transform="pandas")`, categorical dtypes.
-- **NumPy & SciPy**: 2D array expectations `(n_samples, n_features)`, dense vs CSR/CSC sparse matrices.
-- **Linear Algebra & Optimization**: Gradient descent, solver selection (`lbfgs`, `liblinear`, `saga`), matrix conditioning, regularization.
-- **Probability & Statistics**: Calibrated probabilities (`CalibratedClassifierCV`), log-odds, hypothesis tests.
-- **Visualization**: `ConfusionMatrixDisplay`, `RocCurveDisplay`, `PrecisionRecallDisplay`, `LearningCurveDisplay`.
-
----
-
-### 19. WHAT A FRESHER SHOULD MEMORIZE
-
-- Essential class names and import paths (e.g., `sklearn.pipeline.Pipeline`, `sklearn.compose.ColumnTransformer`, `sklearn.model_selection.GridSearchCV`)
-- Core method names: `fit`, `transform`, `fit_transform`, `predict`, `predict_proba`, `decision_function`, `score`
-- Trailing underscore convention for fitted attributes: `coef_`, `intercept_`, `classes_`, `n_features_in_`, `feature_names_in_`
-- Standard evaluation metric scoring strings (e.g., `'roc_auc'`, `'f1_macro'`, `'neg_mean_squared_error'`)
-- Fundamental default values (e.g., `test_size=0.25`, `cv=5`, `n_neighbors=5`, `handle_unknown='error'`)
-
----
-
-### 20. WHAT A FRESHER SHOULD UNDERSTAND
-
-- Why data leakage occurs when preprocessors are fitted before splitting
-- Why intermediate Pipeline steps must implement both `fit` and `transform`
-- How `ColumnTransformer` slices columns and reconstructs the output array
-- How L1 vs L2 penalties shape the loss surface and drive sparsity
-- Mathematical difference between `StandardScaler`, `MinMaxScaler`, and `RobustScaler`
-- Why cross-validation inside a Pipeline yields realistic out-of-sample estimates
-
----
-
-### 21. WHAT A FRESHER SHOULD PRACTICE
-
-- Building an end-to-end `Pipeline` with `ColumnTransformer` (numeric imputation + scaling, categorical imputation + OHE, and classifier)
-- Setting up stratified K-Fold cross-validation with metric evaluation
-- Configuring `GridSearchCV` over pipeline hyperparameters using `<step>__<param>` syntax
-- Writing a custom transformer inheriting from `BaseEstimator` and `TransformerMixin`
-- Generating and plotting confusion matrix and ROC curve using Scikit-Learn display utilities
-
----
-
-### 22. INTERVIEW READINESS CHECKLIST
-
-- [ ] I can explain the distinction between Estimator, Transformer, and Predictor in Scikit-Learn.
-- [ ] I can write an end-to-end `Pipeline` with `ColumnTransformer` from memory.
-- [ ] I can explain why data leakage happens and how `Pipeline` prevents it.
-- [ ] I know which estimators require feature scaling and which are scale-invariant.
-- [ ] I can tune pipeline hyperparameters using `GridSearchCV` with double-underscore syntax.
-- [ ] I understand fitted attributes and can extract `coef_`, `feature_importances_`, and `classes_`.
-
----
-
-### 23. FINAL MOCK INTERVIEW
-
-Complete 30-minute mock: **5 Basic + 5 Conceptual + 5 Code-Based + 3 Debugging + 2 Scenario**
-
-**Structure Rule**:
-1. Present the entire Mock Interview **without answers** first.
-2. Follow with the **Answer Key & Scoring Rubric**.
-
----
-
-### 24. FINAL REVISION SUMMARY
-
-2-minute pre-interview summary:
-- **Core Concepts**: Non-negotiable Scikit-Learn fundamentals (bullet points)
-- **Essential APIs & Modules**: Quick reference table of classes, functions, and import paths
-- **Key API Differences**: Summary of core distinctions (e.g., `fit` vs `fit_transform`)
-- **Top 5 Traps to Dodge**: Critical interview traps and how to avoid them
-- **Must-Know Code Snippet**: The single most comprehensive, leak-free Scikit-Learn pipeline template
-- **Final Interview Pro-Tip**: Mindset and communication advice
-
----
-
-### 25. IMPORTANT RULES & GUARDRAILS
-
-1. **No Hallucinated APIs**: Use only authentic **Scikit-Learn (1.2+/1.4+)**, NumPy, SciPy, and Python 3.10+ APIs (including modern utilities like `set_output`, `HistGradientBoostingClassifier`, `HalvingGridSearchCV`).
-2. **No Single-Line Answers**: Section 3 answers must be multi-sentence, technically rigorous.
-3. **Exact Counts**: 20 Basic, 20 Intermediate, 10 Code-Based, 10 Debugging, 10 Traps, 10 Mini Tasks, 10 Normal Tasks, 10 Mistakes.
-4. **Valid Python Code**: All snippets syntactically valid, self-contained, PEP 8 compliant.
-5. **Practical Over Esoteric**: Focus on what actual tech companies and ML teams ask freshers. Emphasize API contracts, pipeline composition, leakage prevention, and model selection.
-
----
-
-### 26. FINAL OUTPUT STRUCTURE
-
-```markdown
-# Section: <Section Name>
-
-## 1. Section Overview
-
 ## 2. Topic-Wise Interview Concepts
-### Topic 1: <Topic Name>
-...
-### Topic N: <Topic Name>
+For EVERY individual topic provided in the input, provide an in-depth breakdown:
+### Topic: [Topic Name]
+- **Concept**: Precise mechanism and algorithmic principles without sacrificing rigor.
+- **Why it matters**: What core signal the interviewer is evaluating.
+- **Mathematical / Algorithmic Intuition**: Objective function, mathematical formulation, loss function, or optimization principle.
+- **Syntax / Scikit-Learn API**: Exact Python classes, functions, and full import paths (e.g., `sklearn.preprocessing`, `sklearn.compose`, `sklearn.pipeline`, `sklearn.model_selection`, `sklearn.metrics`).
+- **Minimal Working Example**: Complete, realistic, runnable Python snippet.
+- **Expected Output / Interpretation**: What the output, fitted attributes, or evaluation metrics look like.
+- **Important Hyperparameters & Parameters**: Key arguments a candidate must understand (e.g., `fit_intercept`, `alpha`, `C`, `n_estimators`, `max_depth`, `cv`, `scoring`, `remainder`, `handle_unknown`, `random_state`).
+- **Common Interview Confusion**: Related classes, methods, or parameters frequently conflated with this topic.
+
+---
 
 ## 3. Fresher Interview Questions
-### A. Basic Questions (20 Questions — In-Depth, Multi-Sentence Answers)
-### B. Intermediate Questions (20 Questions — Detailed Conceptual Explanations)
-### C. Code-Based Questions (10 Questions)
-### D. Output-Prediction Questions
-### E. Debugging Questions (10 Questions)
-### F. Scenario-Based Questions
 
-## 4. Top Questions to Definitely Prepare
-### Must Know
-### Good to Know
-### Bonus
+### Critical Requirement for All Answers:
+> Every answer must be 3–5 substantive sentences strictly following the 4-part structure:
+> 1. Direct Answer & Definition | 2. Technical & Algorithmic Reasoning | 3. Practical Syntax/API | 4. Nuances, Defaults & Pitfalls.
 
-## 5. Mistakes to Avoid (10 Mistakes)
+### A. Basic Questions (Exactly 20 Questions)
+Generate **exactly 20** foundational interview questions covering all topics in the section.
+Format:
+#### Q1: [Question]
+**Answer**: [4-part substantive answer, 3–5 sentences]
+*(Repeat through Q20)*
 
-## 6. Scikit-Learn API Confusions
+### B. Intermediate Questions (Exactly 20 Questions)
+Generate **exactly 20** intermediate conceptual and architectural questions.
+Format:
+#### Q21: [Question]
+**Expected Answer**: [Authoritative high-level summary]
+**Technical Deep-Dive**: [Detailed breakdown of internal mechanisms, edge cases, trade-offs, and defaults]
+*(Repeat through Q40)*
 
-## 7. Interview Traps (10 Traps)
-
-## 8. Real-World Scikit-Learn Questions
-
-## 9. Coding Tasks
-### A. Mini Coding Tasks (10 Tasks)
-### B. Normal Coding Tasks (10 Tasks with Complete Reference Solutions)
-
-## 10. Explain This Code
-
-## 11. Fix This Code
-
-## 12. Rapid-Fire Questions
-
-## 13. Flashcards
-
-## 14. Scikit-Learn Interview Cheat Sheet
-
-## 15. Fresher Answer Patterns
-
-## 16. Questions That Test Understanding
-
-## 17. Project-Based Questions
-
-## 18. Cross-Concept Questions
-
-## 19. What a Fresher Should Memorize
-
-## 20. What a Fresher Should Understand
-
-## 21. What a Fresher Should Practice
-
-## 22. Interview Readiness Checklist
-
-## 23. Final Mock Interview
-### Mock Interview Questions
-### Answer Key & Scoring Rubric
-
-## 24. Final Revision Summary
+### C. Code-Based Questions (Exactly 10 Questions)
+Generate **exactly 10** Scikit-Learn code analysis questions.
+Format:
+#### Code Q1: [Scenario / Question]
+```python
+# Code snippet demonstrating key API pattern
 ```
+- **Expected Output / Behavior**: [Exact behavior or return structure]
+- **Line-by-Line Breakdown**: [Technical explanation of each critical line and parameters]
+*(Repeat through Code Q10)*
+
+### D. Output-Prediction Questions (5 Core Challenges)
+Present 5 code snippets where the candidate predicts:
+1. Output array shapes after transformations (e.g., encoders, feature extractors, transformers)
+2. Prediction return structures (`predict` vs `predict_proba` vs `decision_function`)
+3. Metric outputs (`confusion_matrix`, `classification_report`, `roc_auc_score`)
+4. Fitted attribute structures (`estimator.coef_.shape`, `estimator.classes_`, `estimator.n_features_in_`)
+5. Data flow behavior with column transformers and remainder parameters
+Provide the code, the exact output, and the step-by-step dry-run derivation.
 
 ---
 
-### INPUT SECTION
+## 4. Top Questions to Definitely Prepare
+- **Must Know (5–8 Questions)**: Non-negotiable core questions with full interview-grade answers.
+- **Good to Know (5–8 Questions)**: Questions distinguishing average from strong junior candidates.
+- **Bonus (3–5 Questions)**: Advanced questions showing exceptional depth and production maturity.
+```
 
+**Stage 1 Closing Marker**: End output strictly with `<!-- [STAGE 1 COMPLETE - PROCEED TO STAGE 2] -->`.
+
+---
+---
+
+# ⚙️ STAGE 2 PROMPT: Diagnostics, Traps, Code Tasks & Scenarios (Sections 5 – 11)
+
+**Instructions for LLM**:
+You are continuing the Scikit-Learn interview module for the section below.
+Generate **Stage 2 (Sections 5 through 11)**.
+Ensure all code examples are fully runnable, self-contained, and demonstrate realistic production patterns. Do not summarize or truncate.
+
+### INPUT
 ```text
 SECTION:
 [PASTE SECTION NAME HERE]
 
 TOPICS:
-[PASTE ALL TOPICS/SUBTOPICS HERE]
+[PASTE TOPICS/SUBTOPICS HERE]
 ```
 
-Generate the complete interview-preparation module according to all instructions above.
+### STAGE 2 OUTPUT SPECIFICATION
+
+```markdown
+## 5. Common Beginner Mistakes (Exactly 10 Mistakes)
+Generate **exactly 10** realistic mistakes beginners make related to this section's topics.
+Format for each:
+### Mistake [X]: [Descriptive Title]
+- **Why it happens**: Conceptual misunderstanding or default parameter oversight.
+- **Correct approach**: Industry-standard best practice.
+- **Code Demonstration**:
+```python
+# ❌ INCORRECT (Common Anti-Pattern)
+...
+
+# ✅ CORRECT (Production Standard)
+...
+```
+
+---
+
+## 6. Scikit-Learn API Confusions
+Clarify frequently conflated classes, methods, and parameters relevant to this section (provide 4–6 high-frequency pairs).
+Format:
+| Concept 1 | Concept 2 | Key Architectural Difference | When to Use Which |
+| :--- | :--- | :--- | :--- |
+| `fit()` | `fit_transform()` | ... | ... |
+Include short, side-by-side code comparisons highlighting the behavioral distinction.
+
+---
+
+## 7. Interview Traps (Exactly 10 Traps)
+Generate **exactly 10** trick interview questions designed by senior interviewers to expose shallow rote memorization.
+Format for each:
+### Trap [X]: [Trap Question]
+- **Naive Candidate Answer**: [What an unprepared fresher says]
+- **The Trap Unveiled**: [Why that answer fails or misses subtle internal mechanics]
+- **Winning Response**: [Authoritative, mathematically and architecturally precise answer]
+
+---
+
+## 8. Real-World Scikit-Learn & Production Engineering
+Connect the section's concepts to real-world ML engineering and production deployment:
+- **Model Serialization & Artifact Integrity**: `joblib` vs `pickle` vs ONNX; persisting pipelines vs raw models.
+- **Inference Latency & Throughput**: Real-time SLA considerations vs batch scoring; vectorization and overhead.
+- **Training-Serving Skew & Feature Drift**: How unified Scikit-Learn pipelines prevent preprocessing discrepancies in production.
+- **Out-of-Core Processing / Scalability**: Incremental learning (`partial_fit`), memory mapping, and streaming where applicable.
+- **Custom Estimators / Transformers**: Integrating custom business logic via `BaseEstimator`, `TransformerMixin`, `check_is_fitted`, and `check_array`.
+
+---
+
+## 9. Coding Tasks (20 Total Tasks)
+
+### A. Mini Coding Tasks (Exactly 10 Tasks)
+10 quick, focused coding problems (1–5 lines of core logic) for live whiteboard or screening rounds.
+Format for each:
+#### Mini Task [X]: [Task Name]
+- **Requirements**: [Clear functional constraints]
+- **Expected Approach**: [Brief algorithmic explanation]
+- **Reference Solution**:
+```python
+# Complete, minimal runnable snippet
+```
+
+### B. Normal Coding Tasks (Exactly 10 Comprehensive Tasks)
+10 production-grade, end-to-end exercises matching the section's scope (e.g., data simulation, custom transformers, pipeline integration, cross-validation, hyperparameter tuning, evaluation).
+Format for each:
+#### Task [X]: [Task Title]
+- **Problem Statement**: [Realistic business or engineering scenario]
+- **Technical Requirements**: [Constraints, data shapes, metric requirements]
+- **Reference Solution**:
+```python
+# Complete, PEP 8 compliant, fully runnable Python code with sample data generation
+```
+- **Code Walkthrough**: [Technical explanation of the solution architecture]
+
+---
+
+## 10. "Explain This Code" Questions (3–5 Questions)
+Present 3–5 representative, non-trivial Scikit-Learn snippets (e.g., custom transformers, advanced pipelines, nested CV).
+For each snippet:
+- Code snippet block.
+- What the interviewer asks: *"Walk me through this code line-by-line, explaining intermediate transformations and potential failure modes."*
+- **Ideal Interview Answer**: [Model response demonstrating senior-level technical communication].
+
+---
+
+## 11. "Fix This Code" & Debugging Drills (Exactly 10 Drills)
+Generate **exactly 10** realistic, buggy code samples demonstrating classic anti-patterns (data leakage, dimension mismatches, unhandled categories, unscaled distance metrics, mutable pipeline states).
+Format for each:
+### Drill [X]: [Bug Description]
+- **Problem Statement**: [Observed failure, exception, or silent silent metric degradation]
+- **Broken Code**:
+```python
+# Buggy implementation
+```
+- **Expected Behavior**: [What should happen]
+- **Corrected Code**:
+```python
+# Production fix
+```
+- **Root Cause & Architectural Lesson**: [Deep explanation of why the bug occurred]
+
+---
+
+## 12. Scenario-Based Architecture Questions (5 Scenarios)
+Provide 5 realistic production scenarios testing engineering judgment:
+- Scenario 1: Unseen categories or drift at inference time.
+- Scenario 2: Heterogeneous multi-modal feature matrices (numeric, categorical, text).
+- Scenario 3: High-dimensional tuning bottleneck and CV optimization.
+- Scenario 4: Train-validation metric divergence (overfitting diagnostics).
+- Scenario 5: Strict inference SLA constraints (<10ms).
+Provide complete, structured candidate responses with design trade-offs.
+```
+
+**Stage 2 Closing Marker**: End output strictly with `<!-- [STAGE 2 COMPLETE - PROCEED TO STAGE 3] -->`.
+
+---
+---
+
+# 🎓 STAGE 3 PROMPT: Review, Cheat Sheet, Mock Exam & Summary (Sections 13 – 24)
+
+**Instructions for LLM**:
+You are completing the final part of the Scikit-Learn interview module for the section below.
+Generate **Stage 3 (Sections 13 through 24)**.
+Ensure all tables, flashcards, mock exam questions, and answer rubrics are complete and fully formatted.
+
+### INPUT
+```text
+SECTION:
+[PASTE SECTION NAME HERE]
+
+TOPICS:
+[PASTE TOPICS/SUBTOPICS HERE]
+```
+
+### STAGE 3 OUTPUT SPECIFICATION
+
+```markdown
+## 13. Rapid-Fire Questions (20–30 Questions)
+Provide 20–30 rapid-fire questions testing precise API conventions, default parameters, and terminology.
+Format:
+| # | Question | Quick Authoritative Answer |
+| :--- | :--- | :--- |
+| 1 | What is the default `cv` split in `GridSearchCV`? | 5-fold cross-validation (`StratifiedKFold` for classifiers, `KFold` for regressors). |
+| ... | ... | ... |
+
+---
+
+## 14. Flashcard Section (15–20 Flashcards)
+High-yield flashcards for active recall.
+Format:
+```text
+┌────────────────────────────────────────────────────────────────────────┐
+│ CARD [X] FRONT: [Concept / Class / Method / Parameter]                 │
+├────────────────────────────────────────────────────────────────────────┤
+│ BACK:                                                                  │
+│ • Definition: [Crisp 1-sentence definition]                            │
+│ • Purpose: [Primary production use case]                               │
+│ • API / Syntax: [Standard import path and method signature]            │
+│ • Key Caveat: [Common trap, default value, or edge case]               │
+└────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 15. Scikit-Learn Interview Cheat Sheet
+High-density summary tables for rapid pre-interview review:
+- **Core Interfaces & Conventions**: Estimator (`fit`), Transformer (`transform`), Predictor (`predict`), trailing underscores (`_`).
+- **Essential Classes & Modules**: Class/Function $\rightarrow$ Purpose $\rightarrow$ Full Import Path.
+- **Critical Hyperparameters**: Hyperparameter $\rightarrow$ Default Value $\rightarrow$ Effect of increasing / decreasing.
+- **Pipeline & Composition Recipes**: Recipe $\rightarrow$ Best Used When $\rightarrow$ Code Template.
+- **Evaluation Metrics & Scoring Keys**: Metric $\rightarrow$ String name for `scoring` parameter $\rightarrow$ Formula/Intuition.
+- **Critical Anti-Patterns & Remediations**: Anti-pattern $\rightarrow$ Production fix.
+
+---
+
+## 16. Fresher Answer Patterns (Weak vs Strong Responses)
+For 3–5 high-frequency questions in this section:
+### Question: [Interview Question]
+- **Weak Answer**: [Shallow or textbook answer typical of an average candidate]
+- **Interviewer Critique**: [Why this answer fails to impress]
+- **Winning Fresher Answer**: [Structured, technically authoritative response demonstrating production awareness]
+
+---
+
+## 17. Questions That Test Understanding (Perturbation Analysis)
+4–6 cause-and-effect questions probing what happens when one parameter, assumption, or input condition changes:
+- *What happens if test data has an extreme outlier when using Scaler A vs Scaler B?*
+- *What happens to sparsity if you change regularization penalties?*
+- *What happens if the feature matrix contains colinear columns?*
+Provide rigorous first-principles reasoning for each.
+
+---
+
+## 18. Project-Based Questions (5–8 Questions)
+5–8 questions simulating an interviewer probing an end-to-end ML project on a candidate's resume:
+- Data validation and leakage prevention strategy.
+- Baseline formulation and model selection trade-offs.
+- Diagnostic metric selection and business alignment.
+- Latency and deployment considerations.
+
+---
+
+## 19. Cross-Concept Questions
+Connect this section's concepts to adjacent foundations:
+- **Pandas Integration**: `set_output(transform="pandas")`, DataFrame input/output contracts, category dtypes.
+- **NumPy & SciPy**: 2D array expectations `(n_samples, n_features)`, dense vs sparse CSR/CSC memory buffers.
+- **Linear Algebra & Optimization**: Solvers (`lbfgs`, `liblinear`, `saga`), conditioning, matrix inversions.
+- **Probability & Statistics**: Calibrated probabilities, log-odds, sampling distributions, hypothesis tests.
+- **Diagnostic Visualization**: `ConfusionMatrixDisplay`, `RocCurveDisplay`, `PrecisionRecallDisplay`, `LearningCurveDisplay`.
+
+---
+
+## 20. What a Fresher Should Memorize
+Concise bulleted checklist of exact syntax, imports, method signatures, parameter defaults, and scoring strings that must be recalled instantly without looking up documentation.
+
+---
+
+## 21. What a Fresher Should Understand
+Conceptual and mathematical principles (e.g., why data leakage occurs, geometry of loss surfaces, bias-variance trade-offs) that must be reasoned through from first principles.
+
+---
+
+## 22. What a Fresher Should Practice
+Concrete coding drills (e.g., custom transformer implementation, leak-free nested CV, custom metric scorers) to build muscle memory before live coding rounds.
+
+---
+
+## 23. Interview Readiness Checklist
+Exactly 8–10 actionable self-assessment checkboxes covering key theoretical, practical, and debugging competencies for this section.
+
+---
+
+## 24. Final Mock Interview & Scoring Rubric
+A complete, standalone 30-minute mock technical interview:
+- **Part I: The Interview (Questions Only)**:
+  - 5 Basic / Definitional Questions
+  - 5 Conceptual / Deep-Dive Questions
+  - 3 Code Evaluation & Debugging Challenges
+  - 2 System Scenario Questions
+- **Part II: Answer Key & Scoring Rubric**:
+  - Detailed model answers for all 15 questions.
+  - Evaluation criteria: Junior Pass (60–75%), Senior Candidate (75–90%), Staff / Exceptional (>90%).
+
+---
+
+## 25. Final Revision Summary (2-Minute Drill)
+- **Core Concepts in 60 Seconds**: Bulleted summary of non-negotiable fundamentals.
+- **Top 5 Traps to Dodge**: The 5 biggest pitfalls to watch for.
+- **The Golden Code Snippet**: A single, comprehensive, leak-free Scikit-Learn code pattern encapsulating the section's core standard.
+- **Final Interviewer Pro-Tip**: Delivery, communication, and composure guidance.
+```
+
+**Stage 3 Closing Marker**: End output strictly with `<!-- [MODULE COMPLETE & VERIFIED] -->`.

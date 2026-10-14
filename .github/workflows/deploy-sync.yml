@@ -1,0 +1,53 @@
+name: Sync Deploy Branch for Streamlit Cloud
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'app.py'
+      - 'requirements.txt'
+      - 'packages.txt'
+      - '.streamlit/**'
+      - '01_Data_Science_Foundations/**'
+      - '02_Machine_Learning/**'
+      - '03_Data_Visualization/**'
+      - '04_Generative_AI/**'
+      - '05_Deployment/**'
+      - '.github/workflows/deploy-sync.yml'
+  workflow_dispatch: # Allows manual one-click trigger from GitHub Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  sync-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Create and push clean deploy branch
+        run: |
+          # Create a clean temporary branch with no history
+          git checkout --orphan deploy-sync-temp
+          git rm -rf .
+
+          # Checkout only the deployable webapp files and folders from main
+          git checkout main -- app.py requirements.txt packages.txt .streamlit/ 01_Data_Science_Foundations/ 02_Machine_Learning/ 03_Data_Visualization/ 04_Generative_AI/ 05_Deployment/
+
+          # Stage only the deployable files
+          git add app.py requirements.txt packages.txt .streamlit "01_Data_Science_Foundations" "02_Machine_Learning" "03_Data_Visualization" "04_Generative_AI" "05_Deployment"
+
+          # Commit changes
+          git commit -m "Auto-sync deploy branch from main [skip ci]" || echo "No changes to commit"
+
+          # Force push clean tree to origin deploy branch
+          git push origin deploy-sync-temp:deploy --force
