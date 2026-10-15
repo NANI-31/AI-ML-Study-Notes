@@ -1,0 +1,11 @@
+name,age,gender,marks,city
+Alice,20,F,85,Delhi
+Bob,21,M,,Mumbai
+Charlie,19,M,90,Chennai
+David,,M,65,Hyderabad
+Emma,20,F,88,
+Frank,21,M,,Delhi
+Grace,19,F,95,Mumbai
+Henry,23,,68,Chennai
+Ivy,20,F,82,
+Jack,,M,74,Hyderabad

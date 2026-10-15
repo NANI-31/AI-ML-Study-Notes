@@ -1,0 +1,652 @@
+ Below is a complete Prompt Engineering syllabus in the same structured format as your NumPy roadmap, progressing from beginner concepts to advanced techniques, real-world projects, evaluation, agents, and production practices.
+1. Introduction to Prompt Engineering
+1.1 What is Prompt Engineering?
+	1. Definition of Prompt Engineering
+	2. What is a prompt?
+	3. What is an instruction?
+	4. Why Prompt Engineering is important
+	5. Role of prompts in Generative AI
+	6. Prompt Engineering vs Traditional Programming
+	7. Prompt Engineering vs Fine-Tuning
+	8. Prompt Engineering vs RAG
+1.2 How LLMs Understand Prompts
+	1. Large Language Models overview
+	2. Tokens and tokenization
+	3. Context window
+	4. Input and output tokens
+	5. Model temperature
+	6. Model parameters
+	7. Deterministic vs probabilistic responses
+	8. How instructions influence model behavior
+1.3 Applications of Prompt Engineering
+	1. Content generation
+	2. Text summarization
+	3. Question answering
+	4. Data extraction
+	5. Code generation
+	6. Customer support
+	7. Research assistance
+	8. Data analysis
+	9. AI agents
+
+	1. Define success criteria
+
+2. Prompt Engineering Basics
+2.1 Anatomy of a Prompt
+	1. Instructions
+	2. Context
+	3. Input
+	4. Examples
+	5. Constraints
+	6. Expected output
+	7. Role/persona
+	8. Formatting requirements
+2.2 Basic Prompting Techniques
+	1. Direct prompting
+	2. Instruction prompting
+	3. Question-based prompting
+	4. Context-based prompting
+	5. Role-based prompting
+	6. Constraint-based prompting
+	7. Output-format prompting
+2.3 Writing Effective Prompts
+	1. Be specific
+	2. Provide sufficient context
+	3. Define the desired outcome
+	4. Specify constraints
+	5. Avoid ambiguity
+	6. Use clear language
+	7. Separate instructions from data
+
+3. Zero-Shot Prompting
+3.1 Zero-Shot Basics
+	1. What is zero-shot prompting?
+	2. How zero-shot prompting works
+	3. When to use zero-shot prompting
+	4. Advantages
+	5. Limitations
+3.2 Zero-Shot Applications
+	1. Text classification
+	2. Sentiment analysis
+	3. Translation
+	4. Summarization
+	5. Question answering
+	6. Information extraction
+	7. Content generation
+3.3 Improving Zero-Shot Prompts
+	1. Adding context
+	2. Adding constraints
+	3. Defining output format
+	4. Providing domain information
+	5. Reducing ambiguity
+4. Few-Shot Prompting
+4.1 Few-Shot Basics
+	1. What is few-shot prompting?
+	2. Zero-shot vs few-shot prompting
+	3. One-shot prompting
+	4. Few-shot prompting
+	5. Selecting good examples
+4.2 Designing Examples
+	1. Input-output examples
+	2. Positive examples
+	3. Negative examples
+	4. Diverse examples
+	5. Representative examples
+	6. Edge-case examples
+4.3 Few-Shot Applications
+	1. Classification
+	2. Data extraction
+	3. Formatting
+	4. Text transformation
+	5. Style imitation
+	6. Code generation
+	7. Structured output generation
+5. Prompt Templates
+5.1 Template Basics
+	1. What is a prompt template?
+	2. Static prompts
+	3. Dynamic prompts
+	4. Variables in prompts
+	5. Template placeholders
+5.2 Dynamic Prompt Construction
+	1. User input variables
+	2. Context variables
+	3. System instructions
+	4. Conditional prompts
+	5. Multiple variables
+	6. Reusable templates
+5.3 Prompt Template Best Practices
+	1. Consistent structure
+	2. Input validation
+	3. Escaping user content
+	4. Separating instructions from data
+	5. Template versioning
+	6. Template testing
+
+
+
+
+6. Role and Persona Prompting
+6.1 Role Prompting
+	1. What is role prompting?
+	2. Assigning an expert role
+	3. Defining responsibilities
+	4. Defining expertise
+	5. Defining communication style
+6.2 Persona Design
+	1. Professional persona
+	2. Teacher persona
+	3. Developer persona
+	4. Researcher persona
+	5. Customer-support persona
+	6. Analyst persona
+6.3 Persona Limitations
+	1. Role vs capability
+	2. Avoiding unrealistic personas
+	3. Preventing conflicting instructions
+	4. Maintaining consistent behavior
+	5. Role-based prompt testing
+7. Context Engineering
+7.1 Understanding Context
+	1. What is context?
+	2. Context window
+	3. Context relevance
+	4. Context density
+	5. Context ordering
+	6. Context limitations
+7.2 Providing Context
+	1. Background information
+	2. Reference documents
+	3. User history
+	4. Business rules
+	5. Examples
+	6. External knowledge
+7.3 Context Optimization
+	1. Context compression
+	2. Removing irrelevant information
+	3. Context prioritization
+	4. Context summarization
+	5. Context chunking
+	6. Managing long contexts
+8. Chain-of-Thought and Reasoning Prompting
+8.1 Reasoning Concepts
+	1. What is reasoning prompting?
+	2. Why reasoning matters
+	3. Complex vs simple tasks
+	4. Multi-step problems
+	5. Intermediate reasoning
+8.2 Reasoning Techniques
+	1. Step-by-step prompting
+	2. Decomposition
+	3. Problem breakdown
+	4. Subtask planning
+	5. Self-verification
+	6. Critique and revision
+8.3 Advanced Reasoning Patterns
+	1. Least-to-most prompting
+	2. Self-consistency
+	3. Tree-based reasoning concepts
+	4. Planning prompts
+	5. Verification prompts
+	6. Reasoning with tools
+	Note: Modern production systems often prefer asking for concise conclusions, structured outputs, or verification steps rather than requiring the model to expose private chain-of-thought.
+9. Prompt Chaining
+9.1 Prompt Chain Basics
+	1. What is prompt chaining?
+	2. Single prompt vs prompt chain
+	3. Sequential prompting
+	4. Passing outputs between prompts
+	5. Multi-step workflows
+9.2 Prompt Chain Patterns
+	1. Generate → Review
+	2. Extract → Transform
+	3. Analyze → Summarize
+	4. Plan → Execute
+	5. Classify → Route
+	6. Generate → Validate
+9.3 Advanced Prompt Chains
+	1. Conditional chains
+	2. Parallel chains
+	3. Branching workflows
+	4. Fallback prompts
+	5. Retry prompts
+	6. Human-in-the-loop chains
+
+
+
+10. Structured Output Prompting
+10.1 Structured Responses
+	1. What is structured output?
+	2. Why structured output is important
+	3. JSON output
+	4. Tables
+	5. Lists
+	6. Key-value structures
+10.2 JSON Prompting
+	1. JSON schema
+	2. Required fields
+	3. Optional fields
+	4. Nested objects
+	5. Arrays
+	6. Data validation
+10.3 Structured Output Applications
+	1. Information extraction
+	2. API responses
+	3. Database insertion
+	4. Classification systems
+	5. Automation workflows
+	6. Agent outputs
+11. XML, Markdown, and Delimiter Techniques
+11.1 Prompt Delimiters
+	1. Why delimiters matter
+	2. Triple backticks
+	3. XML tags
+	4. Markdown sections
+	5. JSON blocks
+	6. Separating instructions and data
+11.2 Structured Prompt Organization
+	1. <instructions>
+	2. <context>
+	3. <input>
+	4. <examples>
+	5. <constraints>
+	6. <output_format>
+11.3 Preventing Instruction Confusion
+	1. Data vs instructions
+	2. Untrusted content
+	3. Nested instructions
+	4. User-provided text
+	5. Document-based attacks
+12. Prompt Optimization
+12.1 Improving Prompts
+	1. Prompt iteration
+	2. Identifying weak prompts
+	3. Removing ambiguity
+	4. Adding constraints
+	5. Adding examples
+	6. Improving context
+12.2 Prompt Optimization Techniques
+	1. Prompt rewriting
+	2. Prompt compression
+	3. Instruction prioritization
+	4. Example optimization
+	5. Output constraint optimization
+	6. Context optimization
+12.3 Automated Prompt Optimization
+	1. Prompt search
+	2. Prompt mutation
+	3. Prompt scoring
+	4. Evaluation-driven optimization
+	5. Automatic prompt generation
+	6. Prompt optimization frameworks
+13. System, User, and Assistant Messages
+13.1 Message Roles
+	1. System messages
+	2. User messages
+	3. Assistant messages
+	4. Tool messages
+	5. Role hierarchy
+13.2 Instruction Hierarchy
+	1. System instructions
+	2. Developer instructions
+	3. User instructions
+	4. Tool instructions
+	5. Conflicting instructions
+13.3 Multi-Turn Conversations
+	1. Conversation history
+	2. Maintaining context
+	3. Memory
+	4. Follow-up questions
+	5. Context truncation
+	6. Conversation summarization
+
+
+
+
+14. Prompt Engineering for Coding
+14.1 Code Generation
+	1. Code generation prompts
+	2. Language specification
+	3. Framework specification
+	4. Input/output requirements
+	5. Error handling requirements
+14.2 Code Analysis
+	1. Explain code
+	2. Debug code
+	3. Refactor code
+	4. Optimize code
+	5. Review code
+	6. Generate tests
+14.3 Advanced Coding Prompts
+	1. Repository-level tasks
+	2. API integration
+	3. Database queries
+	4. Unit testing
+	5. Documentation generation
+	6. Code migration
+	7. Security review
+15. Prompt Engineering for Data Analysis
+15.1 Data Analysis Prompts
+	1. Data summarization
+	2. Data cleaning
+	3. Data exploration
+	4. Statistical analysis
+	5. Pattern detection
+15.2 Structured Data
+	1. CSV analysis
+	2. JSON analysis
+	3. Tables
+	4. SQL data
+	5. Data schemas
+15.3 Analytical Workflows
+	1. Ask → Analyze → Explain
+	2. Data validation
+	3. Anomaly detection
+	4. Trend analysis
+	5. Report generation
+	6. Visualization recommendations
+16. Prompt Engineering for RAG
+16.1 RAG Basics
+	1. What is RAG?
+	2. Why RAG is needed
+	3. RAG architecture
+	4. Documents
+	5. Embeddings
+	6. Vector databases
+	7. Retrieval
+	8. Generation
+16.2 RAG Prompt Design
+	1. Context injection
+	2. Grounded answering
+	3. Source attribution
+	4. Context relevance
+	5. Context ordering
+	6. Missing-context handling
+16.3 Advanced RAG Prompting
+	1. Query rewriting
+	2. Query expansion
+	3. Multi-query retrieval
+	4. Context compression
+	5. Reranking
+	6. Hybrid search
+	7. Retrieval validation
+17. Prompt Engineering for Tool Calling
+17.1 Tool Calling Basics
+	1. What is tool calling?
+	2. Functions as tools
+	3. Tool descriptions
+	4. Tool parameters
+	5. Tool schemas
+17.2 Designing Tools
+	1. Clear tool names
+	2. Tool descriptions
+	3. Required parameters
+	4. Optional parameters
+	5. Input validation
+	6. Error handling
+17.3 Tool-Calling Workflows
+	1. Model → Tool
+	2. Tool → Model
+	3. Multiple tools
+	4. Tool selection
+	5. Sequential tools
+	6. Parallel tools
+	7. Tool failure recovery
+
+
+
+
+18. Prompt Engineering for AI Agents
+18.1 Agent Fundamentals
+	1. What is an AI agent?
+	2. LLM vs chatbot vs agent
+	3. Agent architecture
+	4. Planning
+	5. Reasoning
+	6. Tool use
+	7. Memory
+18.2 Agent Prompt Design
+	1. Agent role
+	2. Agent objectives
+	3. Available tools
+	4. Tool usage rules
+	5. Planning instructions
+	6. Stop conditions
+18.3 Agent Workflows
+	1. ReAct-style workflows
+	2. Plan-and-execute
+	3. Tool-use loops
+	4. Multi-step tasks
+	5. Agent delegation
+	6. Multi-agent systems
+19. Multimodal Prompt Engineering
+19.1 Image Prompting
+	1. Image understanding
+	2. Image classification
+	3. Image description
+	4. Visual question answering
+	5. OCR
+	6. Image analysis
+19.2 Document Prompting
+	1. PDF analysis
+	2. Tables in documents
+	3. Charts
+	4. Screenshots
+	5. Forms
+	6. Scanned documents
+19.3 Audio and Video
+	1. Audio transcription
+	2. Audio analysis
+	3. Video understanding
+	4. Frame analysis
+	5. Multimodal workflows
+20. Prompt Security
+20.1 Prompt Injection
+	1. What is prompt injection?
+	2. Direct prompt injection
+	3. Indirect prompt injection
+	4. User-generated content attacks
+	5. Document injection
+20.2 Jailbreaking
+	1. What is jailbreaking?
+	2. Common attack patterns
+	3. Instruction conflicts
+	4. Safety boundaries
+	5. Defensive prompting
+20.3 Secure Prompt Design
+	1. Input validation
+	2. Output validation
+	3. Privilege separation
+	4. Tool permission controls
+	5. Least-privilege design
+	6. Untrusted data isolation
+	7. Security testing
+21. Prompt Evaluation and Testing
+21.1 Why Evaluate Prompts?
+	1. Prompt quality
+	2. Accuracy
+	3. Relevance
+	4. Consistency
+	5. Reliability
+	6. Safety
+21.2 Evaluation Methods
+	1. Manual evaluation
+	2. Automated evaluation
+	3. LLM-as-a-judge
+	4. Rule-based evaluation
+	5. Human evaluation
+	6. Golden datasets
+21.3 Evaluation Metrics
+	1. Accuracy
+	2. Precision
+	3. Recall
+	4. F1 score
+	5. Relevance
+	6. Faithfulness
+	7. Hallucination rate
+	8. Latency
+	9. Cost
+
+
+
+
+22. Prompt Debugging and Troubleshooting
+22.1 Common Prompt Problems
+	1. Ambiguous instructions
+	2. Missing context
+	3. Conflicting instructions
+	4. Incorrect formatting
+	5. Hallucinations
+	6. Inconsistent outputs
+22.2 Debugging Techniques
+	1. Simplify the prompt
+	2. Break the task into steps
+	3. Add examples
+	4. Add constraints
+	5. Validate input
+	6. Validate output
+22.3 Debugging Complex Systems
+	1. Debug prompt chains
+	2. Debug tool calls
+	3. Debug RAG
+	4. Debug agent workflows
+	5. Trace model outputs
+	6. Identify failure points
+23. Prompt Engineering with APIs
+23.1 LLM APIs
+	1. What is an LLM API?
+	2. API requests
+	3. API responses
+	4. Authentication
+	5. API keys
+	6. Model selection
+23.2 API Parameters
+	1. Temperature
+	2. Maximum output tokens
+	3. Sampling parameters
+	4. Stop sequences
+	5. Response formats
+	6. Tool configuration
+23.3 Production API Usage
+	1. Error handling
+	2. Retries
+	3. Rate limits
+	4. Streaming
+	5. Caching
+	6. Logging
+	7. Cost monitoring
+24. Prompt Engineering with OpenAI
+24.1 OpenAI Fundamentals
+	1. OpenAI platform overview
+	2. Models and capabilities
+	3. API concepts
+	4. Responses and messages
+	5. Model selection
+24.2 OpenAI Prompting
+	1. System/developer instructions
+	2. User inputs
+	3. Structured outputs
+	4. Tool calling
+	5. Function calling concepts
+	6. Multimodal inputs
+24.3 OpenAI Advanced Applications
+	1. Retrieval
+	2. Agents
+	3. Streaming
+	4. Background workflows
+	5. Evaluation
+	6. Production deployment
+	7. Cost optimization
+25. Prompt Engineering Frameworks and Ecosystem
+25.1 Prompt Engineering Libraries
+	1. LangChain
+	2. LangGraph
+	3. LlamaIndex
+	4. DSPy
+	5. Semantic Kernel
+25.2 Supporting Technologies
+	1. Vector databases
+	2. Embedding models
+	3. Reranking models
+	4. Evaluation frameworks
+	5. Observability platforms
+25.3 Prompt Engineering Architecture
+	1. LLM layer
+	2. Prompt layer
+	3. Retrieval layer
+	4. Tool layer
+	5. Memory layer
+	6. Agent layer
+	7. Evaluation layer
+
+
+
+26. Advanced Prompt Engineering
+26.1 Advanced Prompt Patterns
+	1. Self-consistency
+	2. Self-critique
+	3. Reflection
+	4. Verification
+	5. Decomposition
+	6. Planning
+	7. Routing
+	8. Iterative refinement
+26.2 Advanced Context Techniques
+	1. Context compression
+	2. Context prioritization
+	3. Long-context prompting
+	4. Dynamic context selection
+	5. Semantic context selection
+	6. Memory-aware prompting
+26.3 Advanced Workflow Design
+	1. Prompt pipelines
+	2. Conditional execution
+	3. Parallel execution
+	4. Retry strategies
+	5. Fallback strategies
+	6. Human approval workflows
+
+27. Prompt Engineering Performance and Cost Optimization
+27.1 Token Optimization
+	1. Understanding token usage
+	2. Reducing unnecessary instructions
+	3. Context compression
+	4. Output control
+	5. Prompt caching concepts
+27.2 Latency Optimization
+	1. Reduce unnecessary model calls
+	2. Parallel execution
+	3. Streaming
+	4. Smaller model selection
+	5. Response caching
+27.3 Cost Optimization
+	1. Token budgeting
+	2. Model selection
+	3. Prompt optimization
+	4. Batch processing
+	5. Caching
+	6. Monitoring usage
+28. Prompt Engineering Best Practices
+28.1 Writing Effective Prompts
+	1. Be clear
+	2. Be specific
+	3. Provide context
+	4. Define constraints
+	5. Define output format
+	6. Give examples when useful
+28.2 Production Best Practices
+	1. Version prompts
+	2. Test prompts
+	3. Monitor outputs
+	4. Validate responses
+	5. Log failures
+	6. Protect sensitive information
+	7. Handle edge cases
+28.3 Common Mistakes
+	1. Overly vague prompts
+	2. Excessive instructions
+	3. Conflicting instructions
+	4. Missing examples
+	5. Ignoring output validation
+	6. Trusting model outputs blindly
+	7. Not evaluating prompts

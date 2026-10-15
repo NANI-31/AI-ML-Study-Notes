@@ -1,0 +1,37 @@
+state_id,state_name,state_code,type,capital,region
+1,Andhra Pradesh,AP,State,Amaravati,South
+2,Arunachal Pradesh,AR,State,Itanagar,North-East
+3,Assam,AS,State,Dispur,North-East
+4,Bihar,BR,State,Patna,East
+5,Chhattisgarh,CG,State,Raipur,Central
+6,Goa,GA,State,Panaji,West
+7,Gujarat,GJ,State,Gandhinagar,West
+8,Haryana,HR,State,Chandigarh,North
+9,Himachal Pradesh,HP,State,Shimla,North
+10,Jharkhand,JH,State,Ranchi,East
+11,Karnataka,KA,State,Bengaluru,South
+12,Kerala,KL,State,Thiruvananthapuram,South
+13,Madhya Pradesh,MP,State,Bhopal,Central
+14,Maharashtra,MH,State,Mumbai,West
+15,Manipur,MN,State,Imphal,North-East
+16,Meghalaya,ML,State,Shillong,North-East
+17,Mizoram,MZ,State,Aizawl,North-East
+18,Nagaland,NL,State,Kohima,North-East
+19,Odisha,OD,State,Bhubaneswar,East
+20,Punjab,PB,State,Chandigarh,North
+21,Rajasthan,RJ,State,Jaipur,North
+22,Sikkim,SK,State,Gangtok,North-East
+23,Tamil Nadu,TN,State,Chennai,South
+24,Telangana,TG,State,Hyderabad,South
+25,Tripura,TR,State,Agartala,North-East
+26,Uttar Pradesh,UP,State,Lucknow,North
+27,Uttarakhand,UK,State,Dehradun,North
+28,West Bengal,WB,State,Kolkata,East
+29,Andaman and Nicobar Islands,AN,UT,Port Blair,Islands
+30,Chandigarh,CH,UT,Chandigarh,North
+31,Dadra and Nagar Haveli and Daman and Diu,DN,UT,Daman,West
+32,Delhi,DL,UT,New Delhi,North
+33,Jammu and Kashmir,JK,UT,Srinagar,North
+34,Ladakh,LA,UT,Leh,North
+35,Lakshadweep,LD,UT,Kavaratti,Islands
+36,Puducherry,PY,UT,Puducherry,South

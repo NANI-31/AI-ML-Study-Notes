@@ -1,0 +1,13 @@
+product,category,price,stock
+Laptop,Electronics,60000,10
+Phone,Electronics,30000,25
+Tablet,Electronics,20000,15
+Keyboard,Accessories,1500,40
+Mouse,Accessories,800,60
+Monitor,Electronics,15000,12
+Headphones,Accessories,2500,35
+Printer,Electronics,12000,8
+Webcam,Accessories,1800,20
+Speaker,Electronics,3500,18
+USB Cable,Accessories,500,100
+Power Bank,Accessories,2000,30

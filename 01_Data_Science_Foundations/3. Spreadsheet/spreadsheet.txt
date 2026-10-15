@@ -1,0 +1,861 @@
+Spreadsheet Learning Roadmap
+1. Introduction to Spreadsheets
+1.1 What is a Spreadsheet?
+	1. Definition of spreadsheets
+	2. Why spreadsheets are important
+	3. Spreadsheet applications
+	4. Excel vs Google Sheets
+	5. Spreadsheet use cases
+	6. Spreadsheets vs databases
+	7. Spreadsheets vs programming
+	8. Advantages of spreadsheets
+○ Data organization
+○ Data analysis
+○ Calculations
+○ Reporting
+○ Visualization
+○ Automation
+1.2 Spreadsheet Interface
+	1. Workbook
+	2. Worksheet
+	3. Rows
+	4. Columns
+	5. Cells
+	6. Cell references
+	7. Formula bar
+	8. Name box
+	9. Ribbon/menu
+	10. Sheets navigation
+	11. Status bar
+	12. Freeze panes
+1.3 Basic Spreadsheet Operations
+	1. Creating workbooks
+	2. Creating worksheets
+	3. Entering data
+	4. Editing data
+	5. Copying and moving data
+	6. Inserting rows and columns
+	7. Deleting rows and columns
+	8. Renaming sheets
+	9. Hiding and unhiding sheets
+	10. Saving and exporting files
+
+2. Spreadsheet Fundamentals
+2.1 Data Types
+	1. Text
+	2. Numbers
+	3. Integers
+	4. Decimals
+	5. Dates
+	6. Times
+	7. Percentages
+	8. Currency
+	9. Boolean values
+	10. Errors
+	11. Blank cells
+	12. Formatted values vs actual values
+2.2 Cell References
+	1. Relative references
+	2. Absolute references
+	3. Mixed references
+	4. A1 notation
+	5. Row references
+	6. Column references
+	7. Cross-sheet references
+	8. Cross-workbook references
+2.3 Basic Formatting
+	1. Font formatting
+	2. Font size
+	3. Bold and italic
+	4. Text color
+	5. Fill color
+	6. Borders
+	7. Alignment
+	8. Text wrapping
+	9. Indentation
+	10. Number formatting
+	11. Custom number formats
+	12. Conditional formatting
+
+
+3. Spreadsheet Formulas
+3.1 Formula Fundamentals
+	1. What is a formula?
+	2. Formula syntax
+	3. Operators
+	4. Arithmetic operators
+	5. Comparison operators
+	6. Logical operators
+	7. Operator precedence
+	8. Formula copying
+	9. Formula auditing
+	10. Common formula errors
+3.2 Basic Mathematical Functions
+	1. SUM
+	2. AVERAGE
+	3. MIN
+	4. MAX
+	5. COUNT
+	6. COUNTA
+	7. COUNTBLANK
+	8. ROUND
+	9. ROUNDUP
+	10. ROUNDDOWN
+	11. INT
+	12. MOD
+	13. ABS
+	14. PRODUCT
+3.3 Percentage Calculations
+	1. Percentage increase
+	2. Percentage decrease
+	3. Percentage of total
+	4. Profit percentage
+	5. Margin percentage
+	6. Growth rate
+	7. Discount calculation
+	8. Tax calculation
+	9. Compound growth
+
+4. Essential Spreadsheet Functions
+4.1 Logical Functions
+	1. IF
+	2. IFS
+	3. AND
+	4. OR
+	5. NOT
+	6. IFERROR
+	7. IFNA
+	8. Nested IF
+	9. Conditional calculations
+	10. Boolean logic
+4.2 Conditional Aggregation
+	1. SUMIF
+	2. SUMIFS
+	3. COUNTIF
+	4. COUNTIFS
+	5. AVERAGEIF
+	6. AVERAGEIFS
+	7. MAXIFS
+	8. MINIFS
+4.3 Lookup Functions
+	1. VLOOKUP
+	2. HLOOKUP
+	3. XLOOKUP
+	4. LOOKUP
+	5. INDEX
+	6. MATCH
+	7. INDEX + MATCH
+	8. XLOOKUP + MATCH
+	9. Two-way lookup
+	10. Approximate lookup
+	11. Exact lookup
+	12. Multiple-condition lookup
+
+5. Text Functions
+5.1 Basic Text Operations
+	1. LEN
+	2. LEFT
+	3. RIGHT
+	4. MID
+	5. LOWER
+	6. UPPER
+	7. PROPER
+	8. TRIM
+	9. CLEAN
+5.2 Text Searching
+	1. FIND
+	2. SEARCH
+	3. EXACT
+	4. SUBSTITUTE
+	5. REPLACE
+	6. TEXTJOIN
+	7. CONCAT
+	8. CONCATENATE
+5.3 Text Extraction
+	1. Extract first name
+	2. Extract last name
+	3. Extract email domain
+	4. Extract numbers from text
+	5. Extract text between delimiters
+	6. Split text
+	7. Combine text
+	8. Clean inconsistent text
+	9. Normalize text data
+
+6. Date and Time Functions
+6.1 Date Fundamentals
+	1. Spreadsheet date systems
+	2. Date serial numbers
+	3. Date formatting
+	4. Time formatting
+	5. Date arithmetic
+6.2 Date Functions
+	1. TODAY
+	2. NOW
+	3. DATE
+	4. DAY
+	5. MONTH
+	6. YEAR
+	7. EDATE
+	8. EOMONTH
+	9. DAYS
+	10. DAYS360
+	11. WEEKDAY
+	12. WEEKNUM
+	13. WORKDAY
+	14. NETWORKDAYS
+	15. YEARFRAC
+6.3 Date Analysis
+	1. Age calculation
+	2. Tenure calculation
+	3. Days between dates
+	4. Working-day calculations
+	5. Monthly grouping
+	6. Quarterly grouping
+	7. Yearly grouping
+	8. Financial-year calculations
+
+7. Data Cleaning
+7.1 Data Cleaning Fundamentals
+	1. What is data cleaning?
+	2. Why data cleaning matters
+	3. Identifying dirty data
+	4. Missing values
+	5. Duplicate values
+	6. Incorrect data types
+	7. Inconsistent formatting
+	8. Inconsistent spelling
+7.2 Cleaning Techniques
+	1. Remove duplicates
+	2. Find and replace
+	3. TRIM
+	4. CLEAN
+	5. Text-to-columns
+	6. Flash Fill
+	7. Data validation
+	8. Standardizing categories
+	9. Handling blank cells
+	10. Handling errors
+7.3 Advanced Data Cleaning
+	1. Detecting outliers
+	2. Standardizing dates
+	3. Standardizing names
+	4. Standardizing phone numbers
+	5. Standardizing email addresses
+	6. Cleaning imported CSV files
+	7. Cleaning web data
+	8. Cleaning large datasets
+	9. Data-quality checks
+	10. Building reusable cleaning workflows
+
+8. Sorting, Filtering and Data Validation
+8.1 Sorting
+	1. Basic sorting
+	2. Multi-level sorting
+	3. Alphabetical sorting
+	4. Numerical sorting
+	5. Date sorting
+	6. Custom sorting
+	7. Sorting by color
+	8. Sorting by custom lists
+8.2 Filtering
+	1. Basic filters
+	2. Text filters
+	3. Number filters
+	4. Date filters
+	5. Multiple filters
+	6. Advanced filters
+	7. Filter by color
+	8. Dynamic filtering
+8.3 Data Validation
+	1. What is data validation?
+	2. Dropdown lists
+	3. Number validation
+	4. Date validation
+	5. Text validation
+	6. Custom validation rules
+	7. Dependent dropdowns
+	8. Preventing invalid data
+	9. Input forms
+
+9. Tables and Structured Data
+9.1 Spreadsheet Tables
+	1. Creating tables
+	2. Table formatting
+	3. Header rows
+	4. Total rows
+	5. Structured references
+	6. Calculated columns
+	7. Table expansion
+	8. Table sorting
+	9. Table filtering
+9.2 Structured References
+	1. Column references
+	2. Row references
+	3. Table references
+	4. Dynamic formulas
+	5. Table-based calculations
+9.3 Data Organization
+	1. Wide vs long data
+	2. Normalized data
+	3. Data dictionaries
+	4. Primary identifiers
+	5. Relationships between tables
+	6. Building analysis-ready datasets
+
+10. Dynamic Arrays and Advanced Formulas
+10.1 Dynamic Array Fundamentals
+	1. What are dynamic arrays?
+	2. Spill ranges
+	3. Dynamic formulas
+	4. Array calculations
+	5. Array references
+10.2 Dynamic Array Functions
+	1. FILTER
+	2. SORT
+	3. SORTBY
+	4. UNIQUE
+	5. SEQUENCE
+	6. RANDARRAY
+	7. TAKE
+	8. DROP
+	9. CHOOSECOLS
+	10. CHOOSEROWS
+	11. VSTACK
+	12. HSTACK
+10.3 Advanced Formula Techniques
+	1. Nested formulas
+	2. Array formulas
+	3. Dynamic lookups
+	4. Dynamic reports
+	5. Formula-driven dashboards
+	6. Reusable formulas
+	7. Lambda-style functions
+	8. Named formulas
+
+11. Pivot Tables and Pivot Analysis
+11.1 Pivot Table Fundamentals
+	1. What is a PivotTable?
+	2. Why PivotTables are useful
+	3. Creating PivotTables
+	4. Rows
+	5. Columns
+	6. Values
+	7. Filters
+	8. Grouping data
+11.2 Pivot Analysis
+	1. Sum analysis
+	2. Count analysis
+	3. Average analysis
+	4. Percentage of total
+	5. Running totals
+	6. Difference from previous period
+	7. Ranking
+	8. Grouping dates
+	9. Grouping numbers
+11.3 Advanced PivotTables
+	1. Calculated fields
+	2. Calculated items
+	3. Multiple data sources
+	4. Slicers
+	5. Timelines
+	6. PivotCharts
+	7. Refreshing PivotTables
+	8. PivotTable best practices
+
+12. Data Visualization
+12.1 Chart Fundamentals
+	1. Why visualization matters
+	2. Choosing the correct chart
+	3. Chart anatomy
+	4. Chart formatting
+	5. Chart titles
+	6. Axis formatting
+	7. Data labels
+	8. Legends
+12.2 Common Charts
+	1. Column charts
+	2. Bar charts
+	3. Line charts
+	4. Pie charts
+	5. Donut charts
+	6. Area charts
+	7. Scatter plots
+	8. Bubble charts
+	9. Combo charts
+12.3 Advanced Visualization
+	1. Waterfall charts
+	2. Histogram
+	3. Pareto charts
+	4. Funnel charts
+	5. Box plots
+	6. Heatmaps
+	7. KPI cards
+	8. Sparklines
+	9. Dynamic charts
+
+13. Conditional Formatting
+13.1 Fundamentals
+	1. Highlight rules
+	2. Top/bottom rules
+	3. Data bars
+	4. Color scales
+	5. Icon sets
+13.2 Formula-Based Formatting
+	1. Custom formulas
+	2. Highlight duplicates
+	3. Highlight missing values
+	4. Highlight deadlines
+	5. Highlight negative values
+	6. Highlight exceptions
+	7. Highlight entire rows
+13.3 Advanced Conditional Formatting
+	1. Dynamic ranges
+	2. KPI status indicators
+	3. Risk indicators
+	4. Dashboard formatting
+	5. Heatmaps
+	6. Performance monitoring
+
+14. Advanced Spreadsheet Analysis
+14.1 Statistical Functions
+	1. MEDIAN
+	2. MODE
+	3. STDEV
+	4. VAR
+	5. PERCENTILE
+	6. QUARTILE
+	7. CORREL
+	8. COVARIANCE
+	9. RANK
+	10. LARGE
+	11. SMALL
+14.2 Statistical Analysis
+	1. Mean vs median
+	2. Variance
+	3. Standard deviation
+	4. Distribution analysis
+	5. Percentiles
+	6. Outlier detection
+	7. Correlation analysis
+14.3 Business Analysis
+	1. Sales analysis
+	2. Customer analysis
+	3. Revenue analysis
+	4. Profit analysis
+	5. Cost analysis
+	6. Inventory analysis
+	7. Employee analysis
+	8. Marketing analysis
+
+15. What-If Analysis and Forecasting
+15.1 What-If Analysis
+	1. What-if analysis
+	2. Goal Seek
+	3. Scenario Manager
+	4. Data Tables
+	5. Sensitivity analysis
+	6. Scenario comparison
+15.2 Financial Modeling
+	1. Revenue projections
+	2. Cost projections
+	3. Profit projections
+	4. Cash-flow modeling
+	5. Break-even analysis
+	6. Pricing models
+	7. Budget models
+15.3 Forecasting
+	1. Trend analysis
+	2. Moving averages
+	3. Forecast functions
+	4. Time-series analysis
+	5. Seasonality
+	6. Forecast visualization
+	7. Forecast accuracy
+
+16. Power Query / Data Transformation
+16.1 Power Query Fundamentals
+	1. What is Power Query?
+	2. Why Power Query is useful
+	3. Query editor
+	4. Loading data
+	5. Transforming data
+	6. Refreshing queries
+16.2 Data Transformation
+	1. Remove columns
+	2. Rename columns
+	3. Change data types
+	4. Filter rows
+	5. Sort rows
+	6. Replace values
+	7. Split columns
+	8. Merge columns
+	9. Fill values
+	10. Remove duplicates
+16.3 Advanced Power Query
+	1. Merge queries
+	2. Append queries
+	3. Group by
+	4. Pivot columns
+	5. Unpivot columns
+	6. Custom columns
+	7. Conditional columns
+	8. Parameters
+	9. Query dependencies
+	10. M language basics
+16.4 Automated Data Pipelines
+	1. Importing multiple files
+	2. Combining CSV files
+	3. Combining Excel files
+	4. Database connections
+	5. Web data extraction
+	6. Scheduled refresh
+	7. Incremental transformation
+
+17. Power Pivot and Data Modeling
+17.1 Data Modeling Fundamentals
+	1. What is data modeling?
+	2. Fact tables
+	3. Dimension tables
+	4. Star schema
+	5. Snowflake schema
+	6. Relationships
+	7. Primary keys
+	8. Foreign keys
+17.2 Power Pivot
+	1. Creating data models
+	2. Loading tables
+	3. Creating relationships
+	4. Calculated columns
+	5. Measures
+	6. KPIs
+	7. Hierarchies
+17.3 DAX Fundamentals
+	1. What is DAX?
+	2. DAX syntax
+	3. Measures vs calculated columns
+	4. SUM
+	5. CALCULATE
+	6. FILTER
+	7. ALL
+	8. DISTINCT
+	9. COUNTROWS
+	10. SUMX
+	11. AVERAGEX
+17.4 Advanced DAX
+	1. Filter context
+	2. Row context
+	3. Context transition
+	4. Time intelligence
+	5. Date tables
+	6. YTD
+	7. MTD
+	8. QTD
+	9. Previous-period analysis
+	10. Dynamic measures
+
+18. Dashboards
+18.1 Dashboard Fundamentals
+	1. What is a dashboard?
+	2. Dashboard vs report
+	3. Dashboard design principles
+	4. KPI selection
+	5. Layout design
+	6. Visual hierarchy
+	7. User interaction
+18.2 Dashboard Components
+	1. KPI cards
+	2. Charts
+	3. Tables
+	4. Slicers
+	5. Dropdowns
+	6. Filters
+	7. Timelines
+	8. Dynamic titles
+	9. Dynamic ranges
+18.3 Advanced Dashboards
+	1. Interactive dashboards
+	2. Sales dashboard
+	3. Finance dashboard
+	4. HR dashboard
+	5. Marketing dashboard
+	6. Inventory dashboard
+	7. Executive dashboard
+	8. Automated dashboard refresh
+	9. Dashboard performance optimization
+
+19. Spreadsheet Automation
+19.1 Automation Fundamentals
+	1. Why automate spreadsheets?
+	2. Repetitive tasks
+	3. Automated calculations
+	4. Automated formatting
+	5. Automated reports
+	6. Automated data processing
+19.2 Excel VBA
+	1. What is VBA?
+	2. VBA editor
+	3. Variables
+	4. Data types
+	5. IF statements
+	6. Loops
+	7. Functions
+	8. Subroutines
+	9. Objects
+	10. Worksheets
+	11. Workbooks
+	12. Ranges
+	13. Cells
+	14. Macros
+19.3 VBA Automation
+	1. Automated formatting
+	2. Automated report generation
+	3. Automated email reports
+	4. File processing
+	5. Data extraction
+	6. Data transformation
+	7. Dashboard automation
+	8. Error handling
+	9. User forms
+
+
+20. Google Sheets Automation
+20.1 Google Sheets Fundamentals
+	1. Google Sheets interface
+	2. Sharing
+	3. Permissions
+	4. Collaboration
+	5. Version history
+	6. Comments
+	7. Protected ranges
+20.2 Google Apps Script
+	1. Apps Script fundamentals
+	2. JavaScript basics
+	3. Spreadsheet services
+	4. Reading cells
+	5. Writing cells
+	6. Formatting cells
+	7. Creating sheets
+	8. Automating workflows
+20.3 Advanced Automation
+	1. Custom functions
+	2. Triggers
+	3. Time-based triggers
+	4. Form triggers
+	5. Email automation
+	6. API integration
+	7. External data integration
+	8. Automated reporting
+
+21. Spreadsheet + SQL
+21.1 SQL Fundamentals
+	1. What is SQL?
+	2. Databases
+	3. Tables
+	4. Rows and columns
+	5. SELECT
+	6. WHERE
+	7. ORDER BY
+	8. GROUP BY
+	9. HAVING
+	10. JOIN
+21.2 Spreadsheet + Database
+	1. Importing SQL data
+	2. Connecting spreadsheets to databases
+	3. Querying large datasets
+	4. Refreshing database data
+	5. Combining SQL with spreadsheet analysis
+21.3 Advanced Integration
+	1. SQL-based reporting
+	2. Automated database reports
+	3. Data warehouse connections
+	4. ETL workflows
+	5. Spreadsheet as reporting layer
+
+
+
+
+22. Spreadsheet + Python
+22.1 Python for Spreadsheet Users
+	1. Python fundamentals
+	2. Variables
+	3. Data types
+	4. Lists
+	5. Dictionaries
+	6. Functions
+	7. Loops
+	8. File handling
+22.2 Pandas
+	1. DataFrames
+	2. Series
+	3. Reading Excel files
+	4. Writing Excel files
+	5. Filtering data
+	6. Sorting data
+	7. GroupBy
+	8. Merge
+	9. Pivot tables
+	10. Missing-value handling
+22.3 Excel Automation with Python
+	1. openpyxl
+	2. Reading workbooks
+	3. Writing workbooks
+	4. Formatting workbooks
+	5. Creating formulas
+	6. Creating charts
+	7. Automated reports
+	8. Batch Excel processing
+
+23. Advanced Spreadsheet Techniques
+23.1 Formula Engineering
+	1. Complex nested formulas
+	2. Dynamic formulas
+	3. Array formulas
+	4. Named ranges
+	5. Named formulas
+	6. Formula optimization
+	7. Formula auditing
+23.2 Advanced Lookup Techniques
+	1. Multi-condition lookup
+	2. Two-way lookup
+	3. Dynamic lookup
+	4. Approximate matching
+	5. Fuzzy matching
+	6. Multiple-table lookup
+23.3 Advanced Data Techniques
+	1. Dynamic ranges
+	2. Recursive calculations
+	3. Error handling
+	4. Scenario modeling
+	5. Sensitivity analysis
+	6. Automated data validation
+	7. Reusable spreadsheet templates
+
+24. Spreadsheet Performance and Optimization
+24.1 Performance Fundamentals
+	1. Why spreadsheets become slow
+	2. Large datasets
+	3. Volatile functions
+	4. Excessive formulas
+	5. Excessive formatting
+	6. External links
+24.2 Optimization
+	1. Reduce unnecessary formulas
+	2. Optimize lookup formulas
+	3. Reduce volatile functions
+	4. Use tables efficiently
+	5. Optimize PivotTables
+	6. Optimize Power Query
+	7. Optimize DAX
+	8. Reduce workbook size
+	9. Remove unnecessary formatting
+24.3 Large Dataset Handling
+	1. Excel row limits
+	2. Power Query for large datasets
+	3. Power Pivot for large datasets
+	4. SQL for large datasets
+	5. Python for large datasets
+	6. Choosing the correct tool
+
+25. Spreadsheet Security and Best Practices
+25.1 Spreadsheet Security
+	1. Password protection
+	2. Sheet protection
+	3. Workbook protection
+	4. Protected ranges
+	5. Access permissions
+	6. File permissions
+	7. Sensitive-data handling
+25.2 Data Security
+	1. Removing sensitive information
+	2. Secure sharing
+	3. Access control
+	4. Version control
+	5. Backup strategies
+	6. Data recovery
+25.3 Spreadsheet Best Practices
+	1. Consistent formatting
+	2. Clear naming conventions
+	3. Separate raw data and analysis
+	4. Separate calculations and presentation
+	5. Document formulas
+	6. Use data validation
+	7. Avoid hardcoded values
+	8. Build reusable templates
+	9. Maintain data dictionaries
+
+
+
+
+26. Spreadsheet Reporting
+26.1 Report Fundamentals
+	1. What is a spreadsheet report?
+	2. Report structure
+	3. Executive summaries
+	4. Detail reports
+	5. Operational reports
+	6. Analytical reports
+26.2 Automated Reports
+	1. Dynamic reports
+	2. Monthly reports
+	3. Weekly reports
+	4. Daily reports
+	5. KPI reports
+	6. Financial reports
+	7. Sales reports
+	8. Inventory reports
+26.3 Professional Reporting
+	1. Report formatting
+	2. Print layouts
+	3. Page setup
+	4. Headers and footers
+	5. PDF export
+	6. Automated distribution
+
+27. Business Intelligence with Spreadsheets
+27.1 Business Analytics
+	1. Descriptive analytics
+	2. Diagnostic analytics
+	3. Predictive analytics
+	4. Prescriptive analytics
+27.2 KPI Analysis
+	1. Revenue KPIs
+	2. Sales KPIs
+	3. Customer KPIs
+	4. Marketing KPIs
+	5. Financial KPIs
+	6. Operational KPIs
+	7. HR KPIs
+27.3 Decision-Making
+	1. Trend identification
+	2. Variance analysis
+	3. Root-cause analysis
+	4. Performance analysis
+	5. Scenario analysis
+	6. Forecasting
+	7. Business recommendations
+
+28. Spreadsheet + AI
+28.1 AI Fundamentals
+	1. What is AI-assisted spreadsheet analysis?
+	2. LLMs and spreadsheets
+	3. AI formula generation
+	4. AI data analysis
+	5. AI data cleaning
+	6. AI-powered insights
+28.2 AI Spreadsheet Workflows
+	1. Generate formulas using AI
+	2. Explain formulas using AI
+	3. Debug formulas using AI
+	4. Clean data using AI
+	5. Generate reports using AI
+	6. Generate charts using AI
+	7. Analyze datasets using AI
+28.3 Advanced AI Integration
+	1. Spreadsheet + LLM APIs
+	2. Automated data analysis
+	3. Natural-language spreadsheet queries
+	4. AI-generated summaries
+	5. AI-powered dashboards
+	6. AI spreadsheet assistants
+	7. Spreadsheet + RAG workflows

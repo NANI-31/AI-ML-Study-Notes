@@ -1,0 +1,1357 @@
+Data Visualization — Complete Roadmap
+1. Introduction to Data Visualization
+1.1 What is Data Visualization?
+	1. Definition of Data Visualization
+	2. Why Data Visualization is important
+	3. Data Visualization vs Data Analysis
+	4. Data Visualization vs Data Reporting
+	5. Role of visualization in Data Science
+	6. Role of visualization in Machine Learning
+	7. Role of visualization in Business Intelligence
+1.2 Why Visualize Data?
+	1. Finding patterns
+	2. Finding trends
+	3. Detecting outliers
+	4. Comparing categories
+	5. Understanding distributions
+	6. Understanding relationships
+	7. Communicating insights
+	8. Supporting business decisions
+1.3 Types of Data
+	1. Numerical data
+	2. Categorical data
+	3. Ordinal data
+	4. Time-series data
+	5. Geographical data
+	6. Text data
+	7. Multivariate data
+1.4 Types of Visualization
+	1. Comparison charts
+	2. Distribution charts
+	3. Relationship charts
+	4. Composition charts
+	5. Time-series charts
+	6. Geographical charts
+	7. Statistical charts
+	8. Interactive charts
+2. Data Visualization Environment
+2.1 Installing Libraries
+	1. Installing Matplotlib
+	2. Installing Seaborn
+	3. Installing Plotly
+	4. Installing Pandas
+	5. Installing NumPy
+	6. Installing Jupyter Notebook
+	7. Installing JupyterLab
+2.2 Importing Libraries
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import plotly.express as px
+import plotly.graph_objects as go
+2.3 Visualization Environment
+	1. Jupyter Notebook
+	2. JupyterLab
+	3. VS Code
+	4. Google Colab
+	5. Python scripts
+	6. Saving plots
+	7. Displaying plots
+3. Matplotlib Fundamentals
+3.1 Introduction to Matplotlib
+	1. What is Matplotlib?
+	2. Why Matplotlib is important
+	3. Matplotlib architecture
+	4. Figure
+	5. Axes
+	6. Axis
+	7. Plot elements
+3.2 First Plot
+	1. plt.plot()
+	2. plt.show()
+	3. plt.figure()
+	4. plt.subplots()
+	5. Creating a basic chart
+3.3 Figure and Axes
+	1. Figure object
+	2. Axes object
+	3. Axis object
+	4. Creating multiple axes
+	5. Figure size
+	6. DPI
+	7. Figure resolution
+4. Line Charts
+4.1 Basic Line Plot
+	1. Creating line charts
+	2. X-axis
+	3. Y-axis
+	4. Line color
+	5. Line width
+	6. Line style
+	7. Markers
+4.2 Line Customization
+	1. Solid lines
+	2. Dashed lines
+	3. Dotted lines
+	4. Marker styles
+	5. Marker size
+	6. Marker color
+	7. Alpha/transparency
+4.3 Multiple Lines
+	1. Multiple lines
+	2. Legends
+	3. Comparing trends
+	4. Highlighting specific lines
+	5. Different colors
+4.4 Real-World Applications
+	1. Stock prices
+	2. Temperature trends
+	3. Sales trends
+	4. Website traffic
+	5. Population growth
+	6. Monthly revenue
+5. Bar Charts
+5.1 Basic Bar Charts
+	1. plt.bar()
+	2. Vertical bar charts
+	3. Horizontal bar charts
+	4. Bar width
+	5. Bar colors
+	6. Bar labels
+5.2 Advanced Bar Charts
+	1. Grouped bar charts
+	2. Stacked bar charts
+	3. Multiple categories
+	4. Horizontal comparisons
+	5. Adding values on bars
+	6. Sorting bars
+5.3 Real-World Applications
+	1. Sales by product
+	2. Revenue by region
+	3. Students by department
+	4. Employee count by department
+	5. Product performance
+	6. Category comparison
+6. Scatter Plots
+6.1 Scatter Plot Basics
+	1. plt.scatter()
+	2. X and Y variables
+	3. Marker size
+	4. Marker color
+	5. Transparency
+	6. Marker styles
+6.2 Advanced Scatter Plots
+	1. Color by category
+	2. Size by numerical variable
+	3. Multiple groups
+	4. Highlighting outliers
+	5. Adding trend lines
+	6. Correlation visualization
+6.3 Applications
+	1. Height vs weight
+	2. Advertising vs sales
+	3. Experience vs salary
+	4. Age vs income
+	5. Study hours vs marks
+	6. Price vs demand
+7. Histograms
+7.1 Histogram Basics
+	1. What is a histogram?
+	2. plt.hist()
+	3. Bins
+	4. Bin width
+	5. Frequency
+	6. Density
+7.2 Histogram Customization
+	1. Number of bins
+	2. Colors
+	3. Edge colors
+	4. Transparency
+	5. Multiple distributions
+	6. Density plots
+7.3 Applications
+	1. Age distribution
+	2. Salary distribution
+	3. Exam marks
+	4. House prices
+	5. Transaction amounts
+	6. Customer spending
+8. Pie Charts and Composition
+8.1 Pie Charts
+	1. plt.pie()
+	2. Labels
+	3. Percentages
+	4. Colors
+	5. Exploding slices
+	6. Start angle
+8.2 Composition Charts
+	1. Part-to-whole relationships
+	2. Donut charts
+	3. Stacked bars
+	4. 100% stacked bars
+8.3 When to Use
+	1. Market share
+	2. Budget distribution
+	3. Expense distribution
+	4. Customer segments
+	5. Revenue composition
+8.4 When NOT to Use
+	1. Too many categories
+	2. Similar values
+	3. Time-series data
+	4. Precise comparisons
+9. Box Plots
+9.1 Box Plot Fundamentals
+	1. What is a box plot?
+	2. Median
+	3. Quartiles
+	4. Q1
+	5. Q3
+	6. IQR
+	7. Whiskers
+	8. Outliers
+9.2 Matplotlib Box Plots
+	1. plt.boxplot()
+	2. Multiple box plots
+	3. Horizontal box plots
+	4. Custom colors
+9.3 Applications
+	1. Salary analysis
+	2. Exam marks
+	3. Product prices
+	4. Delivery times
+	5. Customer spending
+	6. Detecting outliers
+10. Area Charts
+10.1 Area Plot
+	1. What is an area chart?
+	2. plt.fill_between()
+	3. Stacked area charts
+	4. Transparency
+	5. Multiple areas
+10.2 Applications
+	1. Revenue over time
+	2. Website traffic
+	3. Energy consumption
+	4. Market share
+	5. Population changes
+11. Subplots
+11.1 Creating Subplots
+	1. plt.subplot()
+	2. plt.subplots()
+	3. Rows and columns
+	4. Multiple charts
+	5. Shared X-axis
+	6. Shared Y-axis
+11.2 Advanced Subplots
+	1. Figure layouts
+	2. tight_layout()
+	3. constrained_layout
+	4. Figure spacing
+	5. Different chart types in one figure
+	6. Dashboard-style visualization
+11.3 Applications
+	1. Sales dashboard
+	2. E-commerce analysis
+	3. Customer analysis
+	4. Financial analysis
+	5. Dataset overview
+12. Matplotlib Customization
+12.1 Titles
+	1. plt.title()
+	2. Font size
+	3. Font weight
+	4. Font color
+	5. Title alignment
+12.2 Axis Labels
+	1. plt.xlabel()
+	2. plt.ylabel()
+	3. Label formatting
+	4. Label rotation
+12.3 Ticks
+	1. X ticks
+	2. Y ticks
+	3. Tick rotation
+	4. Tick size
+	5. Custom tick labels
+12.4 Legends
+	1. plt.legend()
+	2. Legend position
+	3. Legend title
+	4. Multiple legends
+12.5 Grid
+	1. plt.grid()
+	2. Grid styles
+	3. Grid transparency
+	4. Major/minor grids
+13. Seaborn Fundamentals
+13.1 Introduction to Seaborn
+	1. What is Seaborn?
+	2. Seaborn vs Matplotlib
+	3. Why Seaborn is useful
+	4. Statistical visualization
+	5. Pandas integration
+13.2 Seaborn Dataset
+	1. Built-in datasets
+	2. sns.load_dataset()
+	3. Titanic dataset
+	4. Iris dataset
+	5. Tips dataset
+	6. Penguins dataset
+14. Seaborn Categorical Visualization
+14.1 Count Plot
+	1. sns.countplot()
+	2. Category frequency
+	3. Hue
+	4. Ordering categories
+14.2 Bar Plot
+	1. sns.barplot()
+	2. Aggregation
+	3. Mean
+	4. Confidence intervals
+	5. Hue
+14.3 Other Categorical Plots
+	1. sns.catplot()
+	2. sns.pointplot()
+	3. sns.stripplot()
+	4. sns.swarmplot()
+	5. sns.boxplot()
+	6. sns.violinplot()
+14.4 Applications
+	1. Gender distribution
+	2. Sales by category
+	3. Survival by gender
+	4. Salary by department
+	5. Product ratings
+15. Seaborn Distribution Visualization
+15.1 Distribution Plots
+	1. sns.histplot()
+	2. sns.kdeplot()
+	3. sns.displot()
+	4. Histogram + KDE
+	5. Multiple distributions
+15.2 Distribution Analysis
+	1. Mean
+	2. Median
+	3. Skewness
+	4. Kurtosis
+	5. Normal distribution
+	6. Right-skewed distribution
+	7. Left-skewed distribution
+15.3 Applications
+	1. Salary distribution
+	2. Age distribution
+	3. Customer spending
+	4. House prices
+	5. Transaction values
+16. Seaborn Relationship Visualization
+16.1 Scatter Plot
+	1. sns.scatterplot()
+	2. Hue
+	3. Size
+	4. Style
+	5. Multiple groups
+16.2 Line Plot
+	1. sns.lineplot()
+	2. Time-series visualization
+	3. Confidence intervals
+	4. Grouped trends
+16.3 Relational Plots
+	1. sns.relplot()
+	2. Faceting
+	3. Multiple dimensions
+17. Correlation Analysis
+17.1 Correlation Basics
+	1. What is correlation?
+	2. Positive correlation
+	3. Negative correlation
+	4. Zero correlation
+	5. Pearson correlation
+	6. Spearman correlation
+17.2 Correlation Matrix
+	1. Pandas .corr()
+	2. Creating correlation matrices
+	3. Selecting numerical columns
+	4. Handling missing values
+17.3 Correlation Heatmap
+	1. sns.heatmap()
+	2. Annotating values
+	3. Color maps
+	4. Centering colors
+	5. Masking upper triangle
+17.4 Applications
+	1. Feature selection
+	2. Financial analysis
+	3. Customer behavior
+	4. Sales analysis
+	5. ML feature analysis
+18. Pair Plot and Multivariate Visualization
+18.1 Pair Plot
+	1. sns.pairplot()
+	2. Numerical relationships
+	3. Diagonal distributions
+	4. Hue categories
+	5. Customization
+18.2 PairGrid
+	1. sns.PairGrid()
+	2. Custom plots
+	3. Different plots for diagonal
+	4. Different plots for upper/lower triangle
+18.3 Applications
+	1. Iris dataset analysis
+	2. Customer segmentation
+	3. Feature relationships
+	4. ML dataset exploration
+19. FacetGrid
+19.1 Faceted Visualization
+	1. What is faceting?
+	2. sns.FacetGrid()
+	3. Rows
+	4. Columns
+	5. Hue
+19.2 Applications
+	1. Sales by region
+	2. Sales by year
+	3. Customer behavior by gender
+	4. Product performance by category
+	5. Time-series comparison
+20. Styling with Seaborn
+20.1 Themes
+	1. sns.set_theme()
+	2. Dark theme
+	3. White theme
+	4. Whitegrid
+	5. Darkgrid
+	6. Ticks
+20.2 Color Palettes
+	1. Qualitative palettes
+	2. Sequential palettes
+	3. Diverging palettes
+	4. Custom palettes
+	5. Colorblind-friendly palettes
+20.3 Plot Styling
+	1. Font sizes
+	2. Figure sizes
+	3. Grid
+	4. Spines
+	5. Background
+	6. Labels
+21. Time-Series Visualization
+21.1 Time-Series Basics
+	1. Date and time data
+	2. Datetime conversion
+	3. Time index
+	4. Resampling
+	5. Rolling averages
+21.2 Visualization
+	1. Line charts
+	2. Area charts
+	3. Moving averages
+	4. Seasonal patterns
+	5. Trend analysis
+21.3 Advanced Time-Series Charts
+	1. Multiple time series
+	2. Year-over-year comparison
+	3. Monthly trends
+	4. Weekly trends
+	5. Seasonal decomposition visualization
+21.4 Applications
+	1. Stock market
+	2. Website traffic
+	3. Sales forecasting
+	4. Weather analysis
+	5. Electricity consumption
+22. Statistical Visualization
+22.1 Descriptive Statistics
+	1. Mean
+	2. Median
+	3. Mode
+	4. Variance
+	5. Standard deviation
+	6. Percentiles
+	7. Quartiles
+	8. IQR
+22.2 Visualizing Statistics
+	1. Box plots
+	2. Violin plots
+	3. Histograms
+	4. KDE
+	5. Error bars
+	6. Confidence intervals
+22.3 Statistical Relationships
+	1. Correlation
+	2. Regression
+	3. Distribution comparison
+	4. Group comparison
+23. Regression Visualization
+23.1 Regression Plot
+	1. sns.regplot()
+	2. Regression line
+	3. Scatter points
+	4. Confidence interval
+23.2 Linear Relationships
+	1. Positive relationship
+	2. Negative relationship
+	3. Weak relationship
+	4. Strong relationship
+23.3 Multiple Regression Visualization
+	1. Group-wise regression
+	2. Different categories
+	3. Residual visualization
+	4. Prediction vs actual
+24. Advanced Matplotlib
+24.1 Object-Oriented Matplotlib
+	1. Figure
+	2. Axes
+	3. Axis
+	4. fig, ax
+	5. ax.plot()
+	6. ax.bar()
+	7. ax.scatter()
+24.2 Advanced Axes
+	1. Multiple axes
+	2. Twin axes
+	3. Secondary Y-axis
+	4. Shared axes
+	5. Inset axes
+24.3 Advanced Annotations
+	1. ax.annotate()
+	2. Text annotations
+	3. Arrows
+	4. Highlighting important points
+	5. Reference lines
+24.4 Advanced Layout
+	1. GridSpec
+	2. Nested grids
+	3. Complex dashboards
+	4. Custom layouts
+25. Advanced Chart Types
+25.1 Statistical Charts
+	1. Violin plot
+	2. Boxen plot
+	3. ECDF
+	4. KDE
+	5. Rug plot
+25.2 Comparison Charts
+	1. Lollipop chart
+	2. Dumbbell chart
+	3. Dot plot
+	4. Slope chart
+	5. Bullet chart
+25.3 Financial Charts
+	1. OHLC chart
+	2. Candlestick chart
+	3. Volume chart
+	4. Moving average chart
+25.4 Scientific Charts
+	1. Error bar chart
+	2. Contour plot
+	3. Heatmap
+	4. Hexbin plot
+	5. 3D surface plot
+26. Heatmaps
+26.1 Basic Heatmap
+	1. What is a heatmap?
+	2. sns.heatmap()
+	3. Color scales
+	4. Annotations
+	5. Color bars
+26.2 Advanced Heatmaps
+	1. Correlation heatmap
+	2. Calendar heatmap
+	3. Pivot-table heatmap
+	4. Clustered heatmap
+	5. Masked heatmap
+26.3 Applications
+	1. Correlation analysis
+	2. Sales by month
+	3. Website activity
+	4. Attendance analysis
+	5. Feature relationships
+27. Plotly Fundamentals
+27.1 Introduction to Plotly
+	1. What is Plotly?
+	2. Plotly vs Matplotlib
+	3. Plotly vs Seaborn
+	4. Interactive visualization
+	5. Web-based visualization
+27.2 Plotly Express
+	1. plotly.express
+	2. px.line()
+	3. px.bar()
+	4. px.scatter()
+	5. px.histogram()
+	6. px.box()
+	7. px.violin()
+	8. px.pie()
+28. Interactive Visualizations
+28.1 Interactive Features
+	1. Hover
+	2. Zoom
+	3. Pan
+	4. Select
+	5. Filter
+	6. Tooltips
+	7. Legends
+	8. Interactive axes
+28.2 Interactive Charts
+	1. Interactive line charts
+	2. Interactive bar charts
+	3. Interactive scatter plots
+	4. Interactive histograms
+	5. Interactive box plots
+28.3 Applications
+	1. Sales dashboards
+	2. Financial dashboards
+	3. Customer analytics
+	4. Product analytics
+	5. Business reports
+29. Plotly Graph Objects
+29.1 Graph Objects
+	1. go.Figure()
+	2. go.Scatter()
+	3. go.Bar()
+	4. go.Pie()
+	5. go.Box()
+	6. go.Histogram()
+29.2 Customization
+	1. Layout
+	2. Titles
+	3. Axis configuration
+	4. Colors
+	5. Legends
+	6. Hover templates
+	7. Annotations
+29.3 Multiple Traces
+	1. Adding traces
+	2. Updating traces
+	3. Updating layout
+	4. Multiple Y-axes
+	5. Subplots
+30. Plotly Subplots
+30.1 Subplot Basics
+	1. make_subplots()
+	2. Rows
+	3. Columns
+	4. Shared axes
+	5. Different chart types
+30.2 Advanced Subplots
+	1. Multiple Y-axes
+	2. Mixed chart types
+	3. Complex dashboards
+	4. Custom spacing
+	5. Annotations
+31. Geographic Visualization
+31.1 Maps
+	1. Why geographic visualization?
+	2. Latitude
+	3. Longitude
+	4. Geographic coordinates
+31.2 Plotly Maps
+	1. px.scatter_geo()
+	2. px.choropleth()
+	3. Mapbox-style maps
+	4. Bubble maps
+	5. Choropleth maps
+31.3 Applications
+	1. Population by country
+	2. COVID-style geographic analysis
+	3. Sales by region
+	4. Customer locations
+	5. Store locations
+	6. Delivery analysis
+32. 3D Visualization
+32.1 3D Charts
+	1. 3D scatter plots
+	2. 3D line plots
+	3. 3D surface plots
+	4. 3D mesh plots
+32.2 Applications
+	1. Scientific visualization
+	2. Engineering data
+	3. Geographic data
+	4. Machine learning feature visualization
+	5. Mathematical functions
+33. Data Visualization with Pandas
+33.1 Pandas Visualization
+	1. df.plot()
+	2. Line charts
+	3. Bar charts
+	4. Histograms
+	5. Box plots
+	6. Area charts
+	7. Scatter plots
+	8. Pie charts
+33.2 Combining Pandas + Matplotlib
+	1. Data filtering
+	2. GroupBy + visualization
+	3. Pivot tables + visualization
+	4. Aggregation + visualization
+34. EDA Through Visualization
+34.1 Univariate Analysis
+	1. Numerical variable analysis
+	2. Categorical variable analysis
+	3. Distribution analysis
+	4. Missing values
+	5. Outlier detection
+34.2 Bivariate Analysis
+	1. Numerical vs numerical
+	2. Numerical vs categorical
+	3. Categorical vs categorical
+34.3 Multivariate Analysis
+	1. Three-variable relationships
+	2. Four-variable relationships
+	3. Correlation analysis
+	4. Pair plots
+	5. Facet plots
+34.4 EDA Workflow
+	1. Understand dataset
+	2. Check shape
+	3. Check data types
+	4. Check missing values
+	5. Analyze distributions
+	6. Detect outliers
+	7. Analyze relationships
+	8. Find patterns
+	9. Generate insights
+35. Visualization for Machine Learning
+35.1 Before Model Training
+	1. Target distribution
+	2. Feature distributions
+	3. Feature correlation
+	4. Outlier detection
+	5. Class imbalance
+	6. Feature relationships
+35.2 Model Evaluation Visualization
+	1. Confusion matrix
+	2. ROC curve
+	3. Precision-recall curve
+	4. Learning curve
+	5. Validation curve
+35.3 Regression Visualization
+	1. Actual vs predicted
+	2. Residual plots
+	3. Error distribution
+	4. Prediction intervals
+35.4 Feature Analysis
+	1. Feature importance
+	2. Permutation importance
+	3. Partial dependence
+	4. Feature relationships
+36. Visualization for Classification
+36.1 Class Distribution
+	1. Count plots
+	2. Class imbalance
+	3. Percentage distribution
+36.2 Model Performance
+	1. Confusion matrix
+	2. ROC curve
+	3. Precision-recall curve
+	4. Accuracy comparison
+	5. Precision comparison
+	6. Recall comparison
+	7. F1-score comparison
+36.3 Applications
+	1. Fraud detection
+	2. Disease classification
+	3. Customer churn
+	4. Spam detection
+	5. Credit-risk classification
+
+	1. Prediction error analysis
+37. Visualization for Regression
+37.1 Regression Analysis
+	1. Scatter plots
+	2. Regression lines
+	3. Actual vs predicted
+	4. Residual plots
+	5. Error distribution
+37.2 Model Comparison
+	1. Compare predictions
+	2. Compare RMSE
+	3. Compare MAE
+	4. Compare R²
+38. Dashboard Development
+38.1 Dashboard Concepts
+	1. What is a dashboard?
+	2. Dashboard vs report
+	3. KPI
+	4. Metrics
+	5. Filters
+	6. Interactive components
+38.2 Dashboard Components
+	1. KPI cards
+	2. Line charts
+	3. Bar charts
+	4. Pie charts
+	5. Heatmaps
+	6. Tables
+	7. Maps
+	8. Filters
+38.3 Dashboard Design
+	1. Layout
+	2. Color consistency
+	3. Typography
+	4. Visual hierarchy
+	5. User interaction
+	6. Responsive design
+39. Business Data Visualization
+39.1 Sales Analytics
+	1. Revenue trends
+	2. Sales by product
+	3. Sales by region
+	4. Sales by salesperson
+	5. Monthly sales
+	6. Year-over-year growth
+39.2 Customer Analytics
+	1. Customer demographics
+	2. Customer segmentation
+	3. Customer lifetime value
+	4. Churn analysis
+	5. Customer acquisition
+39.3 Marketing Analytics
+	1. Campaign performance
+	2. Conversion rates
+	3. CTR
+	4. CAC
+	5. ROI
+	6. Marketing funnel
+40. Financial Data Visualization
+40.1 Financial Charts
+	1. Stock price
+	2. Candlestick charts
+	3. Volume
+	4. Moving averages
+	5. Returns
+	6. Volatility
+40.2 Financial Analysis
+	1. Portfolio performance
+	2. Risk-return visualization
+	3. Correlation matrix
+	4. Drawdown analysis
+	5. Asset comparison
+	6. Portfolio allocation
+41. Advanced Visualization Concepts
+41.1 Multivariate Visualization
+	1. Visualizing 3 variables
+	2. Visualizing 4 variables
+	3. Color encoding
+	4. Size encoding
+	5. Shape encoding
+	6. Faceting
+41.2 High-Dimensional Data
+	1. PCA visualization
+	2. t-SNE visualization
+	3. UMAP visualization
+	4. Cluster visualization
+	5. Dimensionality reduction
+41.3 Large Datasets
+	1. Sampling
+	2. Aggregation
+	3. Binning
+	4. Hexbin plots
+	5. Density visualization
+	6. Downsampling
+42. Visualization Best Practices
+42.1 Choosing the Right Chart
+	1. Comparison → Bar chart
+	2. Trend → Line chart
+	3. Distribution → Histogram
+	4. Relationship → Scatter plot
+	5. Composition → Stacked bar
+	6. Correlation → Heatmap
+	7. Outliers → Box plot
+	8. Geographic → Map
+42.2 Visual Design
+	1. Avoid unnecessary colors
+	2. Avoid 3D when unnecessary
+	3. Use meaningful titles
+	4. Label axes clearly
+	5. Use appropriate scales
+	6. Highlight important information
+	7. Avoid chart clutter
+42.3 Color Best Practices
+	1. Sequential colors
+	2. Diverging colors
+	3. Categorical colors
+	4. Colorblind-friendly palettes
+	5. Consistent color meaning
+43. Misleading Visualizations
+43.1 Common Problems
+	1. Truncated Y-axis
+	2. Misleading scales
+	3. Excessive 3D
+	4. Wrong chart type
+	5. Too many colors
+	6. Too many categories
+	7. Cherry-picked data
+	8. Distorted proportions
+43.2 Ethical Visualization
+	1. Show complete context
+	2. Avoid misleading scales
+	3. Clearly label data
+	4. Mention assumptions
+	5. Explain limitations
+44. Advanced Statistical Visualization
+44.1 Distribution Analysis
+	1. Normality
+	2. Skewness
+	3. Kurtosis
+	4. Outliers
+	5. Heavy-tailed distributions
+44.2 Statistical Tests + Visualization
+	1. T-test visualization
+	2. ANOVA visualization
+	3. Chi-square visualization
+	4. Confidence intervals
+	5. Hypothesis testing visualization
+44.3 Advanced Plots
+	1. Q-Q plot
+	2. ECDF
+	3. Violin plot
+	4. Boxen plot
+	5. KDE plot
+45. Visualization Performance
+45.1 Large Dataset Problems
+	1. Rendering large datasets
+	2. Memory usage
+	3. Slow plots
+	4. Too many points
+	5. Browser performance
+45.2 Optimization
+	1. Sampling
+	2. Aggregation
+	3. Binning
+	4. Datashader concepts
+	5. Efficient Plotly traces
+	6. Reduce unnecessary rendering
+	7. Use appropriate chart types
+46. Saving and Sharing Visualizations
+46.1 Static Export
+	1. PNG
+	2. JPG
+	3. SVG
+	4. PDF
+	5. DPI
+	6. Transparent background
+46.2 Interactive Export
+	1. HTML
+	2. Interactive Plotly HTML
+	3. Embedding charts
+	4. Sharing dashboards
+46.3 Presentation Quality
+	1. High-resolution charts
+	2. Consistent dimensions
+	3. Professional themes
+	4. Report-ready charts
+47. Visualization with APIs and Real-Time Data
+47.1 Data Sources
+	1. CSV
+	2. Excel
+	3. SQL databases
+	4. APIs
+	5. JSON
+	6. Streaming data
+47.2 Real-Time Visualization
+	1. Live stock prices
+	2. Live weather
+	3. Website traffic
+	4. IoT data
+	5. System monitoring
+47.3 Dynamic Charts
+	1. Updating charts
+	2. Real-time filtering
+	3. Interactive controls
+	4. Auto-refresh dashboards
+48. Advanced Interactive Visualization
+48.1 Plotly Advanced Features
+	1. Hover templates
+	2. Custom tooltips
+	3. Dropdown menus
+	4. Buttons
+	5. Sliders
+	6. Range selectors
+48.2 Interactive Filtering
+	1. Filter by date
+	2. Filter by category
+	3. Filter by region
+	4. Dynamic aggregation
+48.3 Animation
+	1. Animated scatter plots
+	2. Animated bar charts
+	3. Time-based animation
+	4. Geographic animation
+49. Data Visualization Projects
+49.1 Beginner Projects
+	1. Student Marks Visualization
+		○ Bar chart
+		○ Histogram
+		○ Box plot
+		○ Subject comparison
+	2. Weather Data Visualization
+		○ Temperature trends
+		○ Rainfall distribution
+		○ Monthly comparison
+	3. Personal Expense Dashboard
+		○ Category-wise expenses
+		○ Monthly spending
+		○ Pie/donut chart
+		○ Spending trends
+	4. Movie Dataset Visualization
+		○ Movie ratings
+		○ Genre distribution
+		○ Revenue analysis
+	5. Sales Data Visualization
+		○ Product sales
+		○ Monthly revenue
+		○ Top products
+50. Intermediate Visualization Projects
+50.1 E-Commerce Analytics Dashboard
+	1. Revenue analysis
+	2. Product analysis
+	3. Customer analysis
+	4. Regional sales
+	5. Monthly trends
+	6. KPI cards
+	7. Interactive filters
+50.2 Customer Churn Visualization
+	1. Churn distribution
+	2. Churn by age
+	3. Churn by contract
+	4. Churn by region
+	5. Correlation analysis
+	6. Customer segmentation
+50.3 Stock Market Dashboard
+	1. Price trends
+	2. Moving averages
+	3. Daily returns
+	4. Volume
+	5. Volatility
+	6. Candlestick chart
+50.4 COVID/Health Dataset Analysis
+	1. Cases over time
+	2. Geographic analysis
+	3. Recovery rates
+	4. Death rates
+	5. Country comparison
+51. Advanced Visualization Projects
+51.1 Business Intelligence Dashboard
+	1. Sales KPIs
+	2. Revenue trends
+	3. Profit analysis
+	4. Customer segmentation
+	5. Product performance
+	6. Regional performance
+	7. Interactive filters
+	8. Drill-down analysis
+51.2 Financial Portfolio Dashboard
+	1. Multiple assets
+	2. Portfolio returns
+	3. Risk analysis
+	4. Correlation heatmap
+	5. Drawdown
+	6. Asset allocation
+	7. Interactive time range
+51.3 Marketing Analytics Dashboard
+	1. Campaign performance
+	2. Conversion funnel
+	3. CTR
+	4. CPC
+	5. CAC
+	6. ROI
+	7. Customer acquisition trends
+51.4 Supply Chain Dashboard
+	1. Inventory
+	2. Delivery times
+	3. Supplier performance
+	4. Regional demand
+	5. Shipping delays
+	6. Stock-out analysis
+52. Advanced Data Science Visualization Projects
+52.1 ML Model Visualization
+	1. Dataset EDA
+	2. Feature distributions
+	3. Correlation analysis
+	4. Feature importance
+	5. Confusion matrix
+	6. ROC curve
+	7. Precision-recall curve
+	8. Prediction errors
+52.2 Customer Segmentation
+	1. Customer features
+	2. PCA
+	3. K-Means clustering
+	4. Cluster visualization
+	5. 2D cluster plot
+	6. 3D cluster plot
+	7. Cluster comparison
+52.3 Recommendation System Visualization
+	1. User-item matrix
+	2. Rating distribution
+	3. Popular products
+	4. User behavior
+	5. Recommendation performance
+53. Advanced AI Visualization
+53.1 NLP Visualization
+	1. Word frequency
+	2. Word clouds
+	3. Sentiment distribution
+	4. Topic distribution
+	5. Token frequency
+	6. Text length distribution
+53.2 Embedding Visualization
+	1. Generate embeddings
+	2. PCA visualization
+	3. t-SNE visualization
+	4. UMAP visualization
+	5. Cluster embeddings
+	6. Semantic similarity visualization
+53.3 LLM Evaluation Visualization
+	1. Token usage
+	2. Latency
+	3. Cost analysis
+	4. Response quality
+	5. Evaluation scores
+	6. Model comparison
+54. Data Visualization for RAG Systems
+54.1 RAG Data Analysis
+	1. Document count
+	2. Document types
+	3. Chunk size distribution
+	4. Chunk length distribution
+	5. Embedding dimensions
+	6. Metadata distribution
+54.2 Retrieval Visualization
+	1. Query vs retrieved documents
+	2. Similarity scores
+	3. Top-K distribution
+	4. Retrieval accuracy
+	5. Retrieval latency
+	6. Relevant vs irrelevant documents
+54.3 RAG Evaluation Dashboard
+	1. Retrieval metrics
+	2. Answer quality
+	3. Faithfulness
+	4. Context relevance
+	5. Response latency
+	6. Token usage
+	7. Cost per query
+55. Advanced Data Visualization Architecture
+55.1 Visualization Pipeline
+	1. Data collection
+	2. Data cleaning
+	3. Data transformation
+	4. Data aggregation
+	5. Statistical analysis
+	6. Visualization
+	7. Insight generation
+	8. Dashboard
+55.2 Production Visualization
+	1. Reusable plotting functions
+	2. Visualization modules
+	3. Configuration-driven charts
+	4. Logging
+	5. Error handling
+	6. Testing visualizations
+	7. Automated reports
+56. Visualization Testing
+56.1 Data Validation
+	1. Check data types
+	2. Check missing values
+	3. Check ranges
+	4. Check duplicates
+	5. Check unexpected categories
+56.2 Visualization Validation
+	1. Check chart dimensions
+	2. Check labels
+	3. Check legends
+	4. Check missing categories
+	5. Check incorrect aggregations
+56.3 Automated Visualization
+	1. Generate charts automatically
+	2. Generate PDF reports
+	3. Generate HTML reports
+	4. Scheduled dashboards
+57. Data Visualization Interview Topics
+57.1 Basic Questions
+	1. What is data visualization?
+	2. Why is visualization important?
+	3. Matplotlib vs Seaborn
+	4. Seaborn vs Plotly
+	5. Static vs interactive visualization
+	6. Histogram vs bar chart
+	7. Box plot vs violin plot
+	8. Scatter plot vs line chart
+57.2 Intermediate Questions
+	1. What is correlation?
+	2. What is a heatmap?
+	3. What is KDE?
+	4. What is IQR?
+	5. How do you detect outliers?
+	6. When should you use a pie chart?
+	7. How do you visualize categorical data?
+	8. How do you visualize time-series data?
+57.3 Advanced Questions
+	1. How do you visualize high-dimensional data?
+	2. How do you visualize millions of points?
+	3. How do you visualize ML model performance?
+	4. How do you visualize class imbalance?
+	5. How do you visualize embeddings?
+	6. How do you design a production dashboard?
+	7. How do you avoid misleading visualizations?
+	8. How do you optimize visualization performance?
+58. Data Visualization Coding Problems
+58.1 Beginner
+	1. Create a line chart
+	2. Create a bar chart
+	3. Create a histogram
+	4. Create a scatter plot
+	5. Create a pie chart
+	6. Create a box plot
+	7. Add title and labels
+	8. Add legends
+	9. Customize colors
+	10. Save a figure
+58.2 Intermediate
+	1. Create multiple subplots
+	2. Create a correlation heatmap
+	3. Create a pair plot
+	4. Detect outliers using box plots
+	5. Plot time-series data
+	6. Create grouped bar charts
+	7. Create stacked bar charts
+	8. Create KDE plots
+58.3 Advanced
+	1. Create an interactive Plotly dashboard
+	2. Create a geographic visualization
+	3. Visualize PCA clusters
+	4. Visualize model predictions
+	5. Create an ML evaluation dashboard
+	6. Create an embedding visualization
+	7. Build a complete EDA dashboard
+59. Data Visualization Best-Practice Checklist
+59.1 Before Visualization
+	1. Understand the business question
+	2. Understand the dataset
+	3. Identify variable types
+	4. Check missing values
+	5. Check outliers
+	6. Choose appropriate aggregation
+59.2 During Visualization
+	1. Choose the right chart
+	2. Use meaningful colors
+	3. Label axes
+	4. Add useful titles
+	5. Avoid unnecessary decoration
+	6. Highlight important findings
+59.3 After Visualization
+	1. Validate the chart
+	2. Check for misleading interpretation
+	3. Explain the insight
+	4. Add business context
+	5. Make the visualization reproducible
+60. Complete Data Visualization Project Progression
+This is the part I would especially recommend for your learning path.
+Beginner — Matplotlib
+	1. Student Marks Analysis
+	2. Personal Expense Analysis
+	3. Weather Visualization
+	4. Monthly Sales Analysis
+	5. Movie Ratings Analysis
+Skills:
+NumPy → Pandas → Matplotlib
+Beginner+ — Seaborn
+	1. Titanic EDA
+	2. Customer Spending Analysis
+	3. Employee Salary Analysis
+	4. E-Commerce Customer Analysis
+	5. Housing Price EDA
+Skills:
+Pandas → Matplotlib → Seaborn → EDA
+Intermediate — Plotly
+	1. Interactive Sales Dashboard
+	2. Stock Market Dashboard
+	3. Customer Churn Dashboard
+	4. Marketing Analytics Dashboard
+	5. Financial Portfolio Dashboard
+Skills:
+Pandas → Seaborn → Plotly
+Advanced — Machine Learning
+	1. Classification Model Visualization
+	2. Regression Model Visualization
+	3. Customer Segmentation
+	4. Fraud Detection Dashboard
+	5. Recommendation System Analytics
+Skills:
+Pandas → Seaborn → Plotly → Scikit-learn
+Advanced AI
+	1. Embedding Visualization System
+	2. Semantic Search Visualization
+	3. RAG Evaluation Dashboard
+	4. LLM Cost & Latency Dashboard
+	5. LLM Evaluation Dashboard
+Skills:
+Pandas
+   ↓
+EDA
+   ↓
+Matplotlib
+   ↓
+Seaborn
+   ↓
+Plotly
+   ↓
+Scikit-learn
+   ↓
+Embeddings
+   ↓
+Vector Database
+   ↓
+RAG
+   ↓
+LLM
+   ↓
+Evaluation Dashboard
+
+
+
+Final Portfolio-Level Project
+AI/RAG Observability Dashboard
+You could combine almost everything you've learned:
+Documents
+    ↓
+Chunking
+    ↓
+Embeddings
+    ↓
+Vector Database
+    ↓
+Retrieval
+    ↓
+LLM
+    ↓
+Response
+    ↓
+Evaluation
+    ↓
+Plotly Dashboard
+
+
+Dashboard could show:
+	• Total documents
+	• Total chunks
+	• Chunk-size distribution
+	• Embedding dimensions
+	• Query count
+	• Retrieval similarity scores
+	• Top-K retrieval results
+	• Retrieval latency
+	• LLM latency
+	• Token usage
+	• Cost per request
+	• Answer quality
+	• Retrieval accuracy
+	• Failed queries
+	• Daily usage
+	• Model comparison

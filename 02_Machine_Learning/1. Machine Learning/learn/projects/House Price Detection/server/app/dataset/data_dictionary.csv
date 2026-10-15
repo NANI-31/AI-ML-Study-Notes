@@ -1,0 +1,48 @@
+column_name,data_type,description,unit,example,nullable
+property_id,string,Unique identifier for each synthetic residential property listing,None,IND-PROP-0000001,No
+state,string,Indian State or Union Territory name,None,Telangana,No
+state_code,string,Two-letter official ISO state code,None,TG,No
+district,string,Administrative district name,None,Ranga Reddy,No
+district_code,string,Standardized district abbreviation code,None,TG-RAN,No
+mandal_taluk_tehsil,string,"Sub-district administrative entity (Mandal, Taluk, Tehsil, or Block)",None,Serilingampally,No
+village_locality,string,"Locality, neighborhood, ward, or village name",None,Gachibowli Financial District,No
+latitude,float,Geographic latitude of property location (WGS84),Degrees,17.4401,No
+longitude,float,Geographic longitude of property location (WGS84),Degrees,78.3489,No
+pincode,integer,6-digit Indian Postal PIN Code,None,500032,No
+property_type,string,"Category of residential property (Apartment, Independent House, Villa, Builder Floor, Residential Plot)",None,Apartment,No
+listing_type,string,"Type of market listing (Sale, Resale, New Booking)",None,Sale,No
+property_status,string,"Possession timeline status (Ready to Move, Under Construction)",None,Ready to Move,No
+transaction_type,string,"Legal ownership transaction type (Freehold, Leasehold, Power of Attorney)",None,Freehold,No
+land_area_sqft,float,Total plot or land parcel area in square feet,Sq. Ft.,1800.0,Yes
+built_up_area_sqft,float,Total enclosed built-up area including walls and balconies,Sq. Ft.,1450.0,No
+carpet_area_sqft,float,Net usable internal floor area (carpet area <= built_up_area),Sq. Ft.,1160.0,No
+bedrooms,integer,Number of bedrooms (BHK room count),Count,3,No
+bathrooms,integer,Number of bathrooms/toilets,Count,3,No
+balconies,float,Number of attached balconies or verandas,Count,2,Yes
+floor_number,integer,Floor on which property is situated (0 for ground),Count,7,No
+total_floors,integer,Total number of floors in the structure,Count,14,No
+property_age_years,integer,Age of the building in years (0 indicates brand new or under construction),Years,3,No
+furnishing_status,string,"Interior furnishing state (Unfurnished, Semi-Furnished, Fully Furnished)",None,Semi-Furnished,Yes
+parking_spaces,float,Designated vehicle parking slots (car/two-wheeler),Count,1,Yes
+facing_direction,string,Main entrance facing direction (Vastu orientation),None,East,No
+road_width_ft,float,Width of access road fronting the property,Feet,40.0,Yes
+gated_community,integer,"Binary flag indicating whether property is located within a secured gated community (1=Yes, 0=No)",Binary,1,No
+construction_quality,string,"Specification grade of construction (Economy, Standard, Premium, Luxury)",None,Premium,No
+property_condition,string,"Physical maintenance condition (New, Excellent, Good, Needs Renovation)",None,Excellent,No
+distance_to_city_center_km,float,Distance to the primary municipal/central business district,Kilometers,8.5,No
+distance_to_main_road_km,float,Distance to the nearest major arterial road,Kilometers,0.3,No
+distance_to_highway_km,float,Distance to the nearest national/state expressway or highway,Kilometers,2.8,No
+distance_to_metro_km,float,Distance to nearest rapid metro transit station (99.0 if no metro exists),Kilometers,1.2,No
+distance_to_railway_station_km,float,Distance to the nearest mainline railway terminal,Kilometers,6.0,No
+distance_to_airport_km,float,Distance to the nearest operational civil airport,Kilometers,28.0,No
+distance_to_school_km,float,Distance to the nearest reputable school or academy,Kilometers,1.1,No
+distance_to_hospital_km,float,Distance to the nearest multi-specialty hospital or clinic,Kilometers,1.8,No
+distance_to_shopping_center_km,float,Distance to the nearest shopping mall or commercial market,Kilometers,1.5,No
+distance_to_it_hub_km,float,Distance to major IT/business park or industrial cluster,Kilometers,2.2,No
+nearby_public_transport,string,"Public transport connectivity accessibility rating (High, Moderate, Low)",None,High,No
+neighborhood_type,string,"Zoning character of immediate surrounding area (Residential, Commercial-Residential Mixed, Gated Township, Suburban Layout, Rural Settlement)",None,Residential,No
+urban_rural,string,"Urbanization classification (Urban, Semi-Urban, Rural)",None,Urban,No
+price_inr,float,Total synthetic property price in Indian Rupees (Primary Target),INR,14500000.0,No
+price_per_sqft,float,Derived unit price per square foot of built-up area (price_inr / built_up_area_sqft),INR/Sq. Ft.,10000.0,No
+land_price_per_sqft,float,Prevailing land valuation per square foot in locality,INR/Sq. Ft.,8500.0,Yes
+estimated_market_value_inr,float,Independent synthetic algorithmic property appraisal / benchmark value,INR,14750000.0,No
