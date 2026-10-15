@@ -257,7 +257,8 @@ dot_timeline = """
 digraph EvolutionTimeline {
     rankdir=TB;
     bgcolor="#0B1120";
-    node [fontname="Helvetica", fontsize=9, shape=box, style="filled,rounded"];
+    ranksep=0.25;
+    node [fontname="Helvetica", fontsize=9, shape=box, style="filled,rounded", margin="1.25,0.06"];
     edge [fontname="Helvetica", fontsize=8, color="#38BDF8", fontcolor="#94A3B8"];
 
     subgraph cluster_era1 {
@@ -292,13 +293,15 @@ digraph EvolutionTimeline {
         e4 [label="Llama 3, GPT-4, DeepSeek, Claude\\n* 15+ Trillion Training Tokens\\n* Instruction Tuning & RLHF / DPO\\n* Emergent multi-step reasoning", fillcolor="#064E3B", fontcolor="#D1FAE5", color="#10B981"];
     }
 
-    e1 -> e2 [label="Distributed Vectors"];
-    e2 -> e3 [label="Self-Attention"];
-    e3 -> e4 [label="Scale + Alignment"];
+    e1 -> e2 [label="   Distributed Vectors   "];
+    e2 -> e3 [label="   Self-Attention   "];
+    e3 -> e4 [label="   Scale + Alignment   "];
 }
 """
 with st.expander("🔍 View Architecture & Process Flow Diagram (Top-to-Bottom Flow)", expanded=True):
-    st.graphviz_chart(dot_timeline, use_container_width=True)
+    col_l, col_m, col_r = st.columns([1, 2, 1])
+    with col_m:
+        st.graphviz_chart(dot_timeline, use_container_width=True)
 
 st.info("""
 ### 🚀 Modern Foundation LLM Reality: How New Models Follow This
